@@ -1,93 +1,71 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>
-            Vuetify is a progressive Material Design component framework for
-            Vue.js. It was designed to empower developers to create amazing
-            applications.
-          </p>
-          <p>
-            For more information on Vuetify, check out the
-            <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation </a
-            >.
-          </p>
-          <p>
-            If you have questions, please join the official
-            <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord </a
-            >.
-          </p>
-          <p>
-            Find a bug? Report it on the github
-            <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board </a
-            >.
-          </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
-          </p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3" />
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br />
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire"> Continue </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+  <div class="sign-in_login">
+    <v-container>
+      <v-row class="center reseta-login-logo">
+        <div class="text-end" style="text-align: center;">
+          <img width="40%" src="~/assets/images/resetaapp_logo.png" />
+        </div>
+      </v-row>
+    </v-container>
+    <v-row
+      class="center"
+    >
+      <v-btn
+      depressed
+      color="#B2EBF2"
+      class="sign-btn"
+      width="40%"
+      >
+        <NuxtLink to="/register">SIGN UP</NuxtLink>
+      </v-btn>
+    </v-row>
+    <v-row
+      class="center"
+    >
+      <v-btn
+        class="ma-2 normal-mg"
+        outlined
+        color="#E0F7FA"
+        width="40%"
+      >
+        <NuxtLink to="/login">LOGIN</NuxtLink>
+      </v-btn>
+    </v-row>
+  </div>   
 </template>
-
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
 export default {
-  components: {
-    Logo,
-    VuetifyLogo,
-  },
+    layout: 'index'
 }
 </script>
+<style scoped>
+  .reseta-login-logo {
+    position: relative;
+    top: -145px;
+  }
+  a {
+    text-decoration: none;
+    color: white !important;
+  }
+  .text-end {
+    width: 190px;
+  }
+  .sign-btn a {
+    color: #129792 !important;
+  }
+  .center {
+    align-items: center;
+    justify-content: center;
+  }
+  .sign-in_login {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .normal-mg {
+    margin-top: 20px impo !important;
+  }
+</style>
