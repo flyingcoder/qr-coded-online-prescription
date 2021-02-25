@@ -42,6 +42,10 @@ export default {
     '@nuxtjs/auth-next',
   ],
 
+  router: {
+    middleware: ['auth']
+  },
+
   auth: {
     strategies: {
       'laravelSanctum': {

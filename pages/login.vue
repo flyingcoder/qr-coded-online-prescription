@@ -4,15 +4,16 @@
 
 <script>
 export default {
+  auth: false,
   methods: {
     login() {
-        this.$auth.loginWith('laravelSanctum', {
-          data: {
-            email: 'alvin@resetaqrx.com',
-            password: 'password',
-          }
-        })
+      this.$auth.loginWith('laravelSanctum', {
+        data: {
+          email: 'alvin@resetaqrx.com',
+          password: 'password',
+        },
+      })
     },
-  }
+  },
 }
 </script>
