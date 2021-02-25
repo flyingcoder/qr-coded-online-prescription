@@ -43,7 +43,17 @@ export default {
   ],
 
   auth: {
-
+    strategies: {
+      'laravelSanctum': {
+        provider: 'laravel/sanctum',
+        url: 'http://localhost/resetaqrx-api/public',
+        endpoints: {
+          login: {
+            url: '/api/login'
+          }
+        }
+      }
+    }
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
