@@ -1,0 +1,55 @@
+.no-margin {
+  margin: 0 !important;
+}
+.text-black {
+  color: black;
+}
+.text-white {
+  color: white;
+}
+.normal-mg {
+  margin-top: 20px impo !important;
+}
+.text-center {
+  text-align: center;
+  padding: 15px 50px;
+}
+.center {
+  align-items: center;
+  justify-content: center;
+}
+@media all and (max-width: 369px) {
+  .login-main-form {
+    height: 440px !important;
+  }
+  .sign-up-sec {
+    position: relative;
+    top: 10px;
+  }
+}
+@media all and (min-width: 369px) and (max-width: 600px) {
+  .login-main-form {
+    height: 520px;
+  }
+  .sign-up-sec {
+    position: relative;
+    top: 60px;
+  }
+  .login-main-btn {
+    top: 35px;
+  }
+}
+@media all and (max-width: 750px) {
+  .sign-btn,
+  .login-btn {
+    width: 60% !important;
+    border-radius: 20px 0px;
+    margin-bottom: 10px !important;
+  }
+  .sign-in_login {
+    background-image: url('~/assets/images/sign-in-login-background.png');
+    background-repeat: no-repeat;
+    background-size: 360px;
+    background-position-y: 65px;
+  }
+}

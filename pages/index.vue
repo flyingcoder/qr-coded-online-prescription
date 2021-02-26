@@ -7,16 +7,26 @@
         </div>
       </v-row>
     </v-container>
-    <v-row class="center">
-      <v-btn depressed color="#B2EBF2" class="sign-btn" width="40%">
-        <NuxtLink to="/register">SIGN UP</NuxtLink>
-      </v-btn>
-    </v-row>
-    <v-row class="center">
-      <v-btn class="ma-2 normal-mg" outlined color="#E0F7FA" width="40%">
-        <NuxtLink to="/login">LOGIN</NuxtLink>
-      </v-btn>
-    </v-row>
+    <div class="sign-in_login_desc">
+      <v-row class="center">
+          <h1 class="sign-in_login_title text-white">LOREM<b> &nbsp;IPSUM</b></h1>
+      </v-row>
+      <v-row class="center">
+        <p class="text-center text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </v-row>
+    </div>
+    <div class="sign-in_login_buttons">
+      <v-row class="center">
+        <v-btn depressed color="#B2EBF2" class="sign-btn" width="25%">
+          <NuxtLink to="/register">SIGN UP</NuxtLink>
+        </v-btn>
+      </v-row>
+      <v-row class="center">
+        <v-btn class="ma-2 normal-mg login-btn" outlined color="#E0F7FA" width="25%">
+          <NuxtLink to="/login">LOGIN</NuxtLink>
+        </v-btn>
+      </v-row>
+    </div>
   </div>
 </template>
 <script>
@@ -30,19 +40,26 @@ export default {
   position: relative;
   top: -145px;
 }
+.sign-in_login_desc {
+  position: relative;
+  top: -90px;
+}
+.sign-in_login_buttons {
+  position: relative;
+  top: -35px;
+}
 a {
   text-decoration: none;
   color: white !important;
+}
+.sign-in_login_title {
+  text-shadow: 2px 2px #757575;
 }
 .text-end {
   width: 190px;
 }
 .sign-btn a {
   color: #129792 !important;
-}
-.center {
-  align-items: center;
-  justify-content: center;
 }
 .sign-in_login {
   position: absolute;
@@ -52,7 +69,8 @@ a {
   height: 100%;
   width: 100%;
 }
-.normal-mg {
-  margin-top: 20px impo !important;
+.sign-btn,
+.login-btn {
+  border-radius: 20px 0px;
 }
 </style>
