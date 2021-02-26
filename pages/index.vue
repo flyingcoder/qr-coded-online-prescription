@@ -3,7 +3,7 @@
     <v-container>
       <v-row class="center reseta-login-logo">
         <div class="text-end" style="text-align: center">
-          <img width="40%" src="~/assets/images/resetaapp_logo.png" />
+          <img width="40%" src="~/assets/images/reseta-form-img.png" />
         </div>
       </v-row>
     </v-container>
