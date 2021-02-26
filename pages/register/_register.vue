@@ -5,5 +5,8 @@
 <script>
 export default {
   auth: false,
+  mounted() {
+    console.log(this.$route.params.register)
+  }
 }
 </script>
