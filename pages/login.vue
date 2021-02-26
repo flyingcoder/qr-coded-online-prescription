@@ -4,7 +4,7 @@
       <div class="login-input-card">
         <v-row class="center reseta-login-logo">
           <div class="text-end login-logo" style="text-align: center">
-            <img width="100px" src="~/assets/images/resetaapp_logo.png" />
+            <img width="100px" src="~/assets/images/reseta-form-img.png" />
           </div>
         </v-row>
         <v-text-field
@@ -51,9 +51,6 @@
 export default {
   auth: false,
   layout: 'form',
-  css: [
-    '@/assets/css/style.css' 
-  ],
   methods: {
     login() {
       this.$auth.loginWith('laravelSanctum', {
