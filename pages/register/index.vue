@@ -11,17 +11,17 @@
         <div class="registrar-buttons">
             <v-row class="center">
                 <v-btn depressed color="#1ac6b6" class="register-main-btn" width="25%">
-                    <NuxtLink to="/register">Patient</NuxtLink>
+                    <NuxtLink to="/register/patient">Patient</NuxtLink>
                 </v-btn>
             </v-row>
             <v-row class="center">
                 <v-btn depressed color="#1ac6b6" class="register-main-btn" width="25%">
-                    <NuxtLink to="/register">Doctor</NuxtLink>
+                    <NuxtLink to="/register/doctor">Doctor</NuxtLink>
                 </v-btn>
             </v-row>
             <v-row class="center">
                 <v-btn depressed color="#1ac6b6" class="register-main-btn" width="25%">
-                    <NuxtLink to="/register">Pharmacy</NuxtLink>
+                    <NuxtLink to="/register/pharmacy">Pharmacy</NuxtLink>
                 </v-btn>
             </v-row>
         </div>
@@ -38,7 +38,7 @@
 <script>
     export default {
         auth: false,
-        layout: 'form'
+        layout: 'form',
     }
 </script>
 
