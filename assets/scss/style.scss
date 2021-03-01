@@ -7,6 +7,9 @@
 .text-white {
   color: white;
 }
+.v-btn a {
+  text-decoration: none;
+}
 .normal-mg {
   margin-top: 20px !important;
 }
@@ -44,9 +47,11 @@
 }
 @media all and (max-width: 750px) {
   .sign-btn,
-  .login-btn {
+  .login-btn,
+  .register-main-btn,
+  .login-main-btn {
     width: 60% !important;
-    border-radius: 20px 0px;
+    border-radius: 20px 0px !important;
     margin-bottom: 10px !important;
   }
   .sign-in_login {
