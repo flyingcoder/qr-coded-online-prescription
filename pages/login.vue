@@ -23,7 +23,12 @@
         </v-text-field>
         <v-text-field
           label="Password"
-          class="login-input"
+          class="login-input input-group--focused"
+          :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+          :rules="[rules.required, rules.min]"
+          :type="show3 ? 'text' : 'password'"
+          name="input-10-2"
+          hint="At least 8 characters"
         >
           <v-icon
             slot="prepend"

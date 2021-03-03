@@ -1,19 +1,18 @@
 <template>
-<<<<<<< HEAD
   <div class="sign-in_login">
     <v-container>
       <v-row class="center reseta-login-logo">
         <div class="text-end" style="text-align: center">
-          <img width="70%" src="~/assets/images/reseta-form-img.png" />
+          <img width="40%" src="~/assets/images/reseta-form-img.png" />
         </div>
       </v-row>
     </v-container>
     <div class="sign-in_login_desc">
       <v-row class="center">
-        <h1 class="sign-in_login_title text-white">Reseta<b> &nbsp;QRx</b></h1>
+          <h1 class="sign-in_login_title text-white">Reseta<b> &nbsp;QRx</b></h1>
       </v-row>
       <v-row class="center">
-        <h3 class="text-center text-white">Your Quickest online Prescription.</h3>
+        <p class="text-center text-white">Your Quickest online Prescription.</p>
       </v-row>
     </div>
     <div class="sign-in_login_buttons">
@@ -28,19 +27,14 @@
         </v-btn>
       </v-row>
     </div>
-=======
-  <div class="reseta">
-    <!-- <DashboardHeader /> -->
->>>>>>> 5a1299a6106561222f57988126d93104ebd314a8
   </div>
 </template>
-
 <script>
-  export default {
-    
-  }
+export default {
+  auth: false,
+  layout: 'index',
+}
 </script>
-<<<<<<< HEAD
 <style scoped>
 .reseta-login-logo {
   position: relative;
@@ -52,7 +46,7 @@
 }
 .sign-in_login_buttons {
   position: relative;
-  top: -20px;
+  top: 50px;
 }
 a {
   text-decoration: none;
@@ -80,9 +74,3 @@ a {
   border-radius: 20px 0px;
 }
 </style>
-=======
-
-<style lang="scss" scoped>
-
-</style>
->>>>>>> 5a1299a6106561222f57988126d93104ebd314a8
