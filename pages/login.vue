@@ -8,7 +8,9 @@
           </div>
         </v-row>
         <v-text-field
-          label="Username"
+          label="Email"
+          v-model="email"
+          :rules="[rules.required, rules.email]"
           class="login-input"
         >
           <v-icon

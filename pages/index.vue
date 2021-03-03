@@ -3,16 +3,16 @@
     <v-container>
       <v-row class="center reseta-login-logo">
         <div class="text-end" style="text-align: center">
-          <img width="40%" src="~/assets/images/reseta-form-img.png" />
+          <img width="70%" src="~/assets/images/reseta-form-img.png" />
         </div>
       </v-row>
     </v-container>
     <div class="sign-in_login_desc">
       <v-row class="center">
-          <h1 class="sign-in_login_title text-white">Reseta<b> &nbsp;QRx</b></h1>
+        <h1 class="sign-in_login_title text-white">Reseta<b> &nbsp;QRx</b></h1>
       </v-row>
       <v-row class="center">
-        <p class="text-center text-white">Your Quickest online Prescription.</p>
+        <h3 class="text-center text-white">Your Quickest online Prescription.</h3>
       </v-row>
     </div>
     <div class="sign-in_login_buttons">
@@ -46,7 +46,7 @@ export default {
 }
 .sign-in_login_buttons {
   position: relative;
-  top: 50px;
+  top: -20px;
 }
 a {
   text-decoration: none;
