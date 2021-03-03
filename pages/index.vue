@@ -9,10 +9,10 @@
     </v-container>
     <div class="sign-in_login_desc">
       <v-row class="center">
-          <h1 class="sign-in_login_title text-white">LOREM<b> &nbsp;IPSUM</b></h1>
+          <h1 class="sign-in_login_title text-white">Reseta<b> &nbsp;QRx</b></h1>
       </v-row>
       <v-row class="center">
-        <p class="text-center text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="text-center text-white">Your Quickest online Prescription.</p>
       </v-row>
     </div>
     <div class="sign-in_login_buttons">
@@ -46,7 +46,7 @@ export default {
 }
 .sign-in_login_buttons {
   position: relative;
-  top: -35px;
+  top: 50px;
 }
 a {
   text-decoration: none;

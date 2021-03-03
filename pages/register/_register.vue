@@ -4,7 +4,9 @@
       <div class="login-input-card">
         <v-row class="center reseta-login-logo">
           <div class="text-end" style="text-align: center">
-            <h1>REGISTER</h1>
+            <h1>
+              REGISTER
+            </h1>
           </div>
         </v-row>
         <v-text-field
