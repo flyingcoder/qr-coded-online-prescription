@@ -9,6 +9,7 @@
         </v-row>
         <v-text-field
           label="Username"
+          v-model="email"
           class="login-input"
         >
           <v-icon
@@ -51,6 +52,11 @@
 export default {
   auth: false,
   layout: 'form',
+  data() {
+    return {
+      email: 'test'
+    }
+  },
   methods: {
     login() {
       this.$auth.loginWith('laravelSanctum', {
