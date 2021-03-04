@@ -7,44 +7,11 @@
             <img width="100px" src="~/assets/images/reseta-form-img.png" />
           </div>
         </v-row>
-<<<<<<< Updated upstream
-        <v-text-field
-          label="Email"
-          v-model="email"
-          :rules="[rules.required, rules.email]"
-          class="login-input"
-        >
-          <v-icon
-            slot="prepend"
-            color="#1ac6b6"
-            medium
-          >
-          mdi-account
-          </v-icon>
-        </v-text-field>
-        <v-text-field
-          label="Password"
-          class="login-input input-group--focused"
-          :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
-          :rules="[rules.required, rules.min]"
-          :type="show3 ? 'text' : 'password'"
-          name="input-10-2"
-          hint="At least 8 characters"
-        >
-          <v-icon
-            slot="prepend"
-            color="#1ac6b6"
-            medium
-          >
-            mdi-lock
-          </v-icon>
-=======
         <v-text-field label="Username" class="login-input">
           <v-icon slot="prepend" color="#1ac6b6" medium> mdi-account </v-icon>
         </v-text-field>
         <v-text-field label="Password" class="login-input">
           <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
->>>>>>> Stashed changes
         </v-text-field>
       </div>
       <v-row class="center">
