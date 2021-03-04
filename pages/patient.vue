@@ -1,12 +1,13 @@
 <template>
-    <div class="dashboard">
-
+    <div>
+        
     </div>
 </template>
 
 <script>
     export default {
-        
+        auth: false,
+        layout: 'default',
     }
 </script>
 

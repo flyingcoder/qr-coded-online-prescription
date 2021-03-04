@@ -9,7 +9,7 @@
     </v-container>
     <div class="sign-in_login_desc">
       <v-row class="center">
-          <h1 class="sign-in_login_title text-white">Reseta<b> &nbsp;QRx</b></h1>
+        <h1 class="sign-in_login_title text-white">Reseta<b> &nbsp;QRx</b></h1>
       </v-row>
       <v-row class="center">
         <p class="text-center text-white">Your Quickest online Prescription.</p>
@@ -22,7 +22,12 @@
         </v-btn>
       </v-row>
       <v-row class="center">
-        <v-btn class="ma-2 normal-mg login-btn" outlined color="#E0F7FA" width="25%">
+        <v-btn
+          class="ma-2 normal-mg login-btn"
+          outlined
+          color="#E0F7FA"
+          width="25%"
+        >
           <NuxtLink to="/login">LOGIN</NuxtLink>
         </v-btn>
       </v-row>
