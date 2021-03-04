@@ -7,6 +7,7 @@
             <img width="100px" src="~/assets/images/reseta-form-img.png" />
           </div>
         </v-row>
+<<<<<<< Updated upstream
         <v-text-field
           label="Email"
           v-model="email"
@@ -37,6 +38,13 @@
           >
             mdi-lock
           </v-icon>
+=======
+        <v-text-field label="Username" class="login-input">
+          <v-icon slot="prepend" color="#1ac6b6" medium> mdi-account </v-icon>
+        </v-text-field>
+        <v-text-field label="Password" class="login-input">
+          <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
+>>>>>>> Stashed changes
         </v-text-field>
       </div>
       <v-row class="center">
@@ -72,13 +80,13 @@ export default {
 </script>
 <style scoped>
 .login-input-card {
-    background: #ffffff;
-    position: relative;
-    top: -25px;
-    margin: 10px 30px;
-    padding: 20px;
-    border-radius: 28px 2px;
-    box-shadow: 1px 1px 5px #8f8f8f;
+  background: #ffffff;
+  position: relative;
+  top: -25px;
+  margin: 10px 30px;
+  padding: 20px;
+  border-radius: 28px 2px;
+  box-shadow: 1px 1px 5px #8f8f8f;
 }
 .login-logo {
   padding: 35px 15px;
@@ -93,6 +101,4 @@ export default {
   text-align: center;
   text-decoration: none;
 }
-
-
 </style>
