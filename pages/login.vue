@@ -7,36 +7,11 @@
             <img width="100px" src="~/assets/images/reseta-form-img.png" />
           </div>
         </v-row>
-        <v-text-field
-          label="Email"
-          v-model="email"
-          :rules="[rules.required, rules.email]"
-          class="login-input"
-        >
-          <v-icon
-            slot="prepend"
-            color="#1ac6b6"
-            medium
-          >
-          mdi-account
-          </v-icon>
+        <v-text-field label="Username" class="login-input">
+          <v-icon slot="prepend" color="#1ac6b6" medium> mdi-account </v-icon>
         </v-text-field>
-        <v-text-field
-          label="Password"
-          class="login-input input-group--focused"
-          :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
-          :rules="[rules.required, rules.min]"
-          :type="show3 ? 'text' : 'password'"
-          name="input-10-2"
-          hint="At least 8 characters"
-        >
-          <v-icon
-            slot="prepend"
-            color="#1ac6b6"
-            medium
-          >
-            mdi-lock
-          </v-icon>
+        <v-text-field label="Password" class="login-input">
+          <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
         </v-text-field>
       </div>
       <v-row class="center">
@@ -72,13 +47,13 @@ export default {
 </script>
 <style scoped>
 .login-input-card {
-    background: #ffffff;
-    position: relative;
-    top: -25px;
-    margin: 10px 30px;
-    padding: 20px;
-    border-radius: 28px 2px;
-    box-shadow: 1px 1px 5px #8f8f8f;
+  background: #ffffff;
+  position: relative;
+  top: -25px;
+  margin: 10px 30px;
+  padding: 20px;
+  border-radius: 28px 2px;
+  box-shadow: 1px 1px 5px #8f8f8f;
 }
 .login-logo {
   padding: 35px 15px;
@@ -93,6 +68,4 @@ export default {
   text-align: center;
   text-decoration: none;
 }
-
-
 </style>
