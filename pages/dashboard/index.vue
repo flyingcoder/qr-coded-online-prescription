@@ -13,9 +13,5 @@
     </v-col>
   </v-row>
 </template>
-<script>
-export default {
-  auth: false,
-  layout: 'dashboard',
-}
-</script>
+<script src="./dashboard.js"></script>
+<style src="./dashboard.scss" lang="scss"></style>

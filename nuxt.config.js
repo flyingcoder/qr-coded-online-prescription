@@ -64,14 +64,22 @@ export default {
         endpoints: {
           login: {
             url: '/api/login'
+          },
+          logout: {
+            url: '/auth/logout', method: 'post'
           }
         }
       }
-    }
+    },
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+
+  // Add custom rules
+  rules: {
+    'no-console':'off'
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
