@@ -41,7 +41,7 @@
 
 <script>
 export default {
-  auth: false,
+  auth: 'guest',
   layout: 'form',
   data() {
     return {
