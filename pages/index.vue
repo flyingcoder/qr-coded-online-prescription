@@ -16,20 +16,24 @@
       </v-row>
     </div>
     <div class="sign-in_login_buttons">
-      <v-row class="center">
-        <v-btn depressed color="#B2EBF2" class="sign-btn" width="25%">
-          <NuxtLink to="/register">SIGN UP</NuxtLink>
-        </v-btn>
+      <v-row class="center text-center-pd">
+        <NuxtLink to="/register" class="sign-btn">
+          <v-btn depressed color="#B2EBF2" width="90%" class="btn-radius">
+            SIGN UP
+          </v-btn>
+        </NuxtLink>
       </v-row>
-      <v-row class="center">
-        <v-btn
-          class="ma-2 normal-mg login-btn"
-          outlined
-          color="#E0F7FA"
-          width="25%"
-        >
-          <NuxtLink to="/login">LOGIN</NuxtLink>
-        </v-btn>
+      <v-row class="center text-center-pd">
+        <NuxtLink to="/login" class="login-btn">
+          <v-btn
+            class="ma-2 normal-mg btn-radius"
+            outlined
+            color="#E0F7FA"
+            width="90%"
+          >
+            LOGIN
+          </v-btn>
+        </NuxtLink>
       </v-row>
     </div>
   </div>

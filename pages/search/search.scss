@@ -15,3 +15,20 @@
   position: relative;
   top: -55px;
 }
+.search-input {
+  background: #129792;
+  background-image: linear-gradient(60deg, #129792, #99f0e7);
+}
+.search-form {
+  height: 125px;
+}
+.search-result {
+  padding: 10px;
+}
+li {
+  list-style: none;
+
+  .user {
+    width: 25px;
+  }
+}
