@@ -1,5 +1,10 @@
 export default {
   layout: 'search-notification',
+  methods: {
+    to() {
+      this.$router.go(-1)
+    },
+  },
   data() {
     return {
       notifications: [

@@ -5,6 +5,25 @@
   .notification-logo-wide {
     width: 41px;
   }
+  .notification-main-title {
+    position: relative;
+    float: right;
+    left: -60px;
+  }
+  .notification-options {
+    background: #f6f7f9;
+    height: 45px;
+    padding: 0 15px;
+  }
+  a {
+    color: #60646a !important;
+    text-decoration: none;
+  }
+  .notification-content-input {
+    position: relative;
+    left: 15px;
+    top: 5px;
+  }
   .notification-title {
     padding-left: 5px !important;
     display: flex;
@@ -16,6 +35,8 @@
 }
 .notification-content {
   padding-top: 5px;
+  position: relative;
+  top: 40px;
 
   .notification-main-content {
     border: 1px solid grey;
@@ -25,12 +46,6 @@
   }
   .notification-icon-back {
     text-decoration: none !important;
-  }
-  .v-icon.outlined {
-    border: 1px solid currentColor;
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
   }
   .notification-logo-icon {
     font-weight: bold;

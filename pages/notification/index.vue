@@ -1,20 +1,21 @@
 <template>
   <div>
     <div class="notification-top-section">
-      <v-row>
-        <v-col cols="5" class="text-right notification-logo">
-          <v-app-bar-title>
-            <Nuxtlink to="/dashboard">
-              <img
-                class="notification-logo-wide"
-                src="@/assets/images/notification-log.png"
-                alt="Reseta QRx"
-              />
-            </Nuxtlink>
-          </v-app-bar-title>
+      <v-row class="notification-input">
+        <v-col cols="10" class="notification-content-input">
+          <a class="icon-back" @click="to">
+            <v-icon slot="prepend" color="#ffffff"> mdi-arrow-left </v-icon>
+          </a>
+          <h2 class="text-center-pd text-white notification-main-title">
+            Notifications
+          </h2>
         </v-col>
-        <v-col cols="7" class="notification-title">
-          <h3 class="text-white">Notifications</h3>
+      </v-row>
+      <v-row class="notification-options">
+        <v-col cols="12">
+          <p class="text-end text-right">
+            <NuxtLink to="/" class="secondary-color">Mark All as Read</NuxtLink>
+          </p>
         </v-col>
       </v-row>
     </div>

@@ -1,6 +1,11 @@
 export default {
   auth: false,
   layout: 'search-notification',
+  methods: {
+    to() {
+      this.$router.go(-1)
+    },
+  },
   data() {
     return {
       results: [
