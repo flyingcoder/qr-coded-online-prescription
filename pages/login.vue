@@ -7,18 +7,8 @@
             <img width="100px" src="~/assets/images/reseta-form-img.png" />
           </div>
         </v-row>
-        <v-text-field
-          label="Username"
-          v-model="email"
-          class="login-input"
-        >
-          <v-icon
-            slot="prepend"
-            color="#1ac6b6"
-            medium
-          >
-          mdi-account
-          </v-icon>
+        <v-text-field v-model="email" label="Username" class="login-input">
+          <v-icon slot="prepend" color="#1ac6b6" medium> mdi-account </v-icon>
         </v-text-field>
         <v-text-field label="Password" class="login-input">
           <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
@@ -41,11 +31,11 @@
 
 <script>
 export default {
-  auth: 'guest',
+  auth: false,
   layout: 'form',
   data() {
     return {
-      email: 'test'
+      email: 'test',
     }
   },
   methods: {

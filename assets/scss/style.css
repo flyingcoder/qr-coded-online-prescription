@@ -10,6 +10,9 @@
   color: white;
 }
 
+.text-center-pd {
+  text-align: center !important;
+}
 .normal-mg {
   margin-top: 20px !important;
 }
@@ -25,11 +28,11 @@
 
 .center {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 @media all and (max-width: 369px) {
@@ -63,7 +66,7 @@
     margin-bottom: 10px !important;
   }
   .sign-in_login {
-    background-image: url("~/assets/images/sign-in-login-background.png");
+    background-image: url('~/assets/images/sign-in-login-background.png');
     background-repeat: no-repeat;
     background-size: 360px;
     background-position-y: 65px;

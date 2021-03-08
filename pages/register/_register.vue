@@ -1,6 +1,7 @@
 <template>
   <div class="login-main-form">
     <v-form>
+<<<<<<< HEAD
       <div class="login-input-card">
         <v-row class="center reseta-login-logo">
           <div class="text-end" style="text-align: center">
@@ -97,10 +98,99 @@
           <a class="register-main-btn" href="#" @click.prevent="login">REGISTER</a>
         </v-row>
       </div>
+=======
+      <div
+        class="login-input-card"
+        :class="{
+          'register-input-card': $nuxt.$route.path == '/register/pharmacy',
+        }"
+      >
+        <v-text-field
+          v-if="
+            $nuxt.$route.path == '/register/doctor' ||
+            $nuxt.$route.path == '/register/patient' ||
+            $nuxt.$route.path == '/register/pharmacy'
+          "
+          label="First Name"
+          class="login-input"
+        >
+          <v-icon slot="prepend" color="#1ac6b6" medium> mdi-account </v-icon>
+        </v-text-field>
+        <v-text-field
+          v-if="
+            $nuxt.$route.path == '/register/doctor' ||
+            $nuxt.$route.path == '/register/patient' ||
+            $nuxt.$route.path == '/register/pharmacy'
+          "
+          label="Email"
+          class="login-input"
+        >
+          <v-icon slot="prepend" color="#1ac6b6" medium>
+            mdi-email-multiple
+          </v-icon>
+        </v-text-field>
+        <v-text-field
+          v-if="
+            $nuxt.$route.path == '/register/doctor' ||
+            $nuxt.$route.path == '/register/patient' ||
+            $nuxt.$route.path == '/register/pharmacy'
+          "
+          label="Password"
+          class="login-input"
+        >
+          <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
+        </v-text-field>
+        <v-text-field
+          v-if="
+            $nuxt.$route.path == '/register/doctor' ||
+            $nuxt.$route.path == '/register/patient' ||
+            $nuxt.$route.path == '/register/pharmacy'
+          "
+          label="Confirm Password"
+          class="login-input"
+        >
+          <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
+        </v-text-field>
+        <v-text-field
+          v-if="
+            $nuxt.$route.path == '/register/doctor' ||
+            $nuxt.$route.path == '/register/pharmacy'
+          "
+          label="PRC Number"
+          class="login-input"
+        >
+          <v-icon slot="prepend" color="#1ac6b6" medium>
+            mdi-card-bulleted
+          </v-icon>
+        </v-text-field>
+        <v-text-field
+          v-if="$nuxt.$route.path == '/register/pharmacy'"
+          label="Business Number"
+          class="login-input"
+        >
+          <v-icon slot="prepend" color="#1ac6b6" medium>
+            mdi-card-account-details
+          </v-icon>
+        </v-text-field>
+      </div>
+      <v-row class="center">
+        <a
+          style="color: white"
+          class="login-main-btn"
+          href="#"
+          :class="{
+            'register-main-btn': $nuxt.$route.path == '/register/pharmacy',
+            'patient-register-btn': $nuxt.$route.path == '/register/patient',
+          }"
+          >REGISTER</a
+        >
+      </v-row>
+>>>>>>> e3c89474235127d6c9755deded481c915c421599
     </v-form>
   </div>
 </template>
 
+<<<<<<< HEAD
 <script>
 export default {
   auth: false,
@@ -135,3 +225,8 @@ export default {
   padding: 10px 0px;
 }
 </style>
+=======
+<script src="./register.js"></script>
+
+<style src="./register.scss" lang="scss"></style>
+>>>>>>> e3c89474235127d6c9755deded481c915c421599

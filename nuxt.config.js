@@ -64,10 +64,13 @@ export default {
         endpoints: {
           login: {
             url: '/api/login'
+          },
+          logout: {
+            url: '/auth/logout', method: 'post'
           }
         }
       }
-    }
+    },
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
