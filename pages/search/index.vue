@@ -4,7 +4,7 @@
       <v-container>
         <v-row class="search-input">
           <v-col cols="10">
-            <a href="/dashboard" class="icon-back">
+            <a class="icon-back" @click="to">
               <v-icon slot="prepend" color="#ffffff"> mdi-arrow-left </v-icon>
             </a>
             <h2 class="text-center-pd text-white search-main-title">Search</h2>

@@ -82,6 +82,7 @@
 .logo-wide {
   max-height: 60px;
   height: auto;
+  width: 130px;
   margin: 0 auto;
 }
 .sn-icons {
