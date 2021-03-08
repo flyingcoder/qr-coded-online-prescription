@@ -3,28 +3,36 @@
     <v-form class="search-form">
       <v-container>
         <v-row class="search-input">
-          <v-col cols="2">
+          <v-col cols="10">
             <a href="/dashboard" class="icon-back">
               <v-icon slot="prepend" color="#ffffff"> mdi-arrow-left </v-icon>
             </a>
+            <h2 class="text-center-pd text-white search-main-title">Search</h2>
           </v-col>
-          <v-col cols="10">
+        </v-row>
+        <v-row class="search-fields">
+          <v-col cols="9">
             <v-text-field
-              placeholder="Search"
-              class="search-main-input"
+              label="Search"
+              placeholder="Search for anything"
               outlined
               dense
-              solo
+              background-color="#eeeeee"
+              color="#737373"
+              rounded
             ></v-text-field>
+          </v-col>
+          <v-col cols="3" class="cancel-search-section">
+            <a href="/dashboard" class="cancel-search">Cancel</a>
           </v-col>
         </v-row>
         <v-row class="search-options">
           <v-col cols="6">
-            <p class="text-white">Recent</p>
+            <p class="secondary-color">Recent</p>
           </v-col>
           <v-col cols="6">
             <p class="text-end text-right">
-              <NuxtLink to="/register" class="text-white">EDIT</NuxtLink>
+              <NuxtLink to="/register" class="secondary-color">EDIT</NuxtLink>
             </p>
           </v-col>
         </v-row>
