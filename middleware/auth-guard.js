@@ -1,3 +1,5 @@
-export default function (context) {
-  console.log(context)
+export default function ({ $auth, redirect }) {
+  if ($auth.loggedIn) {
+    redirect('/dashboard')
+  }
 }
