@@ -17,5 +17,6 @@
 export default {
   auth: false,
   layout: 'dashboard',
+  middleware: 'auth-guard',
 }
 </script>

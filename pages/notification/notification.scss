@@ -1,6 +1,7 @@
 .notification-top-section {
-  padding-top: 15px;
+  padding-top: 8px;
   background: #1ac6b6;
+  height: 60px;
   .notification-logo-wide {
     width: 41px;
   }
@@ -14,7 +15,7 @@
   }
 }
 .notification-content {
-  padding-top: 15px;
+  padding-top: 5px;
 
   .notification-main-content {
     border: 1px solid grey;
@@ -22,7 +23,7 @@
     padding: 10px;
     border-radius: 5px;
   }
-  .icon-back {
+  .notification-icon-back {
     text-decoration: none !important;
   }
   .v-icon.outlined {
