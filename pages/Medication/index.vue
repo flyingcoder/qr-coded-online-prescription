@@ -14,22 +14,18 @@
             </div>
           </v-col>
           <v-col cols="2" sm="2">
-            <template>
-              <div class="Delete_button">
-                <v-menu offset-y>
-                  <template #activator="{ on, attrs }">
-                    <v-btn dark icon v-bind="attrs" v-on="on">
-                      <v-icon>mdi-dots-vertical</v-icon>
-                    </v-btn>
-                  </template>
-                  <v-list>
-                    <v-list-item v-for="(item, index) in items" :key="index">
-                      <v-list-item-title>{{ item.title }}</v-list-item-title>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
-              </div>
-            </template>
+            <div class="Delete_button">
+              <v-menu offset-y>
+                <v-btn dark icon v-bind="attrs" v-on="on">
+                  <v-icon>mdi-dots-vertical</v-icon>
+                </v-btn>
+                <v-list>
+                  <v-list-item v-for="(item, index) in items" :key="index">
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </div>
           </v-col>
           <div class="Time">
             <ul>
