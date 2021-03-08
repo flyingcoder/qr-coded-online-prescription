@@ -13,15 +13,6 @@
         <v-row class="search-fields">
           <v-col cols="9">
             <v-text-field
-<<<<<<< h-e-a-d
-              placeholder="Search"
-              label="testing"
-              class="search-main-input"
-              filled
-              dense
-              rounded
-              background-color="#eee"
-=======
               label="Search"
               placeholder="Search for anything"
               outlined
@@ -29,7 +20,6 @@
               background-color="#eeeeee"
               color="#737373"
               rounded
->>>>>>> 8b7e2f0c84b605370c770a319e3d3e954af93517
             ></v-text-field>
           </v-col>
           <v-col cols="3" class="cancel-search-section">
