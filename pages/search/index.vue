@@ -4,12 +4,15 @@
       <v-container>
         <v-row class="search-input">
           <v-col cols="2">
-            <v-icon slot="prepend"> mdi-arrow-left </v-icon>
+            <a href="/dashboard" class="icon-back">
+              <v-icon slot="prepend" color="#ffffff"> mdi-arrow-left </v-icon>
+            </a>
           </v-col>
           <v-col cols="10">
             <v-text-field
               label="Search"
               class="search-main-input"
+              color="ffffff"
               solo-inverted
               single-line
               rounded
@@ -19,11 +22,11 @@
         </v-row>
         <v-row class="search-options">
           <v-col cols="6">
-            <p>Recent</p>
+            <p class="text-white">Recent</p>
           </v-col>
           <v-col cols="6">
             <p class="text-end text-right">
-              <NuxtLink to="/register">EDIT</NuxtLink>
+              <NuxtLink to="/register" class="text-white">EDIT</NuxtLink>
             </p>
           </v-col>
         </v-row>
