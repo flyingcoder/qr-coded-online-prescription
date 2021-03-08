@@ -14,7 +14,12 @@ a {
   font-family: 'Roboto', sans-serif !important;
   font-weight: 300;
 }
-
+.v-icon.outlined {
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
 .no-margin {
   margin: 0 !important;
 }
