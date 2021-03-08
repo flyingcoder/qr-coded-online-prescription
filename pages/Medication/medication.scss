@@ -6,6 +6,9 @@
     }
     .Doctor h1 {
         color: black;
+        .dr-name h1 {
+            text-align: left;
+        }
     }
     .Delete_button button {
         position: relative;
@@ -13,5 +16,9 @@
     }
     .Delete_button span{
         color: black;
+    }
+    
+    .time ul:nth-child(2) {
+        display: flex;
     }
 }

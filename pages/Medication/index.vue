@@ -35,11 +35,7 @@
             <ul>
               <ol>
                 Colchicine 0.6mg 1 tablet 3x a day<br />
-                <ul>
-                  <li><span>7</span> AM</li>
-                  <li><span>12</span> AM</li>
-                  <li><span>7</span> PM</li>
-                </ul>
+                <div class="intake_time"></div>
               </ol>
             </ul>
           </div>
