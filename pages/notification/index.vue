@@ -2,21 +2,19 @@
   <div>
     <div class="notification-top-section">
       <v-row>
-        <v-col cols="3">
-          <a href="/dashboard" class="icon-back">
-            <v-icon slot="prepend" color="#ffffff"> mdi-arrow-left </v-icon>
-          </a>
-        </v-col>
-        <v-col cols="2" class="text-right notification-logo">
+        <v-col cols="5" class="text-right notification-logo">
           <v-app-bar-title>
-            <img
-              class="notification-logo-wide"
-              src="@/assets/images/notification-log.png"
-              alt="Reseta QRx"
-          /></v-app-bar-title>
+            <Nuxtlink to="/dashboard">
+              <img
+                class="notification-logo-wide"
+                src="@/assets/images/notification-log.png"
+                alt="Reseta QRx"
+              />
+            </Nuxtlink>
+          </v-app-bar-title>
         </v-col>
         <v-col cols="7" class="notification-title">
-          <h2 class="text-white">Notifications</h2>
+          <h3 class="text-white">Notifications</h3>
         </v-col>
       </v-row>
     </div>

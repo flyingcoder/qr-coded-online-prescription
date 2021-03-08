@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: 'Roboto', sans-serif;
+}
 .no-margin {
   margin: 0 !important;
 }
@@ -19,8 +29,9 @@
 .normal-mg {
   margin-top: 20px !important;
 }
-.icon-back {
-  text-decoration: none;
+.icon-back,
+.notification-icon-back i {
+  text-decoration: none !important;
 }
 .sm-margin {
   margin-top: 10px !important;
