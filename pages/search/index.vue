@@ -11,10 +11,12 @@
           <v-col cols="10">
             <v-text-field
               placeholder="Search"
+              label="testing"
               class="search-main-input"
-              outlined
+              filled
               dense
-              solo
+              rounded
+              background-color="#eee"
             ></v-text-field>
           </v-col>
         </v-row>
