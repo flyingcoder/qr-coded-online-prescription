@@ -2,6 +2,17 @@
   position: relative;
   top: -10px;
 }
+a {
+  color: white !important;
+  text-decoration: none;
+}
+.user i {
+  border: 1px solid;
+  border-radius: 100%;
+}
+.search-result-row {
+  padding-bottom: 10px;
+}
 .v-input__slot {
   background: transparent !important;
   border: 2px solid grey !important;
@@ -14,4 +25,27 @@
 .search-divider {
   position: relative;
   top: -55px;
+}
+.search-input {
+  background: #1ac6b6;
+  height: 115px;
+  padding-top: 10px;
+}
+.search-form {
+  height: 125px;
+}
+.search-result {
+  padding: 10px;
+}
+li {
+  list-style: none;
+
+  .user {
+    width: 25px;
+    i {
+      width: 35px;
+      height: 35px;
+      font-size: 30px;
+    }
+  }
 }
