@@ -67,10 +67,10 @@ export default {
   position: absolute;
   right: 0;
   top: 0;
-  font-size: 12px;
+  font-size: 9px;
 }
 .user-name {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   max-width: 210px;
   white-space: nowrap;
