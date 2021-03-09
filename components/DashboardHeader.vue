@@ -25,7 +25,7 @@
     <v-app-bar-title>
       <img
         class="logo-wide"
-        src="@/assets/images/reseta-form-img.png"
+        src="~/assets/images/reseta-form-img.png"
         alt="Reseta QRx"
     /></v-app-bar-title>
 
@@ -40,14 +40,24 @@
     </v-btn>
 
     <template #extension>
-      <v-tabs class="menu-icons" fixed-tabs>
-        <v-tab><v-icon class="menu-icon">mdi-view-dashboard</v-icon></v-tab>
-        <v-tab><v-icon class="menu-icon">mdi-hospital-building</v-icon></v-tab>
-        <v-tab><v-icon class="menu-icon">mdi-doctor</v-icon></v-tab>
-        <v-tab><v-icon class="menu-icon">mdi-pill</v-icon></v-tab>
-        <v-tab><v-icon class="menu-icon">mdi-wallet</v-icon></v-tab>
-        <v-tab><v-icon class="menu-icon">mdi-menu</v-icon></v-tab>
-      </v-tabs>
+      <div class="menu-icons">
+        <NuxtLink to="/dashboard" class="menu-icon"
+          ><v-icon>mdi-view-dashboard</v-icon></NuxtLink
+        >
+        <NuxtLink to="/hospital" class="menu-icon"
+          ><v-icon>mdi-hospital-building</v-icon></NuxtLink
+        >
+        <NuxtLink to="/doctors" class="menu-icon"
+          ><v-icon>mdi-doctor</v-icon></NuxtLink
+        >
+        <NuxtLink to="/pharmacy" class="menu-icon"
+          ><v-icon>mdi-pill</v-icon></NuxtLink
+        >
+        <NuxtLink to="/wallet" class="menu-icon"
+          ><v-icon>mdi-wallet</v-icon></NuxtLink
+        >
+        <NuxtLink to="#" class="menu-icon"><v-icon>mdi-menu</v-icon></NuxtLink>
+      </div>
     </template>
   </v-app-bar>
 </template>
@@ -91,5 +101,16 @@
   border-radius: 50%;
   margin-left: 4px;
   padding: 4px;
+}
+.menu-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.menu-icon {
+  text-decoration: unset;
+  width: 100%;
+  text-align: center;
 }
 </style>
