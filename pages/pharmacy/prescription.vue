@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pharmacy-prescription-page">
     <h1>asdasdasdasdasdasd</h1>
   </div>
 </template>
