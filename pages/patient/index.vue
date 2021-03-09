@@ -13,8 +13,16 @@
             {{ result.date }}
           </div>
           {{ result.content }}
-          <div v-if="result.swiper" class="swiper-text">
-            {{ result.swiper }}
+          <div v-if="result.swiper" class="swiper-text" @click="swiper">
+            <v-carousel
+              :show-arrows="false"
+              hide-delimiter-background
+              height="30px"
+            >
+              <v-carousel-item v-for="(item, i) in items" :key="i">
+                <div style="color: red">{{ item.src }}</div>
+              </v-carousel-item>
+            </v-carousel>
           </div>
         </v-col>
         <v-divider inset></v-divider>

@@ -44,13 +44,39 @@
     </NuxtLink>
 
     <template #extension>
-      <v-tabs class="menu-icons" fixed-tabs>
+      <v-tabs
+        v-if="$nuxt.$route.path == '/patient'"
+        class="menu-icons"
+        fixed-tabs
+      >
         <v-tab><v-icon class="menu-icon">mdi-view-dashboard</v-icon></v-tab>
         <v-tab><v-icon class="menu-icon">mdi-hospital-building</v-icon></v-tab>
         <v-tab><v-icon class="menu-icon">mdi-doctor</v-icon></v-tab>
         <v-tab><v-icon class="menu-icon">mdi-pill</v-icon></v-tab>
         <v-tab><v-icon class="menu-icon">mdi-wallet</v-icon></v-tab>
         <v-tab><v-icon class="menu-icon">mdi-menu</v-icon></v-tab>
+      </v-tabs>
+      <v-tabs
+        v-if="$nuxt.$route.path == '/doctor'"
+        class="menu-icons"
+        fixed-tabs
+      >
+        <v-tab><v-icon class="menu-icon">mdi-view-dashboard</v-icon></v-tab>
+        <v-tab><v-icon class="menu-icon">mdi-hospital-building</v-icon></v-tab>
+        <v-tab><v-icon class="menu-icon">mdi-doctor</v-icon></v-tab>
+        <v-tab><v-icon class="menu-icon">mdi-pill</v-icon></v-tab>
+        <v-tab><v-icon class="menu-icon">mdi-wallet</v-icon></v-tab>
+        <v-tab><v-icon class="menu-icon">mdi-menu</v-icon></v-tab>
+      </v-tabs>
+      <v-tabs
+        v-if="$nuxt.$route.path == '/pharmacy'"
+        class="menu-icons"
+        fixed-tabs
+      >
+        <v-tab><v-icon class="menu-icon">mdi-pill</v-icon></v-tab>
+        <v-tab><v-icon class="menu-icon">mdi-cart-plus</v-icon></v-tab>
+        <v-tab><v-icon class="menu-icon">mdi-doctor</v-icon></v-tab>
+        <v-tab><v-icon class="menu-icon">mdi-wallet</v-icon></v-tab>
       </v-tabs>
     </template>
   </v-app-bar>
