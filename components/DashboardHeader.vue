@@ -43,7 +43,39 @@
     </NuxtLink>
 
     <template #extension style="padding-bottom: 0">
-      <div class="menu-icons">
+      <div v-if="$nuxt.$route.path == '/pharmacy'" class="menu-icons">
+        <NuxtLink to="/pharmacy" class="menu-icon"
+          ><v-icon>mdi-pill</v-icon></NuxtLink
+        >
+        <NuxtLink to="/cart" class="menu-icon"
+          ><v-icon>mdi-cart-plus</v-icon></NuxtLink
+        >
+        <NuxtLink to="/doctor" class="menu-icon"
+          ><v-icon>mdi-doctor</v-icon></NuxtLink
+        >
+        <NuxtLink to="/wallet" class="menu-icon"
+          ><v-icon>mdi-wallet</v-icon></NuxtLink
+        >
+      </div>
+      <div v-if="$nuxt.$route.path == '/doctor'" class="menu-icons">
+        <NuxtLink to="/dashboard" class="menu-icon"
+          ><v-icon>mdi-view-dashboard</v-icon></NuxtLink
+        >
+        <NuxtLink to="/hospital" class="menu-icon"
+          ><v-icon>mdi-hospital-building</v-icon></NuxtLink
+        >
+        <NuxtLink to="/doctors" class="menu-icon"
+          ><v-icon>mdi-doctor</v-icon></NuxtLink
+        >
+        <NuxtLink to="/pharmacy" class="menu-icon"
+          ><v-icon>mdi-pill</v-icon></NuxtLink
+        >
+        <NuxtLink to="/wallet" class="menu-icon"
+          ><v-icon>mdi-wallet</v-icon></NuxtLink
+        >
+        <NuxtLink to="#" class="menu-icon"><v-icon>mdi-menu</v-icon></NuxtLink>
+      </div>
+      <div v-if="$nuxt.$route.path == '/patient'" class="menu-icons">
         <NuxtLink to="/dashboard" class="menu-icon"
           ><v-icon>mdi-view-dashboard</v-icon></NuxtLink
         >

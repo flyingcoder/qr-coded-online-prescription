@@ -1,6 +1,7 @@
 export default {
   name: 'doctor',
   layout: 'dashboard',
+  auth: false,
   data() {
     return {
       results: [

@@ -1,12 +1,26 @@
 export default {
   layout: 'dashboard',
+  auth: false,
+  methods: {
+    swiper() {
+      // this.$router.push('/login')
+    },
+  },
   data() {
     return {
+      items: [
+        {
+          src: '<<< Swipe left to see <<<',
+        },
+        {
+          src: '',
+        },
+      ],
       results: [
         {
           icon: 'mdi-doctor',
           name: 'Dr. Neil Laquizon',
-          swiper: '<<< Swipe left to see <<<',
+          swiper: true,
           content: 'Send Medical Prescription',
           date: '12:27 AM',
         },
@@ -26,7 +40,7 @@ export default {
         {
           icon: 'mdi-doctor',
           name: 'Dr. Weng Artes',
-          swiper: '<<< Swipe left to see <<<',
+          swiper: true,
           content: 'Sent Medical Prescription',
           date: 'Dec 25, 2020',
         },
