@@ -38,7 +38,7 @@
       <v-icon>mdi-bell</v-icon>
     </v-btn>
 
-    <template #extension>
+    <template #extension style="padding-bottom: 0">
       <div class="menu-icons">
         <NuxtLink to="/dashboard" class="menu-icon"
           ><v-icon>mdi-view-dashboard</v-icon></NuxtLink
@@ -106,9 +106,8 @@
   text-decoration: unset;
   width: 100%;
   text-align: center;
-  padding: 8px;
-  &:hover {
-    background-color: $secondary-color;
+  &.nuxt-link-exact-active.nuxt-link-active i {
+    color: $secondary-color;
   }
 }
 </style>

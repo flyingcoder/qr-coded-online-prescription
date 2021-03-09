@@ -38,11 +38,13 @@ export default {
   },
 }
 </script>
-<style scoped>
+<style lang="scss">
+@import '~/assets/variables.scss';
+
 .newsfeed {
   display: flex;
   padding: 8px 0;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid $gray;
 }
 .newsfeed:first-child {
   padding-top: 0;
