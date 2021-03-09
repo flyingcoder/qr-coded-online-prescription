@@ -5,7 +5,7 @@
     dark
     scroll-target="#scrolling-techniques-3"
     class="reseta-header"
-    height="100px"
+    height="50px"
   >
     <template #img="{ props }">
       <v-img v-bind="props"></v-img>
@@ -24,7 +24,7 @@
     <v-app-bar-title>
       <img
         class="logo-wide"
-        src="~/assets/images/reseta-form-img.png"
+        src="@/assets/images/Qr-code-logo3.png"
         alt="Reseta QRx"
     /></v-app-bar-title>
 
@@ -104,6 +104,8 @@
   background-color: $white;
   box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%),
     0 1px 10px 0 rgb(0 0 0 / 12%);
+  height: 120px !important;
+  padding-top: 20px;
 }
 .header-top {
   display: grid;
