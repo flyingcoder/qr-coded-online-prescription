@@ -1,45 +1,33 @@
 <template>
-  <v-row justify="space-around">
-    <v-col class="text-center">
-      <div class="first_div" width="100%">
-        <v-row no gutters class="Doctor">
-          <v-col cols="2" sm="2">
-            <div class="Avatar_letterColor">
-              <v-avatar color="primary" size="56"><span>Dr</span></v-avatar>
-            </div>
-          </v-col>
-          <v-col cols="8" sm="8">
-            <div class="dr-name">
-              <h1>hellow</h1>
-            </div>
-          </v-col>
-          <v-col cols="2" sm="2">
-            <div class="Delete_button">
-              <v-menu offset-y>
-                <v-btn dark icon v-bind="attrs" v-on="on">
-                  <v-icon>mdi-dots-vertical</v-icon>
-                </v-btn>
-                <v-list>
-                  <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </div>
-          </v-col>
-          <div class="Time">
-            <ul>
-              <ol>
-                Colchicine 0.6mg 1 tablet 3x a day<br />
-                <div class="intake_time"></div>
-              </ol>
-            </ul>
+  <v-container>
+    <v-row justify="space-around">
+      <v-card width="400">
+        <v-app-bar flat color="rgba(0, 0, 0, 0)">
+          <v-avatar color="indigo">
+            <v-icon dark> mdi-account-circle </v-icon>
+          </v-avatar>
+          <v-spacer></v-spacer>
+          <v-toolbar-title class="title black--text pl-0">
+            DR. NIEL LAQUIHON
+          </v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn color="black" icon>
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </v-app-bar>
+        <v-divider></v-divider>
+        <div class="Time float-right"><p>12:34 Am</p></div>
+        <v-card-text>
+          <div class="font-weight-bold ml-8 mb-2">
+            1.Colochine 0.6mg 1 tablet 3x a day
           </div>
-        </v-row>
-      </div>
-    </v-col>
-  </v-row>
+          <div class="font-weight-bold ml-8 mb-2">2.Today</div>
+        </v-card-text>
+      </v-card>
+    </v-row>
+  </v-container>
 </template>
+
 <script src="./medication.js"></script>
 
 <style src="./medication.scss" lang="scss"></style>

@@ -24,7 +24,7 @@
     <v-app-bar-title>
       <img
         class="logo-wide"
-        src="~/assets/images/reseta-form-img.png"
+        src="~/assets/images/Qr-code-logo3.png"
         alt="Reseta QRx"
     /></v-app-bar-title>
 
