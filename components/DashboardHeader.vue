@@ -22,10 +22,7 @@
     <v-spacer></v-spacer>
 
     <v-app-bar-title>
-      <img
-        class="logo-wide"
-        src="@/assets/images/Qr-code-logo3.png"
-        alt="Reseta QRx"
+      <img class="logo-wide" src="@/assets/images/Qr-code-logo3.png"
     /></v-app-bar-title>
 
     <v-spacer></v-spacer>
