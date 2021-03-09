@@ -1,0 +1,63 @@
+.notification-top-section {
+  padding-top: 8px;
+  background: #1ac6b6;
+  height: 60px;
+  .notification-logo-wide {
+    width: 41px;
+  }
+  .notification-main-title {
+    position: relative;
+    float: right;
+    left: -60px;
+  }
+  .notification-options {
+    background: #f6f7f9;
+    height: 45px;
+    padding: 0 15px;
+  }
+  a {
+    color: #60646a !important;
+    text-decoration: none;
+  }
+  .notification-content-input {
+    position: relative;
+    left: 15px;
+    top: 5px;
+  }
+  .notification-title {
+    padding-left: 5px !important;
+    display: flex;
+    align-items: center;
+  }
+  .notification-logo {
+    padding-right: 0 !important;
+  }
+}
+.notification-content {
+  padding-top: 5px;
+  position: relative;
+  top: 40px;
+
+  .notification-main-content {
+    border: 1px solid grey;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .notification-icon-back {
+    text-decoration: none !important;
+  }
+  .notification-logo-icon {
+    font-weight: bold;
+    i {
+      font-size: 25px !important;
+      margin-top: 10px;
+    }
+  }
+  .notification-created-at {
+    font-size: 14px;
+  }
+  .notification-tag-request {
+    padding-top: 13px;
+  }
+}

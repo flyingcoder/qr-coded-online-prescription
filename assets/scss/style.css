@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+a {
+  font-family: 'Roboto', sans-serif !important;
+}
 .no-margin {
   margin: 0 !important;
 }
@@ -9,14 +21,23 @@
 .text-white {
   color: white;
 }
+.secondary-color {
+  color: #60646a !important;
+}
 
 .text-center-pd {
   text-align: center !important;
 }
+.text-right {
+  text-align: right;
+}
 .normal-mg {
   margin-top: 20px !important;
 }
-
+.icon-back,
+.notification-icon-back i {
+  text-decoration: none !important;
+}
 .sm-margin {
   margin-top: 10px !important;
 }

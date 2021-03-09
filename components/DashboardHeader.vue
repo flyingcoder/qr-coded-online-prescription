@@ -30,13 +30,17 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn icon>
-      <v-icon>mdi-magnify</v-icon>
-    </v-btn>
+    <NuxtLink to="/search">
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+    </NuxtLink>
 
-    <v-btn icon>
-      <v-icon>mdi-bell</v-icon>
-    </v-btn>
+    <NuxtLink to="/notification">
+      <v-btn icon>
+        <v-icon>mdi-bell</v-icon>
+      </v-btn>
+    </NuxtLink>
 
     <template #extension style="padding-bottom: 0">
       <div class="menu-icons">
@@ -82,6 +86,7 @@
 .logo-wide {
   max-height: 60px;
   height: auto;
+  width: 130px;
   margin: 0 auto;
 }
 .sn-icons {

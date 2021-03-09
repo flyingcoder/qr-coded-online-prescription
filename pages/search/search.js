@@ -1,13 +1,35 @@
 export default {
   auth: false,
   layout: 'search-notification',
+  methods: {
+    to() {
+      this.$router.go(-1)
+    },
+  },
   data() {
     return {
-      results: {
-        key1: 'Virginia Laquina',
-        key2: 'Weng Artes M.D',
-        key3: 'item3',
-      },
+      results: [
+        {
+          user: 'mdi-account',
+          name: 'Virginia Laquihon',
+        },
+        {
+          user: 'mdi-account',
+          name: 'Weng Artes M.D.',
+        },
+        {
+          user: 'mdi-magnify',
+          name: 'Internist in Kidapawan City',
+        },
+        {
+          user: 'mdi-magnify',
+          name: 'Pediatrician',
+        },
+        {
+          user: 'mdi-magnify',
+          name: 'Colchicire',
+        },
+      ],
     }
   },
 }

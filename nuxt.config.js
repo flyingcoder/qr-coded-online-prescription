@@ -53,7 +53,7 @@ export default {
   ],
 
   router: {
-    middleware: ['auth']
+    middleware: ['auth'],
   },
 
   auth: {
@@ -75,11 +75,6 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
-
-  // Add custom rules
-  rules: {
-    'no-console':'off'
-  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
