@@ -26,7 +26,11 @@
     </v-navigation-drawer> -->
     <DashboardHeader />
     <v-main id="reseta">
-      <v-container>
+      <v-container
+        :class="{
+          'no-container': $nuxt.$route.path == '/product',
+        }"
+      >
         <nuxt />
       </v-container>
     </v-main>
@@ -78,6 +82,9 @@ export default {
 </script>
 <style>
 #reseta {
-  padding-top: 150px !important;
+  padding-top: 130px !important;
+}
+.no-container {
+  padding: 0 !important;
 }
 </style>

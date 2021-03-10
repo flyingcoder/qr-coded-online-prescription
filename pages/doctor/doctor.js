@@ -8,8 +8,8 @@ export default {
         {
           id: 1,
           image: 'Tanjiro_Anime_Profile.png',
-          name: 'Dr. Neil Laquinon',
-          time: '12:30 PM',
+          name: 'Virginia Laquihon',
+          time: '12:27 PM',
           message:
             'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
         },

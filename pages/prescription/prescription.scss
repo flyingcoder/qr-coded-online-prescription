@@ -1,0 +1,30 @@
+.pharmacy-prescription-top-section {
+  position: relative;
+  top: -5px;
+  background: #f6f7f9;
+  padding: 8px 0;
+}
+.user-icon {
+  margin-right: 20px;
+}
+.ordered-total {
+  padding-right: 10px;
+}
+.ordered-payment-price,
+.ordered-payment-quantity,
+.ordered-payment-total-cost,
+.ordered-payment-total-amount,
+.ordered-service-fee-amount {
+  font-size: 14px;
+}
+.ordered-payment-name {
+  font-size: 14px;
+  width: 240px !important;
+}
+.ordered-payment-total-quantity {
+  width: 220px;
+  font-size: 14px;
+}
+.ordered-service-fee-amount {
+  width: 230px;
+}
