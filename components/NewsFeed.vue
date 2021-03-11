@@ -44,7 +44,7 @@ export default {
 .newsfeed {
   display: flex;
   padding: 8px 0;
-  border-bottom: 2px solid $gray;
+  border-bottom: 2px solid $gray-color;
 }
 .newsfeed:first-child {
   padding-top: 0;
