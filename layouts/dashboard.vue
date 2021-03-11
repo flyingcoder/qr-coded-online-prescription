@@ -29,6 +29,7 @@
       <v-container
         :class="{
           'no-container': $nuxt.$route.path == '/product',
+          'no-container': $nuxt.$route.path == '/doctors',
         }"
       >
         <nuxt />
