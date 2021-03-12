@@ -1,0 +1,37 @@
+.v-expansion-panel-content__wrap {
+  display: flex !important;
+  .wallet-main-content {
+    font-size: 14px;
+    padding: 10px 0px 15px 10px;
+  }
+  .paynow-button {
+    font-size: 17px;
+    padding-bottom: 20px;
+  }
+}
+.active {
+  display: none !important;
+}
+.wallet-dropdown-icon {
+  width: 10% !important;
+  position: absolute !important;
+}
+.wallet-accordion-title {
+  padding-left: 13%;
+}
+.wallet-title {
+  font-size: 25px;
+  .wallet-title-e {
+    font-size: 35px;
+  }
+  .wallet-title-amount {
+    font-size: 20px;
+    padding-right: 10px;
+    width: 50%;
+    text-align: right;
+  }
+  .wallet-title-main-amout-title {
+    width: 50%;
+    padding-left: 10px;
+  }
+}
