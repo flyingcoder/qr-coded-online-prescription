@@ -24,7 +24,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer> -->
-    <DashboardHeader />
+    <PatientHeader />
     <v-main id="reseta">
       <v-container
         :class="{
