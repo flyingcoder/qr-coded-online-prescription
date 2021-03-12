@@ -19,7 +19,8 @@
 .center-patient-info,
 .bottom-patient-info,
 .medicine-top,
-.medicine-bottom {
+.medicine-bottom,
+.patient-day-uses-prescription {
   height: 50px;
 }
 .patient-secondary-info {
@@ -35,4 +36,41 @@
 }
 .patient-info-time {
   font-size: 13px;
+}
+.patient-sig-hours {
+  label {
+    position: absolute !important;
+    top: -15px;
+  }
+}
+.patient-duration-input {
+  #input-60 {
+    display: none;
+  }
+  .v-select__selections {
+    display: flex;
+    justify-content: center;
+  }
+}
+.patient-duration-total {
+  width: 56%;
+  .duration-total {
+    padding-top: 5px;
+  }
+}
+.patient-note-prescription {
+  height: 95px;
+}
+.patient-duration {
+  width: 27%;
+  margin-right: 17%;
+  .duration-day {
+    padding: 5px 0px 0px 11px;
+  }
+}
+.patient-prescribed-buttons {
+  padding-top: 20px;
+  .patient-prescribed-button-prescribe {
+    margin-right: 25px;
+  }
 }
