@@ -33,6 +33,7 @@
         }"
       >
         <nuxt />
+        <Snackbar />
       </v-container>
     </v-main>
     <!-- <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
