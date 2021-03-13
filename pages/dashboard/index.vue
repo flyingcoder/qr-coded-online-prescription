@@ -1,17 +1,11 @@
 <template>
-  <v-row>
-    <v-col class="text-center">
-      <img src="/v.png" alt="Vuetify.js" class="mb-5" />
-      <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, write the code.&#8221;
-        <footer>
-          <small>
-            <em>&mdash;John Johnson</em>
-          </small>
-        </footer>
-      </blockquote>
-    </v-col>
-  </v-row>
+  <div id="dashboard">
+    <NewsFeed
+      v-for="newsfeed in newsfeeds"
+      :key="newsfeed.id"
+      :newsfeed="newsfeed"
+    />
+  </div>
 </template>
 <script src="./dashboard.js"></script>
 <style src="./dashboard.scss" lang="scss"></style>

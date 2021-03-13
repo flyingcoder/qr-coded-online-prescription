@@ -1,34 +1,53 @@
 export default {
   layout: 'dashboard',
+  auth: false,
+  methods: {
+    swiper() {
+      // this.$router.push('/login')
+    },
+  },
   data() {
     return {
-      results: [
+      newsfeeds: [
         {
-          icon: 'mdi-doctor',
-          name: 'Dr. Neil Laquizon',
-          swiper: '<<< Swipe left to see <<<',
-          content: 'Send Medical Prescription',
-          date: '12:27 AM',
+          id: 1,
+          image: 'Tanjiro_Anime_Profile.png',
+          name: 'Dr. Neil Laquinon',
+          time: '12:30 PM',
+          message:
+            'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
         },
         {
-          icon: 'mdi-account',
-          name: 'Maria Dela Cruz',
-          content: 'Doc pwede ko magpareseta ug akoang maintenance na tambal',
-          date: '8:00 AM',
+          id: 2,
+          image: 'Zenitsu_Anime_Profile.png',
+          name: 'Mohammad Alongan',
+          time: 'Feb 4',
+          message:
+            'Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
         },
         {
-          icon: 'mdi-hospital',
-          name: 'Options Pharmacy',
-          content:
-            'Good morning sir your medications was bought Full by Ms. Maria Dela Cruz. Thank you for choosing Options Pharmacy.',
-          date: '8:05 AM',
+          id: 3,
+          image: 'Muzan_Anime_Profile.png',
+          name: 'Alvin Pacot',
+          time: 'Dec 26, 2020',
+          message:
+            'Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
         },
         {
-          icon: 'mdi-doctor',
-          name: 'Dr. Weng Artes',
-          swiper: '<<< Swipe left to see <<<',
-          content: 'Sent Medical Prescription',
-          date: 'Dec 25, 2020',
+          id: 4,
+          image: 'medical-pharmacy-logo.jpg',
+          name: 'Medical Pharmacy',
+          time: 'Aug 8, 2020',
+          message:
+            'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
+        },
+        {
+          id: 5,
+          image: 'Muzan_Anime_Profile.png',
+          name: 'Alvin Pacot',
+          time: 'May 18, 2020',
+          message:
+            'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
         },
       ],
     }

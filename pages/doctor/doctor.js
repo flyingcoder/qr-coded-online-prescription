@@ -1,35 +1,49 @@
 export default {
   name: 'doctor',
   layout: 'dashboard',
+  auth: false,
   data() {
     return {
-      results: [
+      newsfeeds: [
         {
-          icon: 'mdi-account',
+          id: 1,
+          image: 'Tanjiro_Anime_Profile.png',
           name: 'Virginia Laquihon',
-          prescribe: 'Prescribed:',
-          content: 'Colchicine 0.6mg 1tab TID',
-          date: '12:27 AM',
+          time: '12:27 PM',
+          message:
+            'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
         },
         {
-          icon: 'mdi-account',
-          name: 'Generoso Laquihon',
-          content: 'Doc pwede ko magpareseta ug akoang maintenance na tambal',
-          date: 'Feb 4',
+          id: 2,
+          image: 'Zenitsu_Anime_Profile.png',
+          name: 'Mohammad Alongan',
+          time: 'Feb 4',
+          message:
+            'Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
         },
         {
-          icon: 'mdi-account',
-          name: 'Teofista Buenaflor',
-          content:
-            'Gud pm doc pwede po ba ako magpa check -up sa inyo on saturday',
-          date: 'Dec 31 2020',
+          id: 3,
+          image: 'Muzan_Anime_Profile.png',
+          name: 'Alvin Pacot',
+          time: 'Dec 26, 2020',
+          message:
+            'Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
         },
         {
-          icon: 'mdi-hospital',
-          name: 'Options Pharmacy',
-          content:
-            'Good morning po doc, sk lang po ako doc pwede po ba ang brand..',
-          date: 'Aug 8 2020',
+          id: 4,
+          image: 'medical-pharmacy-logo.jpg',
+          name: 'Medical Pharmacy',
+          time: 'Aug 8, 2020',
+          message:
+            'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
+        },
+        {
+          id: 5,
+          image: 'Muzan_Anime_Profile.png',
+          name: 'Alvin Pacot',
+          time: 'May 18, 2020',
+          message:
+            'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
         },
       ],
     }

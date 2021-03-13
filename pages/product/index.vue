@@ -1,0 +1,74 @@
+<template>
+  <div class="search-products">
+    <div class="search-product-section d-flex pd-left">
+      <div class="search-product-input">
+        <v-text-field
+          label="Search"
+          placeholder="Search anything..."
+          prepend-inner-icon="mdi-magnify"
+          outlined
+          dense
+          class="main-search-input"
+        ></v-text-field>
+      </div>
+      <div class="search-product-cart">
+        <v-icon large color="grey"> mdi-cart-outline </v-icon>
+      </div>
+    </div>
+    <v-divider class="border-width-primary"></v-divider>
+    <div v-for="n in product_name" :key="n.id" class="all-product-display">
+      <h3 class="pd-left">{{ n.title }}</h3>
+      <v-sheet class="mx-auto" elevation="8" max-width="800">
+        <v-slide-group
+          v-model="model"
+          active-class="card-color-active"
+          multiple
+        >
+          <v-slide-item
+            v-for="n in products"
+            :key="n.id"
+            v-slot="{ active, toggle }"
+          >
+            <v-card
+              :color="active ? undefined : 'white'"
+              height="130"
+              width="100"
+              class="product-card"
+              @click="toggle"
+            >
+              <v-scale-transition>
+                <v-icon
+                  v-if="active"
+                  color="green"
+                  size="48"
+                  class="check-icon"
+                  v-text="'mdi-check'"
+                ></v-icon>
+              </v-scale-transition>
+              <div class="product-content">
+                <div class="product-image">
+                  <v-icon color="grey darken-2">
+                    {{ n.image }}
+                  </v-icon>
+                </div>
+                <v-divider></v-divider>
+                <div class="product-name">
+                  {{ n.name }}
+                </div>
+                <div class="d-flex product-price_store">
+                  <div class="price">₱ {{ n.price }}</div>
+                  <div class="store">{{ n.store }}</div>
+                </div>
+              </div>
+            </v-card>
+          </v-slide-item>
+        </v-slide-group>
+      </v-sheet>
+      <v-divider class="border-width-secondary"></v-divider>
+    </div>
+  </div>
+</template>
+
+<script src="./product.js"></script>
+
+<style src="./product.scss" lang="scss" scoped></style>

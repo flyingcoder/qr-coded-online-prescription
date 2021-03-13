@@ -1,0 +1,25 @@
+.active {
+  display: none !important;
+}
+.doctor-list-card {
+  box-shadow: none !important;
+}
+.doctors-grid-main-view.col:nth-child(odd) {
+  display: none;
+}
+.grid-single-name,
+.grid-single-content,
+.grid-single-number {
+  font-size: 11px;
+}
+.grid-single-name {
+  font-weight: bold;
+  height: 29px;
+  display: flex;
+  align-items: center;
+}
+.list-grid-btn {
+  position: absolute;
+  right: 0;
+  z-index: 999;
+}
