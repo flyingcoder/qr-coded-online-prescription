@@ -25,7 +25,7 @@
           style="color: white"
           class="login-main-btn"
           href="#"
-          @click.prevent="login"
+          @click.prevent="userLogin"
           >LOG IN</a
         >
       </v-row>
