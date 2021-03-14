@@ -1,11 +1,5 @@
-export default async function ({ $auth, route, redirect, store }) {
-  await $auth
-  if (!$auth.loggedIn) {
-    const REDIRECT_URL = '/auth?redirect=' + route.path
-    store.dispatch('snackbar/setSnackbar', {
-      color: 'error',
-      text: 'You must be logged in to view that page.',
-    })
-    redirect(REDIRECT_URL)
+export default function ({ $auth, redirect }) {
+  if ($auth.loggedIn) {
+    redirect('/dashboard')
   }
 }

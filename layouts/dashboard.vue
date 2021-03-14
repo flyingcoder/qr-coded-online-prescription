@@ -24,7 +24,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer> -->
-    <DashboardHeader />
+    <PatientHeader />
     <v-main id="reseta">
       <v-container
         :class="{
@@ -33,7 +33,6 @@
         }"
       >
         <nuxt />
-        <Snackbar />
       </v-container>
     </v-main>
     <!-- <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
