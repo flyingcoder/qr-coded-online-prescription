@@ -4,57 +4,61 @@ export default {
   data() {
     return {
       counter: 0,
-      total_quantity: '64.00',
-      total_quantity_amount: '210.00',
-      ordered: [
-        {
-          id: 1,
-          name: '1) Colchicine 0.6mg',
-        },
-        {
-          id: 2,
-          name: '2) Celecoxib 200mg',
-        },
-        {
-          id: 3,
-          name: '3) Paracetamol 500mg',
-        },
-      ],
+      service_fee: 4.2,
 
       payments: [
         {
           id: 1,
           name: 'Colchicine ',
           dose: '0.6mg',
-          qty: 'Qty:31',
-          price: '₱2.00',
-          total: '₱62',
+          qty: 31,
+          price: 2.0,
         },
         {
           id: 2,
           name: 'Celecoxib',
           dose: '200mg',
-          qty: 'Qty:14',
-          price: '₱4.00',
-          total: '₱48',
+          qty: 14,
+          price: 4.5,
         },
         {
           id: 3,
           name: 'Paracetamol',
           dose: '500mg',
-          qty: 'Qty:20',
-          price: '₱5.00',
-          total: '₱100',
+          qty: 20,
+          price: 5.5,
         },
       ],
     }
   },
-  methods: {
-    increase() {
-      this.counter++
+  computed: {
+    total_quantity_amount() {
+      let sum = 0
+      this.payments.forEach((e) => {
+        sum += e.price * e.qty
+      })
+      return sum
     },
-    decrease() {
-      this.counter--
+    total_quantity() {
+      let sum = 0
+      this.payments.forEach((e) => {
+        sum += e.qty
+      })
+      return sum
+    },
+    overall_total() {
+      return this.total_quantity_amount + this.service_fee
+    },
+  },
+  methods: {
+    total_price(item) {
+      return item.price * item.qty
+    },
+    increase(qty) {
+      return (qty += 1)
+    },
+    decrease(qty) {
+      return (qty -= 1)
     },
   },
   props: {
