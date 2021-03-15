@@ -56,7 +56,9 @@
         <NuxtLink to="/wallet" class="menu-icon"
           ><v-icon>mdi-wallet</v-icon></NuxtLink
         >
-        <NuxtLink to="#" class="menu-icon"><v-icon>mdi-menu</v-icon></NuxtLink>
+        <NuxtLink to="/settings" class="menu-icon"
+          ><v-icon>mdi-menu</v-icon></NuxtLink
+        >
       </div>
     </template>
   </v-app-bar>
