@@ -1,21 +1,54 @@
-.Avatar_letterColor{
-    color: white;
-    font-size: 23px;
+.user-icon {
+  width: 40px;
+  height: 40px;
 }
-.Doctor h1 {
-    color: black;
-    .dr-name h1 {
-        text-align: left;
-    }
+.medication-header-button {
+  width: 16%;
 }
-.Delete_button button {
-    position: relative;
-    top: 15px;
+.medication-header-name {
+  width: 67%;
 }
-.Delete_button span{
-    color: black;
+.medication-header-image {
+  width: 17%;
 }
-
-.time ul:nth-child(2) {
-    display: flex;
+.created {
+  position: absolute;
+  right: 0;
+  padding: 8px 10px 0 0;
+  font-size: 11px;
+}
+.main-medication-main-time,
+.tagged,
+.main-medication-main-note {
+  font-size: 14px;
+}
+.main-medication-main-time,
+.main-medication-main-note {
+  padding: 10px 0 0 15px;
+}
+span.time {
+  border: 1px solid grey;
+  padding: 1px 4px;
+}
+.medication-content {
+  padding: 0 0 20px 0;
+}
+.main-medication-content-header {
+  padding: 5px 0px;
+}
+.tagged {
+  padding-top: 5px;
+}
+.main-medication-main-content {
+  padding-top: 8px;
+  font-size: 15px;
+}
+.main-medication-main-note-content {
+  width: 85%;
+  border: 1px solid grey;
+  padding: 5px;
+}
+.main-medication-main-note-title {
+  width: 15%;
+  padding-top: 5px;
 }

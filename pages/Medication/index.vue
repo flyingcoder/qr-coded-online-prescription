@@ -1,31 +1,52 @@
 <template>
-  <v-container>
-    <v-row justify="space-around">
-      <v-card width="400">
-        <v-app-bar flat color="rgba(0, 0, 0, 0)">
-          <v-avatar color="indigo">
-            <v-icon dark> mdi-account-circle </v-icon>
-          </v-avatar>
-          <v-spacer></v-spacer>
-          <v-toolbar-title class="title black--text pl-0">
-            DR. NIEL LAQUIHON
-          </v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-btn color="black" icon>
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-        </v-app-bar>
-        <v-divider></v-divider>
-        <div class="Time float-right"><p>12:34 Am</p></div>
-        <v-card-text>
-          <div class="font-weight-bold ml-8 mb-2">
-            1.Colochine 0.6mg 1 tablet 3x a day
-          </div>
-          <div class="font-weight-bold ml-8 mb-2">2.Today</div>
-        </v-card-text>
-      </v-card>
+  <div class="main-medication-page">
+    <v-row class="justify-center padding-bottom-sm">
+      <h3>MEDICATIONS</h3>
     </v-row>
-  </v-container>
+    <div
+      v-for="doctor in doctors"
+      :key="doctor.id"
+      class="main-medication-content"
+    >
+      <v-divider style="border-width: 3px"></v-divider>
+      <div class="main-medication-content-header d-flex">
+        <div class="medication-header-image">
+          <div class="user d-flex">
+            <img
+              class="user-icon"
+              :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
+              alt="Alvin Pacot"
+            />
+          </div>
+        </div>
+        <div class="medication-header-name d-flex align-center">
+          {{ doctor.name }}
+        </div>
+        <div class="medication-header-button">
+          <v-btn color="grey" icon>
+            <v-icon>mdi-dots-horizontal</v-icon>
+          </v-btn>
+        </div>
+      </div>
+      <v-divider></v-divider>
+      <div class="medication-content">
+        <div class="main-medication-content-tag d-flex">
+          <div class="tagged">{{ doctor.tag }}</div>
+          <div class="created">{{ doctor.created_at }}</div>
+        </div>
+        <div class="main-medication-main-content">
+          {{ doctor.content }}
+        </div>
+        <div class="main-medication-main-time">
+          <span class="time">{{ doctor.time }}</span> AM
+        </div>
+        <div class="main-medication-main-note d-flex">
+          <div class="main-medication-main-note-title">NOTE</div>
+          <div class="main-medication-main-note-content">{{ doctor.note }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script src="./medication.js"></script>
