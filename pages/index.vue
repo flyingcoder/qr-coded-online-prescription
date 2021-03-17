@@ -40,8 +40,8 @@
 </template>
 <script>
 export default {
-  auth: false,
   layout: 'index',
+  middleware: 'auth-guard',
 }
 </script>
 <style scoped>

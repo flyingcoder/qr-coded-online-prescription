@@ -24,12 +24,14 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer> -->
-    <PatientHeader />
+    <PatientHeader v-if="$auth.user.role == 'patient'" />
+    <PharmacyHeader v-if="$auth.user.role == 'pharmacy'" />
+    <DoctorHeader v-if="$auth.user.role == 'doctor'" />
     <v-main id="reseta">
       <v-container
         :class="{
-          'no-container': $nuxt.$route.path == '/product',
-          'no-container': $nuxt.$route.path == '/doctors',
+          'no-container':
+            $nuxt.$route.path == '/product' || $nuxt.$route.path == '/doctors',
         }"
       >
         <nuxt />
