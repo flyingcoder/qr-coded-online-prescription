@@ -14,8 +14,7 @@ export default {
           image: 'Tanjiro_Anime_Profile.png',
           name: 'Dr. Neil Laquinon',
           time: '12:30 PM',
-          message:
-            'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
+          prescription: 'Your prescription is now ready',
         },
         {
           id: 2,
@@ -23,7 +22,7 @@ export default {
           name: 'Mohammad Alongan',
           time: 'Feb 4',
           message:
-            'Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
+            'Gud morning Po napalit ko napalit ko na ang tambal na gi tag nmo sa akoa...',
         },
         {
           id: 3,
@@ -31,7 +30,7 @@ export default {
           name: 'Alvin Pacot',
           time: 'Dec 26, 2020',
           message:
-            'Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
+            'Gud morning Po napalit ko napalit ko na ang tambal na gi tag nmo sa akoa...',
         },
         {
           id: 4,
@@ -39,15 +38,14 @@ export default {
           name: 'Medical Pharmacy',
           time: 'Aug 8, 2020',
           message:
-            'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
+            'Good morning sir your medications was bought Full by Ms. Maria Dela Cruz. Thank you for choosing Options Pharmacy',
         },
         {
           id: 5,
           image: 'Muzan_Anime_Profile.png',
           name: 'Alvin Pacot',
           time: 'May 18, 2020',
-          message:
-            'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
+          prescription: 'Your prescription is now ready',
         },
       ],
     }

@@ -13,7 +13,14 @@
         <span class="time">{{ newsfeed.time }}</span>
       </div>
       <div class="up-message">
-        {{ newsfeed.message }}
+        <div v-if="newsfeed.message" class="message">
+          {{ newsfeed.message }}
+        </div>
+        <a href="/medication/01">
+          <div v-if="newsfeed.prescription" class="sent-prescription">
+            {{ newsfeed.prescription }}
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -30,6 +37,7 @@ export default {
           image: 'Inosuke_Anime_Profile.png',
           name: 'Unknown',
           time: '12:30 PM',
+          prescription: 'Send Medical Prescription',
           message:
             'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
         }
@@ -40,11 +48,13 @@ export default {
 </script>
 <style lang="scss">
 @import '~/assets/variables.scss';
-
+.v-application a {
+  color: black;
+}
 .newsfeed {
   display: flex;
-  padding: 8px 0;
-  border-bottom: 2px solid $gray;
+  padding: 15px 0;
+  border-bottom: 2px solid $gray !important;
 }
 .newsfeed:first-child {
   padding-top: 0;
@@ -79,5 +89,6 @@ export default {
 }
 .user-post {
   margin-left: 8px;
+  width: 100%;
 }
 </style>

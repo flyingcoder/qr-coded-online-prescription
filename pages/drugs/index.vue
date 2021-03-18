@@ -47,9 +47,10 @@
               </v-scale-transition>
               <div class="product-content">
                 <div class="product-image">
-                  <v-icon color="grey darken-2">
-                    {{ n.image }}
-                  </v-icon>
+                  <img
+                    class="drug-image"
+                    :src="require(`~/assets/images/${n.image}`)"
+                  />
                 </div>
                 <v-divider></v-divider>
                 <div class="product-name">
@@ -65,6 +66,21 @@
         </v-slide-group>
       </v-sheet>
       <v-divider class="border-width-secondary"></v-divider>
+    </div>
+    <div
+      class="medicine-geet-checkout d-flex justify-center padding-top-md padding-bottom-sm"
+    >
+      <a href="/wallet">
+        <v-btn
+          depressed
+          color="#B2EBF2"
+          width="100%"
+          min-width="300px"
+          class="btn-radius"
+        >
+          Checkout
+        </v-btn>
+      </a>
     </div>
   </div>
 </template>

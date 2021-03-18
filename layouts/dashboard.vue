@@ -28,8 +28,8 @@
     <v-main id="reseta">
       <v-container
         :class="{
-          'no-container': $nuxt.$route.path == '/product',
-          'no-container': $nuxt.$route.path == '/doctors',
+          'no-container':
+            $nuxt.$route.path == '/drugs' || $nuxt.$route.path == 'doctors',
         }"
       >
         <nuxt />

@@ -6,7 +6,6 @@
   }
   .paynow-button {
     font-size: 17px;
-    padding-bottom: 20px;
   }
 }
 .active {
@@ -34,4 +33,46 @@
     width: 50%;
     padding-left: 10px;
   }
+}
+.ordered-quantitity{
+  border: 1px solid;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+.ordered-product-section{
+  border-bottom: 1px solid;
+  padding-bottom: 12px;
+}
+.ordered-options i{
+  font-size: 30px !important;
+}
+.ordered-table{
+  width: 100%;
+  font-size: 16px;
+  padding-top: 12px;
+  
+  td{
+    padding: 2px;
+  }
+  td:first-child{
+      font-weight: 400;
+  }
+  th{
+      text-align: left;
+      padding: 2px;
+  }
+  .total td:last-child, .overall-total td:last-child{
+      border-top: 1px solid;
+  }
+  .total td{
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .total td, .overall-total td {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+}
+.dispense{
+  margin-top: 32px;
 }

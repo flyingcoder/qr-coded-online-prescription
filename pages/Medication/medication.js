@@ -33,6 +33,17 @@ export default {
           note: 'Take with meals',
         },
       ],
+      medication: [
+        {
+          id: 1,
+          name: 'DR. NEIL LAQUIHON',
+          tag: '',
+          created_at: '12:27 AM',
+          content: '1) Colchicine 0.6mg 1 tablet 3x a day',
+          time: '5',
+          note: 'Take with meals, For 7 days',
+        },
+      ],
     }
   },
 }

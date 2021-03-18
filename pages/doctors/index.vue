@@ -1,19 +1,19 @@
 <template>
   <div class="main-doctors-page">
     <div class="list-grid-btn text-right">
+      <v-icon :class="{ active: grid }" large color="grey" @click="grid = true">
+        mdi-format-list-bulleted-square
+      </v-icon>
       <v-icon
         :class="{ active: !grid }"
         large
         color="grey"
         @click="grid = false"
       >
-        mdi-format-list-bulleted-square
-      </v-icon>
-      <v-icon :class="{ active: grid }" large color="grey" @click="grid = true">
         mdi-view-grid
       </v-icon>
     </div>
-    <div v-if="grid" class="doctors-grid-view">
+    <div v-if="!grid" class="doctors-grid-view">
       <v-card max-width="450" class="mx-auto doctors">
         <div class="v-subheader">Doctors</div>
         <v-row :align="align" no-gutters style="height: 100%">
@@ -76,7 +76,7 @@
       </v-card>
     </div>
 
-    <div v-if="!grid" class="doctor-list-view">
+    <div v-if="grid" class="doctor-list-view">
       <v-card max-width="450" class="mx-auto doctors">
         <v-list three-line>
           <template v-for="(item, index) in doctors">

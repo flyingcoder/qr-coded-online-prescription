@@ -112,7 +112,7 @@
 }
 .user {
   text-align: center;
-  padding-right: 40px;
+  padding: 0 !important;
 }
 .logo-wide {
   max-height: 60px;

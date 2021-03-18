@@ -21,7 +21,7 @@ export default {
         {
           id: 1,
           title: 'COLCHICINE',
-          image: 'mdi-minus-circle-outline',
+          image: 'colchine.png',
           name: 'Colchicine 600mg',
           price: '2.00',
           store: 'OPTIONS',
@@ -29,7 +29,7 @@ export default {
         {
           id: 2,
           title: 'COLCHICINE',
-          image: 'mdi-minus-circle-outline',
+          image: 'colchine.png',
           name: 'Colchicine 0.6mg',
           price: '2.45',
           store: 'MERCURY',
@@ -37,7 +37,7 @@ export default {
         {
           id: 3,
           title: 'COLCHICINE',
-          image: 'mdi-minus-circle-outline',
+          image: 'colchine.png',
           name: 'Colchicine 0.6mg',
           price: '2.00',
           store: 'GENERICA',
@@ -45,7 +45,7 @@ export default {
         {
           id: 4,
           title: 'COLCHICINE',
-          image: 'mdi-minus-circle-outline',
+          image: 'colchine.png',
           name: 'Colchicine 600mg',
           price: '2.00',
           store: 'MERCURY',
@@ -53,7 +53,7 @@ export default {
         {
           id: 5,
           title: 'COLCHICINE',
-          image: 'mdi-minus-circle-outline',
+          image: 'colchine.png',
           name: 'Colchicine 600mg',
           price: '2.00',
           store: 'MERCURY',
@@ -61,7 +61,7 @@ export default {
         {
           id: 6,
           title: 'COLCHICINE',
-          image: 'mdi-minus-circle-outline',
+          image: 'colchine.png',
           name: 'Colchicine 600mg',
           price: '2.00',
           store: 'MERCURY',
@@ -69,7 +69,7 @@ export default {
         {
           id: 7,
           title: 'COLCHICINE',
-          image: 'mdi-minus-circle-outline',
+          image: 'colchine.png',
           name: 'Colchicine 600mg',
           price: '2.00',
           store: 'MERCURY',
