@@ -1,4 +1,3 @@
-
 @import '~/assets/variables.scss';
 
 .reseta-header {
@@ -36,6 +35,10 @@
   border-radius: 50%;
   margin-left: 4px;
   padding: 4px;
+}
+.v-toolbar__extension {
+  padding-top: 7px;
+  border-top: 1px solid;
 }
 .menu-icons {
   display: flex;

@@ -70,7 +70,7 @@
     <div
       class="medicine-geet-checkout d-flex justify-center padding-top-md padding-bottom-sm"
     >
-      <a href="/wallet">
+      <nuxt-link to="/wallet">
         <v-btn
           depressed
           color="#B2EBF2"
@@ -80,7 +80,7 @@
         >
           Checkout
         </v-btn>
-      </a>
+      </nuxt-link>
     </div>
   </div>
 </template>

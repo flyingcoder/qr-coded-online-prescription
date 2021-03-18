@@ -38,7 +38,7 @@
           {{ doctor.content }}
         </div>
         <div class="main-medication-main-time">
-          <span class="time">{{ doctor.time }}</span> AM
+          <span class="medication-time">{{ doctor.time }}</span> AM
         </div>
         <div class="main-medication-main-note d-flex">
           <div class="main-medication-main-note-title">NOTE</div>

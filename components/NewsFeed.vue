@@ -16,11 +16,11 @@
         <div v-if="newsfeed.message" class="message">
           {{ newsfeed.message }}
         </div>
-        <a href="/medication/01">
+        <nuxt-link to="/medication/01">
           <div v-if="newsfeed.prescription" class="sent-prescription">
             {{ newsfeed.prescription }}
           </div>
-        </a>
+        </nuxt-link>
       </div>
     </div>
   </div>

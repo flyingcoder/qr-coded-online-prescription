@@ -38,8 +38,8 @@
         <v-icon>mdi-bell</v-icon>
       </v-btn>
     </NuxtLink>
-
-    <template #extension style="padding-bottom: 0">
+    <v-divider class="divide"></v-divider>
+    <template #extension style="padding-bottom: 0" class="test">
       <div class="menu-icons">
         <NuxtLink to="/dashboard" class="menu-icon"
           ><v-icon>mdi-view-dashboard</v-icon></NuxtLink
