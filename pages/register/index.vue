@@ -15,8 +15,9 @@
               color="#1ac6b6"
               class="register-main-btn"
               width="25%"
+              to="/register/patient"
             >
-              <a href="/register/patient">Patient</a>
+              Patient
             </v-btn>
           </v-row>
           <v-row class="center">
@@ -25,8 +26,9 @@
               color="#1ac6b6"
               class="register-main-btn"
               width="25%"
+              to="/register/doctor"
             >
-              <a href="/register/doctor">Doctor</a>
+              Doctor
             </v-btn>
           </v-row>
           <v-row class="center">
@@ -35,8 +37,9 @@
               color="#1ac6b6"
               class="register-main-btn"
               width="25%"
+              to="/register/pharmacy"
             >
-              <a href="/register/pharmacy">Pharmacy</a>
+              Pharmacy
             </v-btn>
           </v-row>
         </div>
@@ -49,7 +52,12 @@
     </v-row>
   </div>
 </template>
-
-<script src="./register.js"></script>
+<script>
+export default {
+  auth: false,
+  layout: 'form',
+  middleware: 'auth-guard',
+}
+</script>
 
 <style src="./register.scss" lang="scss"></style>

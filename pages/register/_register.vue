@@ -7,50 +7,19 @@
           'register-input-card': $nuxt.$route.path == '/register/pharmacy',
         }"
       >
-        <v-text-field
-          v-if="
-            $nuxt.$route.path == '/register/doctor' ||
-            $nuxt.$route.path == '/register/patient' ||
-            $nuxt.$route.path == '/register/pharmacy'
-          "
-          label="First Name"
-          class="login-input"
-        >
+        <h1>Register as {{ $route.params.register }}</h1>
+        <v-text-field label="First Name" class="login-input">
           <v-icon slot="prepend" color="#1ac6b6" medium> mdi-account </v-icon>
         </v-text-field>
-        <v-text-field
-          v-if="
-            $nuxt.$route.path == '/register/doctor' ||
-            $nuxt.$route.path == '/register/patient' ||
-            $nuxt.$route.path == '/register/pharmacy'
-          "
-          label="Email"
-          class="login-input"
-        >
+        <v-text-field label="Email" class="login-input">
           <v-icon slot="prepend" color="#1ac6b6" medium>
             mdi-email-multiple
           </v-icon>
         </v-text-field>
-        <v-text-field
-          v-if="
-            $nuxt.$route.path == '/register/doctor' ||
-            $nuxt.$route.path == '/register/patient' ||
-            $nuxt.$route.path == '/register/pharmacy'
-          "
-          label="Password"
-          class="login-input"
-        >
+        <v-text-field label="Password" class="login-input">
           <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
         </v-text-field>
-        <v-text-field
-          v-if="
-            $nuxt.$route.path == '/register/doctor' ||
-            $nuxt.$route.path == '/register/patient' ||
-            $nuxt.$route.path == '/register/pharmacy'
-          "
-          label="Confirm Password"
-          class="login-input"
-        >
+        <v-text-field label="Confirm Password" class="login-input">
           <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
         </v-text-field>
         <v-text-field
