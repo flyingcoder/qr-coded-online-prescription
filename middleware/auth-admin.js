@@ -1,7 +1,7 @@
 export default async function ({ $auth, redirect, store }) {
   await $auth
   const user = $auth.user
-  if (user && user.admin) {
+  if (user && user.role === 'admin') {
     // let the user in
   } else {
     store.dispatch('snackbar/setSnackbar', {

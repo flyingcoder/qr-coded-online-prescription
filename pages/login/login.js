@@ -7,14 +7,14 @@ export default {
       try {
         await this.$auth.loginWith('laravelSanctum', {
           data: {
-            email: 'alvin@resetaqrx.com',
-            password: 'password',
+            email: this.login.email,
+            password: this.login.password,
           },
         })
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `Thanks for signing in, ${this.$auth.user.name}`,
         })
-        this.$router.push('/')
+        this.$router.push('/dashboard')
       } catch {
         this.$store.dispatch('snackbar/setSnackbar', {
           color: 'red',
