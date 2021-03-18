@@ -39,13 +39,13 @@
         </div>
         <div class="medication-time-consume d-flex padding-top-sm">
           <div class="main-medication-main-time-one padding-right-sm">
-            <span class="time">7</span> AM
+            <span class="medication-time">7</span> AM
           </div>
           <div class="main-medication-main-time-one padding-right-sm">
-            <span class="time">12</span> NN
+            <span class="medication-time">12</span> NN
           </div>
           <div class="main-medication-main-time-one padding-right-sm">
-            <span class="time">7</span> PM
+            <span class="medication-time">7</span> PM
           </div>
         </div>
         <div class="main-medication-main-note d-flex">
@@ -57,10 +57,10 @@
         </div>
         <div class="medication-time-consume d-flex padding-top-sm">
           <div class="main-medication-main-time-one padding-right-sm">
-            <span class="time">7</span> AM
+            <span class="medication-time">7</span> AM
           </div>
           <div class="main-medication-main-time-one padding-right-sm">
-            <span class="time">7</span> PM
+            <span class="medication-time">7</span> PM
           </div>
         </div>
         <div class="main-medication-main-note d-flex">
@@ -71,16 +71,16 @@
       <div
         class="medication-buy-btn d-flex justify-space-around padding-top-md"
       >
-        <a href="/drugs">
+        <nuxt-link to="/drugs">
           <v-btn depressed color="#B2EBF2" width="100%" class="btn-radius">
             Buy Medicine
           </v-btn>
-        </a>
-        <a href="/pharmacy">
+        </nuxt-link>
+        <nuxt-link to="/pharmacy">
           <v-btn depressed color="#B2EBF2" width="100%" class="btn-radius">
             Find Pharmacy
           </v-btn>
-        </a>
+        </nuxt-link>
       </div>
     </div>
   </div>

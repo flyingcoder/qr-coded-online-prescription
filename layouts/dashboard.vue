@@ -31,7 +31,7 @@
       <v-container
         :class="{
           'no-container':
-            $nuxt.$route.path == '/product' || $nuxt.$route.path == '/doctors',
+            $nuxt.$route.path == '/drugs' || $nuxt.$route.path == '/doctors',
         }"
       >
         <nuxt />
