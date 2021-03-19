@@ -38,6 +38,7 @@ export default {
   },
   data() {
     return {
+      ex11: true,
       snackbar: false,
       amount: '1,000.00',
       counter: 0,
@@ -82,6 +83,7 @@ export default {
           icon_inner: '',
           title: 'Credit / Debit Card',
           confirm: 'CONFIRM SELECTION',
+          credit: 'Add new Card',
         },
         {
           id: 3,
