@@ -91,6 +91,7 @@
               </div>
               <div class="wallet-content full-width">
                 <div
+                  v-if="item.content"
                   class="wallet-main-content full-width"
                   v-html="item.content"
                 ></div>
@@ -105,6 +106,42 @@
                     >{{ item.yes }}</v-btn
                   >
                   <v-btn elevation="2" text tile>{{ item.cancel }}</v-btn>
+                </div>
+                <div v-if="item.credit" class="credit-card">
+                  <div class="credit-card-image">
+                    <img width="40px" src="~/assets/images/symbols.svg" />
+                    <img width="40px" src="~/assets/images/master.svg" />
+                  </div>
+                  <div class="credit-card-input">
+                    <v-text-field label="Card Number"></v-text-field>
+                    <v-text-field
+                      label="Name on Card"
+                      class="margin-top-pull"
+                    ></v-text-field>
+                    <div class="d-flex margin-top-pull">
+                      <v-text-field
+                        label="Expiration (MM/YY)"
+                        style="width: 45%"
+                        class="card-secondary-input"
+                      ></v-text-field>
+                      <v-text-field
+                        label="CVV"
+                        style="width: 45%"
+                        class="card-secondary-input"
+                      ></v-text-field>
+                    </div>
+                  </div>
+                  <div class="credit-card-description">
+                    Save Card
+                    <p>Information in incrypted and securely stored</p>
+                    <div class="information-switch">
+                      <v-switch
+                        v-model="ex11"
+                        value="red"
+                        hide-details
+                      ></v-switch>
+                    </div>
+                  </div>
                 </div>
                 <div
                   v-if="item.confirm"

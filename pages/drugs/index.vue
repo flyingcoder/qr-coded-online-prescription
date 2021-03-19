@@ -73,10 +73,11 @@
       <nuxt-link to="/wallet">
         <v-btn
           depressed
-          color="#B2EBF2"
+          color="#1ac6b6"
           width="100%"
           min-width="300px"
           class="btn-radius"
+          style="color: white"
         >
           Checkout
         </v-btn>

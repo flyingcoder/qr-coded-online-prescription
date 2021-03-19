@@ -72,12 +72,24 @@
         class="medication-buy-btn d-flex justify-space-around padding-top-md"
       >
         <nuxt-link to="/drugs">
-          <v-btn depressed color="#B2EBF2" width="100%" class="btn-radius">
+          <v-btn
+            depressed
+            color="#1ac6b6"
+            width="100%"
+            class="btn-radius"
+            style="color: white"
+          >
             Buy Medicine
           </v-btn>
         </nuxt-link>
         <nuxt-link to="/pharmacy">
-          <v-btn depressed color="#B2EBF2" width="100%" class="btn-radius">
+          <v-btn
+            depressed
+            color="#1ac6b6"
+            width="100%"
+            class="btn-radius"
+            style="color: white"
+          >
             Find Pharmacy
           </v-btn>
         </nuxt-link>
