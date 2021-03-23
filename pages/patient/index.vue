@@ -22,11 +22,6 @@
         </nuxt-link>
       </div>
     </div>
-    <NewsFeed
-      v-for="newsfeed in newsfeeds"
-      :key="newsfeed.id"
-      :newsfeed="newsfeed"
-    />
   </div>
 </template>
 

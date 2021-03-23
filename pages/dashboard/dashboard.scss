@@ -1,3 +1,19 @@
-a {
-  text-decoration: none;
+.patient-main-section {
+  position: relative;
+  top: 145px;
+  .patient-date {
+    position: absolute;
+    right: 0;
+    margin-top: -30px;
+    font-size: 12px;
+  }
+  .patient-title {
+    font-size: 19px;
+  }
+}
+.user {
+  padding: 0 !important;
+}
+.find-doctors {
+  padding-top: 60%;
 }

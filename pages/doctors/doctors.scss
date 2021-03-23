@@ -28,6 +28,31 @@
   display: flex;
   align-items: center;
 }
+.search-doctors-input {
+  padding: 15px 15px 0 15px;
+  margin-bottom: -15px;
+}
+.doctors-list-title {
+  padding-bottom: 15px;
+}
+.doctor-information {
+  .name {
+    font-size: 19px;
+    font-weight: bold;
+  }
+  .address,
+  .contact {
+    font-weight: 400;
+  }
+}
+.doctor-profile {
+  margin-top: 60px;
+  img {
+    width: 40%;
+    height: 40%;
+    margin-top: -50px;
+  }
+}
 .list-grid-btn {
   position: absolute;
   right: 10px;

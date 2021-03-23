@@ -1,5 +1,15 @@
 <template>
   <div class="main-doctors-page">
+    <div class="search-doctors-input">
+      <v-text-field
+        label="Search"
+        placeholder="Search Doctor"
+        prepend-inner-icon="mdi-magnify"
+        outlined
+        dense
+        class="main-search-input"
+      ></v-text-field>
+    </div>
     <div class="list-grid-btn text-right">
       <v-icon :class="{ active: grid }" large color="grey" @click="grid = true">
         mdi-format-list-bulleted-square
@@ -32,7 +42,7 @@
             class="doctors-grid-main-view"
             cols="6"
           >
-            <nuxt-link to="doctor">
+            <a href="/doctors/1">
               <v-card
                 class="pa-2"
                 height="150px"
@@ -58,7 +68,7 @@
                   {{ item.number }}
                 </div>
               </v-card>
-            </nuxt-link>
+            </a>
           </v-col>
         </v-row>
       </v-card>
@@ -66,43 +76,46 @@
 
     <div v-if="grid" class="doctor-list-view">
       <v-card max-width="450" class="mx-auto doctors">
-        <v-list three-line class="doctors-background-color">
-          <template v-for="(item, index) in doctors">
-            <v-subheader
-              v-if="item.header"
-              :key="item.header"
-              v-text="item.header"
-            ></v-subheader>
+        <a href="/doctors/01">
+          <v-list three-line class="doctors-background-color">
+            <template v-for="(item, index) in doctors">
+              <v-subheader
+                v-if="item.header"
+                :key="item.header"
+                class="font-weight-bold doctors-list-title"
+                v-text="item.header"
+              ></v-subheader>
 
-            <v-divider
-              v-else-if="item.divider"
-              :key="index"
-              :inset="item.inset"
-            ></v-divider>
+              <v-divider
+                v-else-if="item.divider"
+                :key="index"
+                :inset="item.inset"
+              ></v-divider>
 
-            <v-list-item v-else :key="item.title">
-              <v-list-item-avatar>
-                <img
-                  class="user-icon"
-                  :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-                  alt="Alvin Pacot"
-                />
-              </v-list-item-avatar>
+              <v-list-item v-else :key="item.title">
+                <v-list-item-avatar>
+                  <img
+                    class="user-icon"
+                    :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
+                    alt="Alvin Pacot"
+                  />
+                </v-list-item-avatar>
 
-              <v-list-item-content>
-                <v-list-item-title v-html="item.title"></v-list-item-title>
-                <v-list-item-subtitle>
-                  <div class="doctor-content">
-                    {{ item.content }}
-                  </div>
-                  <div class="doctor-number">
-                    {{ item.number }}
-                  </div>
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </template>
-        </v-list>
+                <v-list-item-content>
+                  <v-list-item-title v-html="item.title"></v-list-item-title>
+                  <v-list-item-subtitle>
+                    <div class="doctor-content">
+                      {{ item.content }}
+                    </div>
+                    <div class="doctor-number">
+                      {{ item.number }}
+                    </div>
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+          </v-list>
+        </a>
       </v-card>
     </div>
   </div>
