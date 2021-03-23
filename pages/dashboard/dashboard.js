@@ -6,6 +6,7 @@ export default {
       // this.$router.push('/login')
     },
   },
+
   data() {
     return {
       display: true,
