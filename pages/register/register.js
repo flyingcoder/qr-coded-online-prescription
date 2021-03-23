@@ -12,11 +12,12 @@ export default {
         tin_number: '',
         password: '',
         password_confirmation: '',
+        role: '',
       },
     }
   },
   mounted() {
-    console.log(this.$route.params.as)
+    this.register.role = this.$route.params.as
   },
   methods: {
     async registerUser() {
