@@ -8,6 +8,8 @@ export default {
   },
   data() {
     return {
+      display: true,
+      no_display: false,
       newsfeeds: [
         {
           id: 1,

@@ -1,3 +1,13 @@
+#reseta,
+.doctors-background-color {
+  background: #f1f1f1 !important;
+}
+.doctors-grid-title {
+  padding-left: 15px;
+}
+.doctors-grid {
+  padding: 10px;
+}
 .active {
   display: none !important;
 }
@@ -20,6 +30,14 @@
 }
 .list-grid-btn {
   position: absolute;
-  right: 0;
+  right: 10px;
   z-index: 999;
+}
+.doctors-grid-view .v-sheet.v-card:not(.v-sheet--outlined),
+.doctor-list-view .v-sheet.v-card:not(.v-sheet--outlined) {
+  box-shadow: none;
+}
+.doctors-background-color,
+#reseta {
+  background: #f1f1f1;
 }

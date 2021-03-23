@@ -11,31 +11,31 @@ export default {
         license_number: '',
         tin_number: '',
         password: '',
-        password_confirm: '',
+        password_confirmation: '',
       },
     }
   },
   mounted() {
-    console.log(this.$route.params.register)
+    console.log(this.$route.params.as)
   },
   methods: {
     async registerUser() {
       try {
         await this.$axios.post('/users', this.register)
-        this.$auth.loginWith('laravelSanctum', {
+        await this.$auth.loginWith('laravelSanctum', {
           data: {
             email: this.register.email,
             password: this.register.password,
           },
         })
         this.$store.dispatch('snackbar/setSnackbar', {
-          text: `Welcome! ${this.$auth.user.name}, stay safe!`,
+          text: `Welcome! ${this.$auth.user.fname}, stay safe!`,
         })
         this.$router.push('/dashboard')
       } catch {
         this.$store.dispatch('snackbar/setSnackbar', {
           color: 'red',
-          text: 'A problem occur.  Please try again later!.',
+          text: 'Oops! Please check your input.',
         })
       }
     },

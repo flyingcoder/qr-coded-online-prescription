@@ -28,7 +28,9 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~plugins/filters.js'
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -71,10 +73,16 @@ export default {
         }
       }
     },
+    redirect: {
+      login: '/login',
+      home: '/dashboard'
+    }
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseUrl: 'http://localhost/resetaqrx-api/public/api'
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

@@ -38,24 +38,6 @@ export default {
           number: '09187829876',
         },
       ],
-      tags: [
-        { header: 'Tags' },
-        {
-          id: 1,
-          avatar: '~/assets/images/Muzan_Anime_Profile.png',
-          title: 'MARIA DELA CRUZ',
-          content: `KDHI, DIKAPAWAN CITY`,
-          number: '09187829876',
-        },
-        { divider: true, inset: true },
-        {
-          id: 2,
-          avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-          title: 'TELAS MARIE CRUZ',
-          content: `KDHI, DIKAPAWAN CITY`,
-          number: '09187267656',
-        },
-      ],
     }
   },
   methods: {},
