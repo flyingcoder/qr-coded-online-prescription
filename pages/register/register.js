@@ -15,7 +15,9 @@ export default {
       },
     }
   },
-  mounted() {},
+  mounted() {
+    console.log(this.$route.params.register)
+  },
   methods: {
     async registerUser() {
       try {
@@ -27,13 +29,13 @@ export default {
           },
         })
         this.$store.dispatch('snackbar/setSnackbar', {
-          text: `Thanks for signing in, ${this.$auth.user.name}`,
+          text: `Welcome! ${this.$auth.user.name}, stay safe!`,
         })
         this.$router.push('/dashboard')
       } catch {
         this.$store.dispatch('snackbar/setSnackbar', {
           color: 'red',
-          text: 'There was an issue signing in.  Please try again.',
+          text: 'A problem occur.  Please try again later!.',
         })
       }
     },

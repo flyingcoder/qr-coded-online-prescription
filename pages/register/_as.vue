@@ -16,16 +16,9 @@
             mdi-email-multiple
           </v-icon>
         </v-text-field>
-        <v-text-field label="Password" class="login-input">
-          <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
-        </v-text-field>
-        <v-text-field label="Confirm Password" class="login-input">
-          <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
-        </v-text-field>
         <v-text-field
           v-if="
-            $nuxt.$route.path == '/register/doctor' ||
-            $nuxt.$route.path == '/register/pharmacy'
+            $route.params.as === 'doctor' || $route.params.as === 'pharmacy'
           "
           label="PRC Number"
           class="login-input"
@@ -35,13 +28,19 @@
           </v-icon>
         </v-text-field>
         <v-text-field
-          v-if="$nuxt.$route.path == '/register/pharmacy'"
+          v-if="$route.params.as == 'pharmacy'"
           label="Business Permit #"
           class="login-input"
         >
           <v-icon slot="prepend" color="#1ac6b6" medium>
             mdi-card-account-details
           </v-icon>
+        </v-text-field>
+        <v-text-field label="Password" class="login-input">
+          <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
+        </v-text-field>
+        <v-text-field label="Confirm Password" class="login-input">
+          <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
         </v-text-field>
       </div>
       <v-row class="center">
