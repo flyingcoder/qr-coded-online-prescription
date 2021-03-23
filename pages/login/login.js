@@ -12,13 +12,13 @@ export default {
           },
         })
         this.$store.dispatch('snackbar/setSnackbar', {
-          text: `Thanks for signing in, ${this.$auth.user.name}`,
+          text: `Happy to have you back!, ${this.$auth.user.fname}`,
         })
         this.$router.push('/dashboard')
       } catch {
         this.$store.dispatch('snackbar/setSnackbar', {
           color: 'red',
-          text: 'There was an issue signing in.  Please try again.',
+          text: 'Ops! Incorrect email or password!',
         })
       }
     },

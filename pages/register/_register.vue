@@ -42,7 +42,7 @@
         </v-text-field>
         <v-text-field
           v-if="$nuxt.$route.path == '/register/pharmacy'"
-          label="Business Number"
+          label="Business Permit #"
           class="login-input"
         >
           <v-icon slot="prepend" color="#1ac6b6" medium>
@@ -62,6 +62,14 @@
           >
         </v-row>
       </div>
+      <v-row class="center">
+        <a
+          style="color: white"
+          class="login-main-btn register-main-btn"
+          @click="registerUser"
+          >REGISTER</a
+        >
+      </v-row>
     </v-form>
   </div>
 </template>

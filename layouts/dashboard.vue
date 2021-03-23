@@ -37,6 +37,7 @@
         <nuxt />
       </v-container>
     </v-main>
+    <Snackbar />
     <!-- <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>
         <v-list-item @click.native="right = !right">
