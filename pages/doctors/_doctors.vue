@@ -19,6 +19,9 @@
           <div class="contact">
             {{ single_doctor.number }}
           </div>
+          <div class="content">
+            {{ single_doctor.content }}
+          </div>
         </div>
       </v-card>
       <div class="text-center-pd padding-top-md">

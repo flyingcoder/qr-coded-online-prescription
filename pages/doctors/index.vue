@@ -42,11 +42,11 @@
             class="doctors-grid-main-view"
             cols="6"
           >
-            <a href="/doctors/1">
+            <div @click="doctorLink">
               <v-card
                 class="pa-2"
                 height="150px"
-                elevation="1"
+                elevation="2"
                 width="95%"
                 style="margin: 5px"
               >
@@ -68,7 +68,7 @@
                   {{ item.number }}
                 </div>
               </v-card>
-            </a>
+            </div>
           </v-col>
         </v-row>
       </v-card>
@@ -76,7 +76,7 @@
 
     <div v-if="grid" class="doctor-list-view">
       <v-card max-width="450" class="mx-auto doctors">
-        <a href="/doctors/01">
+        <div @click="doctorLink">
           <v-list three-line class="doctors-background-color">
             <template v-for="(item, index) in doctors">
               <v-subheader
@@ -115,7 +115,7 @@
               </v-list-item>
             </template>
           </v-list>
-        </a>
+        </div>
       </v-card>
     </div>
   </div>

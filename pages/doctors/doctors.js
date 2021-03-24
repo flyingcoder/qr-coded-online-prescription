@@ -54,5 +54,9 @@ export default {
       ],
     }
   },
-  methods: {},
+  methods: {
+    doctorLink() {
+      this.$router.push('/doctors/1')
+    },
+  },
 }

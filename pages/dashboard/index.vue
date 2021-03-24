@@ -8,12 +8,12 @@
           :newsfeed="newsfeed"
         />
       </div>
-      <div v-if="display" class="find-doctors">
+      <div v-if="display" class="find-doctors text-center-pd">
         <nuxt-link to="/doctors">
           <v-btn
             depressed
             color="#1ac6b6"
-            width="100%"
+            width="70%"
             class="btn-radius find-doctors-btn"
             style="color: white"
           >
