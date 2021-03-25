@@ -2,6 +2,7 @@
   <div>
     <div>
       <v-card elevation="3" class="padding-bottom-sm">
+        <span id="word-related">PEDIATRICIAN</span>
         <div class="doctor-profile text-center">
           <img
             class="user-icon"
@@ -20,7 +21,7 @@
             {{ single_doctor.number }}
           </div>
           <div class="content">
-            {{ single_doctor.content }}
+            {{ single_doctor.description }}
           </div>
         </div>
       </v-card>

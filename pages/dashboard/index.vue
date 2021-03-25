@@ -2,6 +2,31 @@
   <div id="dashboard">
     <div id="dashboard">
       <div v-if="no_display">
+        <div class="dashboard-main-btns">
+          <nuxt-link to="/marketplace">
+            <v-btn
+              depressed
+              color="#1ac6b6"
+              width="47%"
+              class="btn-radius find-doctors-btn"
+              style="color: white"
+            >
+              MARKETPLACE
+            </v-btn>
+          </nuxt-link>
+          <nuxt-link to="/doctors">
+            <v-btn
+              id="dashboard-main-btn-right"
+              depressed
+              color="#1ac6b6"
+              width="47%"
+              class="btn-radius find-doctors-btn"
+              style="color: white"
+            >
+              CATEGORIES
+            </v-btn>
+          </nuxt-link>
+        </div>
         <NewsFeed
           v-for="newsfeed in newsfeeds"
           :key="newsfeed.id"

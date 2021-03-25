@@ -1,0 +1,86 @@
+.top-content {
+  background: #1ac6b6;
+  padding-top: 13px;
+  padding-bottom: 10px;
+  .doctor-name {
+    font-size: 21px;
+    font-weight: 500;
+    color: white;
+  }
+  .active-user-sign {
+    font-size: 14px;
+    margin-top: -5px;
+    color: white;
+  }
+}
+.chat-content {
+  position: absolute;
+  bottom: 0 !important;
+  width: 100%;
+  margin-bottom: -15px;
+}
+.message-input {
+  width: 90%;
+  input {
+    color: red;
+  }
+}
+.send-file {
+  position: absolute;
+  top: 13px;
+  right: 20px;
+}
+.doctors-upper-name {
+  width: 85%;
+  float: right;
+}
+.doctor-message-content {
+  background: #2b867d;
+  color: white;
+  border-radius: 10px 30px 0px 10px;
+  margin: 0px 15px 15px 15px;
+  padding: 10px;
+  width: 75%;
+  float: right;
+}
+.doctor-time-sent {
+  color: grey;
+  width: 75%;
+  font-size: 11px;
+  float: right;
+  text-align: right;
+  padding-right: 20px;
+}
+.patient-message-content {
+  background: #1ac6b6;
+  color: white;
+  border-radius: 30px 10px 10px 0px;
+  margin: 0px 15px 15px 15px;
+  padding: 10px;
+  width: 75%;
+  float: left;
+}
+.patient-time-sent {
+  color: grey;
+  width: 75%;
+  font-size: 11px;
+  float: left;
+  text-align: left;
+  padding-left: 20px;
+}
+.main-content {
+  height: 81vh;
+  overflow: scroll;
+  padding-top: 12px;
+}
+.chat-content.padding-content {
+  background: white;
+}
+.exit-chatbox {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+.chat-content {
+  padding-top: 8px;
+}

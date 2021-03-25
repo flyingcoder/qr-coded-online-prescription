@@ -40,6 +40,10 @@
   .contact {
     font-weight: 400;
   }
+  .content {
+    font-size: 15px;
+    padding-top: 14px;
+  }
 }
 .doctor-profile {
   margin-top: 60px;
@@ -63,4 +67,11 @@
 .doctors-grid-view .v-sheet.v-card:not(.v-sheet--outlined),
 .doctor-list-view .v-sheet.v-card:not(.v-sheet--outlined) {
   box-shadow: none;
+}
+span#word-related {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+  font-weight: bold;
 }
