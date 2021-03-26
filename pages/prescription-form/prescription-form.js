@@ -16,6 +16,14 @@ export default {
       },
     },
   },
+  methods: {
+    prescription() {
+      this.$store.dispatch('snackbar/setSnackbar', {
+        text: `You have successfully created the prescrition`,
+      })
+      this.$router.push('/doctors')
+    },
+  },
   data() {
     return {
       amount: '1',

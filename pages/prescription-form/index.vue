@@ -36,7 +36,9 @@
             <v-text-field
               label="Age"
               outlined
+              type="number"
               dense
+              limit
               style="width: 22%; margin-right: 10px"
             ></v-text-field>
             <v-text-field
@@ -180,8 +182,15 @@
       </div>
       <v-divider></v-divider>
       <div class="patient-prescribed-buttons d-flex justify-center">
-        <v-btn class="patient-prescribed-button-prescribe"> PRESCRIBED </v-btn>
-        <v-btn class="patient-prescribed-button-cancel" tile> CANCEL </v-btn>
+        <v-btn
+          class="patient-prescribed-button-prescribe"
+          @click="prescription"
+        >
+          PRESCRIBED
+        </v-btn>
+        <v-btn class="patient-prescribed-button-cancel" tile to="/chatbox">
+          CANCEL
+        </v-btn>
       </div>
     </v-form>
   </div>

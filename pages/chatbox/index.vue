@@ -48,7 +48,6 @@
         rounded
         append-icon="mdi-send"
         color="#1ac6b6"
-        @click="message == !message"
       ></v-text-field>
       <div class="send-file">
         <v-icon> mdi-file </v-icon>
