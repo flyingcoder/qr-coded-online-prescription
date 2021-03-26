@@ -37,6 +37,9 @@
       </div>
     </div>
     <div class="chat-content padding-content">
+      <nuxt-link v-if="$auth.user.role == 'doctor'" to="/prescription-form">
+        <v-icon class="add-prescription"> mdi-plus </v-icon>
+      </nuxt-link>
       <v-text-field
         placeholder="Type a message"
         outlined
@@ -45,6 +48,7 @@
         rounded
         append-icon="mdi-send"
         color="#1ac6b6"
+        @click="message == !message"
       ></v-text-field>
       <div class="send-file">
         <v-icon> mdi-file </v-icon>

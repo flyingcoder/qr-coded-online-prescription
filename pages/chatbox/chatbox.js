@@ -3,6 +3,7 @@ export default {
   layout: 'search-notification',
   data() {
     return {
+      message: false,
       doctor_messages: [
         {
           id: 1,

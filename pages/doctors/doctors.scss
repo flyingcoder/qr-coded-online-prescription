@@ -13,6 +13,9 @@
 .doctors-grid-main-view.col:nth-child(odd) {
   display: none;
 }
+.doctors-grid-main-view {
+  padding-bottom: 15px !important;
+}
 .grid-single-name,
 .grid-single-content,
 .grid-single-number {
@@ -68,10 +71,30 @@
 .doctor-list-view .v-sheet.v-card:not(.v-sheet--outlined) {
   box-shadow: none;
 }
-span#word-related {
+div#word-related {
+  font-size: 13px;
+}
+.list-contact-doctor {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 12px;
-  font-weight: bold;
+  right: 24px;
+  z-index: 999 !important;
+}
+.grid-contact-doctor {
+  margin-top: 10px !important;
+}
+.doctor-list-main-btn {
+  position: relative !important;
+  z-index: 1 !important;
+}
+.list-profile-doctor {
+  position: absolute;
+  right: 65px;
+}
+.grid-profile-doctor {
+  position: absolute;
+  right: 35px;
+}
+.grid-contact-doctor {
+  position: absolute;
+  left: 35px;
 }

@@ -34,7 +34,7 @@
         />
       </div>
       <div v-if="display" class="find-doctors text-center-pd">
-        <nuxt-link to="/doctors">
+        <nuxt-link v-if="$auth.user.role == 'patient'" to="/doctors">
           <v-btn
             depressed
             color="#1ac6b6"
@@ -43,6 +43,17 @@
             style="color: white"
           >
             Find Doctors
+          </v-btn>
+        </nuxt-link>
+        <nuxt-link v-if="$auth.user.role == 'doctor'" to="/doctors">
+          <v-btn
+            depressed
+            color="#1ac6b6"
+            width="70%"
+            class="btn-radius find-doctors-btn"
+            style="color: white"
+          >
+            Find Patient
           </v-btn>
         </nuxt-link>
       </div>

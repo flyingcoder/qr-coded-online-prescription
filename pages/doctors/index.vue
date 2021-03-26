@@ -42,7 +42,7 @@
             class="doctors-grid-main-view"
             cols="6"
           >
-            <div @click="doctorLink">
+            <div>
               <v-card
                 class="pa-2"
                 height="150px"
@@ -67,6 +67,27 @@
                 <div class="grid-single-number d-flex justify-center">
                   {{ item.number }}
                 </div>
+                <v-btn
+                  class="ma-2 grid-contact-doctor"
+                  to="/chatbox"
+                  outlined
+                  x-small
+                  fab
+                  color="indigo"
+                  background="red"
+                >
+                  <v-icon>mdi-phone</v-icon>
+                </v-btn>
+                <v-btn
+                  class="ma-2 grid-profile-doctor"
+                  to="/doctors/01"
+                  outlined
+                  x-small
+                  fab
+                  color="indigo"
+                >
+                  <v-icon>mdi-account</v-icon>
+                </v-btn>
               </v-card>
             </div>
           </v-col>
@@ -76,7 +97,7 @@
 
     <div v-if="grid" class="doctor-list-view">
       <v-card max-width="450" class="mx-auto doctors">
-        <div @click="doctorLink">
+        <div class="doctor-list-main-btn">
           <v-list three-line class="doctors-background-color">
             <template v-for="(item, index) in doctors">
               <v-subheader
@@ -103,6 +124,26 @@
 
                 <v-list-item-content>
                   <v-list-item-title v-html="item.title"></v-list-item-title>
+                  <v-btn
+                    class="ma-2 list-contact-doctor"
+                    to="/chatbox"
+                    outlined
+                    x-small
+                    fab
+                    color="indigo"
+                  >
+                    <v-icon>mdi-phone</v-icon>
+                  </v-btn>
+                  <v-btn
+                    class="ma-2 list-profile-doctor"
+                    to="/doctors/01"
+                    outlined
+                    x-small
+                    fab
+                    color="indigo"
+                  >
+                    <v-icon>mdi-account</v-icon>
+                  </v-btn>
                   <v-list-item-subtitle>
                     <div class="doctor-content">
                       {{ item.content }}

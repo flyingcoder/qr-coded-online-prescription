@@ -2,7 +2,6 @@
   <div>
     <div>
       <v-card elevation="3" class="padding-bottom-sm">
-        <span id="word-related">PEDIATRICIAN</span>
         <div class="doctor-profile text-center">
           <img
             class="user-icon"
@@ -13,6 +12,9 @@
         <div class="doctor-information padding-content text-center-pd">
           <div class="name padding-bottom-sm">
             {{ single_doctor.name }}
+          </div>
+          <div id="word-related" class="margin-top-pull padding-bottom-sm">
+            <b>PEDIATRICIAN</b>
           </div>
           <div class="address">
             {{ single_doctor.content }}
@@ -41,6 +43,6 @@
   </div>
 </template>
 
-<script src="./doctors.js"></script>
+<script src="./_doctors.js"></script>
 
-<style src="./doctors.scss" lang="scss" scoped></style>
+<style src="../doctors.scss" lang="scss" scoped></style>
