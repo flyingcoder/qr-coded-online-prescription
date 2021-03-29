@@ -1,21 +1,6 @@
 export default {
   layout: 'dashboard',
   auth: false,
-  props: {
-    patient_info: {
-      type: Object,
-      default() {
-        return {
-          name: 'Neil Humprey O. Laquihon',
-          use: 'Internal Medicine',
-          clinic: 'Laquihon Medical Clinic',
-          number: 'Tell #288-500',
-          date: '01/21/21',
-          time: '21:05 Am',
-        }
-      },
-    },
-  },
   methods: {
     prescription() {
       this.$store.dispatch('snackbar/setSnackbar', {
@@ -23,9 +8,22 @@ export default {
       })
       this.$router.push('/doctors')
     },
+    cancel() {},
   },
   data() {
     return {
+      patient_info: {
+        image: 'medical-pharmacy-logo.jpg',
+        name: 'Mel Ligoro',
+        time: '12:30 PM',
+        number: '09189789876',
+        use: 'Skin',
+        clinic: 'Pharmacy',
+        message:
+          'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
+      },
+      med_type: false,
+      med_method: false,
       amount: '1',
       take: '2',
       items: ['1', '2', '3', '4'],

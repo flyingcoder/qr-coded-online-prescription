@@ -1,11 +1,13 @@
 <template>
   <div class="prescription-form-page">
+    <MedType v-if="med_type" />
+    <MedApplyMethod v-if="med_method" />
     <v-form>
       <div class="patient-info d-flex">
         <div class="prescription-form-image">
           <img
             class="user-icon"
-            :src="require(`~/assets/images/medical-pharmacy-logo.jpg`)"
+            :src="require(`~/assets/images/${patient_info.image}`)"
             alt="Alvin Pacot"
           />
         </div>
@@ -91,13 +93,27 @@
             prepend-inner-icon="mdi-magnify"
             style="width: 70%; margin-right: 10px"
           ></v-text-field>
-          <v-btn depressed height="40px" style="width: 30%"> Tablet </v-btn>
+          <v-btn
+            depressed
+            height="40px"
+            style="width: 30%"
+            @click="med_type = !med_type"
+          >
+            Tablet
+          </v-btn>
         </div>
       </div>
       <div class="patient-sig-prescription">
         <div class="patient-sig-title"><h2>Sig</h2></div>
         <div class="patient-sig-buttons d-flex">
-          <v-btn depressed height="40px" style="width: 19%"> Take </v-btn>
+          <v-btn
+            depressed
+            height="40px"
+            style="width: 19%"
+            @click="med_method = !med_method"
+          >
+            Take
+          </v-btn>
           <v-select
             v-model="amount"
             :items="items"
@@ -147,16 +163,18 @@
       </div>
       <div class="patient-day-uses-prescription d-flex">
         <div class="patient-duration d-flex">
-          <v-select
+          <v-text-field
             v-model="duration"
-            :items="durations"
+            type="number"
+            min="1"
+            max="31"
             dense
             append-icon=""
             class="patient-duration-input"
             clear-icon
             outlined
             style="width: 20%"
-          ></v-select>
+          ></v-text-field>
           <div class="duration-day"><h3>DAY</h3></div>
         </div>
         <div class="patient-duration-total d-flex">
@@ -188,7 +206,7 @@
         >
           PRESCRIBED
         </v-btn>
-        <v-btn class="patient-prescribed-button-cancel" tile to="/chatbox">
+        <v-btn class="patient-prescribed-button-cancel" tile @click="cancel">
           CANCEL
         </v-btn>
       </div>
