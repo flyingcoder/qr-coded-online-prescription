@@ -1,6 +1,5 @@
 export default {
   layout: 'search-notification',
-  auth: false,
   methods: {
     to() {
       this.$router.go(-1)
