@@ -28,15 +28,11 @@
     <v-spacer></v-spacer>
 
     <NuxtLink to="/search">
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+      <v-icon>mdi-magnify</v-icon>
     </NuxtLink>
 
     <NuxtLink to="/notification">
-      <v-btn icon>
-        <v-icon>mdi-bell</v-icon>
-      </v-btn>
+      <v-icon>mdi-bell</v-icon>
     </NuxtLink>
     <template #extension style="padding-bottom: 0">
       <div class="menu-icons">

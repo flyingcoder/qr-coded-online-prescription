@@ -94,13 +94,20 @@ a {
 .row {
   margin: 12px;
 }
-.v-btn {
+.qrx-btn {
   height: 45px !important;
   color: white !important;
   background-color: $btn-bg-color !important;
   width: 100%;
   border-radius: 20px !important;
-  a {
+}
+a.qrx-btn {
   text-decoration: none;
+}
+.v-footer {
+  background-color: #1ac6b6 !important;
+  color: white !important;
+  span {
+    margin: 0 auto;
   }
 }

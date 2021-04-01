@@ -9,7 +9,9 @@
     </v-content>
     <div class="sign-in_login_desc">
       <v-row class="center">
-        <h1 class="sign-in_login_title text-white">Reseta<b> &nbsp;QRx</b></h1>
+        <h1 class="my-0 sign-in_login_title text-white">
+          Reseta<b> &nbsp;QRx</b>
+        </h1>
       </v-row>
       <v-row class="center">
         <p class="text-center text-white">Your Quickest online Prescription.</p>
@@ -17,23 +19,25 @@
     </div>
     <div class="sign-in_login_buttons">
       <v-row class="center text-center-pd">
-        <NuxtLink to="/register" class="sign-btn">
-          <v-btn depressed color="#B2EBF2" width="90%" class="btn-radius">
-            SIGN UP
-          </v-btn>
-        </NuxtLink>
+        <v-btn
+          to="/register"
+          class="sign-btn btn-radius"
+          depressed
+          color="#B2EBF2"
+          width="90%"
+        >
+          SIGN UP
+        </v-btn>
       </v-row>
       <v-row class="center text-center-pd">
-        <NuxtLink to="/login" class="login-btn">
-          <v-btn
-            class="ma-2 normal-mg btn-radius"
-            outlined
-            color="#E0F7FA"
-            width="90%"
-          >
-            LOGIN
-          </v-btn>
-        </NuxtLink>
+        <v-btn
+          to="/login"
+          class="ma-2 normal-mg btn-radius login-btn"
+          outlined
+          width="90%"
+        >
+          LOGIN
+        </v-btn>
       </v-row>
     </div>
   </div>
@@ -56,12 +60,12 @@ export default {
   }
 }
 .sign-in_login_buttons {
-  margin: 90px auto;
+  margin: 100px auto;
 }
 .text-end {
   width: 400px;
 }
-.sign-btn a {
+a.sign-btn {
   color: #129792 !important;
 }
 .sign-in_login {
@@ -71,5 +75,7 @@ export default {
 .sign-btn,
 .login-btn {
   border-radius: 20px 0px;
+  color: #e0f7fa !important;
+  height: 46px !important;
 }
 </style>
