@@ -1,0 +1,19 @@
+@media all and (max-width: 750px) {
+  .sign-btn,
+  .login-btn,
+  .register-main-btn,
+  .login-main-btn {
+    width: 60% !important;
+    border-radius: 20px 0px !important;
+    margin-bottom: 10px !important;
+  }
+  .btn-radius {
+    border-radius: 20px 0 !important;
+  }
+  .sign-in_login {
+    background-image: url('~/assets/images/sign-in-login-background.png');
+    background-repeat: no-repeat;
+    background-size: 360px;
+    background-position-y: 90%;
+  }
+}
