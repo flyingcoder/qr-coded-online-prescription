@@ -1,6 +1,4 @@
 export default {
-  auth: false,
-  middleware: 'auth-guard',
   layout: 'form',
   methods: {
     async userLogin() {
@@ -35,6 +33,7 @@ export default {
           /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
           'E-mail must be valid',
       ],
+      passwordRules: [(v) => !v || 'Password is required'],
     }
   },
 }

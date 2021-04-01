@@ -1,26 +1,31 @@
-.login-input-card {
-  background: #ffffff;
-  position: relative;
-  top: -25px;
-  margin: 10px 30px;
-  padding: 20px;
-  border-radius: 28px 2px;
-  box-shadow: 1px 1px 5px #8f8f8f;
-
-  .login-logo {
-    padding: 35px 15px;
+.login-logo {
+    margin-top: 20px;
+    img {
+      display: block;
+    }
+}
+.form-header {
+  margin: 20px;
+}
+.form-inputs {
+  margin: 20px;
+}
+.form-action {
+  margin: 20px;
+  button {
+    margin: 20px;
   }
 }
 .login-main-btn {
+  a {
+    color: white;
+  }
   border-radius: 20px;
   margin-bottom: 10px !important;
   padding: 10px 55px;
   background: #1ac6b6;
-  position: relative;
   color: white;
   text-align: center;
   text-decoration: none;
 }
-a {
-  color: white;
-}
+

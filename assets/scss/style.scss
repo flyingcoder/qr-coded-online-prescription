@@ -8,15 +8,16 @@ h5,
 h6
 {
   font-weight: 500;
+  color: $green-blue;
+  margin: 20px 0;
 }
 p {
-  font-weight: 100;
+  font-weight: 300;
 }
 div,
 a {
   font-weight: 300;
-  text-decoration: none;
-  color: rgb(129, 111, 111) !important;
+  color: $green-blue !important;
 }
 .v-icon.outlined {
   border: 1px solid currentColor;
@@ -35,9 +36,6 @@ a {
 }
 .text-white {
   color: #fff;
-}
-.v-btn a {
-  text-decoration: none;
 }
 .text-center-pd {
   text-align: center;
@@ -96,6 +94,13 @@ a {
 .row {
   margin: 12px;
 }
-button {
+.v-btn {
   height: 45px !important;
+  color: white !important;
+  background-color: $btn-bg-color !important;
+  width: 100%;
+  border-radius: 20px !important;
+  a {
+  text-decoration: none;
+  }
 }

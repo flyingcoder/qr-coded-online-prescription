@@ -8,7 +8,7 @@
             <h1>Register As</h1>
           </div>
         </v-row>
-        <div class="registrar-buttons user-register-btn">
+        <div class="registrar-buttons">
           <v-row class="center">
             <v-btn
               depressed
@@ -42,14 +42,14 @@
               Pharmacy
             </v-btn>
           </v-row>
+          <v-row class="center">
+            <p class="text-blue no-margin register-main-btn text-center-pd">
+              <NuxtLink to="/login">I already have an account.</NuxtLink>
+            </p>
+          </v-row>
         </div>
       </div>
     </v-form>
-    <v-row class="center">
-      <p class="text-black no-margin register-main-btn text-center-pd">
-        <NuxtLink to="/login">Already have an account!</NuxtLink>
-      </p>
-    </v-row>
   </div>
 </template>
 <script>
