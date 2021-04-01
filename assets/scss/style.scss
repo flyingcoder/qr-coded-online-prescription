@@ -19,6 +19,9 @@ a {
   font-weight: 300;
   color: $green-blue !important;
 }
+a.v-btn {
+  color: white !important;
+}
 .v-icon.outlined {
   border: 1px solid currentColor;
   border-radius: 50%;
@@ -93,6 +96,11 @@ a {
 }
 .row {
   margin: 12px;
+}
+.form-action {
+  .qrx-btn {
+    margin: 20px auto;
+  }
 }
 .qrx-btn {
   height: 45px !important;

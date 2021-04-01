@@ -14,10 +14,15 @@ export default {
         password_confirmation: '',
         role: '',
       },
+      title: '',
     }
   },
   mounted() {
     this.register.role = this.$route.params.as
+    this.title =
+      'Register As ' +
+      this.$route.params.as.charAt(0).toUpperCase() +
+      this.$route.params.as.slice(1)
   },
   methods: {
     async registerUser() {
