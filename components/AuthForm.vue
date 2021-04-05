@@ -9,17 +9,10 @@
         <div class="text-center">
           <img width="100px" src="~/assets/images/reseta-form-img.png" />
         </div>
-        <div class="text-center py-0">
-          <h1 class="my-0">
-            {{ headerText }}
-          </h1>
-        </div>
-        <slot name="header">
-          <div class="text-center py-0">
-            <p class="text-black no-margin">Don't have an Account?</p>
-            <NuxtLink to="/register">Click Here!</NuxtLink>
-          </div>
-        </slot>
+        <h1 class="my-0 text-center">
+          {{ headerText }}
+        </h1>
+        <slot name="header"> </slot>
       </div>
       <slot>
         <div class="form-inputs">

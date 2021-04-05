@@ -1,5 +1,11 @@
 <template>
   <AuthForm button-text="REGISTER" :registration="true" :header-text="title">
+    <template #header>
+      <div class="text-center py-0">
+        <p class="text-black no-margin">Have an Account?</p>
+        <NuxtLink to="/login">Click Here!</NuxtLink>
+      </div>
+    </template>
     <template #inputs>
       <v-text-field
         v-if="$route.params.as === 'doctor' || $route.params.as === 'patient'"
