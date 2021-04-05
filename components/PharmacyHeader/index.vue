@@ -37,14 +37,17 @@
 
     <template #extension style="padding-bottom: 0">
       <div class="menu-icons">
+        <NuxtLink to="/dashboard" class="menu-icon"
+          ><v-icon>mdi-home</v-icon></NuxtLink
+        >
         <NuxtLink to="/pharmacy" class="menu-icon"
-          ><v-icon>mdi-pill</v-icon></NuxtLink
+          ><v-icon>mdi-hospital-box</v-icon></NuxtLink
         >
         <NuxtLink to="/cart" class="menu-icon"
           ><v-icon>mdi-cart-plus</v-icon></NuxtLink
         >
-        <NuxtLink to="/doctor" class="menu-icon"
-          ><v-icon>mdi-doctor</v-icon></NuxtLink
+        <NuxtLink to="/directory" class="menu-icon"
+          ><v-icon>mdi-contacts</v-icon></NuxtLink
         >
         <NuxtLink to="/wallet" class="menu-icon"
           ><v-icon>mdi-wallet</v-icon></NuxtLink

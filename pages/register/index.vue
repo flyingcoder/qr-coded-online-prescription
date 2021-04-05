@@ -1,5 +1,11 @@
 <template>
   <AuthForm button-text="REGISTER" header-text="Register As">
+    <template #header>
+      <div class="text-center py-0">
+        <p class="text-black no-margin">Have an Account?</p>
+        <NuxtLink to="/login">Click Here!</NuxtLink>
+      </div>
+    </template>
     <div class="registrar-buttons">
       <v-row class="center">
         <v-col cols="12">
