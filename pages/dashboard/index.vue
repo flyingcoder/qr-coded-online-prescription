@@ -2,7 +2,7 @@
   <div id="dashboard">
     <div id="dashboard">
       <div v-if="no_display">
-        <div class="dashboard-main-btns">
+        <div v-if="false" class="dashboard-main-btns">
           <nuxt-link to="/marketplace">
             <v-btn
               depressed

@@ -3,6 +3,7 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -62,12 +63,13 @@ export default {
       'laravelSanctum': {
         provider: 'laravel/sanctum',
         url: 'http://localhost/resetaqrx-api/public',
+        //url: 'https://api.resetaqrx.com',
         endpoints: {
           login: {
             url: '/api/login'
           },
           logout: {
-            url: '/auth/logout', method: 'post'
+            url: '/api/auth/logout', method: 'post'
           }
         }
       }
@@ -78,9 +80,11 @@ export default {
     }
   },
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
+    //proxy: true,
+    credentials: true,
     baseUrl: 'http://localhost/resetaqrx-api/public/api'
+    //baseUrl: 'https://api.resetaqrx.com/api'
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

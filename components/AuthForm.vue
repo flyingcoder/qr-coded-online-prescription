@@ -2,7 +2,7 @@
   <v-form
     class="main-form"
     :class="registration ? 'register' : 'login'"
-    @submit.prevent="submit"
+    @submit.prevent="userLogin"
   >
     <div class="form-card" :class="$route.params.as">
       <div class="form-card-content">
@@ -114,6 +114,7 @@ export default {
             password: this.login.password,
           },
         })
+        console.log(this.$auth)
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `Happy to have you back!, ${this.$auth.user.fname}`,
         })

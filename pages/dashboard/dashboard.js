@@ -1,6 +1,6 @@
 export default {
   layout: 'dashboard',
-  auth: false,
+  auth: true,
   methods: {
     swiper() {
       // this.$router.push('/login')
