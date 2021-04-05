@@ -42,7 +42,7 @@
     <template #extension style="padding-bottom: 0" class="test">
       <div class="menu-icons">
         <NuxtLink to="/dashboard" class="menu-icon"
-          ><v-icon>mdi-view-dashboard</v-icon></NuxtLink
+          ><v-icon>mdi-view-home</v-icon></NuxtLink
         >
         <NuxtLink to="/hospital" class="menu-icon"
           ><v-icon>mdi-hospital-building</v-icon></NuxtLink
