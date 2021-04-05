@@ -5,60 +5,57 @@
     @submit.prevent="userLogin"
   >
     <div class="form-card" :class="$route.params.as">
-      <div class="form-card-content">
-        <v-row class="center form-header">
-          <v-col cols="12" class="text-center">
-            <img width="100px" src="~/assets/images/reseta-form-img.png" />
-          </v-col>
-          <v-col cols="12" class="text-center py-0">
-            <h1 class="my-0">
-              {{ headerText }}
-            </h1>
-          </v-col>
-          <slot name="header">
-            <v-col class="text-center py-0">
-              <p class="text-black no-margin">Don't have an Account?</p>
-              <NuxtLink to="/register">Click Here!</NuxtLink>
-            </v-col>
-          </slot>
-        </v-row>
-        <slot>
-          <div class="form-inputs">
-            <slot name="inputs"></slot>
-
-            <v-text-field
-              v-model="login.email"
-              :rules="emailRules"
-              label="E-mail"
-              required
-            >
-              <v-icon slot="prepend" color="#1ac6b6" medium>
-                mdi-account
-              </v-icon>
-            </v-text-field>
-            <v-text-field
-              v-model="login.password"
-              type="password"
-              label="Password"
-              required
-            >
-              <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
-            </v-text-field>
-            <v-text-field
-              v-if="registration"
-              v-model="register.password_confirmation"
-              type="password"
-              label="Confirm Password"
-              required
-            >
-              <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
-            </v-text-field>
+      <div class="center form-header">
+        <div class="text-center">
+          <img width="100px" src="~/assets/images/reseta-form-img.png" />
+        </div>
+        <div class="text-center py-0">
+          <h1 class="my-0">
+            {{ headerText }}
+          </h1>
+        </div>
+        <slot name="header">
+          <div class="text-center py-0">
+            <p class="text-black no-margin">Don't have an Account?</p>
+            <NuxtLink to="/register">Click Here!</NuxtLink>
           </div>
-          <v-row class="center form-action">
-            <v-btn class="qrx-btn" type="submit">{{ buttonText }}</v-btn>
-          </v-row>
         </slot>
       </div>
+      <slot>
+        <div class="form-inputs">
+          <slot name="inputs"></slot>
+
+          <v-text-field
+            v-model="login.email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          >
+            <v-icon slot="prepend" color="#1ac6b6" medium> mdi-account </v-icon>
+          </v-text-field>
+          <v-text-field
+            v-model="login.password"
+            type="password"
+            label="Password"
+            required
+          >
+            <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
+          </v-text-field>
+          <v-text-field
+            v-if="registration"
+            v-model="register.password_confirmation"
+            type="password"
+            label="Confirm Password"
+            required
+          >
+            <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
+          </v-text-field>
+        </div>
+        <v-spacer></v-spacer>
+        <div class="center form-action">
+          <v-btn class="qrx-btn" type="submit">{{ buttonText }}</v-btn>
+        </div>
+      </slot>
     </div>
   </v-form>
 </template>
@@ -132,18 +129,23 @@ export default {
 <style lang="scss" scoped>
 .main-form {
   background-color: #ffffff;
-  margin-top: 90px;
-  min-height: 70%;
+  margin: 90px 0;
+  min-height: calc(100vh - 180px);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .form-card {
   background: #ffffff;
-  margin: 10px 20px;
+  margin: -50px 20px;
   padding: 20px;
-  position: fixed;
-  top: 25px;
   width: -webkit-fill-available;
   border-radius: 28px 2px;
   box-shadow: 1px 1px 5px #8f8f8f;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
 }
 .register {
   & .patient {
@@ -159,7 +161,6 @@ export default {
       padding-top: 4px !important;
       margin-top: 0px !important;
     }
-    top: 10px !important;
   }
 
   h1 {
