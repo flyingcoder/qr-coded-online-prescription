@@ -44,7 +44,6 @@
             <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
           </v-text-field>
         </div>
-        <v-spacer></v-spacer>
         <div class="center form-action">
           <v-btn class="qrx-btn" type="submit">{{ buttonText }}</v-btn>
         </div>
@@ -136,7 +135,6 @@ export default {
   width: -webkit-fill-available;
   border-radius: 28px 2px;
   box-shadow: 1px 1px 5px #8f8f8f;
-  min-height: 700px;
   display: flex;
   flex-direction: column;
 }
@@ -191,9 +189,6 @@ export default {
   }
   .form-action {
     margin: 20px;
-    button {
-      margin: 20px;
-    }
   }
   .login-main-btn {
     a {
