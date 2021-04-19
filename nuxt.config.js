@@ -62,7 +62,7 @@ export default {
     strategies: {
       'laravelSanctum': {
         provider: 'laravel/sanctum',
-        url: 'http://resetaqrx-api.test',
+        url: 'http://localhost/resetaqrx-api/public',
         //url: 'https://api.resetaqrx.com',
         endpoints: {
           login: {
@@ -83,7 +83,7 @@ export default {
   axios: {
     //proxy: true,
     credentials: true,
-    baseUrl: 'http://resetaqrx-api.test'
+    baseUrl: 'http://localhost/resetaqrx-api/public/api'
     //baseUrl: 'https://api.resetaqrx.com/api'
   },
 

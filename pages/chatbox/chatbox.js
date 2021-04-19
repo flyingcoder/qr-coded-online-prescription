@@ -7,7 +7,7 @@ export default {
         message: '',
         type: 'user',
         file: '',
-        id: '',
+        id: 2,
         temporaryMsgId: 'temp_1',
       },
     }
@@ -26,7 +26,7 @@ export default {
 
       formData.append('type', this.body.type)
 
-      this.$axios.post('sendMessage', formData, {
+      this.$axios.post('chat/sendMessage', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
