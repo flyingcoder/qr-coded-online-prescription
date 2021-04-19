@@ -22,8 +22,9 @@
     <v-spacer></v-spacer>
 
     <v-app-bar-title>
-      <img class="logo-wide" src="@/assets/images/Qr-code-logo3.png"
+      <img class="logo-wide" src="@/assets/images/reseta-form-img.png"
     /></v-app-bar-title>
+    <div class="reseta-logo-text">ResetaQrx</div>
 
     <v-spacer></v-spacer>
 
