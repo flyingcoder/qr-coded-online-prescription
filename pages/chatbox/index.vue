@@ -4,7 +4,7 @@
       <img
         class="user-icon"
         :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-        alt="Alvin Pacot"
+        alt=""
       />
       <div class="doctors-upper-name">
         <div class="doctor-name">Panday Digital</div>
@@ -41,6 +41,7 @@
         <v-icon class="add-prescription"> mdi-plus </v-icon>
       </nuxt-link>
       <v-text-field
+        v-model="body.message"
         placeholder="Type a message"
         outlined
         dense
@@ -50,7 +51,7 @@
         color="#1ac6b6"
       ></v-text-field>
       <div class="send-file">
-        <v-icon> mdi-file </v-icon>
+        <a href="" @click.prevent="sendMessage"><v-icon> mdi-file </v-icon></a>
       </div>
     </div>
   </div>
