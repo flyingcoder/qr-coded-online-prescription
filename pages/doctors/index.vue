@@ -30,12 +30,7 @@
         :class="{ 'prop-name': !grid }"
       >
         <div class="v-subheader doctors-grid-title">Doctors</div>
-        <v-row
-          :align="align"
-          no-gutters
-          style="height: 100%"
-          class="doctors-grid"
-        >
+        <v-row no-gutters style="height: 100%" class="doctors-grid">
           <v-col
             v-for="item in doctors"
             :key="item.id"
