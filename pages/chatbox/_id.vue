@@ -28,14 +28,9 @@
         </div>
       </div>
       <div class="messenger-sendCard" style="display: block">
-        <div
-          v-if="attachment"
-          class="attachment-preview"
-          v-html="attachment"
-        ></div>
         <form id="message-form" method="post">
           <label style="display: flex; align-items: center; padding: 0 5px"
-            ><img width="23px" src="~/assets/images/paper-clip.svg" />
+            ><img width="23px" src="~/assets/icons/paper-clip.svg" />
             <input
               type="file"
               class="upload-attachment"
@@ -54,7 +49,7 @@
           ></textarea>
           <button @click.prevent="sendMessage">
             <div style="display: flex; align-items: center; padding: 0 10px">
-              <img width="23px" src="~/assets/images/paper-plane.svg" />
+              <img width="23px" src="~/assets/icons/paper-plane.svg" />
             </div>
           </button>
         </form>

@@ -8,21 +8,24 @@
           <v-icon dark> mdi-pencil </v-icon>
         </v-btn>
       </div>
+      <div class="back-button" @click="exitprofile">
+        <v-icon color="green darken-2"> mdi-close </v-icon>
+      </div>
     </div>
     <div class="edit-profile-inputs">
       <v-row>
         <v-col>
           <v-text-field
+            v-model="fname"
             label="First Name"
-            name="fname"
             outlined
             dense
           ></v-text-field>
         </v-col>
         <v-col>
           <v-text-field
+            v-model="lname"
             label="Last Name"
-            name="lname"
             outlined
             dense
           ></v-text-field>
@@ -33,7 +36,6 @@
           ><v-text-field
             v-model="email"
             label="Email"
-            name="email"
             :rules="[rules.required, rules.email]"
             outlined
             dense
@@ -41,8 +43,8 @@
         ></v-col>
         <v-col>
           <v-text-field
+            v-model="address"
             label="Address"
-            name="address"
             outlined
             dense
           ></v-text-field>
@@ -51,16 +53,16 @@
       <v-row>
         <v-col
           ><v-text-field
+            v-model="phone"
             label="Phone Number"
-            name="phone"
             outlined
             dense
           ></v-text-field
         ></v-col>
         <v-col
           ><v-text-field
+            v-model="license_number"
             label="License Number"
-            name="license_number"
             outlined
             dense
           ></v-text-field
@@ -68,25 +70,25 @@
       </v-row>
       <v-row class="sm-side-padding">
         <v-text-field
+          v-model="tin_number"
           label="Tin Number"
-          name="tin_number"
           outlined
           dense
         ></v-text-field>
-      </v-row>
-      <v-row class="sm-side-padding">
-        <v-text-field label="Password" outlined dense></v-text-field>
       </v-row>
       <v-row class="sm-side-padding">
         <v-text-field
-          label="New Password"
-          name="tin_number"
+          v-model="password"
+          label="Password"
           outlined
           dense
         ></v-text-field>
       </v-row>
       <v-row class="sm-side-padding">
-        <v-textarea outlined name="bio" label="BIO"></v-textarea>
+        <v-text-field label="New Password" outlined dense></v-text-field>
+      </v-row>
+      <v-row class="sm-side-padding">
+        <v-textarea v-model="bio" outlined label="BIO"></v-textarea>
       </v-row>
     </div>
     <v-btn tile color="success">

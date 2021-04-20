@@ -113,6 +113,9 @@
   display: inline-block;
   font-size: 11px;
 }
+.message-hint {
+  text-align: center;
+}
 .message-card p sub:before {
   content: '';
   background: transparent;
@@ -227,6 +230,16 @@
   float: left;
   text-align: left;
   padding-left: 20px;
+}
+.mc-sender {
+  direction: rtl;
+}
+.mc-sender p {
+  direction: ltr;
+  color: #fff !important;
+}
+.mc-sender p sub {
+  color: rgba(255, 255, 255, 0.67);
 }
 .main-content {
   height: 81vh;

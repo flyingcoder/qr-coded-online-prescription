@@ -3,7 +3,7 @@
     <div class="settings-header-content">
       <div class="settings-header-content-title">Menu</div>
       <div class="settings-header-content-secondary-title d-flex">
-        <img src="~/assets/images/settings.svg" alt="settings" width="30px" />
+        <img src="~/assets/icons/settings.svg" alt="settings" width="30px" />
         <div class="settings-header-sub-title">SETTINGS</div>
       </div>
     </div>
@@ -11,7 +11,7 @@
       <div class="settings-first-section">
         <div class="settings-first-header-section">
           <div class="personal-info-title">
-            <img src="~/assets/images/user.svg" alt="" width="30px" />
+            <img src="~/assets/icons/user.svg" alt="" width="30px" />
             <div style="padding-left: 10px; font-size: 18px">
               Personal Information
             </div>
@@ -39,7 +39,7 @@
       </div>
       <div class="settings-second-section">
         <div class="security-login-header d-flex align-center">
-          <img width="30px" src="~/assets/images/shield.svg" />
+          <img width="30px" src="~/assets/icons/shield.svg" />
           <div class="security-sub-title">Security and Login</div>
         </div>
         <div class="security-login-description">
@@ -49,7 +49,7 @@
       </div>
       <div class="settings-third-section">
         <div class="change-password-header d-flex align-center">
-          <img width="30px" src="~/assets/images/key.svg" />
+          <img width="30px" src="~/assets/icons/key.svg" />
           <div class="security-sub-title">Change password</div>
         </div>
         <div class="security-login-description">
