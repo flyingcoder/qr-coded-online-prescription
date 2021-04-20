@@ -4,7 +4,7 @@
       <img
         class="user-icon"
         :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-        alt=""
+        alt="Alvin Pacot"
       />
       <div class="doctors-upper-name">
         <div class="doctor-name">Panday Digital</div>
@@ -31,25 +31,6 @@
           </p>
         </div>
       </div>
-<<<<<<< HEAD
-    </div>
-    <div class="chat-content padding-content">
-      <nuxt-link v-if="$auth.user.role == 'doctor'" to="/prescription-form">
-        <v-icon class="add-prescription"> mdi-plus </v-icon>
-      </nuxt-link>
-      <v-text-field
-        v-model="body.message"
-        placeholder="Type a message"
-        outlined
-        dense
-        class="message-input"
-        rounded
-        append-icon="mdi-send"
-        color="#1ac6b6"
-      ></v-text-field>
-      <div class="send-file">
-        <a href="" @click.prevent="sendMessage"><v-icon> mdi-file </v-icon></a>
-=======
       <div class="messenger-sendCard" style="display: block">
         <form id="message-form">
           <input
@@ -57,8 +38,7 @@
             name="_token"
             value="mRtlTpSphGjQqus2XFXLR5Iiu1fvDZIcHGrtTgiq"
           />
-          <label
-            style="display: flex; align-items: center; padding: 0 10px 0 5px"
+          <label style="display: flex; align-items: center; padding: 0 5px"
             ><img
               width="23px"
               src="~/assets/images/paper-clip.svg" /><!-- <span class="fas fa-paperclip"></span> --><input
@@ -81,7 +61,6 @@
             <!-- <span class="fas fa-paper-plane"></span> -->
           </button>
         </form>
->>>>>>> aad1ce44cad63fc906bf175df51631aaf3df35fc
       </div>
     </div>
   </div>
