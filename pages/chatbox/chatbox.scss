@@ -228,6 +228,16 @@
   text-align: left;
   padding-left: 20px;
 }
+.mc-sender {
+  direction: rtl;
+}
+.mc-sender p {
+  direction: ltr;
+  color: #fff !important;
+}
+.mc-sender p sub {
+  color: rgba(255, 255, 255, 0.67);
+}
 .main-content {
   height: 81vh;
   overflow: scroll;

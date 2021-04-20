@@ -17,7 +17,7 @@
     <div class="m-body app-scroll" style="opacity: 1">
       <div class="messages" v-html="messages"></div>
       <div class="typing-indicator">
-        <div class="message-card typing">
+        <div class="message-carda typing">
           <p>
             <span class="typing-dots">
               <span class="dot dot-1"></span>

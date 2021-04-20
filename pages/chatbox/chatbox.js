@@ -47,7 +47,6 @@ export default {
       }
       this.$axios.post('chat/fetchMessages', { params }).then((data) => {
         this.messages = data.data
-        console.log(data)
       })
     },
     getDoctor() {
