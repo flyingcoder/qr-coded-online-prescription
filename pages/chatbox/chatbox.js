@@ -4,6 +4,7 @@ export default {
   data() {
     return {
       profile: {},
+      attachment: '',
       messages: '',
       body: {
         message: '',
@@ -38,15 +39,45 @@ export default {
         })
         .then((data) => {
           this.messages = data.data.message
+          this.body.message = ''
         })
+    },
+    attachmentTemplate(fileType, fileName, imgURL = null) {
+      if (fileType !== 'image') {
+        return (
+          `
+        <div class="attachment-preview">
+            <span class="fas fa-times cancel"></span>
+            <p style="padding:0px 30px;"><span class="fas fa-file"></span> ` +
+          fileName +
+          `</p>
+        </div>
+        `
+        )
+      } else {
+        return (
+          `
+        <div class="attachment-preview">
+            <span class="fas fa-times cancel"></span>
+            <div class="image-file chat-image" style="background-image: url('` +
+          imgURL +
+          `');"></div>
+            <p><span class="fas fa-file-image"></span> ` +
+          fileName +
+          `</p>
+        </div>
+        `
+        )
+      }
     },
     fetchMessage() {
       const params = {
         type: 'user',
         id: this.$route.params.id,
       }
-      this.$axios.post('chat/fetchMessages', { params }).then((data) => {
-        this.messages = data.data
+      this.$axios.post('chat/fetchMessages', params).then((data) => {
+        this.messages = data.data.messages
+        console.log(data)
       })
     },
     getDoctor() {

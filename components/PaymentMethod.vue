@@ -37,8 +37,8 @@
               </div>
               <div v-if="item.credit" class="credit-card">
                 <div class="credit-card-image">
-                  <img width="40px" src="~/assets/images/symbols.svg" />
-                  <img width="40px" src="~/assets/images/master.svg" />
+                  <img width="40px" src="~/assets/icons/symbols.svg" />
+                  <img width="40px" src="~/assets/icons/master.svg" />
                 </div>
                 <div class="credit-card-input">
                   <v-text-field label="Card Number"></v-text-field>

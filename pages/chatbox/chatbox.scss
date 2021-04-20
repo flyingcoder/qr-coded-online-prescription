@@ -113,6 +113,9 @@
   display: inline-block;
   font-size: 11px;
 }
+.message-hint {
+  text-align: center;
+}
 .message-card p sub:before {
   content: '';
   background: transparent;

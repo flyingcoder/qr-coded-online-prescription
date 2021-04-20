@@ -17,7 +17,7 @@
     <div class="m-body app-scroll" style="opacity: 1">
       <div class="messages" v-html="messages"></div>
       <div class="typing-indicator">
-        <div class="message-carda typing">
+        <div class="message-card typing">
           <p>
             <span class="typing-dots">
               <span class="dot dot-1"></span>
@@ -30,7 +30,7 @@
       <div class="messenger-sendCard" style="display: block">
         <form id="message-form" method="post">
           <label style="display: flex; align-items: center; padding: 0 5px"
-            ><img width="23px" src="~/assets/images/paper-clip.svg" />
+            ><img width="23px" src="~/assets/icons/paper-clip.svg" />
             <input
               type="file"
               class="upload-attachment"
@@ -48,7 +48,7 @@
           ></textarea>
           <button @click.prevent="sendMessage">
             <div style="display: flex; align-items: center; padding: 0 10px">
-              <img width="23px" src="~/assets/images/paper-plane.svg" />
+              <img width="23px" src="~/assets/icons/paper-plane.svg" />
             </div>
           </button>
         </form>
