@@ -245,5 +245,10 @@
   padding-top: 8px;
 }
 #message-form {
-  background: #f1f1f1;
+  background: white !important;
+}
+.m-body.app-scroll {
+  background: #ececec;
+  height: 90vh;
+  margin: 0;
 }
