@@ -3,7 +3,7 @@ export default {
   layout: 'dashboard',
   methods: {
     logout() {
-      this.$router.logout()
+      this.$auth.logout()
     },
   },
 }
