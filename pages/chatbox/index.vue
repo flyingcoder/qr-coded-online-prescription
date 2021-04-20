@@ -18,23 +18,20 @@
         </nuxt-link>
       </div>
     </div>
-    <div class="main-content">
-      <div
-        v-for="message in doctor_messages"
-        :key="message.id"
-        class="doctor-message"
-      >
-        <div class="doctor-time-sent">{{ message.time }}</div>
-        <div class="doctor-message-content">{{ message.content }}</div>
+    <div class="m-body app-scroll" style="opacity: 1">
+      <div class="messages"></div>
+      <div class="typing-indicator">
+        <div class="message-card typing">
+          <p>
+            <span class="typing-dots">
+              <span class="dot dot-1"></span>
+              <span class="dot dot-2"></span>
+              <span class="dot dot-3"></span>
+            </span>
+          </p>
+        </div>
       </div>
-      <div
-        v-for="message in patient_messages"
-        :key="message.id"
-        class="patient-message"
-      >
-        <div class="patient-time-sent">{{ message.time }}</div>
-        <div class="patient-message-content">{{ message.content }}</div>
-      </div>
+<<<<<<< HEAD
     </div>
     <div class="chat-content padding-content">
       <nuxt-link v-if="$auth.user.role == 'doctor'" to="/prescription-form">
@@ -52,6 +49,39 @@
       ></v-text-field>
       <div class="send-file">
         <a href="" @click.prevent="sendMessage"><v-icon> mdi-file </v-icon></a>
+=======
+      <div class="messenger-sendCard" style="display: block">
+        <form id="message-form">
+          <input
+            type="hidden"
+            name="_token"
+            value="mRtlTpSphGjQqus2XFXLR5Iiu1fvDZIcHGrtTgiq"
+          />
+          <label
+            style="display: flex; align-items: center; padding: 0 10px 0 5px"
+            ><img
+              width="23px"
+              src="~/assets/images/paper-clip.svg" /><!-- <span class="fas fa-paperclip"></span> --><input
+              type="file"
+              class="upload-attachment"
+              name="file"
+              accept="image/*, .txt, .rar, .zip"
+          /></label>
+          <textarea
+            name="message"
+            class="m-send app-scroll"
+            placeholder="Type a message.."
+            style="overflow: hidden; overflow-wrap: break-word; height: 42px"
+            control-id="ControlID-2"
+          ></textarea>
+          <button>
+            <div style="display: flex; align-items: center; padding: 0 10px">
+              <img width="23px" src="~/assets/images/paper-plane.svg" />
+            </div>
+            <!-- <span class="fas fa-paper-plane"></span> -->
+          </button>
+        </form>
+>>>>>>> aad1ce44cad63fc906bf175df51631aaf3df35fc
       </div>
     </div>
   </div>

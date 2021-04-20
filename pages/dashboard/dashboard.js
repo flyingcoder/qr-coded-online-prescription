@@ -9,20 +9,20 @@ export default {
 
   data() {
     return {
-      display: true,
-      no_display: false,
+      display: false,
+      no_display: true,
       newsfeeds: [
         {
           id: 1,
           image: 'Tanjiro_Anime_Profile.png',
-          name: 'Dr. Neil Laquinon',
+          name: 'Dr. Juan DelaCruz',
           time: '12:30 PM',
           prescription: 'Your prescription is now ready',
         },
         {
           id: 2,
           image: 'Zenitsu_Anime_Profile.png',
-          name: 'Mohammad Alongan',
+          name: 'Jose Rizal',
           time: 'Feb 4',
           message:
             'Gud morning Po napalit ko napalit ko na ang tambal na gi tag nmo sa akoa...',
@@ -30,7 +30,7 @@ export default {
         {
           id: 3,
           image: 'Muzan_Anime_Profile.png',
-          name: 'Alvin Pacot',
+          name: 'Mel Bitancor',
           time: 'Dec 26, 2020',
           message:
             'Gud morning Po napalit ko napalit ko na ang tambal na gi tag nmo sa akoa...',

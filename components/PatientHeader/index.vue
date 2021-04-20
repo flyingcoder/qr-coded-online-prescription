@@ -22,8 +22,9 @@
     <v-spacer></v-spacer>
 
     <v-app-bar-title>
-      <img class="logo-wide" src="@/assets/images/Qr-code-logo3.png"
+      <img class="logo-wide" src="@/assets/images/reseta-form-img.png"
     /></v-app-bar-title>
+    <div class="reseta-logo-text">Reseta QRx</div>
 
     <v-spacer></v-spacer>
 
@@ -31,7 +32,7 @@
       <v-icon>mdi-magnify</v-icon>
     </NuxtLink>
 
-    <NuxtLink to="/notification">
+    <NuxtLink to="/notification" class="notification-icon">
       <v-icon>mdi-bell</v-icon>
     </NuxtLink>
     <template #extension style="padding-bottom: 0">
@@ -39,15 +40,15 @@
         <NuxtLink to="/dashboard" class="menu-icon"
           ><v-icon>mdi-home</v-icon></NuxtLink
         >
+        <NuxtLink to="/pharmacy" class="menu-icon"
+          ><v-icon>mdi-pill</v-icon></NuxtLink
+        >
         <NuxtLink to="/medicine" class="menu-icon"
           ><v-icon>mdi-medical-bag</v-icon></NuxtLink
         >
         <!-- <NuxtLink to="/doctors" class="menu-icon"
           ><v-icon>mdi-doctor</v-icon></NuxtLink
         > -->
-        <NuxtLink to="/pharmacy" class="menu-icon"
-          ><v-icon>mdi-pill</v-icon></NuxtLink
-        >
         <NuxtLink to="/directory" class="menu-icon"
           ><v-icon>mdi-contacts</v-icon></NuxtLink
         >
