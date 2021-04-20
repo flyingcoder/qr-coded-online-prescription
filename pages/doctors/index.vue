@@ -126,7 +126,7 @@
                     x-small
                     fab
                     color="indigo"
-                    @click="viewDoctor(item.id)"
+                    @click="viewProfile(item.id)"
                   >
                     <v-icon>mdi-account</v-icon>
                   </v-btn>

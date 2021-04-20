@@ -3,27 +3,23 @@
     <div>
       <v-card elevation="3" class="padding-bottom-sm">
         <div class="doctor-profile text-center">
-          <img
-            class="user-icon"
-            :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-            alt="Alvin Pacot"
-          />
+          <img class="user-icon" :src="profile.avator" :alt="profile.fname" />
         </div>
         <div class="doctor-information padding-content text-center-pd">
           <div class="name padding-bottom-sm">
-            {{ single_doctor.name }}
+            {{ profile.name }}
           </div>
           <div id="word-related" class="margin-top-pull padding-bottom-sm">
             <b>PEDIATRICIAN</b>
           </div>
           <div class="address">
-            {{ single_doctor.content }}
+            {{ profile.address }}
           </div>
           <div class="contact">
-            {{ single_doctor.number }}
+            {{ profile.phone }}
           </div>
           <div class="content">
-            {{ single_doctor.description }}
+            {{ profile.bio }}
           </div>
         </div>
       </v-card>
@@ -34,7 +30,7 @@
           width="60%"
           class="btn-radius find-doctors-btn"
           style="color: white"
-          to="/chatbox"
+          @click="profile.id"
         >
           Contact
         </v-btn>

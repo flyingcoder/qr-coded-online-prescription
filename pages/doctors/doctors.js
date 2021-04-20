@@ -15,11 +15,13 @@ export default {
     getDoctors() {
       this.$axios.get('users/doctor').then((data) => {
         this.doctors = data.data
-        console.log(data)
       })
     },
     viewProfile(id) {
-      this.$router.push('/doctors' + id)
+      this.$router.push('/doctors/' + id)
+    },
+    contact(id) {
+      this.$router.push('/chatbox/' + id)
     },
   },
 }

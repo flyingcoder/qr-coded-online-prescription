@@ -1,14 +1,10 @@
 <template>
   <div class="doctor-patient-chatbox">
     <div class="top-content padding-content">
-      <img
-        class="user-icon"
-        :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-        alt="Alvin Pacot"
-      />
+      <img class="user-icon" :src="profile.avatar" :alt="profile.avatar" />
       <div class="doctors-upper-name">
-        <div class="doctor-name">Panday Digital</div>
-        <div class="active-user-sign">
+        <div class="doctor-name">{{ profile.fname + ' ' + profile.lname }}</div>
+        <div v-if="profile.active_status" class="active-user-sign">
           <span id="active-sign">●</span>&nbsp;active
         </div>
       </div>
@@ -19,7 +15,7 @@
       </div>
     </div>
     <div class="m-body app-scroll" style="opacity: 1">
-      <div class="messages"></div>
+      <div class="messages" v-html="messages"></div>
       <div class="typing-indicator">
         <div class="message-card typing">
           <p>
@@ -32,33 +28,28 @@
         </div>
       </div>
       <div class="messenger-sendCard" style="display: block">
-        <form id="message-form">
-          <input
-            type="hidden"
-            name="_token"
-            value="mRtlTpSphGjQqus2XFXLR5Iiu1fvDZIcHGrtTgiq"
-          />
+        <form id="message-form" method="post">
           <label style="display: flex; align-items: center; padding: 0 5px"
-            ><img
-              width="23px"
-              src="~/assets/images/paper-clip.svg" /><!-- <span class="fas fa-paperclip"></span> --><input
+            ><img width="23px" src="~/assets/images/paper-clip.svg" />
+            <input
               type="file"
               class="upload-attachment"
               name="file"
               accept="image/*, .txt, .rar, .zip"
-          /></label>
+            />
+          </label>
           <textarea
+            v-model="body.message"
             name="message"
             class="m-send app-scroll"
             placeholder="Type a message.."
             style="overflow: hidden; overflow-wrap: break-word; height: 42px"
             control-id="ControlID-2"
           ></textarea>
-          <button>
+          <button @click.prevent="sendMessage">
             <div style="display: flex; align-items: center; padding: 0 10px">
               <img width="23px" src="~/assets/images/paper-plane.svg" />
             </div>
-            <!-- <span class="fas fa-paper-plane"></span> -->
           </button>
         </form>
       </div>
