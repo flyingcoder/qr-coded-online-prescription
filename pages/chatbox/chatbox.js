@@ -6,6 +6,7 @@ export default {
       profile: {},
       attachment: '',
       messages: '',
+      previewUrl: '',
       body: {
         message: '',
         type: 'user',
@@ -41,6 +42,23 @@ export default {
           this.messages = data.data.message
           this.body.message = ''
         })
+    },
+    fileSelected(e) {
+      console.log(e)
+      const file = e.target.files[0]
+      if (!file.type.match('image.*')) {
+        this.attachment = this.attachmentTemplate('file', file.name)
+      } else {
+        const reader = new FileReader()
+        reader.onload = (evt) => {
+          this.attachment = this.attachmentTemplate(
+            'image',
+            file.name,
+            evt.target.result
+          )
+        }
+        reader.readAsDataURL(file)
+      }
     },
     attachmentTemplate(fileType, fileName, imgURL = null) {
       if (fileType !== 'image') {

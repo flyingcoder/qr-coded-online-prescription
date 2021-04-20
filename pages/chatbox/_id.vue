@@ -41,6 +41,7 @@
               class="upload-attachment"
               name="file"
               accept="image/*, .txt, .rar, .zip"
+              @change="fileSelected"
             />
           </label>
           <textarea
