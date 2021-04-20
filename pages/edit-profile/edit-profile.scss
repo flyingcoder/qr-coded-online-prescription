@@ -1,0 +1,23 @@
+.edit-profile-page {
+  padding: 12px;
+}
+.sm-side-padding {
+  padding: 0 12px;
+}
+.edit-profile-image {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 30px 0;
+  img {
+    border-radius: 100%;
+  }
+}
+.edit-image {
+  position: absolute;
+  right: 31vw;
+  top: 17%;
+}
+.edit-profile-title {
+  font-size: 18px;
+  font-weight: bold;
+}

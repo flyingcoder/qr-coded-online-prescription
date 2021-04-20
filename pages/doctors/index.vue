@@ -95,7 +95,7 @@
               <v-subheader
                 v-if="index == 0"
                 :key="item.id"
-                class="font-weight-bold doctors-list-title"
+                class="doctors-list-title"
                 >Doctors</v-subheader
               >
 

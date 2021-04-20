@@ -1,0 +1,72 @@
+<template>
+  <div class="main-settings">
+    <div class="settings-header-content">
+      <div class="settings-header-content-title">Menu</div>
+      <div class="settings-header-content-secondary-title d-flex">
+        <img src="~/assets/images/settings.svg" alt="settings" width="30px" />
+        <div class="settings-header-sub-title">SETTINGS</div>
+      </div>
+    </div>
+    <div class="settings-main-content">
+      <div class="settings-first-section">
+        <div class="settings-first-header-section">
+          <div class="personal-info-title">
+            <img src="~/assets/images/user.svg" alt="" width="30px" />
+            <div style="padding-left: 10px; font-size: 18px">
+              Personal Information
+            </div>
+          </div>
+          <div class="personal-info-content">
+            <div class="personal-info-content-title">General</div>
+            <div class="personal-info-content-one">
+              Name :<span>
+                {{ this.$auth.user.fname }} {{ this.$auth.user.lname }}</span
+              >
+            </div>
+            <div class="personal-info-content-two">
+              Contact Info :<span>
+                Manage your phone numbers, emails and address.</span
+              >
+            </div>
+          </div>
+          <div class="edit-profile-button">
+            <v-btn rounded color="success" width="50%" to="edit-profile">
+              <v-icon left> mdi-pencil </v-icon>
+              Edit profile
+            </v-btn>
+          </div>
+        </div>
+      </div>
+      <div class="settings-second-section">
+        <div class="security-login-header d-flex align-center">
+          <img width="30px" src="~/assets/images/shield.svg" />
+          <div class="security-sub-title">Security and Login</div>
+        </div>
+        <div class="security-login-description">
+          Change your password and take actions to add more security to your
+          account.
+        </div>
+      </div>
+      <div class="settings-third-section">
+        <div class="change-password-header d-flex align-center">
+          <img width="30px" src="~/assets/images/key.svg" />
+          <div class="security-sub-title">Change password</div>
+        </div>
+        <div class="security-login-description">
+          I'ts a good idea to use a strong password that your not using
+          elsewhere.
+        </div>
+      </div>
+      <div class="settings-fourth-section justify-center">
+        <v-btn rounded color="success" width="50%" @click="logout">
+          <v-icon left> mdi-pencil </v-icon>
+          Logout
+        </v-btn>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script src="./settings.js"></script>
+
+<style src="./settings.scss" lang="scss" scoped></style>

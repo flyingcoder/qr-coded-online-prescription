@@ -1,0 +1,46 @@
+.settings-header-content-title {
+  font-size: 19px;
+}
+.settings-header-sub-title {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 22px;
+}
+.settings-header-content,
+.settings-first-header-section,
+.settings-second-section,
+.settings-third-section {
+  border-bottom: 1px solid;
+  padding-bottom: 5px;
+}
+.edit-profile-button {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px;
+}
+.personal-info-content-title,
+.personal-info-content-one span,
+.personal-info-content-two span,
+.security-login-description {
+  padding-left: 40px;
+}
+.personal-info-content,
+.settings-second-section {
+  margin-top: 10px;
+}
+.security-sub-title {
+  padding-left: 10px;
+  font-size: 18px;
+}
+.personal-info-content-one,
+.personal-info-content-two {
+  display: grid;
+}
+.personal-info-title,
+.change-password-header,
+.settings-fourth-section {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
