@@ -40,11 +40,11 @@
         <NuxtLink to="/dashboard" class="menu-icon"
           ><v-icon>mdi-home</v-icon></NuxtLink
         >
-        <NuxtLink to="/pharmacy" class="menu-icon"
-          ><v-icon>mdi-pill</v-icon></NuxtLink
-        >
         <NuxtLink to="/medicine" class="menu-icon"
           ><v-icon>mdi-medical-bag</v-icon></NuxtLink
+        >
+        <NuxtLink to="/pharmacy" class="menu-icon"
+          ><v-icon>mdi-pill</v-icon></NuxtLink
         >
         <!-- <NuxtLink to="/doctors" class="menu-icon"
           ><v-icon>mdi-doctor</v-icon></NuxtLink

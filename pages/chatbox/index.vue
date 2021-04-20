@@ -4,7 +4,7 @@
       <img
         class="user-icon"
         :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-        alt=""
+        alt="Alvin Pacot"
       />
       <div class="doctors-upper-name">
         <div class="doctor-name">Panday Digital</div>
@@ -38,8 +38,7 @@
             name="_token"
             value="mRtlTpSphGjQqus2XFXLR5Iiu1fvDZIcHGrtTgiq"
           />
-          <label
-            style="display: flex; align-items: center; padding: 0 10px 0 5px"
+          <label style="display: flex; align-items: center; padding: 0 5px"
             ><img
               width="23px"
               src="~/assets/images/paper-clip.svg" /><!-- <span class="fas fa-paperclip"></span> --><input
