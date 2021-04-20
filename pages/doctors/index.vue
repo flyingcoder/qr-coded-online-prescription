@@ -23,6 +23,7 @@
         mdi-view-grid
       </v-icon>
     </div>
+
     <div v-if="!grid" class="doctors-grid-view">
       <v-card
         max-width="450"
@@ -46,40 +47,36 @@
                 style="margin: 5px"
               >
                 <div class="grid-single-image text-center-pd">
-                  <img
-                    class="user-icon"
-                    :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-                    alt="Alvin Pacot"
-                  />
+                  <img class="user-icon" :src="item.avatar" :alt="item.fname" />
                 </div>
                 <v-divider></v-divider>
                 <div class="grid-single-name d-flex justify-center">
-                  {{ item.title }}
+                  Dr. {{ item.fname + ' ' + item.lname }}
                 </div>
                 <div class="grid-single-content d-flex justify-center">
-                  {{ item.content }}
+                  {{ item.address }}
                 </div>
                 <div class="grid-single-number d-flex justify-center">
-                  {{ item.number }}
+                  {{ item.phone }}
                 </div>
                 <v-btn
                   class="ma-2 grid-contact-doctor"
-                  to="/chatbox"
                   outlined
                   x-small
                   fab
                   color="indigo"
                   background="red"
+                  @click="contact(item.id)"
                 >
                   <v-icon>mdi-phone</v-icon>
                 </v-btn>
                 <v-btn
                   class="ma-2 grid-profile-doctor"
-                  to="/doctors/01"
                   outlined
                   x-small
                   fab
                   color="indigo"
+                  @click="viewProfile(item.id)"
                 >
                   <v-icon>mdi-account</v-icon>
                 </v-btn>
@@ -96,55 +93,49 @@
           <v-list three-line class="doctors-background-color">
             <template v-for="(item, index) in doctors">
               <v-subheader
-                v-if="item.header"
-                :key="item.header"
+                v-if="index == 0"
+                :key="item.id"
                 class="font-weight-bold doctors-list-title"
-                v-text="item.header"
-              ></v-subheader>
+                >Doctors</v-subheader
+              >
 
-              <v-divider
-                v-else-if="item.divider"
-                :key="index"
-                :inset="item.inset"
-              ></v-divider>
+              <v-divider :key="index + 'div' + item.id"></v-divider>
 
-              <v-list-item v-else :key="item.title">
+              <v-list-item :key="item.fname">
                 <v-list-item-avatar>
-                  <img
-                    class="user-icon"
-                    :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-                    alt="Alvin Pacot"
-                  />
+                  <img class="user-icon" :src="item.avatar" :alt="item.fname" />
                 </v-list-item-avatar>
 
                 <v-list-item-content>
-                  <v-list-item-title v-html="item.title"></v-list-item-title>
+                  <v-list-item-title>
+                    Dr. {{ item.fname + ' ' + item.lname }}
+                  </v-list-item-title>
                   <v-btn
                     class="ma-2 list-contact-doctor"
-                    to="/chatbox"
                     outlined
                     x-small
                     fab
                     color="indigo"
+                    @click="contact(item.id)"
                   >
                     <v-icon>mdi-phone</v-icon>
                   </v-btn>
                   <v-btn
                     class="ma-2 list-profile-doctor"
-                    to="/doctors/01"
                     outlined
                     x-small
                     fab
                     color="indigo"
+                    @click="viewDoctor(item.id)"
                   >
                     <v-icon>mdi-account</v-icon>
                   </v-btn>
                   <v-list-item-subtitle>
                     <div class="doctor-content">
-                      {{ item.content }}
+                      {{ item.address }}
                     </div>
                     <div class="doctor-number">
-                      {{ item.number }}
+                      {{ item.phone }}
                     </div>
                   </v-list-item-subtitle>
                 </v-list-item-content>
