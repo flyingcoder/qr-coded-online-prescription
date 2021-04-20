@@ -1,5 +1,5 @@
 <template>
-  <div class="newsfeed">
+  <div class="newsfeed" @click="singleFeed">
     <div class="user">
       <img
         class="user-icon"
@@ -42,6 +42,11 @@ export default {
             'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
         }
       },
+    },
+  },
+  methods: {
+    singleFeed() {
+      this.$router.push('/chatbox')
     },
   },
 }
