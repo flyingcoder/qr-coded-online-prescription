@@ -38,7 +38,8 @@
             name="_token"
             value="mRtlTpSphGjQqus2XFXLR5Iiu1fvDZIcHGrtTgiq"
           />
-          <label style="display: flex; align-items: center; padding: 0 5px"
+          <label
+            style="display: flex; align-items: center; padding: 0 10px 0 5px"
             ><img
               width="23px"
               src="~/assets/images/paper-clip.svg" /><!-- <span class="fas fa-paperclip"></span> --><input
