@@ -9,8 +9,8 @@ export default {
 
   data() {
     return {
-      display: false,
-      no_display: true,
+      display: true,
+      no_display: false,
       newsfeeds: [
         {
           id: 1,
