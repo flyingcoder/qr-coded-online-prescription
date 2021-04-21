@@ -35,7 +35,7 @@
 
               <v-divider :key="index + 'div' + item.id"></v-divider>
 
-              <v-list-item :key="item.fname">
+              <v-list-item :key="item.fname" class="pharmacy-list-section">
                 <v-list-item-avatar>
                   <img :src="item.avatar" :alt="item.fname" />
                 </v-list-item-avatar>
