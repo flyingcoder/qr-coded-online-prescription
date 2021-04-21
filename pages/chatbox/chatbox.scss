@@ -113,6 +113,13 @@
   display: inline-block;
   font-size: 11px;
 }
+.message-card.mc-sender p {
+  background: #1ac6b6;
+  border-radius: 20px;
+  color: white;
+  width: 75%;
+  padding: 10px;
+}
 .message-hint {
   text-align: center;
 }
