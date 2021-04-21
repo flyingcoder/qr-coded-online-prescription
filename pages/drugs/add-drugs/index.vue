@@ -35,7 +35,7 @@
     </v-row>
     <v-row>
       <v-btn color="blue-grey" class="ma-2 white--text">
-        Add
+        Save
         <v-icon right dark> mdi-content-save </v-icon>
       </v-btn>
     </v-row>

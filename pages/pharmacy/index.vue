@@ -1,6 +1,6 @@
 <template>
   <div class="pharmacy-list">
-    <div class="search-patients-input">
+    <div class="search-pharmacy-input">
       <v-text-field
         label="Search"
         placeholder="Search Patient"
@@ -10,66 +10,68 @@
         class="main-search-input"
       ></v-text-field>
     </div>
-    <div v-if="!grid" class="patients-grid-view">
-      <v-card
-        max-width="450"
-        class="mx-auto patients patients-background-color"
-        :class="{ 'prop-name': !grid }"
+    <div class="list-grid-btn text-right">
+      <v-btn
+        class="mx-2 add-product-btn"
+        fab
+        x-small
+        color="#1ac6b6"
+        to="drugs/add-drugs"
       >
-        <div class="v-subheader patients-grid-title">Pharmacy</div>
-        <v-row no-gutters style="height: 100%" class="patients-grid">
-          <v-col
-            v-for="item in patients"
-            :key="item.id"
-            class="patients-grid-main-view"
-            cols="6"
-          >
-            <div>
-              <v-card
-                class="pa-2"
-                height="150px"
-                elevation="2"
-                width="95%"
-                style="margin: 5px"
+        <v-icon color="white"> mdi-plus </v-icon>
+      </v-btn>
+    </div>
+    <div class="pharmacy-list-view">
+      <v-card max-width="450" class="mx-auto pharmacy">
+        <div class="pharmacy-list-main-btn">
+          <v-list three-line class="pharmacys-background-color">
+            <template v-for="(item, index) in pharmacy_medicine">
+              <v-subheader
+                v-if="index == 0"
+                :key="item.id"
+                class="pharmacys-list-title"
+                >Pharmacy Medicine</v-subheader
               >
-                <div class="grid-single-image text-center-pd">
-                  <img class="user-icon" :src="item.avatar" :alt="item.fname" />
-                </div>
-                <v-divider></v-divider>
-                <div class="grid-single-name d-flex justify-center">
-                  {{ item.fname + ' ' + item.lname }}
-                </div>
-                <div class="grid-single-content d-flex justify-center">
-                  {{ item.address }}
-                </div>
-                <div class="grid-single-number d-flex justify-center">
-                  {{ item.phone }}
-                </div>
-                <v-btn
-                  class="ma-2 grid-contact-patient"
-                  outlined
-                  x-small
-                  fab
-                  color="indigo"
-                  background="red"
-                  @click="contact(item.id)"
-                >
-                  <v-icon>mdi-phone</v-icon>
-                </v-btn>
-                <v-btn
-                  class="ma-2 grid-profile-patient"
-                  outlined
-                  x-small
-                  fab
-                  color="indigo"
-                  @click="viewProfile(item.id)"
-                >
-                  <v-icon>mdi-account</v-icon>
-                </v-btn>
-              </v-card>
-            </div>
-          </v-col>
-        </v-row>
+
+              <v-divider :key="index + 'div' + item.id"></v-divider>
+
+              <v-list-item :key="item.fname">
+                <v-list-item-avatar>
+                  <img :src="item.avatar" :alt="item.fname" />
+                </v-list-item-avatar>
+
+                <v-list-item-content>
+                  <v-list-item-title>
+                    {{ item.name }} &nbsp;&nbsp;{{ item.grams }}
+                    <br />
+                    <span class="medicine-sub-info">
+                      Price: ₱{{ item.price }} &nbsp;&nbsp;Stock:
+                      {{ item.stocks }}&nbsp;&nbsp; Brand: {{ item.brand }}
+                    </span>
+                  </v-list-item-title>
+                  <v-btn
+                    class="ma-2 list-contact-pharmacy"
+                    outlined
+                    x-small
+                    fab
+                    color="indigo"
+                    @click="contact(item.id)"
+                  >
+                    <v-icon>mdi-pencil</v-icon>
+                  </v-btn>
+                  <v-list-item-subtitle>
+                    <div class="pharmacy-content">
+                      {{ item.address }}
+                    </div>
+                    <div class="pharmacy-number">
+                      {{ item.phone }}
+                    </div>
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+          </v-list>
+        </div>
       </v-card>
     </div>
   </div>

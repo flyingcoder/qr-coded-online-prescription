@@ -1,98 +1,31 @@
-.doctors-grid-title {
-  padding-left: 15px;
-}
-.doctors-grid {
-  padding: 10px;
-}
-.active {
-  display: none !important;
-}
-.doctor-list-card {
-  box-shadow: none !important;
-}
-
-.doctors-grid-main-view {
-  padding-bottom: 15px !important;
-}
-.grid-single-name,
-.grid-single-content,
-.grid-single-number {
-  font-size: 11px;
-}
-.grid-single-name {
-  font-weight: bold;
-  height: 29px;
-  display: flex;
-  align-items: center;
-}
-.search-doctors-input {
-  padding: 15px 15px 0 15px;
-  margin-bottom: -15px;
-}
-.doctors-list-title {
-  padding-bottom: 15px;
-}
-.doctor-information {
-  .name {
-    font-size: 19px;
-    font-weight: bold;
-  }
-  .address,
-  .contact {
-    font-weight: 400;
-  }
-  .content {
-    font-size: 15px;
-    padding-top: 14px;
-  }
-}
-.doctor-profile {
-  margin-top: 60px;
-  img {
-    width: 40%;
-    height: 40%;
-    margin-top: -50px;
-  }
-}
-.grid-single-image {
-  img {
-    width: 50px;
-    height: 50px;
-  }
-}
 .list-grid-btn {
-  position: absolute;
-  right: 10px;
+  margin-top: -18px;
+  position: relative;
   z-index: 999;
 }
-.doctors-grid-view .v-sheet.v-card:not(.v-sheet--outlined),
-.doctor-list-view .v-sheet.v-card:not(.v-sheet--outlined) {
-  box-shadow: none;
+.pharmacys-list-title {
+  height: 30px;
 }
-div#word-related {
-  font-size: 13px;
+.pharmacy-list-title {
+  padding: 0 10px;
+  font-size: 14px;
 }
-.list-contact-doctor {
-  position: absolute;
-  right: 24px;
-  z-index: 999 !important;
+.pharmacy-list-main-btn {
+  margin-top: -23px;
 }
-.grid-contact-doctor {
-  margin-top: 10px !important;
-}
-.doctor-list-main-btn {
-  position: relative !important;
-  z-index: 1 !important;
-}
-.list-profile-doctor {
+.list-profile-pharmacy {
   position: absolute;
   right: 65px;
 }
-.grid-profile-doctor {
+.list-contact-pharmacy {
   position: absolute;
-  right: 35px;
+  right: 0px;
+  z-index: 999 !important;
 }
-.grid-contact-doctor {
-  position: absolute;
-  left: 35px;
+.medicine-sub-info {
+  font-size: 12px;
+  font-weight: 300;
+}
+.pharmacy-list-view .v-sheet.v-card:not(.v-sheet--outlined) {
+  box-shadow: none;
 }

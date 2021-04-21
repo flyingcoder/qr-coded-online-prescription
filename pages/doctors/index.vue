@@ -150,4 +150,4 @@
 
 <script src="./doctors.js"></script>
 
-<style src="./doctors.scss" lang="scss"></style>
+<style src="./doctors.scss" lang="scss" scoped></style>
