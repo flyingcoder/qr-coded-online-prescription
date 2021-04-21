@@ -8,9 +8,28 @@
         <div class="wallet-title-main-amout-title">
           <span class="wallet-title-e">e</span> - WALLET
         </div>
-        <div class="wallet-title-amount">Balance ₱{{ amount }}</div>
+        <div class="wallet-title-amount">
+          &nbsp;Balance <br /><span class="wallet-main-balance"
+            >₱{{ amount }}</span
+          >
+        </div>
       </div>
     </v-row>
+    <v-row class="justify-center" style="padding-top: 40px">
+      <nuxt-link to="/">
+        <v-btn
+          depressed
+          color="#1ac6b6"
+          width="100%"
+          min-width="300px"
+          class="btn-radius"
+          style="color: white"
+        >
+          Deposit
+        </v-btn>
+      </nuxt-link>
+    </v-row>
+    <!--
     <table class="ordered-table">
       <tr v-for="order in payments" :key="order.id" class="ordered-product">
         <td>{{ order.id }}) {{ order.name }}</td>
@@ -70,6 +89,7 @@
       </tr>
     </table>
     <PaymentMethod />
+    -->
   </div>
 </template>
 <script src="./wallet.js"></script>

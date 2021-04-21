@@ -40,16 +40,17 @@
         <NuxtLink to="/dashboard" class="menu-icon"
           ><v-icon>mdi-home</v-icon></NuxtLink
         >
-        <NuxtLink to="/medicine" class="menu-icon"
-          ><v-icon>mdi-medical-bag</v-icon></NuxtLink
-        >
-        <NuxtLink to="/pharmacy" class="menu-icon"
+        <NuxtLink to="/drugs" class="menu-icon"
           ><v-icon>mdi-pill</v-icon></NuxtLink
         >
+        <NuxtLink to="/pharmacy" class="menu-icon"
+          ><v-icon>mdi-medical-bag</v-icon></NuxtLink
+        >
+
         <!-- <NuxtLink to="/doctors" class="menu-icon"
           ><v-icon>mdi-doctor</v-icon></NuxtLink
         > -->
-        <NuxtLink to="/directory" class="menu-icon"
+        <NuxtLink to="/doctors" class="menu-icon"
           ><v-icon>mdi-contacts</v-icon></NuxtLink
         >
         <NuxtLink to="/wallet" class="menu-icon"
