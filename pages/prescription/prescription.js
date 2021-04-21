@@ -54,7 +54,7 @@ export default {
       return item.price * item.qty
     },
     increase(qty) {
-      return (qty += 1)
+      return qty * 2
     },
     decrease(qty) {
       return (qty -= 1)

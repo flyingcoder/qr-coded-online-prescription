@@ -19,7 +19,7 @@ export default {
       })
     },
     viewProfile(id) {
-      this.$router.push('/doctors/' + id)
+      this.$router.push('/patients/' + id)
     },
     contact(id) {
       this.$router.push('/chatbox/' + id)
