@@ -94,12 +94,15 @@
   animation-delay: 300ms;
 }
 .message-card {
-  display: inline-flex;
+  display: block;
   margin: 2px 15px;
   width: calc(100% - 30px);
 }
 .message-card div {
   margin-top: 0px;
+}
+svg.seen {
+  width: 11px;
 }
 .message-card p {
   margin: 0;
