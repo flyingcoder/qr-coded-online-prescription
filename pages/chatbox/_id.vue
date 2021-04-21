@@ -20,14 +20,14 @@
           v-for="message in messages"
           :key="message.id"
           class="message-card"
-          :class="{ 'mc-sender': message.from_id == $auth.user.id }"
+          :class="{ 'mc-sender': message.viewType === 'sender' }"
         >
           <p>
-            <span class="message-main-content">{{ message.body }}</span>
+            <span class="message-main-content">{{ message.message }}</span>
           </p>
           <sub
-            :title="message.created_at"
-            :class="{ 'message-time': message.from_id == $auth.user.id }"
+            :title="message.fullTime"
+            :class="{ 'message-time': message.viewType === 'sender' }"
           >
             <svg
               v-if="message.seen && message.from_id == $auth.user.id"
@@ -47,7 +47,7 @@
               ></path>
             </svg>
             <svg
-              v-if="!message.seen && message.from_id == $auth.user.id"
+              v-if="!message.seen && message.viewType === 'sender'"
               class="seen"
               aria-hidden="true"
               focusable="false"
@@ -63,7 +63,7 @@
                 d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
               ></path>
             </svg>
-            {{ $moment(message.created_at).fromNow() }}
+            {{ message.time }}
           </sub>
         </div>
       </div>
