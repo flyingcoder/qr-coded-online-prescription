@@ -10,10 +10,12 @@
         class="main-search-input"
       ></v-text-field>
     </div>
-    <div class="list-grid-btn text-right">
+    <div v-if="$auth.user.role == 'pharmacy'" class="list-grid-btn text-right">
       <v-btn
         class="mx-2 add-product-btn"
         fab
+        dark
+        small
         x-small
         color="#1ac6b6"
         to="drugs/add-drugs"
@@ -55,7 +57,7 @@
                     x-small
                     fab
                     color="indigo"
-                    @click="contact(item.id)"
+                    @click="pharmacy(item.id)"
                   >
                     <v-icon>mdi-pencil</v-icon>
                   </v-btn>

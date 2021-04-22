@@ -20,10 +20,11 @@
               <v-icon large>{{ item.icon_inner }}</v-icon>
             </div>
             <div class="wallet-content full-width">
-              <div v-if="item.content" class="wallet-main-content full-width">
-                {{ item.content }}
-              </div>
-
+              <div
+                v-if="item.content"
+                class="wallet-main-content full-width"
+              ></div>
+              {{ item.content }}
               <div v-if="item.cancel" class="d-flex justify-center">
                 <v-btn
                   elevation="2"

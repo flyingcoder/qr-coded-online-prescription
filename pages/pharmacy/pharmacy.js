@@ -46,8 +46,8 @@ export default {
     viewProfile(id) {
       this.$router.push('/doctors/' + id)
     },
-    contact(id) {
-      this.$router.push('/chatbox/' + id)
+    pharmacy(id) {
+      this.$router.push('/pharmacy/' + id)
     },
   },
 }

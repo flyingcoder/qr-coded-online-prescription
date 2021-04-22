@@ -11,30 +11,42 @@
     </v-row>
     <v-row class="row-height">
       <v-col>
-        <v-text-field label="Generic Name" outlined dense></v-text-field>
+        <v-text-field
+          v-model="generic_name"
+          label="Generic Name"
+          outlined
+          dense
+        ></v-text-field>
       </v-col>
       <v-col>
-        <v-text-field label="Price" outlined dense type="number"></v-text-field>
+        <v-text-field
+          v-model="price"
+          label="Price"
+          outlined
+          dense
+          type="number"
+        ></v-text-field>
       </v-col>
     </v-row>
     <v-row>
       <v-col>
-        <v-text-field label="Type" outlined dense></v-text-field>
+        <v-text-field v-model="type" label="Type" outlined dense></v-text-field>
       </v-col>
       <v-col>
         <v-text-field
+          v-model="stock"
           label="Stocks"
           outlined
           dense
-          tyoe="number"
+          type="number"
         ></v-text-field>
       </v-col>
     </v-row>
     <v-row class="padding-side">
-      <v-text-field label="Brand" outlined dense></v-text-field>
+      <v-text-field v-model="brand" label="Brand" outlined dense></v-text-field>
     </v-row>
     <v-row>
-      <v-btn color="blue-grey" class="ma-2 white--text">
+      <v-btn color="blue-grey" class="ma-2 white--text" @click="saveProduct">
         Save
         <v-icon right dark> mdi-content-save </v-icon>
       </v-btn>
@@ -47,7 +59,17 @@ export default {
   auth: false,
   layout: 'dashboard',
   data() {
-    return {}
+    return {
+      generic_name: '',
+      price: '',
+      type: '',
+      stock: '',
+    }
+  },
+  methods: {
+    saveProduct() {
+      this.$router.push('/pharmacy')
+    },
   },
 }
 </script>
