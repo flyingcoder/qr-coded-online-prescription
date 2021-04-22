@@ -3,6 +3,7 @@
     <v-row class="justify-center">
       <div class="wallet-title">CHECKOUT</div>
     </v-row>
+    <!--
     <v-row>
       <div class="wallet-title align-baseline d-flex full-width">
         <div class="wallet-title-main-amout-title">
@@ -29,7 +30,7 @@
         </v-btn>
       </nuxt-link>
     </v-row>
-    <!--
+    -->
     <table class="ordered-table">
       <tr v-for="order in payments" :key="order.id" class="ordered-product">
         <td>{{ order.id }}) {{ order.name }}</td>
