@@ -39,7 +39,8 @@ export default {
           },
         })
         .then((data) => {
-          this.messages = data.data.message
+          console.log(this.messages.length)
+          this.messages.push(data.data.message)
           this.body.message = ''
         })
     },
@@ -51,11 +52,11 @@ export default {
       } else {
         const reader = new FileReader()
         reader.onload = (evt) => {
-          this.attachment = this.attachmentTemplate(
-            'image',
-            file.name,
-            evt.target.result
-          )
+          this.attachment = {
+            type: 'image',
+            name: file.name,
+            thumbnails: evt.target.result,
+          }
         }
         reader.readAsDataURL(file)
       }

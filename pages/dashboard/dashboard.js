@@ -5,52 +5,24 @@ export default {
     swiper() {
       // this.$router.push('/login')
     },
+    getContacts() {
+      this.$axios.post('chat/getContacts').then((data) => {
+        this.newsfeeds = data.data.contacts
+        if (data.data.contacts.length === 0) {
+          this.display = true
+          this.no_display = false
+        }
+      })
+    },
   },
-
+  mounted() {
+    this.getContacts()
+  },
   data() {
     return {
-      display: true,
-      no_display: false,
-      newsfeeds: [
-        {
-          id: 1,
-          image: 'Tanjiro_Anime_Profile.png',
-          name: 'Dr. Juan DelaCruz',
-          time: '12:30 PM',
-          prescription: 'Your prescription is now ready',
-        },
-        {
-          id: 2,
-          image: 'Zenitsu_Anime_Profile.png',
-          name: 'Jose Rizal',
-          time: 'Feb 4',
-          message:
-            'Gud morning Po napalit ko napalit ko na ang tambal na gi tag nmo sa akoa...',
-        },
-        {
-          id: 3,
-          image: 'Muzan_Anime_Profile.png',
-          name: 'Mel Bitancor',
-          time: 'Dec 26, 2020',
-          message:
-            'Gud morning Po napalit ko napalit ko na ang tambal na gi tag nmo sa akoa...',
-        },
-        {
-          id: 4,
-          image: 'medical-pharmacy-logo.jpg',
-          name: 'Medical Pharmacy',
-          time: 'Aug 8, 2020',
-          message:
-            'Good morning sir your medications was bought Full by Ms. Maria Dela Cruz. Thank you for choosing Options Pharmacy',
-        },
-        {
-          id: 5,
-          image: 'Muzan_Anime_Profile.png',
-          name: 'Alvin Pacot',
-          time: 'May 18, 2020',
-          prescription: 'Your prescription is now ready',
-        },
-      ],
+      display: false,
+      no_display: true,
+      newsfeeds: [],
     }
   },
 }
