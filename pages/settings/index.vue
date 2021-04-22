@@ -7,7 +7,7 @@
         <div class="settings-header-sub-title">SETTINGS</div>
       </div>
     </div>
-    <div class="settings-main-content">
+    <!-- <div class="settings-main-content">
       <div class="settings-first-section">
         <div class="settings-first-header-section">
           <div class="personal-info-title">
@@ -62,6 +62,39 @@
           Logout
         </v-btn>
       </div>
+    </div> -->
+    <div class="settings expansion-panel">
+      <v-expansion-panels accordion>
+        <v-expansion-panel v-for="setting in settings" :key="setting">
+          <v-expansion-panel-header style="padding: 0 10px">
+            <div class="settings-main-icon">
+              <img class="setting-image-icon" :src="setting.icon" alt="" />
+            </div>
+            <div class="settings-dropdown">{{ setting.title }}</div>
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            {{ setting.description }}
+            <div
+              v-if="setting.logout == ''"
+              class="logout-btn d-flex justify-center"
+            >
+              <v-btn tile color="success" width="60%" @click="logout">
+                <v-icon left> mdi-exit-to-app </v-icon>
+                Logout
+              </v-btn>
+            </div>
+            <div
+              v-if="setting.manage == ''"
+              class="manage-btn d-flex justify-center"
+            >
+              <v-btn tile color="success" @click="logout">
+                <v-icon left> mdi-account-cog </v-icon>
+                Manage Information
+              </v-btn>
+            </div>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
     </div>
   </div>
 </template>

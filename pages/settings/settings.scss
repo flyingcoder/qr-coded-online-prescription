@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   padding-left: 10px;
-  font-size: 22px;
+  font-size: 18px;
 }
 .settings-header-content,
 .settings-first-header-section,
@@ -13,6 +13,12 @@
 .settings-third-section {
   border-bottom: 1px solid;
   padding-bottom: 5px;
+}
+.setting-image-icon {
+  width: 30px;
+}
+.settings-dropdown {
+  width: 66%;
 }
 .edit-profile-button {
   display: flex;
@@ -24,6 +30,9 @@
 .personal-info-content-two span,
 .security-login-description {
   padding-left: 40px;
+}
+.manage-btn {
+  margin-top: 17px;
 }
 .personal-info-content,
 .settings-second-section {
