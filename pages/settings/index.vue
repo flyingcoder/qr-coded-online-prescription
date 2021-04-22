@@ -59,7 +59,6 @@
       </div>
       <div class="settings-fourth-section justify-center">
         <v-btn rounded color="success" width="50%" @click="logout">
-          <v-icon left> mdi-pencil </v-icon>
           Logout
         </v-btn>
       </div>
