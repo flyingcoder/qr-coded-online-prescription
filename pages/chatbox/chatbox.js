@@ -42,6 +42,7 @@ export default {
           console.log(this.messages.length)
           this.messages.push(data.data.message)
           this.body.message = ''
+          this.attachment = ''
         })
     },
     fileSelected(e) {
@@ -59,34 +60,6 @@ export default {
           }
         }
         reader.readAsDataURL(file)
-      }
-    },
-    attachmentTemplate(fileType, fileName, imgURL = null) {
-      if (fileType !== 'image') {
-        return (
-          `
-        <div class="attachment-preview">
-            <span class="fas fa-times cancel"></span>
-            <p style="padding:0px 30px;"><span class="fas fa-file"></span> ` +
-          fileName +
-          `</p>
-        </div>
-        `
-        )
-      } else {
-        return (
-          `
-        <div class="attachment-preview">
-            <span class="fas fa-times cancel"></span>
-            <div class="image-file chat-image" style="background-image: url('` +
-          imgURL +
-          `');"></div>
-            <p><span class="fas fa-file-image"></span> ` +
-          fileName +
-          `</p>
-        </div>
-        `
-        )
       }
     },
     fetchMessage() {

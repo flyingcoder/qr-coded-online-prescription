@@ -44,6 +44,7 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/moment',
+    '@nuxtjs/laravel-echo',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

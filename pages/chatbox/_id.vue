@@ -37,7 +37,7 @@
                 message.attachment[0],
             }"
           ></div>
-          <p>
+          <p v-if="message.message">
             <span class="message-main-content">{{ message.message }}</span>
           </p>
           <sub
