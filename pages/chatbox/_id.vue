@@ -1,7 +1,10 @@
 <template>
   <div class="doctor-patient-chatbox">
-    <div class="top-content padding-content">
+    <div class="top-content">
       <img class="user-icon" :src="profile.avatar" :alt="profile.avatar" />
+      <div class="chatbox-undo" @click="back">
+        <v-icon> mdi-arrow-left </v-icon>
+      </div>
       <div class="doctors-upper-name">
         <div class="doctor-name">{{ profile.fname + ' ' + profile.lname }}</div>
         <div v-if="profile.active_status" class="active-user-sign">
@@ -9,8 +12,8 @@
         </div>
       </div>
       <div class="exit-chatbox">
-        <nuxt-link to="/dashboard">
-          <v-icon large> mdi-close </v-icon>
+        <nuxt-link to="/drugs/add-drugs">
+          <v-icon large> mdi-plus </v-icon>
         </nuxt-link>
       </div>
     </div>

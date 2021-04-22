@@ -166,6 +166,7 @@ svg.seen {
 
 .top-content {
   background: #1ac6b6;
+  padding: 1% 9%;
   .doctor-name {
     font-size: 16px;
     font-weight: 500;
@@ -274,4 +275,9 @@ svg.seen {
   background: #ececec;
   height: 84vh;
   margin: 0;
+}
+.chatbox-undo {
+  position: absolute;
+  top: 15px;
+  left: 5px;
 }

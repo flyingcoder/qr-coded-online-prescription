@@ -48,6 +48,7 @@ export default {
       const file = e.target.files[0]
       if (!file.type.match('image.*')) {
         this.attachment = this.attachmentTemplate('file', file.name)
+        console.log('this')
       } else {
         const reader = new FileReader()
         reader.onload = (evt) => {
@@ -97,6 +98,9 @@ export default {
         this.messages = data.data.messages
         console.log(data)
       })
+    },
+    back() {
+      this.$router.back()
     },
     getDoctor() {
       this.$axios.get('user/' + this.$route.params.id).then((data) => {

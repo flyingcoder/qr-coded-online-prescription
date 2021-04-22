@@ -78,6 +78,7 @@
           min-width="300px"
           class="btn-radius"
           style="color: white"
+          @click="checkout"
         >
           Checkout
         </v-btn>
