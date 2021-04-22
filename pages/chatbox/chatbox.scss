@@ -112,6 +112,16 @@ svg.seen {
   border-radius: 20px;
   word-break: break-word;
 }
+svg.svg-inline--fa.fa-file-image.fa-w-12 {
+  width: 10px;
+}
+.attachment-preview {
+  background: white;
+  margin-bottom: -11px;
+}
+svg.svg-inline--fa.fa-times.fa-w-11.cancel {
+  width: 10px;
+}
 .message-card p sub {
   display: inline-block;
   font-size: 11px;
@@ -166,11 +176,13 @@ svg.seen {
 
 .top-content {
   background: #1ac6b6;
+  padding: 1% 9%;
   .doctor-name {
     font-size: 16px;
     font-weight: 500;
     color: white !important;
   }
+
   .active-user-sign {
     font-size: 14px;
     margin-top: -5px;
@@ -274,4 +286,9 @@ svg.seen {
   background: #ececec;
   height: 84vh;
   margin: 0;
+}
+.chatbox-undo {
+  position: absolute;
+  top: 15px;
+  left: 5px;
 }

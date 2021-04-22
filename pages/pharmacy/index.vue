@@ -31,6 +31,11 @@
               <v-subheader
                 v-if="index == 0"
                 :key="item.id"
+                :class="{
+                  'page-item': true,
+                  patient_pharmacy_title: $auth.user.role == 'patient',
+                  patient_pharmacy_title: $auth.user.role == 'doctor',
+                }"
                 class="pharmacys-list-title"
                 >Pharmacy Medicine</v-subheader
               >

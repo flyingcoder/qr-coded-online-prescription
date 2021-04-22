@@ -23,8 +23,10 @@
               <div
                 v-if="item.content"
                 class="wallet-main-content full-width"
-              ></div>
-              {{ item.content }}
+                style="text-align: center; font-size: 18px"
+              >
+                {{ item.content }}
+              </div>
               <div v-if="item.cancel" class="d-flex justify-center">
                 <v-btn
                   elevation="2"
@@ -102,9 +104,9 @@ export default {
         {
           id: 1,
           icon: 'mdi-wallet-outline',
-          icon_inner: '',
+          icon_inner: 'mdi-wallet-outline',
           title: 'Reseta e-Wallet',
-          content: '<div class="paynow-button text-center-pd">PAY NOW</div>',
+          content: 'Paynow',
           cancel: 'Cancel',
           yes: 'Yes',
         },
@@ -125,15 +127,16 @@ export default {
             'You can now use your GCash balance in Reseta. You will redirected to the GCash website to finish the payment.',
           confirm: 'CONFIRM SELECTION',
         },
-        {
-          id: 4,
-          icon: 'mdi-cash',
-          icon_inner: 'mdi-cash',
-          title: 'Cash On Delivery',
-          image: 'https://img.icons8.com/carbon-copy/100/000000/gcash.png',
-          content:
-            'Security Advicosry Pharmacy are not allowed tp ask you to order and transact your payments outside the platform.<br><br>When using our cash on Delivery services, payments is given to our official delivery partner upon to receipt of item.',
-        },
+
+        // {
+        //   id: 4,
+        //   icon: 'mdi-cash',
+        //   icon_inner: 'mdi-cash',
+        //   title: 'Cash On Delivery',
+        //   image: 'https://img.icons8.com/carbon-copy/100/000000/gcash.png',
+        //   content:
+        //     'Security Advicosry Pharmacy are not allowed tp ask you to order and transact your payments outside the platform.<br><br>When using our cash on Delivery services, payments is given to our official delivery partner upon to receipt of item.',
+        // },
       ],
     }
   },
