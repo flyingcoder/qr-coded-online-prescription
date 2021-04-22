@@ -25,6 +25,18 @@
           class="message-card"
           :class="{ 'mc-sender': message.viewType === 'sender' }"
         >
+          <div
+            v-if="message.attachment[0] != null"
+            class="image-file chat-image"
+            style="width: 250px; height: 150px"
+            :style="{
+              backgroundImage:
+                'url(' +
+                $config.baseURL +
+                '/storage/attachments/' +
+                message.attachment[0],
+            }"
+          ></div>
           <p>
             <span class="message-main-content">{{ message.message }}</span>
           </p>
