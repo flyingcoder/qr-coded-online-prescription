@@ -45,7 +45,6 @@ export default {
         })
     },
     fileSelected(e) {
-      console.log(e)
       const file = e.target.files[0]
       if (!file.type.match('image.*')) {
         this.attachment = this.attachmentTemplate('file', file.name)
