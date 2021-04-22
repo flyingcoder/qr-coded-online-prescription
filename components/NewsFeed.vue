@@ -1,24 +1,24 @@
 <template>
-  <div class="newsfeed" @click="singleFeed">
+  <div class="newsfeed" @click="singleFeed(newsfeed.user_id)">
     <div class="user">
       <img
         class="user-icon"
-        :src="require(`~/assets/images/${newsfeed.image}`)"
-        :alt="newsfeed.name"
+        :src="newsfeed.user_avatar"
+        :alt="newsfeed.user_name"
       />
     </div>
     <div class="user-post">
       <div class="up-header">
-        <div class="user-name">{{ newsfeed.name }}</div>
-        <span class="time">{{ newsfeed.time }}</span>
+        <div class="user-name">{{ newsfeed.user_name }}</div>
+        <span class="time">{{ newsfeed.lastMessage.time }}</span>
       </div>
       <div class="up-message">
-        <div v-if="newsfeed.message" class="message">
-          {{ newsfeed.message }}
+        <div v-if="newsfeed.lastMessage.message" class="message">
+          {{ newsfeed.lastMessage.message }}
         </div>
-        <nuxt-link to="/medication/01">
-          <div v-if="newsfeed.prescription" class="sent-prescription">
-            {{ newsfeed.prescription }}
+        <nuxt-link v-if="false" to="/medication/01">
+          <div v-if="newsfeed.id" class="sent-prescription">
+            {{ newsfeed.id }}
           </div>
         </nuxt-link>
       </div>
@@ -31,22 +31,12 @@ export default {
   props: {
     newsfeed: {
       type: Object,
-      default() {
-        return {
-          id: 0,
-          image: 'Inosuke_Anime_Profile.png',
-          name: 'Unknown',
-          time: '12:30 PM',
-          prescription: 'Send Medical Prescription',
-          message:
-            'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
-        }
-      },
+      required: true,
     },
   },
   methods: {
-    singleFeed() {
-      this.$router.push('/chatbox')
+    singleFeed(id) {
+      this.$router.push('/chatbox/' + id)
     },
   },
 }
