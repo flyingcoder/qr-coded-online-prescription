@@ -45,6 +45,22 @@
 .messenger-sendCard input[type='file'] {
   display: none;
 }
+svg.svg-inline--fa.fa-file-image.fa-w-12 {
+  width: 10px;
+}
+.attachment-preview {
+  background: white;
+}
+.image-file {
+  cursor: pointer;
+  width: 140px;
+  height: 70px;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 .messenger-sendCard button,
 .messenger-sendCard button:active,
 .messenger-sendCard button:focus {
@@ -83,7 +99,6 @@
   -webkit-animation-delay: 100ms;
   animation-delay: 100ms;
 }
-
 .typing-dots .dot-2 {
   -webkit-animation-delay: 200ms;
   animation-delay: 200ms;
@@ -112,15 +127,36 @@ svg.seen {
   border-radius: 20px;
   word-break: break-word;
 }
-svg.svg-inline--fa.fa-file-image.fa-w-12 {
-  width: 10px;
-}
 .attachment-preview {
-  background: white;
-  margin-bottom: -11px;
+  position: relative;
+  padding: 10px;
 }
-svg.svg-inline--fa.fa-times.fa-w-11.cancel {
-  width: 10px;
+.attachment-preview > p {
+  margin: 0;
+  font-weight: 600;
+  padding: 0px;
+  padding-top: 10px;
+}
+.attachment-preview > p > svg {
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: -1px;
+  color: #737373;
+}
+.attachment-preview svg:active {
+  transform: none;
+}
+.attachment-preview > svg:first-child {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.33);
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  border-radius: 100%;
+  font-size: 16px;
+  margin: 0;
+  top: 10px;
+  color: #fff;
 }
 .message-card p sub {
   display: inline-block;
@@ -284,7 +320,7 @@ svg.svg-inline--fa.fa-times.fa-w-11.cancel {
 }
 .m-body.app-scroll {
   background: #ececec;
-  height: 84vh;
+  height: 86vh;
   margin: 0;
 }
 .chatbox-undo {
