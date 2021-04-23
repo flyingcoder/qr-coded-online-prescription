@@ -87,9 +87,27 @@
               v-if="setting.manage == ''"
               class="manage-btn d-flex justify-center"
             >
-              <v-btn tile color="success" @click="logout">
+              <v-btn tile color="success" to="edit-profile">
                 <v-icon left> mdi-account-cog </v-icon>
                 Manage Information
+              </v-btn>
+            </div>
+            <div
+              v-if="setting.security == ''"
+              class="manage-btn d-flex justify-center"
+            >
+              <v-btn tile color="success" to="edit-profile">
+                <v-icon left> mdi-shield-account </v-icon>
+                Secure
+              </v-btn>
+            </div>
+            <div
+              v-if="setting.change == ''"
+              class="manage-btn d-flex justify-center"
+            >
+              <v-btn tile color="success" to="edit-profile">
+                <v-icon left> mdi-key-change </v-icon>
+                Change
               </v-btn>
             </div>
           </v-expansion-panel-content>

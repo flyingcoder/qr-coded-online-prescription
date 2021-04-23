@@ -18,12 +18,14 @@ export default {
         {
           title: 'Security and Login',
           icon: '/_nuxt/assets/icons/shield.svg',
+          security: '',
           description:
             'Change your password and take actions to add more security to your account',
         },
         {
           title: 'Change password',
           icon: '/_nuxt/assets/icons/key.svg',
+          change: '',
           description:
             'Its a good idea to use a strong password that your not using elsewhere',
         },
