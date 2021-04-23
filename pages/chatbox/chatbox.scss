@@ -120,8 +120,9 @@ svg.seen {
   width: 11px;
 }
 .message-card p {
-  margin: 0;
+  margin: 5px 0 0 0;
   padding: 6px 15px;
+  background-color: white;
   padding-bottom: 5px;
   max-width: 80%;
   border-radius: 20px;
@@ -320,7 +321,7 @@ svg.seen {
 }
 .m-body.app-scroll {
   background: #ececec;
-  height: 86vh;
+  height: 85vh;
   margin: 0;
 }
 .chatbox-undo {
