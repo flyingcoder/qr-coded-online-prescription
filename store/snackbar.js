@@ -11,7 +11,7 @@ export const mutations = {
 export const actions = {
   setSnackbar({ commit }, snackbar) {
     snackbar.showing = true
-    snackbar.color = snackbar.color || 'teal accent-2'
+    snackbar.color = snackbar.color || '#1ac6b6'
     commit('SET_SNACKBAR', snackbar)
   },
 }

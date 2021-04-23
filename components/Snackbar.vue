@@ -8,9 +8,9 @@
       :color="snackbar.color"
       :style="`bottom: ${index * 60 + 8}px`"
     >
-      <span style="color: black !important">{{ snackbar.text }}</span>
+      <span style="color: white !important">{{ snackbar.text }}</span>
 
-      <v-btn color="black" text @click="snackbar.showing = false">
+      <v-btn color="white" text @click="snackbar.showing = false">
         Close
       </v-btn>
     </v-snackbar>
