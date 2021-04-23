@@ -31,7 +31,7 @@ export default {
         },
         {
           title: 'Logout',
-          icon: '/_nuxt/assets/icons/exit-to-app-button.svg',
+          icon: '~/assets/images/exit-app.png',
           description: '',
           logout: '',
         },

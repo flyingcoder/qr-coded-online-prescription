@@ -1,9 +1,9 @@
 <template>
-  <div class="pharmacy-list">
+  <div class="pharmacy-main-list">
     <div class="search-pharmacy-input">
       <v-text-field
-        label="Search"
-        placeholder="Search Patient"
+        label="Search Pharmacy"
+        placeholder="Search Pharmacy"
         prepend-inner-icon="mdi-magnify"
         outlined
         dense
@@ -37,7 +37,7 @@
                   patient_pharmacy_title: $auth.user.role == 'doctor',
                 }"
                 class="pharmacys-list-title"
-                >Pharmacy Medicine</v-subheader
+                >Pharmacy List</v-subheader
               >
 
               <v-divider :key="index + 'div' + item.id"></v-divider>
@@ -49,11 +49,11 @@
 
                 <v-list-item-content>
                   <v-list-item-title>
-                    {{ item.name }} &nbsp;&nbsp;{{ item.grams }}
+                    {{ item.name }}
                     <br />
                     <span class="medicine-sub-info">
-                      Price: ₱{{ item.price }} &nbsp;&nbsp;Stock:
-                      {{ item.stocks }}&nbsp;&nbsp; Brand: {{ item.brand }}
+                      Place: {{ item.place }} &nbsp;&nbsp;<br />Time:
+                      {{ item.time }}
                     </span>
                   </v-list-item-title>
                   <v-btn
@@ -84,5 +84,6 @@
   </div>
 </template>
 
-<script src="./medicine.js"></script>
-<style src="./medicine.scss" lang="scss"></style>
+<script src="./pharmacy.js"></script>
+
+<style src="./pharmacy.scss" lang="scss" scoped></style>

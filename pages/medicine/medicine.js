@@ -5,7 +5,6 @@ export default {
     return {
       grid: true,
       align: '',
-      doctors: '',
       pharmacy_medicine: [
         {
           avatar: '/_nuxt/assets/images/colchine.png',
@@ -34,18 +33,8 @@ export default {
       ],
     }
   },
-  mounted() {
-    this.getDoctors()
-  },
+  mounted() {},
   methods: {
-    getDoctors() {
-      this.$axios.get('users/doctor').then((data) => {
-        this.doctors = data.data
-      })
-    },
-    viewProfile(id) {
-      this.$router.push('/doctors/' + id)
-    },
     pharmacy(id) {
       this.$router.push('/pharmacy/' + id)
     },
