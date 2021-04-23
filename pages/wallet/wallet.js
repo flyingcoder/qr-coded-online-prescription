@@ -14,7 +14,11 @@ export default {
       return (qty += 1)
     },
     decrease(qty) {
-      return (qty -= 1)
+      console.log(qty !== 0)
+      if (qty !== 0) {
+        console.log(qty)
+        return (qty -= 1)
+      }
     },
   },
   computed: {

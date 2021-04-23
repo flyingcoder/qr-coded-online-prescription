@@ -44,7 +44,13 @@
               >mdi-plus-circle-outline</v-icon
             ></v-btn
           >
-          <v-btn icon @click="order.qty -= 1"
+          <v-btn
+            icon
+            @click="
+              {
+                order.qty != 1 ? (order.qty -= 1) : ''
+              }
+            "
             ><v-icon color="red" size="30"
               >mdi-minus-circle-outline</v-icon
             ></v-btn

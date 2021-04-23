@@ -47,7 +47,7 @@
         <NuxtLink to="/cart" class="menu-icon"
           ><v-icon>mdi-cart-plus</v-icon></NuxtLink
         >
-        <NuxtLink to="/directory" class="menu-icon"
+        <NuxtLink to="/patients" class="menu-icon"
           ><v-icon>mdi-contacts</v-icon></NuxtLink
         >
         <NuxtLink to="/wallet" class="menu-icon"
