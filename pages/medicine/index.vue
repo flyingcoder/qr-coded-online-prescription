@@ -62,9 +62,8 @@
                     x-small
                     fab
                     color="indigo"
-                    @click="pharmacy(item.id)"
                   >
-                    <v-icon>mdi-pencil</v-icon>
+                    <v-icon>mdi-eye</v-icon>
                   </v-btn>
                   <v-list-item-subtitle>
                     <div class="pharmacy-content">

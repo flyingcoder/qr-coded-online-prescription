@@ -44,7 +44,10 @@
                   <img width="40px" src="~/assets/icons/master.svg" />
                 </div>
                 <div class="credit-card-input">
-                  <v-text-field label="Card Number"></v-text-field>
+                  <v-text-field
+                    label="Card Number"
+                    type="number"
+                  ></v-text-field>
                   <v-text-field
                     label="Name on Card"
                     class="margin-top-pull"
@@ -52,13 +55,15 @@
                   <div class="d-flex margin-top-pull">
                     <v-text-field
                       label="Expiration (MM/YY)"
-                      style="width: 45%"
+                      style="width: 45%; margin-right: 10px"
+                      type="date"
                       class="card-secondary-input"
                     ></v-text-field>
                     <v-text-field
                       label="CVV"
                       style="width: 45%"
                       class="card-secondary-input"
+                      type="number"
                     ></v-text-field>
                   </div>
                 </div>
@@ -160,6 +165,10 @@ export default {
 }
 .card-secondary-input .v-input__slot {
   width: 80%;
+}
+.card-secondary-input .v-text-field__slot,
+input#input-89 {
+  width: 10px !important;
 }
 .active {
   display: none !important;
