@@ -27,7 +27,7 @@
       <v-card max-width="450" class="mx-auto pharmacy">
         <div class="pharmacy-list-main-btn">
           <v-list three-line class="pharmacys-background-color">
-            <template v-for="(item, index) in pharmacy_medicine">
+            <template v-for="(item, index) in medicines">
               <v-subheader
                 v-if="index == 0"
                 :key="item.id"
@@ -42,18 +42,21 @@
 
               <v-divider :key="index + 'div' + item.id"></v-divider>
 
-              <v-list-item :key="item.fname" class="pharmacy-list-section">
+              <v-list-item :key="index + item.id" class="pharmacy-list-section">
                 <v-list-item-avatar>
-                  <img :src="item.avatar" :alt="item.fname" />
+                  <img
+                    :src="$config.baseURL + '/storage/medicines/' + item.image"
+                  />
                 </v-list-item-avatar>
 
                 <v-list-item-content>
                   <v-list-item-title>
-                    {{ item.name }} &nbsp;&nbsp;{{ item.grams }}
+                    {{ item.generic_name }} &nbsp;&nbsp;{{ item.size }}
                     <br />
                     <span class="medicine-sub-info">
-                      Price: ₱{{ item.price }} &nbsp;&nbsp;Stock:
-                      {{ item.stocks }}&nbsp;&nbsp; Brand: {{ item.brand }}
+                      Price: ₱{{ item.pivot.price }} &nbsp;&nbsp;Stock:
+                      {{ item.pivot.stocks }}&nbsp;&nbsp; Brand:
+                      {{ item.brand }}
                     </span>
                   </v-list-item-title>
                   <v-btn

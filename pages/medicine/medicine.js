@@ -1,10 +1,11 @@
 export default {
   layout: 'dashboard',
-  auth: false,
+  auth: true,
   data() {
     return {
       grid: true,
       align: '',
+      medicines: '',
       pharmacy_medicine: [
         {
           avatar: '/_nuxt/assets/images/colchine.png',
@@ -33,10 +34,18 @@ export default {
       ],
     }
   },
-  mounted() {},
+  mounted() {
+    this.getMedicines()
+  },
   methods: {
     pharmacy(id) {
       this.$router.push('/pharmacy/' + id)
+    },
+    getMedicines() {
+      this.$axios.get('medicines').then((data) => {
+        this.medicines = data.data
+        console.log(data)
+      })
     },
   },
 }
