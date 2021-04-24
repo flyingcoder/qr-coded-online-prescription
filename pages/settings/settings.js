@@ -29,12 +29,6 @@ export default {
           description:
             'Its a good idea to use a strong password that your not using elsewhere',
         },
-        {
-          title: 'Logout',
-          icon: '/_nuxt/assets/images/exit-app.png',
-          description: '',
-          logout: '',
-        },
       ],
     }
   },

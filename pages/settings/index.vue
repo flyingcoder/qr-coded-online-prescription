@@ -63,7 +63,7 @@
         </v-btn>
       </div>
     </div> -->
-    <div class="settings expansion-panel">
+    <div class="settings expansion-pane d-flex">
       <v-expansion-panels accordion>
         <v-expansion-panel v-for="setting in settings" :key="setting">
           <v-expansion-panel-header style="padding: 0 10px">
@@ -74,15 +74,6 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             {{ setting.description }}
-            <div
-              v-if="setting.logout == ''"
-              class="logout-btn d-flex justify-center"
-            >
-              <v-btn tile color="success" width="60%" @click="logout">
-                <v-icon left> mdi-exit-to-app </v-icon>
-                Logout
-              </v-btn>
-            </div>
             <div
               v-if="setting.manage == ''"
               class="manage-btn d-flex justify-center"
@@ -113,6 +104,13 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
+    </div>
+    <div class="d-flex">
+      <div class="settings-fourth-section justify-center" style="width: 100%">
+        <v-btn rounded color="success" width="50%" @click="logout">
+          Logout
+        </v-btn>
+      </div>
     </div>
   </div>
 </template>
