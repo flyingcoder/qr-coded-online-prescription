@@ -101,9 +101,17 @@ export default {
       file: '',
     }
   },
+  mounted() {
+    this.editMedicine()
+  },
   methods: {
     back() {
       this.$router.back()
+    },
+    editMedicine() {
+      this.$axios.get('medicines').then((data) => {
+        this.medicines = data.data
+      })
     },
     reset() {
       this.generic_name = ''
