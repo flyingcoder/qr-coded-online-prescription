@@ -18,7 +18,7 @@
         small
         x-small
         color="#1ac6b6"
-        to="drugs/add-drugs"
+        to="medicine/add"
       >
         <v-icon color="white"> mdi-plus </v-icon>
       </v-btn>

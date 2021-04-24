@@ -108,6 +108,7 @@
     <div class="d-flex">
       <div class="settings-fourth-section justify-center" style="width: 100%">
         <v-btn rounded color="success" width="50%" @click="logout">
+          <v-icon>mdi-exit-to-app</v-icon>
           Logout
         </v-btn>
       </div>

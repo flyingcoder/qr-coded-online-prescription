@@ -1,6 +1,9 @@
 <template>
-  <div class="add-medicine padding-top">
+  <div class="add-medicine">
     <v-form id="add-medicine">
+      <div class="chatbox-undo" @click="back">
+        <v-icon> mdi-arrow-left </v-icon>
+      </div>
       <v-row class="justify-center">
         <div class="add-product-title">Add Product</div>
       </v-row>
@@ -99,6 +102,9 @@ export default {
     }
   },
   methods: {
+    back() {
+      this.$router.back()
+    },
     reset() {
       this.generic_name = ''
       this.price = ''
