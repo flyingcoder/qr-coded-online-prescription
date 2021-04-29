@@ -16,19 +16,20 @@
       </div>
     </div>
     <v-divider class="border-width-primary"></v-divider>
-    <div v-for="n in product_name" :key="n.id" class="all-product-display">
-      <h3 class="pd-left">{{ n.title }}</h3>
+    <div
+      v-for="medicine in allmedicines"
+      :key="medicine"
+      class="all-product-display"
+    >
+      <h3 class="pd-left">{{ medicine.generic_name }}</h3>
       <v-sheet class="mx-auto" elevation="8" max-width="800">
         <v-slide-group
-          v-model="model"
+          v-for="pharmacy in medicine.users"
+          :key="pharmacy.id"
           active-class="card-color-active"
           multiple
         >
-          <v-slide-item
-            v-for="n in products"
-            :key="n.id"
-            v-slot="{ active, toggle }"
-          >
+          <v-slide-item v-slot="{ active, toggle }">
             <v-card
               :color="active ? undefined : 'white'"
               height="130"
@@ -49,16 +50,18 @@
                 <div class="product-image">
                   <img
                     class="drug-image"
-                    :src="require(`~/assets/images/${n.image}`)"
+                    :src="
+                      $config.baseURL + '/storage/medicines/' + medicine.image
+                    "
                   />
                 </div>
                 <v-divider></v-divider>
                 <div class="product-name">
-                  {{ n.name }}
+                  {{ pharmacy.generic_name }}
                 </div>
                 <div class="d-flex product-price_store">
-                  <div class="price">₱ {{ n.price }}</div>
-                  <div class="store">{{ n.store }}</div>
+                  <div class="price">₱ {{ medicine.users[0].pivot.price }}</div>
+                  <div class="store">{{ medicine.brand }}</div>
                 </div>
               </div>
             </v-card>
@@ -78,7 +81,6 @@
           min-width="300px"
           class="btn-radius"
           style="color: white"
-          @click="checkout"
         >
           Checkout
         </v-btn>
