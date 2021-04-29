@@ -1,53 +1,30 @@
 export default {
+  name: 'Pharmacy',
   layout: 'dashboard',
-  auth: false,
   data() {
     return {
       grid: true,
       align: '',
-      doctors: '',
       pharmacy_medicine: [
         {
-          avatar: '/_nuxt/assets/images/colchine.png',
-          name: 'Paracetamol',
-          stocks: '200',
-          price: '6',
-          grams: '0.6mg',
-          brand: 'Dymadon',
+          avatar: '/_nuxt/assets/images/pharmacy-logo.jpg',
+          name: 'Brennen Drugs Co.',
+          time: 'Open 24 hours',
+          place: 'DAVAO DEL SUR',
         },
         {
-          avatar: '/_nuxt/assets/images/colchine.png',
-          name: 'Colchine',
-          stocks: '800',
-          price: '7',
-          grams: '0.6mg',
-          brand: 'Dymadon',
+          avatar: '/_nuxt/assets/images/pharmacy-logo.jpg',
+          name: 'Cherry Street Pharmacy.',
+          time: 'Open 24 hours',
+          place: 'Door 1, GMSA · 0923 738 3905',
         },
         {
-          avatar: '/_nuxt/assets/images/colchine.png',
-          name: 'Biogesic',
-          stocks: '500',
-          price: '8',
-          grams: '0.76mg',
-          brand: 'Dymadon',
+          avatar: '/_nuxt/assets/images/pharmacy-logo.jpg',
+          name: 'City Drug.',
+          time: 'Open . Closes 9PM',
+          place: 'DAVAO DEL SUR, Davao del Sur',
         },
       ],
     }
-  },
-  mounted() {
-    this.getDoctors()
-  },
-  methods: {
-    getDoctors() {
-      this.$axios.get('users/doctor').then((data) => {
-        this.doctors = data.data
-      })
-    },
-    viewProfile(id) {
-      this.$router.push('/doctors/' + id)
-    },
-    pharmacy(id) {
-      this.$router.push('/pharmacy/' + id)
-    },
   },
 }

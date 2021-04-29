@@ -4,7 +4,7 @@
     <div class="edit-profile-image">
       <img src="~/assets/images/Inosuke_Anime_Profile.png" alt="" />
       <div class="edit-image">
-        <v-btn small class="mx-2" fab dark color="cyan">
+        <v-btn small class="mx-2" fab dark color="cyan" type="file">
           <v-icon dark> mdi-pencil </v-icon>
         </v-btn>
       </div>

@@ -1,9 +1,9 @@
 <template>
-  <div class="pharmacy-main-list">
+  <div class="pharmacy-list">
     <div class="search-pharmacy-input">
       <v-text-field
-        label="Search Pharmacy"
-        placeholder="Search Pharmacy"
+        label="Search"
+        placeholder="Search Patient"
         prepend-inner-icon="mdi-magnify"
         outlined
         dense
@@ -18,7 +18,7 @@
         small
         x-small
         color="#1ac6b6"
-        to="drugs/add-drugs"
+        to="medicine/add"
       >
         <v-icon color="white"> mdi-plus </v-icon>
       </v-btn>
@@ -27,7 +27,7 @@
       <v-card max-width="450" class="mx-auto pharmacy">
         <div class="pharmacy-list-main-btn">
           <v-list three-line class="pharmacys-background-color">
-            <template v-for="(item, index) in pharmacy_medicine">
+            <template v-for="(item, index) in medicines">
               <v-subheader
                 v-if="index == 0"
                 :key="item.id"
@@ -37,23 +37,26 @@
                   patient_pharmacy_title: $auth.user.role == 'doctor',
                 }"
                 class="pharmacys-list-title"
-                >Pharmacy List</v-subheader
+                >Pharmacy Medicine</v-subheader
               >
 
               <v-divider :key="index + 'div' + item.id"></v-divider>
 
-              <v-list-item :key="item.fname" class="pharmacy-list-section">
+              <v-list-item :key="index + item.id" class="pharmacy-list-section">
                 <v-list-item-avatar>
-                  <img :src="item.avatar" :alt="item.fname" />
+                  <img
+                    :src="$config.baseURL + '/storage/medicines/' + item.image"
+                  />
                 </v-list-item-avatar>
 
                 <v-list-item-content>
                   <v-list-item-title>
-                    {{ item.name }}
+                    {{ item.generic_name }} &nbsp;&nbsp;{{ item.size }}
                     <br />
                     <span class="medicine-sub-info">
-                      Place: {{ item.place }} &nbsp;&nbsp;<br />Time:
-                      {{ item.time }}
+                      Price: ₱{{ item.pivot.price }} &nbsp;&nbsp;Stock:
+                      {{ item.pivot.stocks }}&nbsp;&nbsp; Brand:
+                      {{ item.brand }}
                     </span>
                   </v-list-item-title>
                   <v-btn
@@ -62,9 +65,8 @@
                     x-small
                     fab
                     color="indigo"
-                    to="pharmacy/1"
                   >
-                    <v-icon>mdi-eye-outline</v-icon>
+                    <v-icon>mdi-eye</v-icon>
                   </v-btn>
                   <v-list-item-subtitle>
                     <div class="pharmacy-content">
@@ -84,6 +86,5 @@
   </div>
 </template>
 
-<script src="./pharmacy.js"></script>
-
-<style src="./pharmacy.scss" lang="scss" scoped></style>
+<script src="./medicine.js"></script>
+<style src="./medicine.scss" lang="scss"></style>

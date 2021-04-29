@@ -50,7 +50,7 @@
         <!-- <NuxtLink to="/doctors" class="menu-icon"
           ><v-icon>mdi-doctor</v-icon></NuxtLink
         > -->
-        <NuxtLink to="/doctors" class="menu-icon"
+        <NuxtLink to="/patients" class="menu-icon"
           ><v-icon>mdi-contacts</v-icon></NuxtLink
         >
         <NuxtLink to="/wallet" class="menu-icon"

@@ -13,7 +13,7 @@
         </div>
         <div class="prescription-form-info">
           <div class="prescription-patient-name">
-            {{ patient_info.name }}
+            {{ $auth.user.fname }} {{ $auth.user.lname }}
           </div>
           <div class="prescription-patient-use">{{ patient_info.use }}</div>
           <div class="prescription-patient-clinic">

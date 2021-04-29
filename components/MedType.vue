@@ -6,33 +6,108 @@
       <v-radio-group v-model="type" column class="Medtype-section">
         <v-container>
           <v-row class="medapply-main-inputs">
-            <label class="medapply-input"
-              >One
+            <label class="medapply-input sm-font-size"
+              >Aerosol spray or foam
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input sm-font-size"
+              >Ointment (salve, unction)
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input sm-font-size"
+              >Aqueous solution
               <input type="radio" checked="checked" name="radio" />
               <span class="checkmark"></span>
             </label>
             <label class="medapply-input"
-              >One
+              >Paste
               <input type="radio" checked="checked" name="radio" />
               <span class="checkmark"></span>
             </label>
             <label class="medapply-input"
-              >One
+              >Aqueous suspension
               <input type="radio" checked="checked" name="radio" />
               <span class="checkmark"></span>
             </label>
             <label class="medapply-input"
-              >One
+              >Pill
               <input type="radio" checked="checked" name="radio" />
               <span class="checkmark"></span>
             </label>
             <label class="medapply-input"
-              >One
+              >Caplet
               <input type="radio" checked="checked" name="radio" />
               <span class="checkmark"></span>
             </label>
             <label class="medapply-input"
-              >One
+              >Powder
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input"
+              >Capsule
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input"
+              >Suppository
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input"
+              >Cream
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input"
+              >Syrup
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input"
+              >Elixer
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input"
+              >Tablet
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input"
+              >Extract
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input"
+              >Tincture
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input"
+              >Gel or jelly
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input sm-font-size"
+              >Transdermal patch
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input"
+              >Liniment
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input"
+              >Lotion
+              <input type="radio" checked="checked" name="radio" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="medapply-input"
+              >Lozenge (troche)
               <input type="radio" checked="checked" name="radio" />
               <span class="checkmark"></span>
             </label>
@@ -69,6 +144,9 @@ export default {
 .medapply-main-inputs {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+.sm-font-size {
+  font-size: 17px !important;
 }
 .medapply-input {
   display: block;

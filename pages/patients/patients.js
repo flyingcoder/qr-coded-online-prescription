@@ -6,7 +6,7 @@ export default {
     return {
       grid: true,
       align: '',
-      doctors: '',
+      patients: '',
     }
   },
   mounted() {
