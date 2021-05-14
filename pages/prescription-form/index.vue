@@ -2,7 +2,7 @@
   <div class="prescription-form-page">
     <MedType v-if="med_type" />
     <MedApplyMethod v-if="med_method" />
-    <v-form>
+    <v-form id="main-prescription-form">
       <div class="patient-info d-flex">
         <div class="prescription-form-image">
           <img
@@ -28,6 +28,7 @@
         <div class="patient-main-info">
           <div class="top-patient-info">
             <v-text-field
+              v-model="patient_prescription_name"
               outlined
               dense
               label="Name"
@@ -36,6 +37,7 @@
           </div>
           <div class="center-patient-info d-flex">
             <v-text-field
+              v-model="patient_prescription_age"
               label="Age"
               outlined
               type="number"
@@ -44,12 +46,14 @@
               style="width: 22%; margin-right: 10px"
             ></v-text-field>
             <v-text-field
+              v-model="patient_prescription_sex"
               label="Sex"
               outlined
               dense
               style="width: 22%; margin-right: 10px"
             ></v-text-field>
             <v-text-field
+              v-model="patient_prescription_number"
               label="Telephone Number"
               outlined
               dense
@@ -57,7 +61,12 @@
             ></v-text-field>
           </div>
           <div class="bottom-patient-info">
-            <v-text-field label="Address" outlined dense></v-text-field>
+            <v-text-field
+              v-model="patient_prescription_address"
+              label="Address"
+              outlined
+              dense
+            ></v-text-field>
           </div>
         </div>
       </div>
@@ -72,6 +81,7 @@
       <div class="patient-medicine-prescription">
         <div class="medicine-top d-flex">
           <v-text-field
+            v-model="medicine_prescription_name"
             outlined
             dense
             label="Generic Name"
@@ -79,6 +89,7 @@
             style="width: 70%; margin-right: 10px"
           ></v-text-field>
           <v-text-field
+            v-model="medicine_prescription_dosage"
             outlined
             dense
             label="Dosage"
@@ -87,6 +98,7 @@
         </div>
         <div class="medicine-bottom d-flex">
           <v-text-field
+            v-model="medicine_prescription_brand"
             outlined
             dense
             label="Brand Name"
@@ -185,6 +197,7 @@
       </div>
       <div class="patient-note-prescription">
         <v-textarea
+          v-model="patient_prescription_note"
           label="Note"
           auto-grow
           outlined
@@ -200,10 +213,7 @@
       </div>
       <v-divider></v-divider>
       <div class="patient-prescribed-buttons d-flex justify-center">
-        <v-btn
-          class="patient-prescribed-button-prescribe"
-          @click="prescription"
-        >
+        <v-btn class="patient-prescribed-button-prescribe" type="submit">
           PRESCRIBED
         </v-btn>
         <v-btn class="patient-prescribed-button-cancel" tile @click="cancel">
