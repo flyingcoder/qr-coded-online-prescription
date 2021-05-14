@@ -1,17 +1,24 @@
+import { all } from "core-js/fn/promise"
+
 export default {
   layout: 'dashboard',
   auth: false,
   methods: {
     prescription() {
-      this.$store.dispatch('snackbar/setSnackbar', {
-        text: `You have successfully created the prescrition`,
-      })
-      this.$router.push('/doctors')
+      this.$axios.post('prescriptions', this.data)
+        .then((data) => {
+          this.$store.dispatch('snackbar/setSnackbar', {
+            text: `You have successfully created the prescrition`,
+          })
+        })
     },
     cancel() {},
   },
   data() {
     return {
+      data: {
+        name: '',
+      },
       patient_prescription_name: '',
       patient_prescription_age: '',
       patient_prescription_sex: '',

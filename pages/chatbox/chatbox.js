@@ -19,6 +19,9 @@ export default {
   mounted() {
     this.getDoctor()
     this.fetchMessage()
+    this.$echo.channel('chat').listen('messaging', (e) => {
+      console.log(e)
+    })
   },
   methods: {
     sendMessage() {
@@ -39,7 +42,6 @@ export default {
           },
         })
         .then((data) => {
-          console.log(this.messages.length)
           this.messages.push(data.data.message)
           this.body.message = ''
           this.attachment = ''
@@ -49,7 +51,6 @@ export default {
       const file = e.target.files[0]
       if (!file.type.match('image.*')) {
         this.attachment = this.attachmentTemplate('file', file.name)
-        console.log('this')
       } else {
         const reader = new FileReader()
         reader.onload = (evt) => {
@@ -69,7 +70,6 @@ export default {
       }
       this.$axios.post('chat/fetchMessages', params).then((data) => {
         this.messages = data.data.messages
-        console.log(data)
       })
     },
     back() {

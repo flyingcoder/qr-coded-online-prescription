@@ -28,7 +28,7 @@
         <div class="patient-main-info">
           <div class="top-patient-info">
             <v-text-field
-              v-model="patient_prescription_name"
+              v-model="data.name"
               outlined
               dense
               label="Name"
