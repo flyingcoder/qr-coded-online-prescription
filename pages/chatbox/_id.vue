@@ -11,8 +11,8 @@
           <span id="active-sign">●</span>&nbsp;active
         </div>
       </div>
-      <div class="exit-chatbox">
-        <nuxt-link to="/drugs/add-drugs">
+      <div v-if="$auth.user.role == 'doctor'" class="add-prescription">
+        <nuxt-link to="/prescription-form">
           <v-icon large> mdi-plus </v-icon>
         </nuxt-link>
       </div>

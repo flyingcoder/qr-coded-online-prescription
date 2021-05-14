@@ -12,6 +12,15 @@ export default {
   },
   data() {
     return {
+      patient_prescription_name: '',
+      patient_prescription_age: '',
+      patient_prescription_sex: '',
+      patient_prescription_number: '',
+      patient_prescription_address: '',
+      medicine_prescription_name: '',
+      medicine_prescription_dosage: '',
+      medicine_prescription_brand: '',
+      patient_prescription_note: '',
       patient_info: {
         image: 'medical-pharmacy-logo.jpg',
         name: 'Mel Ligoro',
