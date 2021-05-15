@@ -1,33 +1,21 @@
-import { all } from "core-js/fn/promise"
-
 export default {
   layout: 'dashboard',
   auth: false,
-  methods: {
-    prescription() {
-      this.$axios.post('prescriptions', this.data)
-        .then((data) => {
-          this.$store.dispatch('snackbar/setSnackbar', {
-            text: `You have successfully created the prescrition`,
-          })
-        })
-    },
-    cancel() {},
-  },
   data() {
     return {
       data: {
-        name: '',
+        patient_name: '',
+        patient_age: '',
+        patient_sex: '',
+        patient_number: '',
+        patient_address: '',
+        medicine_name: '',
+        medicine_dosage: '',
+        medicine_brand: '',
+        patient_note: '',
+        duration: '',
       },
-      patient_prescription_name: '',
-      patient_prescription_age: '',
-      patient_prescription_sex: '',
-      patient_prescription_number: '',
-      patient_prescription_address: '',
-      medicine_prescription_name: '',
-      medicine_prescription_dosage: '',
-      medicine_prescription_brand: '',
-      patient_prescription_note: '',
+
       patient_info: {
         image: 'medical-pharmacy-logo.jpg',
         name: 'Mel Ligoro',
@@ -45,7 +33,6 @@ export default {
       items: ['1', '2', '3', '4'],
       minimumAM: 0,
       minimumPM: 0,
-      duration: '31',
       durations: [
         '1',
         '2',
@@ -108,5 +95,24 @@ export default {
         '12',
       ],
     }
+  },
+  mounted() {
+    this.getPrescription()
+  },
+  methods: {
+    prescription() {
+      this.$axios.post('prescription-form', this.data).then((data) => {
+        this.$store.dispatch('snackbar/setSnackbar', {
+          text: `You have successfully created the prescrition`,
+        })
+      })
+    },
+    getPrescription() {
+      this.$axios.get('prescriptions').then((data) => {
+        this.prescriptions = data.data
+        console.log(data)
+      })
+    },
+    cancel() {},
   },
 }

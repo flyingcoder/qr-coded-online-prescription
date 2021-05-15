@@ -28,7 +28,7 @@
         <div class="patient-main-info">
           <div class="top-patient-info">
             <v-text-field
-              v-model="data.name"
+              v-model="data.patient_name"
               outlined
               dense
               label="Name"
@@ -37,7 +37,7 @@
           </div>
           <div class="center-patient-info d-flex">
             <v-text-field
-              v-model="patient_prescription_age"
+              v-model="data.patient_age"
               label="Age"
               outlined
               type="number"
@@ -46,14 +46,14 @@
               style="width: 22%; margin-right: 10px"
             ></v-text-field>
             <v-text-field
-              v-model="patient_prescription_sex"
+              v-model="data.patient_sex"
               label="Sex"
               outlined
               dense
               style="width: 22%; margin-right: 10px"
             ></v-text-field>
             <v-text-field
-              v-model="patient_prescription_number"
+              v-model="data.patient_number"
               label="Telephone Number"
               outlined
               dense
@@ -62,7 +62,7 @@
           </div>
           <div class="bottom-patient-info">
             <v-text-field
-              v-model="patient_prescription_address"
+              v-model="data.patient_address"
               label="Address"
               outlined
               dense
@@ -81,7 +81,7 @@
       <div class="patient-medicine-prescription">
         <div class="medicine-top d-flex">
           <v-text-field
-            v-model="medicine_prescription_name"
+            v-model="data.medicine_name"
             outlined
             dense
             label="Generic Name"
@@ -89,7 +89,7 @@
             style="width: 70%; margin-right: 10px"
           ></v-text-field>
           <v-text-field
-            v-model="medicine_prescription_dosage"
+            v-model="data.medicine_dosage"
             outlined
             dense
             label="Dosage"
@@ -98,7 +98,7 @@
         </div>
         <div class="medicine-bottom d-flex">
           <v-text-field
-            v-model="medicine_prescription_brand"
+            v-model="data.medicine_brand"
             outlined
             dense
             label="Brand Name"
@@ -176,7 +176,7 @@
       <div class="patient-day-uses-prescription d-flex">
         <div class="patient-duration d-flex">
           <v-text-field
-            v-model="duration"
+            v-model="data.duration"
             type="number"
             min="1"
             max="31"
@@ -197,7 +197,7 @@
       </div>
       <div class="patient-note-prescription">
         <v-textarea
-          v-model="patient_prescription_note"
+          v-model="data.patient_note"
           label="Note"
           auto-grow
           outlined
@@ -213,7 +213,10 @@
       </div>
       <v-divider></v-divider>
       <div class="patient-prescribed-buttons d-flex justify-center">
-        <v-btn class="patient-prescribed-button-prescribe" type="submit">
+        <v-btn
+          class="patient-prescribed-button-prescribe"
+          @click="prescription"
+        >
           PRESCRIBED
         </v-btn>
         <v-btn class="patient-prescribed-button-cancel" tile @click="cancel">
