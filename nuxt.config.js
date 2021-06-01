@@ -42,6 +42,8 @@ export default {
     ['@nuxtjs/eslint-module', {
       fix: true
     }],
+    // With options
+    ['@nuxtjs/laravel-echo', { 'authModule': true }],
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/moment',

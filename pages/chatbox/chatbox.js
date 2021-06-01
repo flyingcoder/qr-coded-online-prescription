@@ -7,6 +7,7 @@ export default {
       attachment: '',
       messages: '',
       previewUrl: '',
+      prescription_link: '/prescription-form/',
       body: {
         message: '',
         type: 'user',
@@ -17,8 +18,9 @@ export default {
     }
   },
   mounted() {
-    this.getDoctor()
+    this.getRecepient()
     this.fetchMessage()
+    console.log(this.$echo)
     this.$echo.channel('chat').listen('messaging', (e) => {
       console.log(e)
     })
@@ -75,10 +77,11 @@ export default {
     back() {
       this.$router.back()
     },
-    getDoctor() {
+    getRecepient() {
       this.$axios.get('user/' + this.$route.params.id).then((data) => {
         this.profile = data.data
         this.body.id = data.data.id
+        this.prescription_link = this.prescription_link + this.profile.id
       })
     },
   },

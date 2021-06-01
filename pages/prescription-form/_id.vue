@@ -5,22 +5,18 @@
     <v-form id="main-prescription-form">
       <div class="patient-info d-flex">
         <div class="prescription-form-image">
-          <img
-            class="user-icon"
-            :src="require(`~/assets/images/${patient_info.image}`)"
-            alt="Alvin Pacot"
-          />
+          <img class="user-icon" :src="$auth.user.avatar" alt="Alvin Pacot" />
         </div>
         <div class="prescription-form-info">
           <div class="prescription-patient-name">
             {{ $auth.user.fname }} {{ $auth.user.lname }}
           </div>
-          <div class="prescription-patient-use">{{ patient_info.use }}</div>
+          <div class="prescription-patient-use">{{ $auth.user.experties }}</div>
           <div class="prescription-patient-clinic">
-            {{ patient_info.clinic }}
+            {{ $auth.user.licence_number }}
           </div>
           <div class="prescription-patient-number">
-            {{ patient_info.number }}
+            {{ $auth.user.phone }}
           </div>
         </div>
       </div>
@@ -28,7 +24,7 @@
         <div class="patient-main-info">
           <div class="top-patient-info">
             <v-text-field
-              v-model="data.patient_name"
+              v-model="data.fname"
               outlined
               dense
               label="Name"
@@ -37,7 +33,7 @@
           </div>
           <div class="center-patient-info d-flex">
             <v-text-field
-              v-model="data.patient_age"
+              v-model="data.age"
               label="Age"
               outlined
               type="number"
@@ -46,14 +42,14 @@
               style="width: 22%; margin-right: 10px"
             ></v-text-field>
             <v-text-field
-              v-model="data.patient_sex"
+              v-model="data.sex"
               label="Sex"
               outlined
               dense
               style="width: 22%; margin-right: 10px"
             ></v-text-field>
             <v-text-field
-              v-model="data.patient_number"
+              v-model="data.phone"
               label="Telephone Number"
               outlined
               dense
@@ -62,7 +58,7 @@
           </div>
           <div class="bottom-patient-info">
             <v-text-field
-              v-model="data.patient_address"
+              v-model="data.address"
               label="Address"
               outlined
               dense
@@ -72,10 +68,16 @@
       </div>
       <div class="patient-date-prescription d-flex">
         <div
-          class="d-block prescription-date full-width text-right align-self-center"
+          class="
+            d-block
+            prescription-date
+            full-width
+            text-right
+            align-self-center
+          "
         >
-          <div class="patient-info-date">{{ patient_info.date }}</div>
-          <div class="patient-info-time">{{ patient_info.time }}</div>
+          <div class="patient-info-date">{{ doctor_info.date }}</div>
+          <div class="patient-info-time">{{ doctor_info.time }}</div>
         </div>
       </div>
       <div class="patient-medicine-prescription">

@@ -4,11 +4,11 @@ export default {
   data() {
     return {
       data: {
-        patient_name: '',
-        patient_age: '',
-        patient_sex: '',
-        patient_number: '',
-        patient_address: '',
+        fname: '',
+        age: '',
+        sex: '',
+        phone: '',
+        address: '',
         medicine_name: '',
         medicine_dosage: '',
         medicine_brand: '',
@@ -16,7 +16,7 @@ export default {
         duration: '',
       },
 
-      patient_info: {
+      doctor_info: {
         image: 'medical-pharmacy-logo.jpg',
         name: 'Mel Ligoro',
         time: '12:30 PM',
@@ -97,7 +97,7 @@ export default {
     }
   },
   mounted() {
-    this.getPrescription()
+    this.getPatient()
   },
   methods: {
     prescription() {
@@ -107,10 +107,10 @@ export default {
         })
       })
     },
-    getPrescription() {
-      this.$axios.get('prescriptions').then((data) => {
-        this.prescriptions = data.data
-        console.log(data)
+    getPatient() {
+      this.$axios.get('user/' + this.$route.params.id).then((data) => {
+        this.data = data.data
+        this.data.fname = this.data.fname + ' ' + data.data.lname
       })
     },
     cancel() {},

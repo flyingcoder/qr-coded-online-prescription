@@ -12,7 +12,7 @@
         </div>
       </div>
       <div v-if="$auth.user.role == 'doctor'" class="add-prescription">
-        <nuxt-link to="/prescription-form">
+        <nuxt-link :to="prescription_link">
           <v-icon large> mdi-plus </v-icon>
         </nuxt-link>
       </div>
