@@ -1,56 +1,180 @@
 <template>
-  <v-dialog v-model="dialog" fullscreen>
-    <v-card>
-      <v-card-title class="popup-title">Select Drug Type</v-card-title>
+  <v-card>
+    <v-card-title class="popup-title">Select Route</v-card-title>
 
-      <v-radio-group v-model="type" column class="Medapllymethod">
-        <v-container>
-          <v-row class="medapply-main-inputs">
-            <label class="medapply-input"
-              >One
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >One
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >One
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >One
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >One
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >One
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-          </v-row>
-        </v-container>
-      </v-radio-group>
+    <v-radio-group column class="Medapllymethod">
+      <v-container>
+        <v-row class="medapply-main-inputs">
+          <label class="medapply-input"
+            >buccal
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="buccal"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >enternal
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="enternal"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >inhalable
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="inhalable"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >infused
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="infused"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >intramuscular
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="intramuscular"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >intrathecal
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="intrathecal"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >intravenous
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="intravenous"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >nasal
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="nasal"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >ophthalmic
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="ophthalmic"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >oral
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="oral"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >otic
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="otic"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >rectal
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="rectal"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >subcataneous
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="subcataneous"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >sublingual
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="sublingual"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >topical
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="topical"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >transdermal
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="transdermal"
+            />
+            <span class="checkmark"></span>
+          </label>
+        </v-row>
+      </v-container>
+    </v-radio-group>
 
-      <v-card-actions class="apply-close">
-        <v-spacer></v-spacer>
+    <v-card-actions class="apply-close">
+      <v-spacer></v-spacer>
 
-        <v-btn color="green darken-1" text @click="dialog = false">
-          Close
-        </v-btn>
-
-        <v-btn color="green darken-1" text @click="dialog = false"> Ok </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+      <v-btn color="green darken-1" text @click="select"> Ok </v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
@@ -58,9 +182,13 @@ export default {
   name: 'Popup',
   data() {
     return {
-      type: '',
-      dialog: true,
+      method: '',
     }
+  },
+  methods: {
+    select() {
+      this.$emit('selected', this.method)
+    },
   },
 }
 </script>

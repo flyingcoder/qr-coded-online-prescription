@@ -1,30 +1,34 @@
 export default {
   layout: 'dashboard',
-  auth: false,
+  auth: true,
   data() {
     return {
       data: {
+        medicine_name: '',
+        medicine_dosage: '',
+        medicine_brand: '',
+        drug_type: 'tablet',
+        patient_note: '',
+        until: '',
+      },
+      numberRule: (v) => {
+        if (!isNaN(parseFloat(v)) && v >= 1 && v <= 99) return true
+        return 'Invalid'
+      },
+      sig: {
+        intake: 'Take',
+        amount: 1,
+        hourAM: '',
+        hourPM: '',
+        repeat: 1,
+        cycle: 'Day',
+      },
+      patient_info: {
         fname: '',
         age: '',
         sex: '',
         phone: '',
         address: '',
-        medicine_name: '',
-        medicine_dosage: '',
-        medicine_brand: '',
-        patient_note: '',
-        duration: '',
-      },
-
-      doctor_info: {
-        image: 'medical-pharmacy-logo.jpg',
-        name: 'Mel Ligoro',
-        time: '12:30 PM',
-        number: '09189789876',
-        use: 'Skin',
-        clinic: 'Pharmacy',
-        message:
-          'Cookie jelly cake lemon drops cotton candy lemon drops cake. Sweet roll chocolate pudding. Sweet dessert cheesecake topping cotton candy ice cream chocolate cake gummies.',
       },
       med_type: false,
       med_method: false,
@@ -33,39 +37,7 @@ export default {
       items: ['1', '2', '3', '4'],
       minimumAM: 0,
       minimumPM: 0,
-      durations: [
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
-        '10',
-        '11',
-        '12',
-        '13',
-        '14',
-        '15',
-        '16',
-        '17',
-        '18',
-        '19',
-        '20',
-        '21',
-        '22',
-        '23',
-        '24',
-        '25',
-        '26',
-        '27',
-        '28',
-        '29',
-        '30',
-        '31',
-      ],
+      duration: ['Day', 'Week', 'Month', 'Year'],
       hoursLabelAM: [
         '1',
         '2',
@@ -100,8 +72,21 @@ export default {
     this.getPatient()
   },
   methods: {
+    medTypeSelected(type) {
+      this.data.drug_type = type
+      this.med_type = false
+    },
+    intakeSelected(type) {
+      this.sig.intake = type
+      this.med_method = false
+    },
     prescription() {
-      this.$axios.post('prescription-form', this.data).then((data) => {
+      const datus = {
+        patient_info: this.patient_info,
+        drug_info: this.drug_info,
+        sig: this.sig,
+      }
+      this.$axios.post('prescription-form', datus).then((data) => {
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `You have successfully created the prescrition`,
         })
@@ -109,7 +94,7 @@ export default {
     },
     getPatient() {
       this.$axios.get('user/' + this.$route.params.id).then((data) => {
-        this.data = data.data
+        this.patient_info = data.data
         this.data.fname = this.data.fname + ' ' + data.data.lname
       })
     },

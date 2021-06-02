@@ -1,11 +1,15 @@
 <template>
   <div class="prescription-form-page">
-    <MedType v-if="med_type" />
-    <MedApplyMethod v-if="med_method" />
+    <v-dialog v-model="med_type" fullscreen>
+      <MedType @selected="medTypeSelected" />
+    </v-dialog>
+    <v-dialog v-model="med_method" fullscreen>
+      <MedApplyMethod @selected="intakeSelected" />
+    </v-dialog>
     <v-form id="main-prescription-form">
       <div class="patient-info d-flex">
         <div class="prescription-form-image">
-          <img class="user-icon" :src="$auth.user.avatar" alt="Alvin Pacot" />
+          <img class="user-icon" :src="$auth.user.avatar" />
         </div>
         <div class="prescription-form-info">
           <div class="prescription-patient-name">
@@ -24,7 +28,7 @@
         <div class="patient-main-info">
           <div class="top-patient-info">
             <v-text-field
-              v-model="data.fname"
+              v-model="patient_info.fname"
               outlined
               dense
               label="Name"
@@ -33,7 +37,7 @@
           </div>
           <div class="center-patient-info d-flex">
             <v-text-field
-              v-model="data.age"
+              v-model="patient_info.age"
               label="Age"
               outlined
               type="number"
@@ -42,14 +46,14 @@
               style="width: 22%; margin-right: 10px"
             ></v-text-field>
             <v-text-field
-              v-model="data.sex"
+              v-model="patient_info.sex"
               label="Sex"
               outlined
               dense
               style="width: 22%; margin-right: 10px"
             ></v-text-field>
             <v-text-field
-              v-model="data.phone"
+              v-model="patient_info.phone"
               label="Telephone Number"
               outlined
               dense
@@ -58,7 +62,7 @@
           </div>
           <div class="bottom-patient-info">
             <v-text-field
-              v-model="data.address"
+              v-model="patient_info.address"
               label="Address"
               outlined
               dense
@@ -76,8 +80,8 @@
             align-self-center
           "
         >
-          <div class="patient-info-date">{{ doctor_info.date }}</div>
-          <div class="patient-info-time">{{ doctor_info.time }}</div>
+          <div class="patient-info-date"></div>
+          <div class="patient-info-time"></div>
         </div>
       </div>
       <div class="patient-medicine-prescription">
@@ -113,7 +117,7 @@
             style="width: 30%"
             @click="med_type = !med_type"
           >
-            Tablet
+            {{ data.drug_type }}
           </v-btn>
         </div>
       </div>
@@ -123,37 +127,47 @@
           <v-btn
             depressed
             height="40px"
-            style="width: 19%"
+            style="width: 25%"
             @click="med_method = !med_method"
           >
-            Take
+            {{ sig.intake }}
+          </v-btn>
+          <v-text-field
+            v-model="sig.amount"
+            outlined
+            dense
+            type="number"
+            :rules="[numberRule]"
+            style="width: 5%"
+          ></v-text-field>
+          <v-btn disabled depressed height="40px" style="width: 30%">
+            {{ data.drug_type }}
+          </v-btn>
+          <v-text-field
+            v-model="sig.repeat"
+            outlined
+            dense
+            type="number"
+            :rules="[numberRule]"
+            style="width: 5%"
+          ></v-text-field>
+          <v-btn disabled depressed height="40px" style="width: 10%">
+            Times
           </v-btn>
           <v-select
-            v-model="amount"
-            :items="items"
-            dense
-            outlined
-            append-icon=""
-            clear-icon
-            style="width: 20%"
-          ></v-select>
-          <v-btn depressed height="40px" style="width: 19%"> Tablet </v-btn>
-          <v-select
-            v-model="take"
-            :items="items"
+            v-model="sig.cycle"
+            :items="duration"
             dense
             append-icon=""
             clear-icon
             outlined
-            style="width: 20%"
+            style="width: 10%"
           ></v-select>
-          <v-btn depressed height="40px" style="width: 20%"> Times </v-btn>
-          <v-btn depressed height="40px" style="width: 20%"> Day </v-btn>
         </div>
         <div class="patient-sig-hours">
           <div class="patient-sig-hours-AM">
             <v-slider
-              v-model="minimumAM"
+              v-model="sig.hourAM"
               :tick-labels="hoursLabelAM"
               :max="11"
               step="1"
@@ -164,9 +178,9 @@
           </div>
           <div class="patient-sig-hours-PM padding-top-sm">
             <v-slider
-              v-model="minimumPM"
+              v-model="sig.hourPM"
               :tick-labels="hoursLabelPM"
-              :max="11"
+              max="11"
               step="1"
               label="PM"
               ticks="always"
@@ -178,7 +192,7 @@
       <div class="patient-day-uses-prescription d-flex">
         <div class="patient-duration d-flex">
           <v-text-field
-            v-model="data.duration"
+            v-model="data.until"
             type="number"
             min="1"
             max="31"
@@ -189,13 +203,13 @@
             outlined
             style="width: 20%"
           ></v-text-field>
-          <div class="duration-day"><h3>DAY</h3></div>
+          <div class="duration-day"><h3>DAY/s</h3></div>
         </div>
-        <div class="patient-duration-total d-flex">
+        <!-- div class="patient-duration-total d-flex">
           <div class="duration-total margin-right-sm"><h3>TOTAL</h3></div>
           <v-text-field outlined dense class="margin-right-sm"></v-text-field>
           <v-btn depressed height="40px" style="width: 20%"> Tablet </v-btn>
-        </div>
+        </!-->
       </div>
       <div class="patient-note-prescription">
         <v-textarea
@@ -207,12 +221,12 @@
           row-height="25"
         ></v-textarea>
       </div>
-      <div class="patient-add-prescription padding-bottom-sm">
+      <!-- div class="patient-add-prescription padding-bottom-sm">
         <v-btn tile>
           <v-icon left large color="green"> mdi-hospital </v-icon>
           Add
         </v-btn>
-      </div>
+      </!-->
       <v-divider></v-divider>
       <div class="patient-prescribed-buttons d-flex justify-center">
         <v-btn

@@ -1,131 +1,129 @@
 <template>
-  <v-dialog v-model="dialog" fullscreen>
-    <v-card>
-      <v-card-title class="popup-title">Select Drug Type</v-card-title>
+  <v-card>
+    <v-card-title class="popup-title">Select Drug Type</v-card-title>
 
-      <v-radio-group v-model="type" column class="Medtype-section">
-        <v-container>
-          <v-row class="medapply-main-inputs">
-            <label class="medapply-input sm-font-size"
-              >Aerosol spray or foam
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input sm-font-size"
-              >Ointment (salve, unction)
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input sm-font-size"
-              >Aqueous solution
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Paste
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Aqueous suspension
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Pill
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Caplet
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Powder
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Capsule
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Suppository
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Cream
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Syrup
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Elixer
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Tablet
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Extract
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Tincture
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Gel or jelly
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input sm-font-size"
-              >Transdermal patch
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Liniment
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Lotion
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="medapply-input"
-              >Lozenge (troche)
-              <input type="radio" checked="checked" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-          </v-row>
-        </v-container>
-      </v-radio-group>
+    <v-radio-group column class="Medtype-section">
+      <v-container>
+        <v-row class="medapply-main-inputs">
+          <label class="medapply-input sm-font-size"
+            >Aerosol spray or foam
+            <input v-model="drug_type" type="radio" value="Aerosol spray" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input sm-font-size"
+            >Ointment (salve, unction)
+            <input v-model="drug_type" type="radio" value="Ointment" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input sm-font-size"
+            >Aqueous solution
+            <input v-model="drug_type" type="radio" value="Aqueous solution" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Paste
+            <input v-model="drug_type" type="radio" value="Paste" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Aqueous suspension
+            <input
+              v-model="drug_type"
+              type="radio"
+              value="Aqueous suspension"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Pill
+            <input v-model="drug_type" type="radio" value="Pill" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Caplet
+            <input v-model="drug_type" type="radio" value="Caplet" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Powder
+            <input v-model="drug_type" type="radio" value="Powder" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Capsule
+            <input v-model="drug_type" type="radio" value="Capsule" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Suppository
+            <input v-model="drug_type" type="radio" value="Suppository" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Cream
+            <input v-model="drug_type" type="radio" value="Cream" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Syrup
+            <input v-model="drug_type" type="radio" value="Syrup" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Elixer
+            <input v-model="drug_type" type="radio" value="Elixer" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Tablet
+            <input v-model="drug_type" type="radio" value="Tablet" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Extract
+            <input v-model="drug_type" type="radio" value="Extract" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Tincture
+            <input v-model="drug_type" type="radio" value="Tincture" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Gel or jelly
+            <input v-model="drug_type" type="radio" value="Gel or jelly" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input sm-font-size"
+            >Transdermal patch
+            <input v-model="drug_type" type="radio" value="Transdermal patch" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Liniment
+            <input v-model="drug_type" type="radio" value="Liniment" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Lotion
+            <input v-model="drug_type" type="radio" value="Lotion" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
+            >Lozenge (troche)
+            <input v-model="drug_type" type="radio" value="Lozenge (troche)" />
+            <span class="checkmark"></span>
+          </label>
+        </v-row>
+      </v-container>
+    </v-radio-group>
 
-      <v-card-actions class="apply-close">
-        <v-spacer></v-spacer>
+    <v-card-actions class="apply-close">
+      <v-spacer></v-spacer>
 
-        <v-btn color="green darken-1" text @click="dialog = false">
-          Close
-        </v-btn>
-
-        <v-btn color="green darken-1" text @click="dialog = false"> Ok </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+      <v-btn color="green darken-1" text @click="pick"> Ok </v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
@@ -133,9 +131,13 @@ export default {
   name: 'Popup',
   data() {
     return {
-      type: '',
-      dialog: true,
+      drug_type: '',
     }
+  },
+  methods: {
+    pick() {
+      this.$emit('selected', this.drug_type)
+    },
   },
 }
 </script>
