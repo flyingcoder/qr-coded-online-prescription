@@ -7,7 +7,7 @@
     <div class="form-card" :class="$route.params.as">
       <div class="center form-header">
         <div class="text-center">
-          <img width="100px" src="~/assets/images/reseta-form-img.png" />
+          <img width="100px" src="~/assets/images/main-logo.png" />
         </div>
         <h1 class="my-0 text-center">
           {{ headerText }}

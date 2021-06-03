@@ -3,7 +3,7 @@
     <v-content>
       <v-row class="center reseta-login-logo">
         <div class="text-end" style="text-align: center">
-          <img width="40%" src="~/assets/images/reseta-form-img.png" />
+          <img width="40%" src="~/assets/images/main-logo.png" />
         </div>
       </v-row>
     </v-content>
