@@ -1,6 +1,6 @@
 <template>
   <div class="search-products">
-    <div class="search-product-section d-flex pd-left">
+    <div class="search-product-section d-flex pd-left justify-center">
       <div class="search-product-input">
         <v-text-field
           label="Search"
@@ -71,7 +71,12 @@
       <v-divider class="border-width-secondary"></v-divider>
     </div>
     <div
-      class="medicine-geet-checkout d-flex justify-center padding-top-md padding-bottom-sm"
+      class="
+        medicine-geet-checkout
+        d-flex
+        justify-center
+        padding-top-md padding-bottom-sm
+      "
     >
       <nuxt-link to="/wallet">
         <v-btn
