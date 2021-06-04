@@ -103,7 +103,7 @@
             prepend-inner-icon="mdi-magnify"
             chips
             small-chips
-            placeholder="Generic Name"
+            placeholder="Search Any Medicine"
           ></v-autocomplete>
         </div>
         <div class="medicine-bottom">
