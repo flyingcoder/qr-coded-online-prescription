@@ -229,15 +229,14 @@
       </!-->
       <v-divider></v-divider>
       <div class="patient-prescribed-buttons d-flex justify-center">
-        <v-btn class="patient-prescribed-button-prescribe" @click="addmedicine">
-          <v-icon color="#1ac6b6" style="margin-right: 5px">mdi-plus</v-icon
-          >Medicine
-        </v-btn>
         <v-btn
           class="patient-prescribed-button-prescribe"
           @click="prescription"
         >
           PRESCRIBED
+        </v-btn>
+        <v-btn class="patient-prescribed-button-cancel" tile @click="cancel">
+          CANCEL
         </v-btn>
       </div>
     </v-form>

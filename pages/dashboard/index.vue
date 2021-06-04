@@ -33,6 +33,9 @@
           :newsfeed="newsfeed"
         />
       </div>
+      <div v-if="$auth.user.role == 'pharmacy'" class="no-customers-order">
+        The customer's order will display here.
+      </div>
       <div v-if="display" class="find-doctors text-center-pd">
         <nuxt-link v-if="$auth.user.role == 'patient'" to="/doctors">
           <v-btn

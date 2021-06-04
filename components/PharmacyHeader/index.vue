@@ -41,10 +41,10 @@
         <NuxtLink to="/dashboard" class="menu-icon"
           ><v-icon>mdi-home</v-icon></NuxtLink
         >
-        <NuxtLink to="/pharmacy" class="menu-icon"
+        <NuxtLink to="/medicine" class="menu-icon"
           ><v-icon>mdi-hospital-box</v-icon></NuxtLink
         >
-        <NuxtLink to="/patients" class="menu-icon"
+        <NuxtLink to="/all-medicines" class="menu-icon"
           ><v-icon>mdi-contacts</v-icon></NuxtLink
         >
         <NuxtLink to="/wallet" class="menu-icon"

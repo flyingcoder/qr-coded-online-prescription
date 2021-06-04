@@ -72,6 +72,18 @@ export default {
     this.getPatient()
   },
   methods: {
+    addmedicine() {
+      const datus = {
+        patient_id: this.patient_info.id,
+        drug_info: this.data,
+        sig: this.sig,
+      }
+      this.$axios.post('add-medicine', datus).then((data) => {
+        this.$store.dispatch('snackbar/setSnackbar', {
+          text: `A medicine is added to the prescription.`,
+        })
+      })
+    },
     medTypeSelected(type) {
       this.data.drug_type = type
       this.med_type = false
@@ -83,7 +95,7 @@ export default {
     prescription() {
       const datus = {
         patient_info: this.patient_info,
-        drug_info: this.drug_info,
+        drug_info: this.data,
         sig: this.sig,
       }
       this.$axios.post('prescription-form', datus).then((data) => {
