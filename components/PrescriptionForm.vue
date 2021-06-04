@@ -92,7 +92,10 @@
         </div>
       </div>
       <div class="patient-medicine-prescription">
-        <div class="medicine-top d-flex">
+        <div class="medicine-top">
+          <label :for="data.medicine_name" class="prescription-medicine-label"
+            >Medicine Name</label
+          >
           <v-autocomplete
             v-model="data.medicine_name"
             outlined
@@ -100,27 +103,19 @@
             prepend-inner-icon="mdi-magnify"
             chips
             small-chips
-            label="Generic Name"
-            style="margin-right: 10px"
+            placeholder="Generic Name"
           ></v-autocomplete>
-          <v-text-field
-            v-model="data.medicine_dosage"
-            outlined
-            dense
-            label="Dosage"
-            style="margin-right: 10px"
-          ></v-text-field>
-          <v-autocomplete
-            v-model="data.medicine_brand"
-            outlined
-            dense
-            prepend-inner-icon="mdi-magnify"
-            chips
-            small-chips
-            label="Brand Name"
-            style="margin-right: 10px"
-          ></v-autocomplete>
-          <v-btn depressed height="40px" @click="med_type = !med_type">
+        </div>
+        <div class="medicine-bottom">
+          <label for="" class="prescription-medicine-label"
+            >Medicine Type</label
+          >
+          <v-btn
+            depressed
+            height="40px"
+            width="100%"
+            @click="med_type = !med_type"
+          >
             {{ data.drug_type }}
           </v-btn>
         </div>
@@ -242,14 +237,15 @@
       </!-->
       <v-divider></v-divider>
       <div class="patient-prescribed-buttons d-flex justify-center">
+        <v-btn class="patient-add-medicine-button">
+          <v-icon left size="30px" color="green"> mdi-plus </v-icon>
+          Medicine
+        </v-btn>
         <v-btn
           class="patient-prescribed-button-prescribe"
           @click="prescription"
         >
           PRESCRIBED
-        </v-btn>
-        <v-btn class="patient-prescribed-button-cancel" tile @click="cancel">
-          CANCEL
         </v-btn>
       </div>
     </v-form>
@@ -398,6 +394,9 @@ export default {
 .patient-day-uses-prescription {
   height: 50px;
 }
+.medicine-bottom {
+  margin-top: 20px;
+}
 .patient-day-uses-prescription {
   margin: 20px 0 20px 0;
 }
@@ -458,5 +457,12 @@ export default {
   .patient-prescribed-button-prescribe {
     margin-right: 25px;
   }
+}
+.prescription-medicine-label {
+  font-size: 15px;
+  font-weight: 400;
+}
+.patient-add-medicine-button {
+  margin-right: 15px;
 }
 </style>
