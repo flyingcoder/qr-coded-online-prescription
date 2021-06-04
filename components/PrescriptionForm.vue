@@ -444,7 +444,7 @@ export default {
   height: 95px;
 }
 .patient-duration {
-  width: 27%;
+  width: 45%;
   margin-right: 17%;
   .duration-day {
     padding: 5px 0px 0px 11px;
