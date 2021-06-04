@@ -23,6 +23,13 @@
             {{ $auth.user.phone }}
           </div>
         </div>
+        <div class="medicine-badge">
+          <v-badge color="#223A6B" content="6">
+            <v-btn class="mx-2" fab dark small color="#1db3a6">
+              <v-icon dark> mdi-prescription </v-icon>
+            </v-btn>
+          </v-badge>
+        </div>
       </div>
       <div class="patient-secondary-info">
         <div class="patient-main-info">
@@ -86,37 +93,34 @@
       </div>
       <div class="patient-medicine-prescription">
         <div class="medicine-top d-flex">
-          <v-text-field
+          <v-autocomplete
             v-model="data.medicine_name"
             outlined
             dense
-            label="Generic Name"
             prepend-inner-icon="mdi-magnify"
-            style="width: 70%; margin-right: 10px"
-          ></v-text-field>
+            chips
+            small-chips
+            label="Generic Name"
+            style="margin-right: 10px"
+          ></v-autocomplete>
           <v-text-field
             v-model="data.medicine_dosage"
             outlined
             dense
             label="Dosage"
-            style="width: 30%"
+            style="margin-right: 10px"
           ></v-text-field>
-        </div>
-        <div class="medicine-bottom d-flex">
-          <v-text-field
+          <v-autocomplete
             v-model="data.medicine_brand"
             outlined
             dense
-            label="Brand Name"
             prepend-inner-icon="mdi-magnify"
-            style="width: 70%; margin-right: 10px"
-          ></v-text-field>
-          <v-btn
-            depressed
-            height="40px"
-            style="width: 30%"
-            @click="med_type = !med_type"
-          >
+            chips
+            small-chips
+            label="Brand Name"
+            style="margin-right: 10px"
+          ></v-autocomplete>
+          <v-btn depressed height="40px" @click="med_type = !med_type">
             {{ data.drug_type }}
           </v-btn>
         </div>
