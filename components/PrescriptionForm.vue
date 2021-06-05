@@ -33,48 +33,20 @@
       </div>
       <div class="patient-secondary-info">
         <div class="patient-main-info">
-          <div class="top-patient-info">
-            <v-text-field
-              v-model="patient_info.fname"
-              outlined
-              dense
-              label="Name"
-              prepend-inner-icon="mdi-magnify"
-            ></v-text-field>
-          </div>
-          <div class="center-patient-info d-flex">
-            <v-text-field
-              v-model="patient_info.age"
-              label="Age"
-              outlined
-              type="number"
-              dense
-              limit
-              style="width: 22%; margin-right: 10px"
-            ></v-text-field>
-            <v-text-field
-              v-model="patient_info.sex"
-              label="Sex"
-              outlined
-              dense
-              style="width: 22%; margin-right: 10px"
-            ></v-text-field>
-            <v-text-field
-              v-model="patient_info.phone"
-              label="Telephone Number"
-              outlined
-              dense
-              style="width: 56%"
-            ></v-text-field>
-          </div>
-          <div class="bottom-patient-info">
-            <v-text-field
-              v-model="patient_info.address"
-              label="Address"
-              outlined
-              dense
-            ></v-text-field>
-          </div>
+          <label
+            :for="data.patient_full_info"
+            class="prescription-medicine-label"
+            >Patient Information</label
+          >
+          <v-autocomplete
+            v-model="data.patient_full_info"
+            outlined
+            dense
+            prepend-inner-icon="mdi-magnify"
+            chips
+            small-chips
+            placeholder="Search Any Patient"
+          ></v-autocomplete>
         </div>
       </div>
       <div class="patient-date-prescription d-flex">
@@ -260,6 +232,7 @@ export default {
       data: {
         medicine_name: '',
         medicine_dosage: '',
+        patient_full_info: '',
         medicine_brand: '',
         drug_type: 'tablet',
         patient_note: '',
