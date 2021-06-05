@@ -28,7 +28,7 @@
           <v-text-field
             v-model="size"
             name="size"
-            label="Size"
+            label="Dosage"
             outlined
             dense
             type="text"
