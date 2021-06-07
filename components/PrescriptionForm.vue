@@ -74,6 +74,9 @@
           >
           <v-autocomplete
             v-model="data.medicine_name"
+            :items="medicines"
+            item-text="medicine"
+            item-value="id"
             outlined
             dense
             prepend-inner-icon="mdi-magnify"
@@ -234,6 +237,7 @@ export default {
   auth: true,
   data() {
     return {
+      medicines: '',
       data: {
         medicine_name: '',
         medicine_dosage: '',
@@ -296,6 +300,8 @@ export default {
     }
   },
   mounted() {
+    if (this.id) this.getMedicine()
+    this.getAllMedicines()
     if (this.id) this.getPatient()
     this.getPatients()
   },
@@ -303,6 +309,11 @@ export default {
     getPatients() {
       this.$axios.get('users/patient').then((data) => {
         this.patients = data.data
+      })
+    },
+    getAllMedicines() {
+      this.$axios.get('allmedicines').then((data) => {
+        this.medicines = data.data
       })
     },
     addmedicine() {
@@ -341,6 +352,11 @@ export default {
       this.$axios.get('user/' + this.$route.params.id).then((data) => {
         this.patient_info = data.data
         this.data.fname = this.data.fname + ' ' + data.data.lname
+      })
+    },
+    getMedicine() {
+      this.$axios.get('medicines' + this.$route.params.id).then((data) => {
+        this.medicine_name = data.data
       })
     },
     cancel() {},
