@@ -39,14 +39,18 @@
             >Patient Information</label
           >
           <v-autocomplete
-            v-model="data.patient_full_info"
+            v-model="patient_info"
+            item-text="fullname"
+            item-value="id"
+            :items="patients"
             outlined
             dense
             prepend-inner-icon="mdi-magnify"
             chips
             small-chips
             placeholder="Search Any Patient"
-          ></v-autocomplete>
+          >
+          </v-autocomplete>
         </div>
       </div>
       <div class="patient-date-prescription d-flex">
@@ -250,13 +254,6 @@ export default {
         repeat: 1,
         cycle: 'Day',
       },
-      patient_info: {
-        fname: '',
-        age: '',
-        sex: '',
-        phone: '',
-        address: '',
-      },
       med_type: false,
       med_method: false,
       amount: '1',
@@ -293,12 +290,20 @@ export default {
         '11',
         '12',
       ],
+      patients: '',
+      patient_info: '',
     }
   },
   mounted() {
-    this.getPatient()
+    if (this.id) this.getPatient()
+    this.getPatients()
   },
   methods: {
+    getPatients() {
+      this.$axios.get('users/patient').then((data) => {
+        this.patients = data.data
+      })
+    },
     addmedicine() {
       const datus = {
         patient_id: this.patient_info.id,
