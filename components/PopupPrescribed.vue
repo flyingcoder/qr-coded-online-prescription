@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="send-prescribed">
-            <v-btn @click="prescription">Prescribed</v-btn>
+            <v-btn @click="submit">Prescribed</v-btn>
           </div>
         </div>
         <div class="prescription-popup-body">
@@ -117,8 +117,8 @@ export default {
       },
     }
   },
-  method: {
-    prescription() {
+  methods: {
+    submit() {
       const datus = {
         patient_info: this.patient_info,
         drug_info: this.data,

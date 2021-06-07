@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="medicine-badge">
-          <v-badge color="#223A6B" content="6">
+          <v-badge color="#223A6B" :content="medCounter">
             <v-btn class="mx-2" fab dark small color="#1db3a6">
               <v-icon dark> mdi-prescription </v-icon>
             </v-btn>
@@ -73,7 +73,7 @@
             >Medicine Name</label
           >
           <v-autocomplete
-            v-model="data.medicine_name"
+            v-model="drug_info"
             :items="medicines"
             item-text="medicine"
             item-value="id"
@@ -106,20 +106,29 @@
             <v-btn
               depressed
               height="40px"
-              style="width: 30%; margin-right: 10px"
+              style="width: 50%; margin-right: 10px"
               @click="med_method = !med_method"
             >
               {{ sig.intake }}
             </v-btn>
             <v-text-field
               v-model="sig.amount"
-              style="width: 25%; margin-right: 10px"
+              style="width: 50%; margin-right: 10px"
               outlined
               dense
+              label="# of meds"
               type="number"
               :rules="[numberRule]"
             ></v-text-field>
-            <v-btn disabled depressed height="40px" style="width: 30%">
+          </div>
+          <div class="patient-sig-button-top d-flex">
+            <v-btn
+              disabled
+              depressed
+              height="40px"
+              width="100%"
+              style="margin-bottom: 20px"
+            >
               {{ data.drug_type }}
             </v-btn>
           </div>
@@ -128,6 +137,7 @@
               v-model="sig.repeat"
               outlined
               dense
+              label="# per cycle"
               style="width: 25%; margin-right: 10px"
               type="number"
               :rules="[numberRule]"
@@ -184,11 +194,11 @@
             min="1"
             max="31"
             dense
+            label="Duration"
             append-icon=""
-            class="patient-duration-input"
             clear-icon
             outlined
-            style="width: 30%"
+            style="width: 50%"
           ></v-text-field>
           <div class="duration-day"><h3>DAY/s</h3></div>
         </div>
@@ -216,16 +226,10 @@
       </!-->
       <v-divider></v-divider>
       <div class="patient-prescribed-buttons d-flex justify-center">
-        <v-btn class="patient-add-medicine-button">
+        <v-btn class="patient-add-medicine-button" @click="addMedicine">
           <v-icon left size="30px" color="green"> mdi-plus </v-icon>
           Medicine
         </v-btn>
-        <!-- <v-btn
-          class="patient-prescribed-button-prescribe"
-          @click="prescription"
-        >
-          PRESCRIBED
-        </v-btn> -->
         <PopupPrescribed />
       </div>
     </v-form>
@@ -237,7 +241,7 @@ export default {
   auth: true,
   data() {
     return {
-      medicines: '',
+      medicines: [],
       data: {
         medicine_name: '',
         medicine_dosage: '',
@@ -247,6 +251,8 @@ export default {
         patient_note: '',
         until: '',
       },
+      drug_info: '',
+      medCounter: 0,
       numberRule: (v) => {
         if (!isNaN(parseFloat(v)) && v >= 1 && v <= 99) return true
         return 'Invalid'
@@ -295,12 +301,11 @@ export default {
         '11',
         '12',
       ],
-      patients: '',
+      patients: [],
       patient_info: '',
     }
   },
   mounted() {
-    if (this.id) this.getMedicine()
     this.getAllMedicines()
     if (this.id) this.getPatient()
     this.getPatients()
@@ -316,17 +321,46 @@ export default {
         this.medicines = data.data
       })
     },
-    addmedicine() {
-      const datus = {
-        patient_id: this.patient_info.id,
-        drug_info: this.data,
-        sig: this.sig,
-      }
-      this.$axios.post('add-medicine', datus).then((data) => {
+    validateForm() {
+      if (this.patient_info === '') {
         this.$store.dispatch('snackbar/setSnackbar', {
-          text: `A medicine is added to the prescription.`,
+          text: `Please select a patient.`,
+          color: 'red',
         })
-      })
+        return false
+      }
+
+      if (this.drug_info === '') {
+        this.$store.dispatch('snackbar/setSnackbar', {
+          text: `Please select a medicine.`,
+          color: 'red',
+        })
+        return false
+      }
+
+      if (this.data.until === '') {
+        this.$store.dispatch('snackbar/setSnackbar', {
+          text: `Please input the duration.`,
+          color: 'red',
+        })
+        return false
+      }
+
+      return true
+    },
+    addMedicine() {
+      if (this.validateForm()) {
+        const datus = {
+          patient_id: this.patient_info,
+          drug_info: this.data,
+          sig: this.sig,
+        }
+        this.$axios.post('add-medicine', datus).then((data) => {
+          this.$store.dispatch('snackbar/setSnackbar', {
+            text: `A medicine is added to the prescription.`,
+          })
+        })
+      }
     },
     medTypeSelected(type) {
       this.data.drug_type = type
@@ -336,7 +370,7 @@ export default {
       this.sig.intake = type
       this.med_method = false
     },
-    prescription() {
+    prescribe() {
       const datus = {
         patient_info: this.patient_info,
         drug_info: this.data,
@@ -439,7 +473,7 @@ export default {
   height: 95px;
 }
 .patient-duration {
-  width: 45%;
+  width: 100%;
   margin-right: 17%;
   .duration-day {
     padding: 5px 0px 0px 11px;
