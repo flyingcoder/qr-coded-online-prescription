@@ -217,12 +217,13 @@
           <v-icon left size="30px" color="green"> mdi-plus </v-icon>
           Medicine
         </v-btn>
-        <v-btn
+        <!-- <v-btn
           class="patient-prescribed-button-prescribe"
           @click="prescription"
         >
           PRESCRIBED
-        </v-btn>
+        </v-btn> -->
+        <PopupPrescribed />
       </div>
     </v-form>
   </div>
