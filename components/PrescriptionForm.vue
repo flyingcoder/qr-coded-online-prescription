@@ -41,14 +41,15 @@
           <v-autocomplete
             v-model="patient_info"
             item-text="fullname"
-            item-value="id"
             :items="patients"
             outlined
+            return-object
             dense
             prepend-inner-icon="mdi-magnify"
             chips
             small-chips
             placeholder="Search Any Patient"
+            @change="patientSelected"
           >
           </v-autocomplete>
         </div>
@@ -76,7 +77,7 @@
             v-model="drug_info"
             :items="medicines"
             item-text="medicine"
-            item-value="id"
+            return-object
             outlined
             dense
             prepend-inner-icon="mdi-magnify"
@@ -189,7 +190,7 @@
       <div class="patient-day-uses-prescription d-flex">
         <div class="patient-duration d-flex">
           <v-text-field
-            v-model="data.until"
+            v-model="sig.until"
             type="number"
             min="1"
             max="31"
@@ -200,7 +201,9 @@
             outlined
             style="width: 50%"
           ></v-text-field>
-          <div class="duration-day"><h3>DAY/s</h3></div>
+          <div class="duration-day">
+            <h3>{{ sig.cycle }}/s</h3>
+          </div>
         </div>
         <!-- div class="patient-duration-total d-flex">
           <div class="duration-total margin-right-sm"><h3>TOTAL</h3></div>
@@ -230,7 +233,7 @@
           <v-icon left size="30px" color="green"> mdi-plus </v-icon>
           Medicine
         </v-btn>
-        <PopupPrescribed />
+        <PopupPrescribed :patient="patient_info" :prescriptions="meds" />
       </div>
     </v-form>
   </div>
@@ -249,7 +252,6 @@ export default {
         medicine_brand: '',
         drug_type: 'tablet',
         patient_note: '',
-        until: '',
       },
       drug_info: '',
       medCounter: 0,
@@ -263,6 +265,7 @@ export default {
         hourAM: '',
         hourPM: '',
         repeat: 1,
+        until: '',
         cycle: 'Day',
       },
       med_type: false,
@@ -301,16 +304,37 @@ export default {
         '11',
         '12',
       ],
+      meds: [],
       patients: [],
-      patient_info: '',
+      patient_info: {},
     }
   },
   mounted() {
+    this.prescribeData = JSON.parse(
+      window.localStorage.getItem('prescribeData')
+    )
+    if (this.prescribeData) {
+      this.meds = this.prescribeData.meds
+      this.patient_info = this.prescribeData.patient
+      this.patient = this.patient_info
+    } else {
+      this.meds = []
+      this.patient = {
+        id: 1,
+        fullname: '',
+        address: 'Quezon Ave, Kidapawan City',
+      }
+    }
+    this.medCounter = parseInt(window.localStorage.getItem('medCounter'))
+    if (!this.medCounter) this.medCounter = 0
     this.getAllMedicines()
     if (this.id) this.getPatient()
     this.getPatients()
   },
   methods: {
+    patientSelected() {
+      this.patient = this.patient_info
+    },
     getPatients() {
       this.$axios.get('users/patient').then((data) => {
         this.patients = data.data
@@ -351,15 +375,28 @@ export default {
     addMedicine() {
       if (this.validateForm()) {
         const datus = {
-          patient_id: this.patient_info,
-          drug_info: this.data,
+          drug_info: this.drug_info,
           sig: this.sig,
         }
-        this.$axios.post('add-medicine', datus).then((data) => {
-          this.$store.dispatch('snackbar/setSnackbar', {
-            text: `A medicine is added to the prescription.`,
-          })
-        })
+        const prescribeData = JSON.parse(
+          window.localStorage.getItem('prescribeData')
+        )
+        const parseMed = {
+          patient: this.patient_info,
+          meds: [],
+        }
+        if (prescribeData) {
+          parseMed.meds = prescribeData.meds
+          console.log(parseMed)
+          parseMed.meds.push(datus)
+        } else {
+          parseMed.meds = [datus]
+        }
+        this.meds = parseMed.meds
+        window.localStorage.setItem('prescribeData', JSON.stringify(parseMed))
+        this.drug_info = ''
+        this.medCounter = this.medCounter + 1
+        window.localStorage.setItem('medCounter', this.medCounter)
       }
     },
     medTypeSelected(type) {

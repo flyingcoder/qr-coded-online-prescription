@@ -1,6 +1,6 @@
 <template>
   <div class="prescription-form-page">
-    <PrescriptionForm :id="id" />
+    <PrescriptionForm />
   </div>
 </template>
 

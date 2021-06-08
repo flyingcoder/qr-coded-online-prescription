@@ -16,23 +16,39 @@
           <div class="reseta-logo">
             <img src="~/assets/images/main-logo.png" alt="" />
           </div>
-          <div class="prescribed-created">06/06/21</div>
+          <div class="patient-info d-flex">
+            <div class="prescription-form-image">
+              <img class="user-icon" :src="$auth.user.avatar" />
+            </div>
+            <div class="prescription-form-info">
+              <div class="prescription-patient-name">
+                {{ $auth.user.fname }} {{ $auth.user.lname }}
+              </div>
+              <div class="prescription-patient-use">
+                {{ $auth.user.experties }}
+              </div>
+              <div class="prescription-patient-clinic">
+                {{ $auth.user.licence_number }}
+              </div>
+              <div class="prescription-patient-number">
+                {{ $auth.user.phone }}
+              </div>
+            </div>
+            <div class="medicine-badge">
+              <div class="prescribed-created">
+                {{ $moment().format('MM/DD/YY') }}
+              </div>
+            </div>
+          </div>
+
           <div class="prescribed-patient-info">
             <div class="prescribed-left-info d-flex">
               <div class="prescribed-patient-name">
-                {{ prescribed.patient_name }}
-              </div>
-              <div class="prescribed-age_gender d-flex">
-                <div class="prescribed-patient-age">
-                  {{ prescribed.patient_age }}/
-                </div>
-                <div class="prescribed-patient-gender">
-                  {{ prescribed.patient_gender }}
-                </div>
+                {{ patient.fullname }}
               </div>
             </div>
             <div class="prescribed-patient-address">
-              {{ prescribed.patient_address }}
+              {{ patient.address }}
             </div>
           </div>
           <div class="send-prescribed">
@@ -41,30 +57,35 @@
         </div>
         <div class="prescription-popup-body">
           <div
-            v-for="prescription in prescriptions"
+            v-for="(prescription, index) in prescriptions"
             :key="prescription.id"
             class="popup-prescribed-content"
           >
             <div class="prescription-content-header d-flex">
-              <div class="prescription-id">{{ prescription.id }})</div>
+              <div class="prescription-id">{{ index + 1 }}.)</div>
               &nbsp;
               <div class="medicine-name">
-                {{ prescription.medicine_name }}
+                {{ prescription.drug_info.medicine }}
               </div>
-              <div class="medicine-dosage">
-                {{ prescription.medicine_dosage }}
+              <div class="medicine-tab-id">
+                #
+                {{
+                  prescription.sig.until *
+                  prescription.sig.repeat *
+                  prescription.sig.amount
+                }}
               </div>
-              <div class="medicine-tab-id">tab # {{ prescription.tab_id }}</div>
             </div>
             <div class="prescription-content-body">
               <div class="prescription-body-main-content">
-                Sig take {{ prescription.medicine_count }}
-                {{ prescription.medicine_type }}
-                {{ prescription.medicine_usage }}x a
-                {{ prescription.medicine_take_time }}
+                Sig: {{ prescription.sig.intake }}
+                {{ prescription.sig.amount }}
+                {{ prescription.drug_info.type }}
+                {{ prescription.sig.repeat }} x a
+                {{ prescription.sig.cycle }}
               </div>
               <div class="prescription-body-date-consumation">
-                {{ prescription.date_consumation }} Days
+                for {{ prescription.sig.until }} {{ prescription.sig.cycle }}/s
               </div>
               <div class="prescription-body-time-consumation">
                 {{ prescription.time_consumation }}
@@ -80,42 +101,25 @@
 <script>
 export default {
   name: 'PopupPrescribed',
+  props: {
+    patient: {
+      type: Object,
+      required: true,
+    },
+    prescriptions: {
+      type: Array,
+      default() {
+        return []
+      },
+    },
+  },
   data() {
     return {
       dialog: false,
-      prescriptions: [
-        {
-          id: 1,
-          medicine_name: 'Losartan',
-          medicine_dosage: '100g',
-          tab_id: 64,
-          medicine_count: '1',
-          medicine_type: 'tablet',
-          medicine_usage: '2',
-          medicine_take_time: 'day',
-          date_consumation: '31',
-          time_consumation: '6am -- 6pm',
-        },
-        {
-          id: 2,
-          medicine_name: 'Paracetamol',
-          medicine_dosage: '500mg',
-          tab_id: 31,
-          medicine_count: '2',
-          medicine_type: 'tablet',
-          medicine_usage: '1',
-          medicine_take_time: 'day',
-          date_consumation: '31',
-          time_consumation: '6am -- 6pm',
-        },
-      ],
-      prescribed: {
-        patient_name: 'Juan Delacruz',
-        patient_address: 'Quezon Ave, Kidapawan City',
-        patient_gender: 'Male',
-        patient_age: '36',
-      },
     }
+  },
+  mounted() {
+    console.log(this.prescriptions)
   },
   methods: {
     submit() {
@@ -135,6 +139,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.prescription-form-image {
+  width: 25%;
+  text-align: center;
+}
+.prescription-form-info {
+  width: 75%;
+}
+.prescription-patient-name {
+  font-size: 16px;
+  font-weight: 400;
+}
+.prescription-patient-use,
+.prescription-patient-clinic,
+.prescription-patient-number {
+  font-size: 14px;
+  height: 15px;
+}
+.top-patient-info,
+.center-patient-info,
+.bottom-patient-info,
+.medicine-top,
+.medicine-bottom,
+.patient-day-uses-prescription {
+  height: 50px;
+}
 .prescription-popup-body {
   height: 430px;
   overflow-y: scroll;
@@ -149,7 +178,7 @@ export default {
 .prescription-content-header {
   font-size: 18px;
   .medicine-name {
-    width: 35%;
+    width: 70%;
   }
   .medicine-dosage {
     width: 30%;
