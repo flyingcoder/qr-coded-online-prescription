@@ -213,7 +213,7 @@
       </div>
       <div class="patient-note-prescription">
         <v-textarea
-          v-model="data.patient_note"
+          v-model="sig.note"
           label="Note"
           auto-grow
           outlined
@@ -251,7 +251,6 @@ export default {
         patient_full_info: '',
         medicine_brand: '',
         drug_type: 'tablet',
-        patient_note: '',
       },
       drug_info: '',
       medCounter: 0,
@@ -267,6 +266,7 @@ export default {
         repeat: 1,
         until: '',
         cycle: 'Day',
+        note: '',
       },
       med_type: false,
       med_method: false,

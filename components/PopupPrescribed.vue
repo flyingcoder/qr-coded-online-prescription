@@ -80,7 +80,7 @@
               <div class="prescription-body-main-content">
                 Sig: {{ prescription.sig.intake }}
                 {{ prescription.sig.amount }}
-                {{ prescription.drug_info.type }}
+                {{ prescription.drug_info.type }},
                 {{ prescription.sig.repeat }} x a
                 {{ prescription.sig.cycle }}
               </div>
@@ -88,7 +88,8 @@
                 for {{ prescription.sig.until }} {{ prescription.sig.cycle }}/s
               </div>
               <div class="prescription-body-time-consumation">
-                {{ prescription.time_consumation }}
+                {{ prescription.sig.hourAM }} AM -
+                {{ prescription.sig.hourPM }} PM
               </div>
             </div>
           </div>
