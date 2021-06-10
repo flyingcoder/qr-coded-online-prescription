@@ -1,6 +1,6 @@
 <template>
   <div class="popup-prescribed">
-      <v-card class="view-prescription-data">
+    <v-card class="view-prescription-data">
       <div class="popup-prescribed-header">
         <div class="popup-prescribed-back">
           <v-icon @click="close">mdi-arrow-left</v-icon>
@@ -65,21 +65,21 @@
                 prescription.sig.amount
               }}
             </div>
-            <div class="prescription-content-body">
-              <div class="prescription-body-main-content">
-                Sig: {{ prescription.sig.intake }}
-                {{ prescription.sig.amount }}
-                {{ prescription.drug_info.type }},
-                {{ prescription.sig.repeat }} x a
-                {{ prescription.sig.cycle }}
-              </div>
-              <div class="prescription-body-date-consumation">
-                for {{ prescription.sig.until }} {{ prescription.sig.cycle }}/s
-              </div>
-              <div class="prescription-body-time-consumation">
-                {{ prescription.sig.hourAM }} AM -
-                {{ prescription.sig.hourPM }} PM
-              </div>
+          </div>
+          <div class="prescription-content-body">
+            <div class="prescription-body-main-content">
+              Sig: {{ prescription.sig.intake }}
+              {{ prescription.sig.amount }}
+              {{ prescription.drug_info.type }}, {{ prescription.sig.repeat }} x
+              a
+              {{ prescription.sig.cycle }}
+            </div>
+            <div class="prescription-body-date-consumation">
+              for {{ prescription.sig.until }} {{ prescription.sig.cycle }}/s
+            </div>
+            <div class="prescription-body-time-consumation">
+              {{ prescription.sig.hourAM }} AM -
+              {{ prescription.sig.hourPM }} PM
             </div>
           </div>
         </div>
@@ -139,6 +139,9 @@ export default {
 .prescription-form-info {
   width: 75%;
 }
+.medicine-badge {
+  margin-right: 17px;
+}
 .prescription-patient-name {
   font-size: 16px;
   font-weight: 400;
@@ -148,6 +151,9 @@ export default {
 .prescription-patient-number {
   font-size: 14px;
   height: 15px;
+}
+.popup-prescribed-content {
+  padding: 10px 10px 10px 17px;
 }
 .top-patient-info,
 .center-patient-info,
@@ -183,6 +189,7 @@ export default {
 }
 .prescribed-left-info {
   margin-top: 20px;
+  padding-left: 17px;
 }
 .prescription-body-main-content,
 .prescription-body-date-consumation,
@@ -214,3 +221,5 @@ export default {
   margin-top: 15px;
   text-align: center;
   padding-bottom: 30px;
+}
+</style>
