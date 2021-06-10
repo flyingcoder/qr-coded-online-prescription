@@ -165,4 +165,7 @@ export default {
     padding-bottom: 15px;
   }
 }
+.prescription-pad-header {
+  margin-bottom: 14px;
+}
 </style>
