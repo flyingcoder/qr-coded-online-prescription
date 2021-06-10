@@ -7,7 +7,7 @@
         </div>
         <div class="reseta-logo">
           <img src="~/assets/images/main-logo.png" alt="" />
-          <div class="reseta-logo-text">Reseta</div>
+          <div class="reseta-logo-text">Reseta QRx</div>
         </div>
         <div class="patient-info d-flex">
           <div class="prescription-form-image">
@@ -162,6 +162,10 @@ export default {
 .medicine-bottom,
 .patient-day-uses-prescription {
   height: 50px;
+}
+.popup-prescribed-back {
+  margin-left: 15px;
+  padding-top: 10px;
 }
 .reseta-logo {
   margin: auto;
