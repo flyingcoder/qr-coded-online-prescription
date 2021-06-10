@@ -1,80 +1,69 @@
 <template>
   <div class="popup-prescribed">
-    <v-dialog v-model="dialog" fullscreen>
-      <template #activator="{ on, attrs }">
-        <v-btn
-          class="patient-prescribed-button-prescribe"
-          v-bind="attrs"
-          v-on="on"
-        >
-          View
-        </v-btn>
-      </template>
-
       <v-card class="view-prescription-data">
-        <div class="popup-prescribed-header">
-          <div class="reseta-logo">
-            <img src="~/assets/images/main-logo.png" alt="" />
+      <div class="popup-prescribed-header">
+        <div class="popup-prescribed-back">
+          <v-icon @click="close">mdi-arrow-left</v-icon>
+        </div>
+        <div class="reseta-logo">
+          <img src="~/assets/images/main-logo.png" alt="" />
+          <div class="reseta-logo-text">Reseta</div>
+        </div>
+        <div class="patient-info d-flex">
+          <div class="prescription-form-image">
+            <img class="user-icon" :src="$auth.user.avatar" />
           </div>
-          <div class="patient-info d-flex">
-            <div class="prescription-form-image">
-              <img class="user-icon" :src="$auth.user.avatar" />
+          <div class="prescription-form-info">
+            <div class="prescription-patient-name">
+              {{ $auth.user.fname }} {{ $auth.user.lname }}
             </div>
-            <div class="prescription-form-info">
-              <div class="prescription-patient-name">
-                {{ $auth.user.fname }} {{ $auth.user.lname }}
-              </div>
-              <div class="prescription-patient-use">
-                {{ $auth.user.experties }}
-              </div>
-              <div class="prescription-patient-clinic">
-                {{ $auth.user.licence_number }}
-              </div>
-              <div class="prescription-patient-number">
-                {{ $auth.user.phone }}
-              </div>
+            <div class="prescription-patient-use">
+              {{ $auth.user.experties }}
             </div>
-            <div class="medicine-badge">
-              <div class="prescribed-created">
-                {{ $moment().format('MM/DD/YY') }}
-              </div>
+            <div class="prescription-patient-clinic">
+              {{ $auth.user.licence_number }}
+            </div>
+            <div class="prescription-patient-number">
+              {{ $auth.user.phone }}
             </div>
           </div>
-
-          <div class="prescribed-patient-info">
-            <div class="prescribed-left-info d-flex">
-              <div class="prescribed-patient-name">
-                {{ patient.fullname }}
-              </div>
+          <div class="medicine-badge">
+            <div class="prescribed-created">
+              {{ $moment().format('MM/DD/YY') }}
             </div>
-            <div class="prescribed-patient-address">
-              {{ patient.address }}
-            </div>
-          </div>
-          <div class="send-prescribed">
-            <v-btn @click="submit">Prescribed</v-btn>
           </div>
         </div>
-        <div class="prescription-popup-body">
-          <div
-            v-for="(prescription, index) in prescriptions"
-            :key="prescription.id"
-            class="popup-prescribed-content"
-          >
-            <div class="prescription-content-header d-flex">
-              <div class="prescription-id">{{ index + 1 }}.)</div>
-              &nbsp;
-              <div class="medicine-name">
-                {{ prescription.drug_info.medicine }}
-              </div>
-              <div class="medicine-tab-id">
-                #
-                {{
-                  prescription.sig.until *
-                  prescription.sig.repeat *
-                  prescription.sig.amount
-                }}
-              </div>
+
+        <div class="prescribed-patient-info">
+          <div class="prescribed-left-info d-flex">
+            <div class="prescribed-patient-name">
+              {{ patient.fullname }}
+            </div>
+          </div>
+          <div class="prescribed-patient-address">
+            {{ patient.address }}
+          </div>
+        </div>
+      </div>
+      <div class="prescription-popup-body">
+        <div
+          v-for="(prescription, index) in prescriptions"
+          :key="prescription.id"
+          class="popup-prescribed-content"
+        >
+          <div class="prescription-content-header d-flex">
+            <div class="prescription-id">{{ index + 1 }}.)</div>
+            &nbsp;
+            <div class="medicine-name">
+              {{ prescription.drug_info.medicine }}
+            </div>
+            <div class="medicine-tab-id">
+              #
+              {{
+                prescription.sig.until *
+                prescription.sig.repeat *
+                prescription.sig.amount
+              }}
             </div>
             <div class="prescription-content-body">
               <div class="prescription-body-main-content">
@@ -94,8 +83,11 @@
             </div>
           </div>
         </div>
-      </v-card>
-    </v-dialog>
+      </div>
+      <div class="send-prescribed">
+        <v-btn @click="submit">Prescribed</v-btn>
+      </div>
+    </v-card>
   </div>
 </template>
 
@@ -115,9 +107,7 @@ export default {
     },
   },
   data() {
-    return {
-      dialog: false,
-    }
+    return {}
   },
   mounted() {
     console.log(this.prescriptions)
@@ -133,6 +123,9 @@ export default {
           text: `You have successfully created the prescrition`,
         })
       })
+    },
+    close() {
+      this.$emit('closed')
     },
   },
 }
@@ -164,15 +157,19 @@ export default {
 .patient-day-uses-prescription {
   height: 50px;
 }
-.prescription-popup-body {
-  height: 430px;
-  overflow-y: scroll;
-}
 .reseta-logo {
-  width: 13% !important;
   margin: auto;
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
   img {
-    width: 100%;
+    width: 11%;
+  }
+  .reseta-logo-text {
+    display: flex;
+    align-self: center;
+    color: black !important;
   }
 }
 .prescription-content-header {
@@ -213,19 +210,7 @@ export default {
   font-weight: 400;
 }
 .send-prescribed {
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  margin-top: 15px;
   text-align: center;
-  margin-bottom: 15px;
-}
-.prescribed-created {
-  text-align: right;
-  font-size: 17px;
-  font-weight: 500;
-}
-.popup-prescribed-header,
-.popup-prescribed-content {
-  padding: 17px;
-}
-</style>
+  padding-bottom: 30px;

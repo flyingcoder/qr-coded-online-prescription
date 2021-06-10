@@ -6,6 +6,13 @@
     <v-dialog v-model="med_method" fullscreen>
       <MedApplyMethod @selected="intakeSelected" />
     </v-dialog>
+    <v-dialog v-model="popup_prescribed" fullscreen>
+      <PopupPrescribed
+        :patient="patient_info"
+        :prescriptions="meds"
+        @closed="closePrescription"
+      />
+    </v-dialog>
     <v-form id="main-prescription-form">
       <div class="patient-info d-flex">
         <div class="prescription-form-image">
@@ -25,7 +32,14 @@
         </div>
         <div class="medicine-badge">
           <v-badge color="#223A6B" :content="medCounter">
-            <v-btn class="mx-2" fab dark small color="#1db3a6">
+            <v-btn
+              class="mx-2"
+              fab
+              dark
+              small
+              color="#1db3a6"
+              @click="popup_prescribed = !popup_prescribed"
+            >
               <v-icon dark> mdi-prescription </v-icon>
             </v-btn>
           </v-badge>
@@ -233,7 +247,12 @@
           <v-icon left size="30px" color="green"> mdi-plus </v-icon>
           Medicine
         </v-btn>
-        <PopupPrescribed :patient="patient_info" :prescriptions="meds" />
+        <v-btn
+          class="patient-prescribed-button-prescribe"
+          @click="popup_prescribed = !popup_prescribed"
+        >
+          View
+        </v-btn>
       </div>
     </v-form>
   </div>
@@ -244,6 +263,7 @@ export default {
   auth: true,
   data() {
     return {
+      popup_prescribed: false,
       medicines: [],
       data: {
         medicine_name: '',
@@ -332,6 +352,9 @@ export default {
     this.getPatients()
   },
   methods: {
+    closePrescription() {
+      this.popup_prescribed = false
+    },
     patientSelected() {
       this.patient = this.patient_info
     },
@@ -345,6 +368,7 @@ export default {
         this.medicines = data.data
       })
     },
+
     validateForm() {
       if (this.patient_info === '') {
         this.$store.dispatch('snackbar/setSnackbar', {
