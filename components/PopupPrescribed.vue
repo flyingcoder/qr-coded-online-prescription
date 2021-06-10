@@ -124,9 +124,8 @@ export default {
   methods: {
     submit() {
       const datus = {
-        patient_info: this.patient_info,
-        drug_info: this.data,
-        sig: this.sig,
+        patient_id: this.patient.id,
+        drugs: this.prescriptions,
       }
       this.$axios.post('prescription-form', datus).then((data) => {
         this.$store.dispatch('snackbar/setSnackbar', {
