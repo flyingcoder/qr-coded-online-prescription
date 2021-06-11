@@ -3,7 +3,7 @@
     <v-card>
       <v-card-text>
         <div class="payment-content d-flex justify-center">
-          Please Procced the Payment
+          Please Procceed the Payment
         </div>
       </v-card-text>
       <v-card-actions class="justify-end payment-button">
