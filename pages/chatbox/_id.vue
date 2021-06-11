@@ -38,7 +38,9 @@
             }"
           ></div>
           <p v-if="message.message">
-            <span class="message-main-content">{{ message.message }}</span>
+            <!-- eslint-disable -->
+            <span class="message-main-content" v-html="message.message"></span>
+            <!-- eslint-enable -->
           </p>
           <sub
             :title="message.fullTime"

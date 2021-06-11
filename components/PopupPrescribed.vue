@@ -116,12 +116,15 @@ export default {
     submit() {
       const datus = {
         patient_id: this.patient.id,
+        doctor_id: this.$auth.user.id,
         drugs: this.prescriptions,
       }
       this.$axios.post('prescription-form', datus).then((data) => {
         this.$store.dispatch('snackbar/setSnackbar', {
-          text: `You have successfully created the prescrition`,
+          text: `The prescription is sent!`,
         })
+        window.localStorage.removeItem('prescribeData')
+        window.localStorage.removeItem('medCounter')
       })
     },
     close() {
