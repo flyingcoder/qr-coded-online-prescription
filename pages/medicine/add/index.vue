@@ -11,7 +11,7 @@
         <v-file-input
           accept="image/*"
           name="file"
-          label="File input"
+          label="Medicine Image"
         ></v-file-input>
       </v-row>
       <v-row class="row-height">
