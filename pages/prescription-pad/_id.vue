@@ -10,33 +10,33 @@
       </div>
     </div>
     <div
-      v-for="prescription in prescriptions"
-      :key="prescription"
+      v-for="(pres, index) in prescriptions.prescribe"
+      :key="pres"
       class="prescription-pad-content"
     >
       <div class="prescription-pad-content-header d-flex">
         <div class="left d-block">
           <div class="top">
-            {{ prescription.id }}.) {{ prescription.medicine_name }}
+            {{ index + 1 }}.) {{ pres.generic_name }} {{ pres.brand }}
           </div>
           <div class="bottom">
-            {{ prescription.dosage }}
+            {{ pres.dosage }}
           </div>
         </div>
-        <div class="right"># {{ prescription.id }}</div>
+        <div class="right"># {{}}</div>
       </div>
       <div class="prescription-pad-content-body">
         <div class="prescription-sig-content">
-          Sig Take {{ prescription.intake }} {{ prescription.type }},
-          {{ prescription.repeat }}x a {{ prescription.cycle }}
+          Sig {{ pres.pivot.intake }} {{ pres.pivot.type }}, {{ pres.repeat }}x
+          a {{ pres.cycle }}
         </div>
         <div class="prescription-till-intake">
-          for {{ prescription.until }} {{ prescription.cycle }}/s
+          for {{ pres.until }} {{ pres.cycle }}/s
         </div>
         <div class="prescription-hours">
-          {{ prescription.hourAM }} AM - {{ prescription.hourPM }} PM
+          {{ pres.hourAM }} AM - {{ pres.hourPM }} PM
         </div>
-        <div class="prescription-notes">Notes: {{ prescription.notes }}</div>
+        <div class="prescription-notes">Notes: {{ pres.notes }}</div>
       </div>
     </div>
   </div>
@@ -44,16 +44,9 @@
 
 <script>
 export default {
-  name: 'Prescription Pad',
+  name: 'PrescriptionPad',
   layout: 'search-notification',
-  props: {
-    // prescriptions: {
-    //   type: Array,
-    //   default() {
-    //     return []
-    //   },
-    // },
-  },
+  props: {},
   data() {
     return {
       prescriptions: [
@@ -101,15 +94,15 @@ export default {
   },
 
   mounted() {
-    // this.getPrescriptions()
+    this.getPrescription()
   },
   methods: {
-    // getPrescriptions() {
-    //   this.$axios.get('prescriptions').then((data) => {
-    //     this.prescriptions = data.data
-    //     console.log(data)
-    //   })
-    // },
+    getPrescription() {
+      this.$axios.get('prescriptions/' + this.$route.params.id).then((data) => {
+        this.prescriptions = data.data
+        console.log(data)
+      })
+    },
     close() {
       this.$nuxt.back()
     },
