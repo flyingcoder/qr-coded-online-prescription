@@ -1,0 +1,47 @@
+.reseta-logo {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    img {
+        width: 15%;
+    }
+    .reseta-logo-text {
+        display: flex;
+        align-self: center;
+        margin-left: 10px;
+    }
+}
+.back-button {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.prescription-pad-content-header {
+    .left {
+        width: 80%;
+        .bottom {
+            padding-left: 20px;
+            padding-top: 10px;
+        }
+    }
+}
+.prescription-pad-content {
+    padding: 10px 15px 10px 20px;
+}
+.prescription-pad-content-body {
+    .prescription-notes {
+        border: 1px solid #1ac6b6;
+        padding: 12px;
+    }
+    .prescription-sig-content,
+    .prescription-till-intake,
+    .prescription-hours {
+        padding-left: 20px;
+        padding-top: 10px;
+    }
+    .prescription-hours {
+        padding-bottom: 15px;
+    }
+}
