@@ -1,5 +1,5 @@
 export default {
-  name: 'Prescription Pad',
+  name: 'PrescriptionPad',
   layout: 'search-notification',
   data() {
     return {

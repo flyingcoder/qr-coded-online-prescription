@@ -59,15 +59,6 @@
                       {{ item.brand }}
                     </span>
                   </v-list-item-title>
-                  <v-btn
-                    class="ma-2 list-contact-pharmacy"
-                    outlined
-                    x-small
-                    fab
-                    color="indigo"
-                  >
-                    <v-icon>mdi-eye</v-icon>
-                  </v-btn>
                   <v-list-item-subtitle>
                     <div class="pharmacy-content">
                       {{ item.address }}

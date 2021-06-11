@@ -1,5 +1,8 @@
 <template>
   <div class="add-medicine">
+    <v-dialog v-model="med_method" fullscreen>
+      <MedApplyMethod @selected="intakeSelected" />
+    </v-dialog>
     <v-form id="add-medicine">
       <div class="chatbox-undo" @click="back">
         <v-icon> mdi-arrow-left </v-icon>
@@ -9,8 +12,9 @@
       </v-row>
       <v-row>
         <v-file-input
-          accept="image/*"
+          v-model="file"
           name="file"
+          accept="image/*"
           label="Medicine Image"
         ></v-file-input>
       </v-row>
@@ -46,13 +50,21 @@
           ></v-text-field>
         </v-col>
         <v-col>
-          <v-text-field
+          <!-- <v-text-field
             v-model="type"
             label="Type"
             name="type"
             outlined
             dense
-          ></v-text-field>
+          ></v-text-field> -->
+          <v-btn
+            depressed
+            height="40px"
+            style="width: 100%; border: 1px solid #878787"
+            @click="med_method = !med_method"
+          >
+            {{ sig.intake }}
+          </v-btn>
         </v-col>
       </v-row>
       <v-row>
@@ -99,6 +111,10 @@ export default {
       stocks: '',
       brand: '',
       file: '',
+      med_method: false,
+      sig: {
+        intake: 'Take',
+      },
     }
   },
   mounted() {
@@ -107,6 +123,10 @@ export default {
   methods: {
     back() {
       this.$router.back()
+    },
+    intakeSelected(type) {
+      this.sig.intake = type
+      this.med_method = false
     },
     editMedicine() {
       this.$axios.get('medicines').then((data) => {

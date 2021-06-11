@@ -48,7 +48,7 @@
               fab
               color="indigo"
             >
-              <v-icon>mdi-eye</v-icon>
+              <v-icon>mdi-plus</v-icon>
             </v-btn>
           </v-list-item-content>
         </v-list-item>

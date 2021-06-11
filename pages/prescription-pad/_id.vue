@@ -1,5 +1,8 @@
 <template>
   <div class="prescription-pad">
+    <v-dialog v-model="prescription_payment">
+      <PayPrescription />
+    </v-dialog>
     <div class="prescription-pad-header d-flex">
       <div class="reseta-logo">
         <img src="~/assets/images/main-logo.png" />
@@ -49,6 +52,7 @@ export default {
   props: {},
   data() {
     return {
+      prescription_payment: true,
       prescriptions: [
         {
           id: 1,
