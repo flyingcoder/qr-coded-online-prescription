@@ -9,13 +9,14 @@
       </v-row>
       <v-row class="medicine-image">
         <img
-          width="100%"
+          width="60%"
+          style="border-radius: 70%"
           :src="$config.baseURL + '/storage/medicines/' + medicine.image"
         />
       </v-row>
       <v-row class="medicine-info">
         {{ medicine.generic_name }} ({{ medicine.brand }}) <br />
-        {{ medicine.dosage }} - {{ medicine.type }} <br />
+        {{ medicine.size }} - {{ medicine.type }} <br />
         <span v-if="medicine.price_refs_index"
           >Drug Price Referrence Index: ₱ {{ medicine.price_refs_index }}</span
         >
@@ -41,10 +42,11 @@
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-row style="width: 100%">
+      <v-row style="width: 100%; margin: 0 !important">
         <v-btn
           color="blue-grey"
-          class="ma-2 white--text save-medicine-product"
+          class="white--text"
+          style="width: 100%"
           @click="saveProduct"
         >
           Sell
@@ -142,6 +144,16 @@ export default {
   height: 70px;
 }
 .medicine-image {
-  margin: 20px auto;
+  margin: 40px auto;
+  justify-content: center;
+}
+.medicine-info {
+  width: 100%;
+  margin: 0;
+  justify-content: center;
+  margin-top: 50px;
+  font-size: 17px;
+  font-weight: 500;
+  text-align: center;
 }
 </style>
