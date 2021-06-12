@@ -50,6 +50,9 @@
                 </v-list-item-avatar>
 
                 <v-list-item-content>
+                  <!-- <v-list-item-title class="medicine-list-content">
+                    {{ item.generic_name }} &nbsp;&nbsp;{{ item.size }}
+                  </v-list-item-title> -->
                   <v-list-item-title>
                     {{ item.generic_name }} ({{ item.brand }}) {{ item.dosage }}
                     <br />
@@ -78,7 +81,7 @@
                       color="indigo"
                       @click="viewProfile(item.id)"
                     >
-                      <v-icon>mdi-plus</v-icon>
+                      <v-icon>mdi-pencil</v-icon>
                     </v-btn>
                   </div>
                 </v-list-item-content>

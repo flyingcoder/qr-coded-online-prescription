@@ -11,11 +11,6 @@
             <span class="checkmark"></span>
           </label>
           <label class="medapply-input sm-font-size"
-            >Ointment (salve, unction)
-            <input v-model="drug_type" type="radio" value="Ointment" />
-            <span class="checkmark"></span>
-          </label>
-          <label class="medapply-input sm-font-size"
             >Aqueous solution
             <input v-model="drug_type" type="radio" value="Aqueous solution" />
             <span class="checkmark"></span>
@@ -99,12 +94,12 @@
             <input v-model="drug_type" type="radio" value="Transdermal patch" />
             <span class="checkmark"></span>
           </label>
-          <label class="medapply-input"
+          <label class="medapply-input second-last"
             >Liniment
             <input v-model="drug_type" type="radio" value="Liniment" />
             <span class="checkmark"></span>
           </label>
-          <label class="medapply-input"
+          <label class="medapply-input lastly"
             >Lotion
             <input v-model="drug_type" type="radio" value="Lotion" />
             <span class="checkmark"></span>
@@ -112,6 +107,11 @@
           <label class="medapply-input"
             >Lozenge (troche)
             <input v-model="drug_type" type="radio" value="Lozenge (troche)" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input sm-font-size"
+            >Ointment (salve, unction)
+            <input v-model="drug_type" type="radio" value="Ointment" />
             <span class="checkmark"></span>
           </label>
         </v-row>
