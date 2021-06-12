@@ -56,14 +56,14 @@ export default {
     }
   },
   mounted() {
-    // this.getDoctor()
+    this.getDoctor()
   },
   methods: {
-    // getDoctor() {
-    //   this.$axios.get('user/' + this.$route.params. ).then((data) => {
-    //     console.log(data)
-    //   })
-    // },
+    getDoctor() {
+      this.$axios.get('user/' + this.$route.params).then((data) => {
+        console.log(data)
+      })
+    },
   },
 }
 </script>
