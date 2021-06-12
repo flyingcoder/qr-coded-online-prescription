@@ -15,7 +15,7 @@
       <template v-for="(item, index) in allmedicines">
         <v-subheader
           v-if="index == 0"
-          :key="item.id"
+          :key="index + item.created_at"
           :class="{
             'page-item': true,
             patient_pharmacy_title: $auth.user.role == 'patient',
@@ -25,9 +25,9 @@
           >All Medicine in the Database</v-subheader
         >
 
-        <v-divider :key="index + 'div' + item.id"></v-divider>
+        <v-divider :key="index + 'div'"></v-divider>
 
-        <v-list-item :key="index + item.id" class="pharmacy-list-section">
+        <v-list-item :key="index + 'span'" class="pharmacy-list-section">
           <v-list-item-avatar>
             <img :src="$config.baseURL + '/storage/medicines/' + item.image" />
           </v-list-item-avatar>
