@@ -1,8 +1,8 @@
 <template>
   <div class="prescription-pad">
-    <v-dialog v-model="prescription_payment">
+    <!-- v-dialog v-model="prescription_payment">
       <PayPrescription />
-    </v-dialog>
+    </!-->
     <div class="prescription-pad-header d-flex">
       <div class="reseta-logo">
         <img src="~/assets/images/main-logo.png" />
