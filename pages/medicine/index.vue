@@ -50,8 +50,9 @@
                 </v-list-item-avatar>
 
                 <v-list-item-content>
-                  <v-list-item-title class="medicine-list-content">
+                  <!-- <v-list-item-title class="medicine-list-content">
                     {{ item.generic_name }} &nbsp;&nbsp;{{ item.size }}
+                  </v-list-item-title> -->
                   <v-list-item-title>
                     {{ item.generic_name }} ({{ item.brand }}) {{ item.dosage }}
                     <br />

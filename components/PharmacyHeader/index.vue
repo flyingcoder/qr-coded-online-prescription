@@ -47,8 +47,8 @@
         <NuxtLink to="/all-medicines" class="menu-icon"
           ><v-icon>mdi-contacts</v-icon></NuxtLink
         >
-        <NuxtLink to="/wallet" class="menu-icon"
-          ><v-icon>mdi-wallet</v-icon></NuxtLink
+        <NuxtLink to="/sales-report" class="menu-icon"
+          ><v-icon>mdi-chart-line</v-icon></NuxtLink
         >
         <NuxtLink to="/settings" class="menu-icon"
           ><v-icon>mdi-menu</v-icon></NuxtLink
