@@ -5,6 +5,9 @@
   background: transparent;
   transition: all 0.3s ease;
 }
+a.chat-link {
+  color: #214c79 !important;
+}
 .app-scroll-thin::-webkit-scrollbar {
   width: 1px;
   height: 1px;
@@ -164,9 +167,9 @@ svg.seen {
   font-size: 11px;
 }
 .message-card.mc-sender p {
-  background: #1ac6b6;
+  background: #30e1d0;
   border-radius: 20px;
-  color: white;
+  color: #000000 ;
   width: 75%;
   padding: 10px;
 }
@@ -295,7 +298,7 @@ svg.seen {
 }
 .mc-sender p {
   direction: ltr;
-  color: #fff !important;
+  color: #000000 !important;
 }
 .mc-sender p sub {
   color: rgba(255, 255, 255, 0.67);

@@ -108,13 +108,28 @@ export default {
       })
     },
     close() {
-      this.$nuxt.back()
+      this.$router.back()
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+.patient-info {
+  padding: 0 17px;
+}
+.prescription-form-info {
+  width: 55%;
+  padding-left: 12px;
+  margin-bottom: 20px;
+}
+.prescribed-left-info {
+  padding-left: 20px;
+  .prescribed-patient-name {
+    font-weight: 500;
+    font-size: 17px;
+  }
+}
 .reseta-logo {
   width: 80%;
   display: flex;

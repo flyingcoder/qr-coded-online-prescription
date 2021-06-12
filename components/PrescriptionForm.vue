@@ -23,9 +23,6 @@
             {{ $auth.user.fname }} {{ $auth.user.lname }}
           </div>
           <div class="prescription-patient-use">{{ $auth.user.experties }}</div>
-          <div class="prescription-patient-clinic">
-            {{ $auth.user.licence_number }}
-          </div>
           <div class="prescription-patient-number">
             {{ $auth.user.phone }}
           </div>
@@ -470,8 +467,10 @@ export default {
   font-size: 16px;
   font-weight: 400;
 }
+.prescription-patient-use {
+  margin-bottom: 4px;
+}
 .prescription-patient-use,
-.prescription-patient-clinic,
 .prescription-patient-number {
   font-size: 14px;
   height: 15px;

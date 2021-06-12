@@ -101,14 +101,17 @@
 
               <v-divider :key="index + 'div' + item.id"></v-divider>
 
-              <v-list-item :key="item.fname">
+              <v-list-item :key="item.fname" style="padding: 0">
                 <v-list-item-avatar>
                   <img class="user-icon" :src="item.avatar" :alt="item.fname" />
                 </v-list-item-avatar>
 
                 <v-list-item-content>
                   <v-list-item-title>
-                    {{ item.fname + ' ' + item.lname }}
+                    {{ item.fullname }}
+                    <div class="patient-content">
+                      {{ item.address }}
+                    </div>
                   </v-list-item-title>
                   <v-btn
                     class="ma-2 list-contact-patient"
@@ -130,14 +133,6 @@
                   >
                     <v-icon>mdi-account</v-icon>
                   </v-btn>
-                  <v-list-item-subtitle>
-                    <div class="patient-content">
-                      {{ item.address }}
-                    </div>
-                    <div class="patient-number">
-                      {{ item.phone }}
-                    </div>
-                  </v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
             </template>
