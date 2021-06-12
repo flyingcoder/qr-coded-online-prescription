@@ -78,6 +78,9 @@
         <div class="prescription-notes">Notes: {{ pres.pivot.note }}</div>
       </div>
     </div>
+    <div class="send-prescribed">
+      <v-btn @click="buyMeds">Buy Medication</v-btn>
+    </div>
   </div>
 </template>
 
@@ -104,8 +107,10 @@ export default {
     getPrescription() {
       this.$axios.get('prescriptions/' + this.$route.params.id).then((data) => {
         this.prescriptions = data.data
-        console.log(data.data)
       })
+    },
+    buyMeds() {
+      this.$router.push('/medications/' + this.$route.params.id)
     },
     close() {
       this.$router.back()
@@ -179,5 +184,11 @@ export default {
 }
 .prescription-pad-header {
   margin-bottom: 14px;
+}
+.send-prescribed {
+  width: 100%;
+  margin-top: 15px;
+  text-align: center;
+  padding-bottom: 30px;
 }
 </style>

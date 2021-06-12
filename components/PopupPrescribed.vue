@@ -77,9 +77,9 @@
             <div class="prescription-body-date-consumation">
               for {{ prescription.sig.duration }} {{ prescription.sig.cycle }}/s
             </div>
-            <div class="prescription-body-time-consumation">
-              {{ prescription.sig.hourAM }} AM -
-              {{ prescription.sig.hourPM }} PM
+            <div class="prescription-body-time-consumation"></div>
+            <div class="prescription-notes">
+              Notes: {{ prescription.sig.note }}
             </div>
           </div>
         </div>
@@ -109,19 +109,19 @@ export default {
   data() {
     return {}
   },
-  mounted() {
-    console.log(this.prescriptions)
-  },
+  mounted() {},
   methods: {
     submit() {
       const datus = {
         patient_id: this.patient.id,
+        doctor_id: this.$auth.user.id,
         drugs: this.prescriptions,
       }
-      this.$axios.post('prescription-form', datus).then((data) => {
+      this.$axios.post('prescriptions', datus).then((data) => {
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `You have successfully created the prescrition`,
         })
+        this.$router.push('/chatbox/' + this.patient.id)
       })
     },
     close() {
@@ -132,6 +132,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.prescription-notes {
+  border: 1px solid #1ac6b6;
+  padding: 12px;
+}
 .prescription-form-image {
   width: 25%;
   text-align: center;
