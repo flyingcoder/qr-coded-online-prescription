@@ -1,5 +1,4 @@
 export default {
-  auth: false,
   layout: 'search-notification',
   methods: {
     to() {

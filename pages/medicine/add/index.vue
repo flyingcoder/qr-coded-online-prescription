@@ -93,8 +93,12 @@
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-row>
-        <v-btn color="blue-grey" class="ma-2 white--text" @click="saveProduct">
+      <v-row style="width: 100%">
+        <v-btn
+          color="blue-grey"
+          class="ma-2 white--text save-medicine-product"
+          @click="saveProduct"
+        >
           Save
           <v-icon right dark> mdi-content-save </v-icon>
         </v-btn>
@@ -176,6 +180,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.save-medicine-product {
+  width: 100%;
+}
 .padding-side {
   padding: 0px 13px;
 }

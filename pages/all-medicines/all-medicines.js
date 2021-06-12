@@ -1,6 +1,5 @@
 export default {
   name: 'Patients',
-  auth: false,
   layout: 'dashboard',
   data() {
     return {
