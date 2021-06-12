@@ -17,15 +17,15 @@
     </div>
     <v-divider class="border-width-primary"></v-divider>
     <div
-      v-for="medicine in allmedicines"
-      :key="medicine"
+      v-for="(medicine, index) in allmedicines"
+      :key="index + 'span'"
       class="all-product-display"
     >
-      <h3 class="pd-left">{{ medicine.generic_name }}</h3>
+      <h3 class="pd-left">{{ index }}</h3>
       <v-sheet class="mx-auto" elevation="8" max-width="800">
         <v-slide-group
-          v-for="pharmacy in medicine.users"
-          :key="pharmacy.id"
+          v-for="med in medicine"
+          :key="med.id"
           active-class="card-color-active"
           multiple
         >
@@ -50,18 +50,16 @@
                 <div class="product-image">
                   <img
                     class="drug-image"
-                    :src="
-                      $config.baseURL + '/storage/medicines/' + medicine.image
-                    "
+                    :src="$config.baseURL + '/storage/medicines/' + med.image"
                   />
                 </div>
                 <v-divider></v-divider>
                 <div class="product-name">
-                  {{ pharmacy.generic_name }}
+                  {{ med.brand }}
                 </div>
                 <div class="d-flex product-price_store">
-                  <div class="price">₱ {{ medicine.users[0].pivot.price }}</div>
-                  <div class="store">{{ medicine.brand }}</div>
+                  <div class="price">₱ {{ med }}</div>
+                  <div class="store">{{ med.brand }}</div>
                 </div>
               </div>
             </v-card>
