@@ -126,6 +126,16 @@
             <span class="checkmark"></span>
           </label>
           <label class="medapply-input"
+            >take
+            <input
+              v-model="method"
+              type="radio"
+              checked="checked"
+              value="take"
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="medapply-input"
             >subcataneous
             <input
               v-model="method"
