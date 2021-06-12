@@ -1,6 +1,5 @@
 export default {
   layout: 'dashboard',
-  auth: true,
   data() {
     return {
       grid: true,

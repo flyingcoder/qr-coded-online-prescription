@@ -1,6 +1,5 @@
 export default {
   layout: 'dashboard',
-  auth: false,
   methods: {
     delayLoad(event) {
       setTimeout(() => {
