@@ -39,6 +39,6 @@
   </div>
 </template>
 
-<script></script>
+<script src="./patients.js"></script>
 
 <style lang="scss" scoped></style>
