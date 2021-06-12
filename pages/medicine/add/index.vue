@@ -8,11 +8,11 @@
         <v-icon> mdi-arrow-left </v-icon>
       </div>
       <v-row class="justify-center">
-        <div class="add-product-title">Add Product</div>
+        <div class="add-product-title">Drug details form</div>
       </v-row>
       <v-row>
         <v-file-input
-          v-model="file"
+          ref="medFile"
           name="file"
           accept="image/*"
           label="Medicine Image"
@@ -30,8 +30,8 @@
         </v-col>
         <v-col>
           <v-text-field
-            v-model="size"
-            name="size"
+            v-model="dosage"
+            name="dosage"
             label="Dosage"
             outlined
             dense
@@ -50,13 +50,6 @@
           ></v-text-field>
         </v-col>
         <v-col>
-          <!-- <v-text-field
-            v-model="type"
-            label="Type"
-            name="type"
-            outlined
-            dense
-          ></v-text-field> -->
           <v-btn
             depressed
             height="40px"
@@ -109,26 +102,20 @@
 
 <script>
 export default {
-  auth: false,
   layout: 'dashboard',
   data() {
     return {
       generic_name: '',
       price: '',
-      size: '',
-      type: 'tablet',
+      dosage: '',
+      type: 'Tablet',
       stocks: '',
       brand: '',
       file: '',
       med_type: false,
-      sig: {
-        intake: 'Take',
-      },
     }
   },
-  mounted() {
-    this.editMedicine()
-  },
+  mounted() {},
   methods: {
     back() {
       this.$router.back()
@@ -137,25 +124,20 @@ export default {
       this.type = type
       this.med_type = false
     },
-    editMedicine() {
-      this.$axios.get('medicines').then((data) => {
-        this.medicines = data.data
+    editMedicine(id) {
+      this.$axios.put('medicines/' + id).then((data) => {
+        this.medicine = data.data
       })
-    },
-    reset() {
-      this.generic_name = ''
-      this.price = ''
-      this.size = ''
-      this.type = ''
-      this.brand = ''
-      this.stocks = ''
-      this.file = ''
     },
     async saveProduct() {
       const msgForm = document.getElementById('add-medicine')
 
       const formData = new FormData(msgForm)
+
+      formData.append('type', this.type)
+
       try {
+        // multipart header is required when uploading an image
         await this.$axios
           .post('medicines', formData, {
             headers: {
@@ -165,15 +147,44 @@ export default {
           .then((data) => {
             this.reset()
             this.$store.dispatch('snackbar/setSnackbar', {
-              text: 'Product has been added',
+              text: 'Medicine is added succesfully.',
             })
           })
       } catch {
         this.$store.dispatch('snackbar/setSnackbar', {
           color: 'red',
-          text: 'Ops! Incorrect product details',
+          text: 'Ops! Incorrect Medicine details',
         })
       }
+    },
+    async updateMedicine(id) {
+      const msgForm = document.getElementById('add-medicine')
+
+      const formData = new FormData(msgForm)
+
+      formData.append('type', this.medtype)
+
+      await this.$axios
+        .put('medicines/' + id, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then((data) => {
+          this.medicine = data.data
+          this.$store.dispatch('snackbar/setSnackbar', {
+            text: 'Medicine data is updated.',
+          })
+        })
+    },
+    reset() {
+      this.generic_name = ''
+      this.price = ''
+      this.dosage = ''
+      this.type = ''
+      this.brand = ''
+      this.stocks = ''
+      this.$refs.medFile.value = null
     },
   },
 }

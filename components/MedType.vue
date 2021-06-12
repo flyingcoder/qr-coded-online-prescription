@@ -134,6 +134,7 @@ export default {
       drug_type: '',
     }
   },
+  mounted() {},
   methods: {
     pick() {
       this.$emit('selected', this.drug_type)
