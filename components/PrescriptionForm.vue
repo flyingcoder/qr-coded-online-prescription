@@ -96,6 +96,7 @@
             chips
             small-chips
             placeholder="Search Any Medicine"
+            @change="medicineSelected"
           ></v-autocomplete>
         </div>
         <div class="medicine-bottom">
@@ -352,13 +353,16 @@ export default {
     patientSelected() {
       this.patient = this.patient_info
     },
+    medicineSelected() {
+      this.sig.type = this.drug_info.type
+    },
     getPatients() {
       this.$axios.get('users/patient').then((data) => {
         this.patients = data.data
       })
     },
     getAllMedicines() {
-      this.$axios.get('allmedicines').then((data) => {
+      this.$axios.get('medicines').then((data) => {
         this.medicines = data.data
       })
     },
@@ -427,18 +431,6 @@ export default {
     intakeSelected(type) {
       this.sig.intake = type
       this.med_method = false
-    },
-    prescribe() {
-      const datus = {
-        patient_info: this.patient_info,
-        drug_info: this.data,
-        sig: this.sig,
-      }
-      this.$axios.post('prescriptions', datus).then((data) => {
-        this.$store.dispatch('snackbar/setSnackbar', {
-          text: `You have successfully created the prescrition`,
-        })
-      })
     },
     getPatient() {
       this.$axios.get('user/' + this.$route.params.id).then((data) => {
