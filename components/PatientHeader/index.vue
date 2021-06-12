@@ -40,7 +40,7 @@
         <NuxtLink to="/dashboard" class="menu-icon"
           ><v-icon>mdi-home</v-icon></NuxtLink
         >
-        <NuxtLink to="/drugs" class="menu-icon"
+        <NuxtLink to="/prescriptions" class="menu-icon"
           ><v-icon>mdi-pill</v-icon></NuxtLink
         >
         <NuxtLink to="/pharmacy" class="menu-icon"
