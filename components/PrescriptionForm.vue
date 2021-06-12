@@ -47,9 +47,7 @@
       </div>
       <div class="patient-secondary-info">
         <div class="patient-main-info">
-          <label
-            :for="data.patient_full_info"
-            class="prescription-medicine-label"
+          <label :for="patient_info" class="prescription-medicine-label"
             >Patient Information</label
           >
           <v-autocomplete
@@ -59,6 +57,8 @@
             outlined
             return-object
             dense
+            solo
+            :disabled="$route.params.id ? '' : disabled"
             prepend-inner-icon="mdi-magnify"
             chips
             small-chips
@@ -84,7 +84,7 @@
       </div>
       <div class="patient-medicine-prescription">
         <div class="medicine-top">
-          <label :for="data.medicine_name" class="prescription-medicine-label"
+          <label :for="drug_info" class="prescription-medicine-label"
             >Medicine Name</label
           >
           <v-autocomplete
@@ -94,6 +94,7 @@
             return-object
             outlined
             dense
+            solo
             prepend-inner-icon="mdi-magnify"
             chips
             small-chips
@@ -110,7 +111,7 @@
             width="100%"
             @click="med_type = !med_type"
           >
-            {{ data.drug_type }}
+            {{ sig.type }}
           </v-btn>
         </div>
       </div>
@@ -144,7 +145,7 @@
               width="100%"
               style="margin-bottom: 20px"
             >
-              {{ data.drug_type }}
+              {{ sig.type }}
             </v-btn>
           </div>
           <div class="patient-sig-button-bottom d-flex">
@@ -204,7 +205,7 @@
       <div class="patient-day-uses-prescription d-flex">
         <div class="patient-duration d-flex">
           <v-text-field
-            v-model="sig.until"
+            v-model="sig.duration"
             type="number"
             min="1"
             max="31"
@@ -265,13 +266,6 @@ export default {
     return {
       popup_prescribed: false,
       medicines: [],
-      data: {
-        medicine_name: '',
-        medicine_dosage: '',
-        patient_full_info: '',
-        medicine_brand: '',
-        drug_type: 'tablet',
-      },
       drug_info: '',
       medCounter: 0,
       numberRule: (v) => {
@@ -284,9 +278,10 @@ export default {
         hourAM: '',
         hourPM: '',
         repeat: 1,
-        until: '',
+        duration: '',
         cycle: 'Day',
         note: '',
+        type: 'Tablet',
       },
       med_type: false,
       med_method: false,
@@ -330,13 +325,16 @@ export default {
     }
   },
   mounted() {
+    if (this.$route.params.id) this.getPatient()
     this.prescribeData = JSON.parse(
       window.localStorage.getItem('prescribeData')
     )
     if (this.prescribeData) {
       this.meds = this.prescribeData.meds
-      this.patient_info = this.prescribeData.patient
-      this.patient = this.patient_info
+      if (!this.$route.params.id) {
+        this.patient_info = this.prescribeData.patient
+        this.patient = this.patient_info
+      }
     } else {
       this.meds = []
       this.patient = {
@@ -348,7 +346,6 @@ export default {
     this.medCounter = parseInt(window.localStorage.getItem('medCounter'))
     if (!this.medCounter) this.medCounter = 0
     this.getAllMedicines()
-    if (this.id) this.getPatient()
     this.getPatients()
   },
   methods: {
@@ -368,7 +365,6 @@ export default {
         this.medicines = data.data
       })
     },
-
     validateForm() {
       if (this.patient_info === '') {
         this.$store.dispatch('snackbar/setSnackbar', {
@@ -386,7 +382,7 @@ export default {
         return false
       }
 
-      if (this.data.until === '') {
+      if (this.sig.duration === '') {
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `Please input the duration.`,
           color: 'red',
@@ -421,10 +417,14 @@ export default {
         this.drug_info = ''
         this.medCounter = this.medCounter + 1
         window.localStorage.setItem('medCounter', this.medCounter)
+
+        this.$store.dispatch('snackbar/setSnackbar', {
+          text: `A medicine is added to prescription pad.`,
+        })
       }
     },
     medTypeSelected(type) {
-      this.data.drug_type = type
+      this.sig.type = type
       this.med_type = false
     },
     intakeSelected(type) {
@@ -437,7 +437,7 @@ export default {
         drug_info: this.data,
         sig: this.sig,
       }
-      this.$axios.post('prescription-form', datus).then((data) => {
+      this.$axios.post('prescriptions', datus).then((data) => {
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `You have successfully created the prescrition`,
         })
@@ -446,7 +446,6 @@ export default {
     getPatient() {
       this.$axios.get('user/' + this.$route.params.id).then((data) => {
         this.patient_info = data.data
-        this.data.fname = this.data.fname + ' ' + data.data.lname
       })
     },
     getMedicine() {
@@ -454,7 +453,6 @@ export default {
         this.medicine_name = data.data
       })
     },
-    cancel() {},
   },
 }
 </script>
@@ -485,7 +483,7 @@ export default {
   height: 50px;
 }
 .medicine-bottom {
-  margin-top: 20px;
+  margin-top: 35px;
 }
 .patient-day-uses-prescription {
   margin: 20px 0 20px 0;

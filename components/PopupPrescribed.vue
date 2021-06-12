@@ -60,7 +60,7 @@
             <div class="medicine-tab-id">
               #
               {{
-                prescription.sig.until *
+                prescription.sig.duration *
                 prescription.sig.repeat *
                 prescription.sig.amount
               }}
@@ -75,7 +75,7 @@
               {{ prescription.sig.cycle }}
             </div>
             <div class="prescription-body-date-consumation">
-              for {{ prescription.sig.until }} {{ prescription.sig.cycle }}/s
+              for {{ prescription.sig.duration }} {{ prescription.sig.cycle }}/s
             </div>
             <div class="prescription-body-time-consumation">
               {{ prescription.sig.hourAM }} AM -

@@ -30,7 +30,7 @@
         </v-col>
         <v-col>
           <v-text-field
-            v-model="size"
+            v-model="dosage"
             name="size"
             label="Dosage"
             outlined
@@ -50,21 +50,15 @@
           ></v-text-field>
         </v-col>
         <v-col>
-          <!-- <v-text-field
-            v-model="type"
-            label="Type"
-            name="type"
-            outlined
-            dense
-          ></v-text-field> -->
           <v-btn
             depressed
             height="40px"
             style="width: 100%; border: 1px solid #878787"
             @click="med_method = !med_method"
           >
-            {{ sig.intake }}
+            {{ type }}
           </v-btn>
+          <input v-model="type" type="hidden" />
         </v-col>
       </v-row>
       <v-row>
@@ -106,47 +100,51 @@ export default {
     return {
       generic_name: '',
       price: '',
-      size: '',
+      dosage: '',
       type: '',
       stocks: '',
       brand: '',
       file: '',
       med_method: false,
-      sig: {
-        intake: 'Take',
-      },
     }
   },
-  mounted() {
-    this.editMedicine()
-  },
+  mounted() {},
   methods: {
     back() {
       this.$router.back()
     },
     intakeSelected(type) {
-      this.sig.intake = type
+      this.type = type
       this.med_method = false
     },
-    editMedicine() {
-      this.$axios.get('medicines').then((data) => {
-        this.medicines = data.data
+    editMedicine(id) {
+      this.$axios.put('medicines/' + id).then((data) => {
+        this.medicine = data.data
       })
     },
-    reset() {
-      this.generic_name = ''
-      this.price = ''
-      this.size = ''
-      this.type = ''
-      this.brand = ''
-      this.stocks = ''
-      this.file = ''
+    updateMedicine(id) {
+      const msgForm = document.getElementById('add-medicine')
+      const formData = new FormData(msgForm)
+
+      this.$axios
+        .put('medicine/' + id, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then((data) => {
+          this.medicine = data.data
+          this.$store.dispatch('snackbar/setSnackbar', {
+            text: 'Medicine data is updated.',
+          })
+        })
     },
     async saveProduct() {
       const msgForm = document.getElementById('add-medicine')
 
       const formData = new FormData(msgForm)
       try {
+        // multipart header is required when uploading an image
         await this.$axios
           .post('medicines', formData, {
             headers: {
@@ -156,15 +154,24 @@ export default {
           .then((data) => {
             this.reset()
             this.$store.dispatch('snackbar/setSnackbar', {
-              text: 'Product has been added',
+              text: 'Medicine is added succesfully.',
             })
           })
       } catch {
         this.$store.dispatch('snackbar/setSnackbar', {
           color: 'red',
-          text: 'Ops! Incorrect product details',
+          text: 'Ops! Incorrect Medicine details',
         })
       }
+    },
+    reset() {
+      this.generic_name = ''
+      this.price = ''
+      this.dosage = ''
+      this.type = ''
+      this.brand = ''
+      this.stocks = ''
+      this.file = ''
     },
   },
 }
