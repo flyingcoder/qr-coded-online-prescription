@@ -67,6 +67,18 @@
                       {{ item.phone }}
                     </div>
                   </v-list-item-subtitle>
+                  <div class="medicine-option">
+                    <v-btn
+                      class="ma-2"
+                      outlined
+                      x-small
+                      fab
+                      color="indigo"
+                      @click="viewProfile(item.id)"
+                    >
+                      <v-icon>mdi-plus</v-icon>
+                    </v-btn>
+                  </div>
                 </v-list-item-content>
               </v-list-item>
             </template>

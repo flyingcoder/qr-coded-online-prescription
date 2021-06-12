@@ -13,9 +13,8 @@ export default {
   },
   methods: {
     getAllMedicines() {
-      this.$axios.get('allmedicines').then((data) => {
+      this.$axios.get('medicines').then((data) => {
         this.allmedicines = data.data
-        console.log(data)
       })
     },
     viewProfile(id) {

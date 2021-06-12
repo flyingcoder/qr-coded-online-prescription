@@ -116,15 +116,12 @@ export default {
     submit() {
       const datus = {
         patient_id: this.patient.id,
-        doctor_id: this.$auth.user.id,
         drugs: this.prescriptions,
       }
       this.$axios.post('prescription-form', datus).then((data) => {
         this.$store.dispatch('snackbar/setSnackbar', {
-          text: `The prescription is sent!`,
+          text: `You have successfully created the prescrition`,
         })
-        window.localStorage.removeItem('prescribeData')
-        window.localStorage.removeItem('medCounter')
       })
     },
     close() {
@@ -167,13 +164,15 @@ export default {
   height: 50px;
 }
 .popup-prescribed-back {
-  margin-left: 15px;
-  padding-top: 10px;
+  position: absolute;
+  top: 25px;
+  left: 30px;
 }
 .reseta-logo {
   margin: auto;
+  padding-top: 15px;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   display: flex;
   justify-content: center;
   img {
@@ -220,6 +219,7 @@ export default {
   }
 }
 .prescribed-patient-address {
+  padding-left: 17px;
   font-size: 17px;
   font-weight: 400;
 }

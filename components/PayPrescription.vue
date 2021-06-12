@@ -2,6 +2,10 @@
   <div class="prescription-payment">
     <v-card>
       <v-card-text>
+        <div class="d-flex justify-center">
+          <img width="20%" src="~/assets/images/main-logo.png" />
+          <span class="payment-popup-logo-text">Reseta QRx</span>
+        </div>
         <div class="payment-content d-flex justify-center">
           Please Procceed the Payment
         </div>
@@ -30,5 +34,12 @@ export default {
 .payment-content {
   font-size: 18px;
   margin: 20px 0;
+}
+.payment-popup-logo-text {
+  display: flex;
+  align-self: center;
+  font-size: 18px;
+  margin-left: 10px;
+  font-weight: 500;
 }
 </style>

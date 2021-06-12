@@ -34,11 +34,10 @@
 
           <v-list-item-content>
             <v-list-item-title>
-              {{ item.generic_name }} &nbsp;&nbsp;{{ item.size }}
+              {{ item.generic_name }} ({{ item.brand }})
               <br />
               <span class="medicine-sub-info">
-                Brand:
-                {{ item.brand }}
+                {{ item.dosage }} - {{ item.type }}
               </span>
             </v-list-item-title>
             <v-btn

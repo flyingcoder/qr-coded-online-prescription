@@ -1,18 +1,18 @@
 <template>
   <div class="add-medicine">
-    <v-dialog v-model="med_method" fullscreen>
-      <MedApplyMethod @selected="intakeSelected" />
+    <v-dialog v-model="med_type" fullscreen>
+      <MedType @selected="medTypeSelected" />
     </v-dialog>
     <v-form id="add-medicine">
       <div class="chatbox-undo" @click="back">
         <v-icon> mdi-arrow-left </v-icon>
       </div>
       <v-row class="justify-center">
-        <div class="add-product-title">Add Product</div>
+        <div class="add-product-title">Drug details form</div>
       </v-row>
       <v-row>
         <v-file-input
-          v-model="file"
+          ref="medFile"
           name="file"
           accept="image/*"
           label="Medicine Image"
@@ -31,7 +31,7 @@
         <v-col>
           <v-text-field
             v-model="dosage"
-            name="size"
+            name="dosage"
             label="Dosage"
             outlined
             dense
@@ -53,12 +53,16 @@
           <v-btn
             depressed
             height="40px"
-            style="width: 100%; border: 1px solid #878787"
-            @click="med_method = !med_method"
+            width="100%"
+            style="
+              width: 100%;
+              border: 1px solid #878787;
+              background: transparent !important;
+            "
+            @click="med_type = !med_type"
           >
             {{ type }}
           </v-btn>
-          <input v-model="type" type="hidden" />
         </v-col>
       </v-row>
       <v-row>
@@ -94,18 +98,17 @@
 
 <script>
 export default {
-  auth: false,
   layout: 'dashboard',
   data() {
     return {
       generic_name: '',
       price: '',
       dosage: '',
-      type: '',
+      type: 'Tablet',
       stocks: '',
       brand: '',
       file: '',
-      med_method: false,
+      med_type: false,
     }
   },
   mounted() {},
@@ -113,36 +116,22 @@ export default {
     back() {
       this.$router.back()
     },
-    intakeSelected(type) {
+    medTypeSelected(type) {
       this.type = type
-      this.med_method = false
+      this.med_type = false
     },
     editMedicine(id) {
       this.$axios.put('medicines/' + id).then((data) => {
         this.medicine = data.data
       })
     },
-    updateMedicine(id) {
-      const msgForm = document.getElementById('add-medicine')
-      const formData = new FormData(msgForm)
-
-      this.$axios
-        .put('medicine/' + id, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        })
-        .then((data) => {
-          this.medicine = data.data
-          this.$store.dispatch('snackbar/setSnackbar', {
-            text: 'Medicine data is updated.',
-          })
-        })
-    },
     async saveProduct() {
       const msgForm = document.getElementById('add-medicine')
 
       const formData = new FormData(msgForm)
+
+      formData.append('type', this.type)
+
       try {
         // multipart header is required when uploading an image
         await this.$axios
@@ -164,6 +153,26 @@ export default {
         })
       }
     },
+    async updateMedicine(id) {
+      const msgForm = document.getElementById('add-medicine')
+
+      const formData = new FormData(msgForm)
+
+      formData.append('type', this.medtype)
+
+      await this.$axios
+        .put('medicines/' + id, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then((data) => {
+          this.medicine = data.data
+          this.$store.dispatch('snackbar/setSnackbar', {
+            text: 'Medicine data is updated.',
+          })
+        })
+    },
     reset() {
       this.generic_name = ''
       this.price = ''
@@ -171,7 +180,7 @@ export default {
       this.type = ''
       this.brand = ''
       this.stocks = ''
-      this.file = ''
+      this.$refs.medFile.value = null
     },
   },
 }
