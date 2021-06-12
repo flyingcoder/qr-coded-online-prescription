@@ -48,7 +48,7 @@
         <NuxtLink to="/prescription-form" class="menu-icon"
           ><v-icon>mdi-prescription</v-icon></NuxtLink
         >
-        <NuxtLink to="/drugs" class="menu-icon"
+        <NuxtLink to="/prescriptions" class="menu-icon"
           ><v-icon>mdi-pill</v-icon></NuxtLink
         >
         <NuxtLink to="/patients" class="menu-icon"

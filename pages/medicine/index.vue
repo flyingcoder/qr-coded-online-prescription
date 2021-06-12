@@ -72,7 +72,10 @@
                       {{ item.phone }}
                     </div>
                   </v-list-item-subtitle>
-                  <div class="medicine-option">
+                  <div
+                    v-if="$auth.user.role == 'pharmacy'"
+                    class="medicine-option"
+                  >
                     <v-btn
                       class="ma-2"
                       outlined
