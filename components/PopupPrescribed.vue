@@ -219,6 +219,7 @@ export default {
   }
 }
 .prescribed-patient-address {
+  padding-left: 17px;
   font-size: 17px;
   font-weight: 400;
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="add-medicine">
-    <v-dialog v-model="med_method" fullscreen>
-      <MedApplyMethod @selected="intakeSelected" />
+    <v-dialog v-model="med_type" fullscreen>
+      <MedType @selected="medTypeSelected" />
     </v-dialog>
     <v-form id="add-medicine">
       <div class="chatbox-undo" @click="back">
@@ -50,21 +50,26 @@
           ></v-text-field>
         </v-col>
         <v-col>
-          <v-text-field
+          <!-- <v-text-field
             v-model="type"
             label="Type"
             name="type"
             outlined
             dense
-          ></v-text-field>
-          <!-- <v-btn
+          ></v-text-field> -->
+          <v-btn
             depressed
             height="40px"
-            style="width: 100%; border: 1px solid #878787"
-            @click="med_method = !med_method"
+            width="100%"
+            style="
+              width: 100%;
+              border: 1px solid #878787;
+              background: transparent !important;
+            "
+            @click="med_type = !med_type"
           >
-            {{ sig.intake }}
-          </v-btn> -->
+            {{ type }}
+          </v-btn>
         </v-col>
       </v-row>
       <v-row>
@@ -107,11 +112,11 @@ export default {
       generic_name: '',
       price: '',
       size: '',
-      type: '',
+      type: 'tablet',
       stocks: '',
       brand: '',
       file: '',
-      med_method: false,
+      med_type: false,
       sig: {
         intake: 'Take',
       },
@@ -124,9 +129,9 @@ export default {
     back() {
       this.$router.back()
     },
-    intakeSelected(type) {
-      this.sig.intake = type
-      this.med_method = false
+    medTypeSelected(type) {
+      this.type = type
+      this.med_type = false
     },
     editMedicine() {
       this.$axios.get('medicines').then((data) => {
