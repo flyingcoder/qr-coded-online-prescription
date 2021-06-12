@@ -20,7 +20,7 @@
           class="message">
         </div>
         <!-- eslint-disable -->
-        <div v-else class="thumbnails"></div>
+        <div v-else class="thumbnails"><v-icon>mdi-image</v-icon></div>
         <nuxt-link v-if="false" to="/medication/01">
           <div v-if="newsfeed.id" class="sent-prescription">
             {{ newsfeed.id }}
