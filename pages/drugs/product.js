@@ -2,32 +2,19 @@ export default {
   layout: 'dashboard',
   data() {
     return {
-      allmedicines: '',
-      product_name: [
-        {
-          id: 1,
-          title: 'COLCHICINE',
-        },
-        // {
-        //   id: 2,
-        //   title: 'N - ACETYLCYSTEINE',
-        // },
-        // {
-        //   id: 3,
-        //   title: 'AZITHROMYCIN',
-        // },
-      ],
+      allmedicines: [],
     }
   },
   mounted() {
-    this.getallMedicines()
+    this.getPrescribeMeds()
   },
   methods: {
-    getallMedicines() {
-      this.$axios.get('allmedicines').then((data) => {
-        this.allmedicines = data.data
-        console.log(data)
-      })
+    getPrescribeMeds() {
+      this.$axios
+        .get('medicines/prescribe/' + this.$route.params.id)
+        .then((data) => {
+          this.allmedicines = data.data
+        })
     },
   },
 }

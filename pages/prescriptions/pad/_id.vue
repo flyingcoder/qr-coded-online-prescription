@@ -110,7 +110,7 @@ export default {
       })
     },
     buyMeds() {
-      this.$router.push('/medications/' + this.$route.params.id)
+      this.$router.push('/drugs/' + this.$route.params.id)
     },
     close() {
       this.$router.back()
