@@ -50,21 +50,21 @@
           ></v-text-field>
         </v-col>
         <v-col>
-          <!-- <v-text-field
+          <v-text-field
             v-model="type"
             label="Type"
             name="type"
             outlined
             dense
-          ></v-text-field> -->
-          <v-btn
+          ></v-text-field>
+          <!-- <v-btn
             depressed
             height="40px"
             style="width: 100%; border: 1px solid #878787"
             @click="med_method = !med_method"
           >
             {{ sig.intake }}
-          </v-btn>
+          </v-btn> -->
         </v-col>
       </v-row>
       <v-row>
