@@ -13,9 +13,14 @@
         <span class="time">{{ newsfeed.lastMessage.time }}</span>
       </div>
       <div class="up-message">
-        <div v-if="newsfeed.lastMessage.message" class="message">
-          {{ newsfeed.lastMessage.message }}
+        <!-- eslint-disable -->
+        <div 
+          v-if="newsfeed.lastMessage.message" 
+          v-html="newsfeed.lastMessage.message" 
+          class="message">
         </div>
+        <!-- eslint-disable -->
+        <div v-else class="thumbnails"><v-icon>mdi-image</v-icon></div>
         <nuxt-link v-if="false" to="/medication/01">
           <div v-if="newsfeed.id" class="sent-prescription">
             {{ newsfeed.id }}
