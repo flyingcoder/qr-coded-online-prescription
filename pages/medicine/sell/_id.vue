@@ -16,7 +16,7 @@
       </v-row>
       <v-row class="medicine-info">
         {{ medicine.generic_name }} ({{ medicine.brand }}) <br />
-        {{ medicine.size }} - {{ medicine.type }} <br />
+        {{ medicine.dosage }} - {{ medicine.type }} <br />
         <span v-if="medicine.price_refs_index"
           >Drug Price Referrence Index: ₱ {{ medicine.price_refs_index }}</span
         >
