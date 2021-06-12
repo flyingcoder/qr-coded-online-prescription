@@ -18,7 +18,7 @@
         small
         x-small
         color="#1ac6b6"
-        to="medicine/add"
+        to="/medicines"
       >
         <v-icon color="white"> mdi-plus </v-icon>
       </v-btn>
@@ -51,12 +51,14 @@
 
                 <v-list-item-content>
                   <v-list-item-title>
-                    {{ item.generic_name }} &nbsp;&nbsp;{{ item.size }}
+                    {{ item.generic_name }} ({{ item.brand }}) {{ item.dosage }}
                     <br />
                     <span class="medicine-sub-info">
-                      Price: ₱{{ item.pivot.price }} &nbsp;&nbsp;Stock:
-                      {{ item.pivot.stocks }}&nbsp;&nbsp; Brand:
-                      {{ item.brand }}
+                      Type: {{ item.type }} &nbsp;&nbsp;Price: ₱{{
+                        item.pivot.price
+                      }}
+                      &nbsp;&nbsp;Stock:
+                      {{ item.pivot.stocks }} pcs.
                     </span>
                   </v-list-item-title>
                   <v-list-item-subtitle>

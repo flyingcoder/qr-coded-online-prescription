@@ -46,6 +46,7 @@
               x-small
               fab
               color="indigo"
+              @click="sellMed(item.id)"
             >
               <v-icon>mdi-plus</v-icon>
             </v-btn>

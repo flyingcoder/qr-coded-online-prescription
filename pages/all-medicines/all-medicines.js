@@ -11,6 +11,9 @@ export default {
     this.getAllMedicines()
   },
   methods: {
+    sellMed(id) {
+      this.$router.push('/medicine/sell/' + id)
+    },
     getAllMedicines() {
       this.$axios.get('medicines').then((data) => {
         this.allmedicines = data.data
