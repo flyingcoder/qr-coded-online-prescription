@@ -7,7 +7,7 @@
           <span class="payment-popup-logo-text">Reseta QRx</span>
         </div>
         <div class="payment-content d-flex justify-center">
-          Please Procced the Payment
+          Please Procceed the Payment
         </div>
       </v-card-text>
       <v-card-actions class="justify-end payment-button">

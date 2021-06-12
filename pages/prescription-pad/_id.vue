@@ -1,8 +1,8 @@
 <template>
   <div class="prescription-pad">
-    <v-dialog v-model="prescription_payment">
+    <!-- v-dialog v-model="prescription_payment">
       <PayPrescription />
-    </v-dialog>
+    </!-->
     <div class="prescription-pad-header d-flex">
       <div class="reseta-logo">
         <img src="~/assets/images/main-logo.png" />
@@ -12,9 +12,45 @@
         <v-icon size="30px" @click="close">mdi-close</v-icon>
       </div>
     </div>
+    <div class="patient-info d-flex">
+      <div class="prescription-form-image">
+        <img class="user-icon" :src="prescriptions.doctor.avatar" />
+      </div>
+      <div class="prescription-form-info">
+        <div class="prescription-patient-name">
+          {{ prescriptions.doctor.fname }} {{ prescriptions.doctor.lname }}
+        </div>
+        <div class="prescription-patient-use">
+          {{ prescriptions.doctor.experties }}
+        </div>
+        <div class="prescription-patient-clinic">
+          {{ prescriptions.doctor.licence_number }}
+        </div>
+        <div class="prescription-patient-number">
+          {{ prescriptions.doctor.phone }}
+        </div>
+      </div>
+      <div class="medicine-badge">
+        <div class="prescribed-created">
+          {{ $moment().format('MM/DD/YY') }}
+        </div>
+      </div>
+    </div>
+
+    <div class="prescribed-patient-info">
+      <div class="prescribed-left-info d-flex">
+        <div class="prescribed-patient-name">
+          {{ prescriptions.patient.fname }} {{ prescriptions.patient.lname }}
+          {{ prescriptions.patient.age + '/' + prescriptions.patient.sex }}
+        </div>
+      </div>
+      <div class="prescribed-patient-address">
+        {{ prescriptions.patient.address }}
+      </div>
+    </div>
     <div
       v-for="(pres, index) in prescriptions.prescribe"
-      :key="pres"
+      :key="index"
       class="prescription-pad-content"
     >
       <div class="prescription-pad-content-header d-flex">
@@ -26,20 +62,20 @@
             {{ pres.dosage }}
           </div>
         </div>
-        <div class="right"># {{}}</div>
+        <div class="right">
+          # {{ pres.pivot.duration * pres.pivot.repeat * pres.pivot.amount }}
+        </div>
       </div>
       <div class="prescription-pad-content-body">
         <div class="prescription-sig-content">
-          Sig {{ pres.pivot.intake }} {{ pres.pivot.type }}, {{ pres.repeat }}x
-          a {{ pres.cycle }}
+          Sig {{ pres.pivot.intake }} {{ pres.pivot.amount }}
+          {{ pres.pivot.type }}, {{ pres.pivot.repeat }}x a {{ pres.cycle }}
         </div>
         <div class="prescription-till-intake">
-          for {{ pres.until }} {{ pres.cycle }}/s
+          for {{ pres.pivot.duration }} {{ pres.pivot.cycle }}/s
         </div>
-        <div class="prescription-hours">
-          {{ pres.hourAM }} AM - {{ pres.hourPM }} PM
-        </div>
-        <div class="prescription-notes">Notes: {{ pres.notes }}</div>
+        <div class="prescription-hours"></div>
+        <div class="prescription-notes">Notes: {{ pres.pivot.note }}</div>
       </div>
     </div>
   </div>
@@ -53,47 +89,11 @@ export default {
   data() {
     return {
       prescription_payment: true,
-      prescriptions: [
-        {
-          id: 1,
-          medicine_name: 'Paracetamol (Biogesic)',
-          dosage: '500mg',
-          intake: '2',
-          type: 'Tablet',
-          notes: 'This is just a test',
-          repeat: '2',
-          until: '2',
-          hourAM: '6',
-          hourPM: '8',
-          cycle: 'Day',
-        },
-        {
-          id: 2,
-          medicine_name: 'Paracetamol (Biogesic)',
-          dosage: '500mg',
-          intake: '2',
-          type: 'Tablet',
-          notes: 'This is just a test',
-          repeat: '2',
-          until: '2',
-          hourAM: '6',
-          hourPM: '8',
-          cycle: 'Day',
-        },
-        {
-          id: 3,
-          medicine_name: 'Paracetamol (Biogesic)',
-          dosage: '500mg',
-          intake: '2',
-          type: 'Tablet',
-          notes: 'This is just a test',
-          repeat: '2',
-          until: '2',
-          hourAM: '6',
-          hourPM: '8',
-          cycle: 'month',
-        },
-      ],
+      prescriptions: {
+        doctor: {},
+        patient: {},
+        prescribe: {},
+      },
     }
   },
 
@@ -104,7 +104,7 @@ export default {
     getPrescription() {
       this.$axios.get('prescriptions/' + this.$route.params.id).then((data) => {
         this.prescriptions = data.data
-        console.log(data)
+        console.log(data.data)
       })
     },
     close() {
