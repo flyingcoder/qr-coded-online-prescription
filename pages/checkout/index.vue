@@ -7,7 +7,7 @@
     <table class="ordered-table">
       <tr>
         <th>Medicines</th>
-        <th style="width: 15%">Qty</th>
+        <th class="text-center" style="width: 15%">Qty</th>
         <th style="text-align: center">Actions</th>
       </tr>
       <tr
@@ -68,7 +68,7 @@
         <td></td>
         <td></td>
         <td></td>
-        <td>₱ {{ parseFloat(service_fee).toFixed(2) }}</td>
+        <td>₱{{ parseFloat(service_fee).toFixed(2) }}</td>
       </!-->
       <tr class="overall-total">
         <td></td>

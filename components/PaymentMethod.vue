@@ -3,7 +3,6 @@
     <v-row class="d-block">
       <h4 class="padding-content">SELECT PAYMENT METHOD</h4>
       <v-divider></v-divider>
-      <h5 class="padding-content">Recommended methods</h5>
     </v-row>
     <v-row justify="center">
       <v-expansion-panels>
