@@ -1,24 +1,21 @@
 <template>
   <div class="wallet-payment-method">
     <v-row class="d-block">
-      <v-divider></v-divider>
       <h4 class="padding-content">SELECT PAYMENT METHOD</h4>
       <v-divider></v-divider>
       <h5 class="padding-content">Recommended methods</h5>
     </v-row>
     <v-row justify="center">
-      <v-expansion-panels accordion>
-        <v-expansion-panel v-for="(item, i) in payment_method" :key="i.id">
+      <v-expansion-panels>
+        <v-expansion-panel v-for="item in payment_method" :key="item.id">
           <v-expansion-panel-header
-            ><v-icon class="wallet-dropdown-icon">{{ item.icon }}</v-icon>
+            ><img class="wallet-dropdown-icon" :src="item.icon" />
             <div class="wallet-accordion-title">
               {{ item.title }}
             </div></v-expansion-panel-header
           >
           <v-expansion-panel-content>
-            <div class="wallet-main-icon">
-              <v-icon large>{{ item.icon_inner }}</v-icon>
-            </div>
+            <img :src="item.icon_inner" alt="" width="100%" />
             <div class="wallet-content full-width">
               <div
                 v-if="item.content"
@@ -33,7 +30,7 @@
                   text
                   tile
                   class="margin-right-sm"
-                  @click="snackbar = true"
+                  @click="cancel"
                   >{{ item.yes }}</v-btn
                 >
                 <v-btn elevation="2" text tile>{{ item.cancel }}</v-btn>
@@ -82,6 +79,7 @@
               <div
                 v-if="item.confirm"
                 class="wallet-confirm-selection text-center-pd"
+                @click="pay(item.id)"
               >
                 <v-btn elevation="2" text tile>{{ item.confirm }}</v-btn>
               </div>
@@ -89,14 +87,6 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
-      <v-snackbar v-model="snackbar" color="green">
-        You have successfully paid
-        <template #action="{ attrs }">
-          <nuxt-link to="patient">
-            <v-btn color="white" text v-bind="attrs"> Dashboard </v-btn>
-          </nuxt-link>
-        </template>
-      </v-snackbar>
     </v-row>
   </div>
 </template>
@@ -105,9 +95,19 @@ export default {
   name: 'PaymentMethod',
   data() {
     return {
+      ex11: '',
       payment_method: [
         {
-          id: 1,
+          id: 'gcash',
+          icon: '/_nuxt/assets/images/gcash-icon-small.png',
+          icon_inner: '/_nuxt/assets/images/gcash-icon.png',
+          title: 'GCash e-Wallet',
+          content:
+            'You can now use your GCash balance in Reseta. You will redirected to the GCash website to finish the payment.',
+          confirm: 'CONFIRM SELECTION',
+        },
+        /** {
+          id: 'reseta-credit',
           icon: 'mdi-wallet-outline',
           icon_inner: 'mdi-wallet-outline',
           title: 'Reseta e-Wallet',
@@ -116,43 +116,32 @@ export default {
           yes: 'Yes',
         },
         {
-          id: 2,
+          id: 'cc',
           icon: 'mdi-credit-card-multiple',
           icon_inner: '',
           title: 'Credit / Debit Card',
           confirm: 'CONFIRM SELECTION',
           credit: 'Add new Card',
-        },
-        {
-          id: 3,
-          icon: 'mdi-account-cash',
-          icon_inner: 'mdi-account-cash',
-          title: 'GCash e-Wallet',
-          content:
-            'You can now use your GCash balance in Reseta. You will redirected to the GCash website to finish the payment.',
-          confirm: 'CONFIRM SELECTION',
-        },
-
-        // {
-        //   id: 4,
-        //   icon: 'mdi-cash',
-        //   icon_inner: 'mdi-cash',
-        //   title: 'Cash On Delivery',
-        //   image: 'https://img.icons8.com/carbon-copy/100/000000/gcash.png',
-        //   content:
-        //     'Security Advicosry Pharmacy are not allowed tp ask you to order and transact your payments outside the platform.<br><br>When using our cash on Delivery services, payments is given to our official delivery partner upon to receipt of item.',
-        // },
+        }**/
       ],
     }
+  },
+  methods: {
+    pay(method) {
+      this.$emit('methodconfirm', method)
+    },
   },
 }
 </script>
 <style lang="scss" scoped>
+.wallet-payment-method {
+  margin-bottom: 50px;
+}
 .v-expansion-panel-content__wrap {
   display: flex !important;
   .wallet-main-content {
     font-size: 14px;
-    padding: 10px 0px 15px 10px;
+    padding: 0px 10px 20px 10px;
   }
   .paynow-button {
     font-size: 17px;

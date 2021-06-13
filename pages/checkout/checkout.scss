@@ -1,0 +1,63 @@
+.options {
+  width: 30%;
+}
+.ordered-quantitity {
+  border: 1px solid;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+.v-btn--icon.v-size--default {
+  width: 30px;
+}
+.total {
+  font-weight: 500;
+}
+.ordered-product-section {
+  border-bottom: 1px solid;
+  padding-bottom: 12px;
+}
+.ordered-options i {
+  font-size: 30px !important;
+}
+.wallet-title {
+  padding: 0px 15px;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 10px;
+}
+.wallet-main-balance {
+  font-size: 36px;
+}
+.ordered-table {
+  width: 100%;
+  font-size: 16px;
+  padding-top: 12px;
+
+  td {
+    padding: 0px 5px;
+    font-size: 13px;
+  }
+  td:first-child {
+    font-weight: 400;
+  }
+  th {
+    text-align: left;
+    padding: 0px 5px;
+  }
+  .total td:last-child,
+  .overall-total td:last-child {
+    border-top: 1px solid;
+  }
+  .total td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .total td,
+  .overall-total td {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+}
+.dispense {
+  margin-top: 32px;
+}

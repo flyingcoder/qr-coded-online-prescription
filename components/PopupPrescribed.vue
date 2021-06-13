@@ -121,6 +121,8 @@ export default {
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `You have successfully created the prescrition`,
         })
+        window.localStorage.removeItem('medCounter')
+        window.localStorage.removeItem('prescribeData')
         this.$router.push('/chatbox/' + this.patient.id)
       })
     },
