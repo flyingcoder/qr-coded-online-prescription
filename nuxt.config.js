@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - reseta QRx',
+    titleTemplate: '%s - Reseta QRx',
     title: 'reseta QRx',
     meta: [
       { charset: 'utf-8' },
@@ -66,8 +66,7 @@ export default {
     strategies: {
       'laravelSanctum': {
         provider: 'laravel/sanctum',
-        url: 'http://localhost/resetaqrx-api/public',
-        //url: 'https://api.resetaqrx.com',
+        url: process.env.NODE_ENV === 'production' ? 'https://api.resetaqrx.com' : 'http://localhost/resetaqrx-api/public',
         endpoints: {
           login: {
             url: '/api/login'
@@ -87,8 +86,7 @@ export default {
   axios: {
     //proxy: true,
     credentials: true,
-    baseUrl: 'http://localhost/resetaqrx-api/public/api'
-    //baseUrl: 'https://api.resetaqrx.com/api'
+    baseUrl: process.env.NODE_ENV === 'production' ? 'https://api.resetaqrx.com/api' : 'http://localhost/resetaqrx-api/public/api'
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -134,6 +132,6 @@ export default {
   build: {},
 
   publicRuntimeConfig: {
-    baseURL: process.env.BASE_URL || 'http://localhost/resetaqrx-api/public'
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://api.resetaqrx.com' : 'http://localhost/resetaqrx-api/public'
   }
 }
