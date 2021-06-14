@@ -12,7 +12,7 @@
         <span class="identifier">Status: </span>{{ order.status }}
       </div>
       <div class="order-doctor-name">
-        <span class="identifier">Dcotor: </span>{{ order.doctor_name }}
+        <span class="identifier">Doctor: </span>{{ order.doctor_name }}
       </div>
       <div class="order-prescribed-by">
         <span class="identifier">Prescribed by: </span>Dr.
