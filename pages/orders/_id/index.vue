@@ -1,6 +1,9 @@
 <template>
   <div>
     <h3 class="mt-0 mb-4 orders-title">Order Details</h3>
+    <div class="d-flex justify-center" style="margin-bottom: 15px">
+      <img src="@/assets/images/main-logo.png" alt="reseta logo" width="25%" />
+    </div>
     <v-card elevation="3" class="padding-bottom-sm order-card">
       <div class="orders-fullname">
         <span class="identifier">Fullname: </span>{{ order.fullname }}
@@ -8,8 +11,16 @@
       <div class="orders-address">
         <span class="identifier">Address: </span>{{ order.address }}
       </div>
-      <div class="order-status">
-        <span class="identifier">Status: </span>{{ order.status }}
+      <div class="order-status d-flex">
+        <span class="identifier">Status: </span>
+        <div style="width: 60%; padding-left: 10px">
+          <v-select
+            v-model="order.status"
+            :items="status"
+            label="Status"
+            dense
+          ></v-select>
+        </div>
       </div>
       <div class="order-doctor-name">
         <span class="identifier">Doctor: </span>{{ order.doctor_name }}
@@ -24,9 +35,11 @@
         <v-list-item-content>
           <v-list-item-title
             >{{ item.generic_name }} ({{ item.brand }}) {{ item.dosage }}
-            <span style="float: right">₱{{ item.pivot.price }}</span>
           </v-list-item-title>
-          <v-list-item-subtitle>
+          <v-list-item-subtitle class="d-flex">
+            <span style="float: right; margin-right: 20px"
+              >Price: ₱{{ item.pivot.price }}</span
+            >
             <span style="float: right">Qty: {{ item.pivot.qty }} pcs</span>
           </v-list-item-subtitle>
         </v-list-item-content>
@@ -39,7 +52,7 @@
         width="60%"
         class="btn-radius find-doctors-btn"
         style="color: white"
-        @click="$router.push('/prescriptions/' + order.referrence.id)"
+        @click="$router.push('/prescriptions/pad/' + order.reference.id)"
       >
         View Prescription
       </v-btn>
@@ -50,6 +63,7 @@
 <script>
 export default {
   layout: 'dashboard',
+  middleware: 'auth-pharmacy',
   data() {
     return {
       order: {
@@ -57,11 +71,21 @@ export default {
         buyer: {},
         seller: {},
         items: {},
+        status: '',
       },
+      status: [
+        'Processing',
+        'Completed',
+        'Cancelled',
+        'Refund',
+        'Failed',
+        'Pending',
+      ],
     }
   },
   mounted() {
     this.getOrder()
+    console.log(this.order)
   },
   methods: {
     async getOrder() {
@@ -77,6 +101,7 @@ export default {
 .orders-title {
   font-size: 20px;
   text-align: center;
+  margin-bottom: 5px !important;
 }
 .order-card {
   padding: 17px;
@@ -91,6 +116,9 @@ export default {
   }
   .order-prescribed-by {
     padding-bottom: 20px;
+  }
+  .order-status {
+    height: 34px;
   }
 }
 </style>

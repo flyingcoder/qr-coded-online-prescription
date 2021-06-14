@@ -103,6 +103,7 @@
 <script>
 export default {
   layout: 'dashboard',
+  middleware: 'auth-pharmacy',
   data() {
     return {
       generic_name: '',

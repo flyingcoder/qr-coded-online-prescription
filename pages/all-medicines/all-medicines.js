@@ -1,6 +1,7 @@
 export default {
   name: 'Patients',
   layout: 'dashboard',
+  middleware: 'auth-pharmacy',
   data() {
     return {
       align: '',

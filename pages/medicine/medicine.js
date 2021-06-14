@@ -1,5 +1,6 @@
 export default {
   layout: 'dashboard',
+  middleware: 'auth-pharmacy',
   data() {
     return {
       grid: true,

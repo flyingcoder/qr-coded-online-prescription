@@ -1,11 +1,13 @@
 export default {
   layout: 'dashboard',
+  middleware: 'auth-pharmacy',
   data() {
     return {
       allmedicines: [],
       drugs: '',
       doctor_id: '',
       dialog: false,
+      prescription_id: '',
     }
   },
   mounted() {
@@ -18,6 +20,7 @@ export default {
         .then((data) => {
           this.allmedicines = data.data.meds
           this.doctor_id = data.data.doctor_id
+          this.prescription_id = data.data.prescription_id
         })
     },
     addToCart() {
@@ -25,6 +28,7 @@ export default {
         const cart = {
           doctor_id: this.doctor_id,
           meds: this.drugs,
+          prescription_id: this.prescription_id,
         }
         window.localStorage.setItem('cart', JSON.stringify(cart))
         this.$router.push('/checkout')

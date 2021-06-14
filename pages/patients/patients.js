@@ -1,5 +1,6 @@
 export default {
   name: 'Patients',
+  middleware: 'auth-doctor',
   layout: 'dashboard',
   data() {
     return {

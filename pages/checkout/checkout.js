@@ -36,6 +36,7 @@ export default {
         items: this.cart.meds,
         doctor_id: this.cart.doctor_id,
         total: this.total_quantity_amount,
+        prescription_id: this.cart.prescription_id,
         payment_method: 'gcash',
       }
       this.$axios.post('process-payment', order).then((data) => {

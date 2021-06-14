@@ -38,6 +38,7 @@
 <script>
 export default {
   name: 'Orders',
+  auth: 'auth-pharmacy',
   layout: 'dashboard',
   data() {
     return {
