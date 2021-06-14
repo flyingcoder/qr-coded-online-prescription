@@ -1,6 +1,55 @@
-.sales-report-page {
+.orders-rate {
+  background: #1ac6b6;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 10px;
+  .left {
     text-align: center;
-    color: grey !important;
-    font-size: 20px;
-    padding-top: 50px;
+    padding-bottom: 16px;
+    .percentage {
+      color: white !important;
+      font-size: 30px;
+      font-weight: 700;
+    }
+    .subtitle-text {
+      color: white !important;
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+}
+.income-rate {
+  background: #1ac6b6;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 10px;
+  .left {
+    text-align: center;
+    padding-bottom: 16px;
+    .percentage {
+      color: white !important;
+      font-size: 30px;
+      font-weight: 700;
+    }
+    .subtitle-text {
+      color: white !important;
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+}
+.sales-report {
+  .sales-graph {
+    .v-card__text {
+      padding: 0 !important;
+    }
+    .sales-graph-text {
+      font-size: 14px !important;
+    }
+  }
+  .sales-title {
+    color: white !important;
+    font-size: 27px !important;
+    margin-top: -20px;
+  }
 }

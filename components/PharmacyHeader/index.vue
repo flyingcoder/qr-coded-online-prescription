@@ -50,6 +50,9 @@
         <NuxtLink to="/sales-report" class="menu-icon"
           ><v-icon>mdi-chart-line</v-icon></NuxtLink
         >
+        <NuxtLink to="/orders" class="menu-icon"
+          ><v-icon>mdi-cart-plus</v-icon></NuxtLink
+        >
         <NuxtLink to="/settings" class="menu-icon"
           ><v-icon>mdi-menu</v-icon></NuxtLink
         >

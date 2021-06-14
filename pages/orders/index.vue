@@ -1,6 +1,6 @@
 <template>
   <div class="orders-table">
-    <h3 class="mt-0 mb-2">Orders List</h3>
+    <h3 class="mt-0 mb-2 order-list-title">Orders List</h3>
     <v-data-table
       dense
       :headers="headers"
@@ -84,6 +84,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .orders-table {
+  .order-list-title {
+    font-size: 23px;
+    text-align: center;
+  }
   .v-data-footer {
     justify-content: center;
   }
