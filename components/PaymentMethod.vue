@@ -1,8 +1,7 @@
 <template>
   <div class="wallet-payment-method">
     <v-row class="d-block">
-      <h4 class="padding-content">SELECT PAYMENT METHOD</h4>
-      <v-divider></v-divider>
+      <h4 class="wallet-title">SELECT PAYMENT METHOD</h4>
     </v-row>
     <v-row justify="center">
       <v-expansion-panels>
@@ -102,8 +101,8 @@ export default {
           icon_inner: '/_nuxt/assets/images/gcash-icon.png',
           title: 'GCash e-Wallet',
           content:
-            'You can now use your GCash balance in Reseta. You will redirected to the GCash website to finish the payment.',
-          confirm: 'CONFIRM SELECTION',
+            'Reseta Qrx can now accept payment using GCash. You will be redirected to the GCash website to finish the payment.',
+          confirm: 'PAY WITH GCash',
         },
         /** {
           id: 'reseta-credit',
@@ -113,7 +112,7 @@ export default {
           content: 'Paynow',
           cancel: 'Cancel',
           yes: 'Yes',
-        },
+        }, 
         {
           id: 'cc',
           icon: 'mdi-credit-card-multiple',
@@ -135,6 +134,23 @@ export default {
 <style lang="scss" scoped>
 .wallet-payment-method {
   margin-bottom: 50px;
+}
+.v-expansion-panels {
+  border-bottom: 1px solid #e4e4e4;
+  border-radius: 0px;
+  margin: 0 12px;
+}
+.v-expansion-panel--active:not(:first-child),
+.v-expansion-panel--active + .v-expansion-panel {
+  margin-top: 0;
+}
+.v-expansion-panel::before {
+  box-shadow: none;
+}
+.v-expansion-panel-header {
+  border-bottom: 1px solid #e4e4e4;
+  border-radius: 0px;
+  padding: 0;
 }
 .v-expansion-panel-content__wrap {
   display: flex !important;
@@ -169,7 +185,6 @@ input#input-89 {
   padding-left: 13%;
 }
 .wallet-title {
-  font-size: 25px;
   .wallet-title-e {
     font-size: 35px;
   }

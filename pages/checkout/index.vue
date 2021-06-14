@@ -1,7 +1,7 @@
 <template>
   <div id="wallet">
     <v-row class="justify-center">
-      <div class="wallet-title">CHECKOUT</div>
+      <h3 class="wallet-title">Checkout</h3>
     </v-row>
     <v-divider></v-divider>
     <table class="ordered-table">
@@ -11,7 +11,7 @@
         <th style="text-align: center">Actions</th>
       </tr>
       <tr
-        v-for="(med, index) in meds"
+        v-for="(med, index) in cart.meds"
         :key="index + 'span'"
         class="ordered-product"
       >
@@ -50,7 +50,11 @@
         <th class="text-center" style="width: 20%">Qty</th>
         <th style="width: 20%" class="total">Total</th>
       </tr>
-      <tr v-for="(med, index) in meds" :key="index + 'div'" class="dispense">
+      <tr
+        v-for="(med, index) in cart.meds"
+        :key="index + 'div'"
+        class="dispense"
+      >
         <td>{{ med.name }}</td>
         <td>₱{{ parseFloat(med.price).toFixed(2) }}</td>
         <td class="text-center">

@@ -3,34 +3,47 @@ export default {
   data() {
     return {
       ex11: true,
+      dialog: false,
       snackbar: false,
       amount: '1,000.00',
       counter: 0,
       service_fee: 4.2,
-      meds: [],
+      cart: {
+        meds: [],
+        doctor_id: '',
+      },
+      method: '',
     }
+  },
+  watch: {
+    method(val) {
+      switch (val) {
+        case 'gcash':
+          this.payUsingGcash()
+          break
+      }
+    },
   },
   methods: {
     processPayment(method) {
-      if (method === 'gcash') {
-        this.payUsingGcash()
-      }
+      this.method = 'gcash'
     },
     resetCart() {
       window.localStorage.removeItem('cart')
     },
     payUsingGcash() {
-      console.log(this.meds)
       const order = {
-        items: this.meds,
+        items: this.cart.meds,
+        doctor_id: this.cart.doctor_id,
         total: this.total_quantity_amount,
+        payment_method: 'gcash',
       }
       this.$axios.post('process-payment', order).then((data) => {
         this.$store.dispatch('snackbar/setSnackbar', {
           text: 'Payment successful!',
         })
-        // this.$router.push('order-status')
-        // this.resetCart()
+        this.$router.push('orders')
+        this.resetCart()
       })
     },
     delayLoad(event) {
@@ -45,24 +58,20 @@ export default {
       return (qty += 1)
     },
     decrease(qty) {
-      console.log(qty !== 0)
-      if (qty !== 0) {
-        console.log(qty)
-        return (qty -= 1)
-      }
+      if (qty !== 0) return (qty -= 1)
     },
   },
   computed: {
     total_quantity_amount() {
       let sum = 0
-      this.meds.forEach((e) => {
+      this.cart.meds.forEach((e) => {
         sum += e.price * e.qty
       })
       return sum
     },
     total_quantity() {
       let sum = 0
-      this.meds.forEach((e) => {
+      this.cart.meds.forEach((e) => {
         sum += e.qty
       })
       return sum
@@ -72,7 +81,8 @@ export default {
     },
   },
   mounted() {
-    this.meds = JSON.parse(window.localStorage.getItem('cart'))
-    if (!this.meds) this.$router.back()
+    this.cart = JSON.parse(window.localStorage.getItem('cart'))
+    console.log(this.cart)
+    if (!this.cart) this.$router.back()
   },
 }

@@ -7,10 +7,6 @@ export default {
     getContacts() {
       this.$axios.post('chat/getContacts').then((data) => {
         this.newsfeeds = data.data.contacts
-        if (data.data.contacts.length === 0) {
-          this.display = true
-          this.no_display = false
-        }
       })
     },
   },
@@ -19,8 +15,6 @@ export default {
   },
   data() {
     return {
-      display: false,
-      no_display: true,
       newsfeeds: [],
     }
   },

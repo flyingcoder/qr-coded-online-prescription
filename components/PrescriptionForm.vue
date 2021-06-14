@@ -130,7 +130,7 @@
               style="width: 50%; margin-right: 10px"
               outlined
               dense
-              label="# of meds"
+              label="# of meds/cycle"
               type="number"
               :rules="[numberRule]"
             ></v-text-field>
@@ -390,7 +390,6 @@ export default {
         })
         return false
       }
-
       return true
     },
     addMedicine() {

@@ -134,6 +134,7 @@
         </div>
       </slot>
     </div>
+    <Snackbar />
   </v-form>
 </template>
 <script>
