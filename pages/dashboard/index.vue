@@ -44,7 +44,7 @@
           Find Doctors
         </v-btn>
       </nuxt-link>
-      <nuxt-link v-if="$auth.user.role == 'doctor'" to="/doctors">
+      <nuxt-link v-if="$auth.user.role == 'doctor'" to="/patients">
         <v-btn
           depressed
           color="#1ac6b6"

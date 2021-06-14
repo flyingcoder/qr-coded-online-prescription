@@ -1,15 +1,23 @@
 <template>
   <div>
-    <h3 class="mt-0 mb-4">Order Details</h3>
-    <v-card elevation="3" class="padding-bottom-sm">
-      {{ order.fullname }} <br />
-
-      {{ order.address }} <br />
-
-      {{ order.status }} <br />
-
-      {{ order.doctor_name }} <br />
-      Prescribed by: Dr. {{ order.doctor.fname }} {{ order.doctor.lname }}
+    <h3 class="mt-0 mb-4 orders-title">Order Details</h3>
+    <v-card elevation="3" class="padding-bottom-sm order-card">
+      <div class="orders-fullname">
+        <span class="identifier">Fullname: </span>{{ order.fullname }}
+      </div>
+      <div class="orders-address">
+        <span class="identifier">Address: </span>{{ order.address }}
+      </div>
+      <div class="order-status">
+        <span class="identifier">Status: </span>{{ order.status }}
+      </div>
+      <div class="order-doctor-name">
+        <span class="identifier">Dcotor: </span>{{ order.doctor_name }}
+      </div>
+      <div class="order-prescribed-by">
+        <span class="identifier">Prescribed by: </span>Dr.
+        {{ order.doctor.fname }} {{ order.doctor.lname }}
+      </div>
       <v-divider></v-divider>
       <h4 class="my-2 px-1">Order items:</h4>
       <v-list-item v-for="(item, i) in order.items" :key="i + 'alvin'" two-line>
@@ -65,4 +73,24 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.orders-title {
+  font-size: 20px;
+  text-align: center;
+}
+.order-card {
+  padding: 17px;
+  .identifier {
+    font-weight: 500;
+  }
+  .orders-fullname,
+  .orders-address,
+  .order-status,
+  .order-doctor-name {
+    padding-bottom: 5px;
+  }
+  .order-prescribed-by {
+    padding-bottom: 20px;
+  }
+}
+</style>

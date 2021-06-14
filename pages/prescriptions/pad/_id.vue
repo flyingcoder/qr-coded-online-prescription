@@ -120,7 +120,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.patient-info {
+.patient-info,
+.prescribed-patient-address {
   padding: 0 17px;
 }
 .prescription-form-info {
