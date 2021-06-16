@@ -1,10 +1,10 @@
 export const state = () => ({
-  preloader: [],
+  preloaders: {},
 })
 
 export const mutations = {
   SET_PRELOADER(state, preloader) {
-    state.showing = state.preloader.concat(preloader)
+    state.preloaders = preloader
   },
 }
 

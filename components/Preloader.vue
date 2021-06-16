@@ -1,7 +1,7 @@
 <template>
   <div class="reseta-preloader">
     <!-- <v-skeleton-loader v-bind="attrs" type="date-picker"></v-skeleton-loader> -->
-    <v-dialog v-model="preloader.showing" fullscreen persistent>
+    <v-dialog v-model="preloaders.showing" fullscreen persistent>
       <v-skeleton-loader
         class="mb-6"
         :boilerplate="boilerplate"
@@ -23,8 +23,11 @@ export default {
   },
   computed: {
     ...mapState({
-      preloader: (state) => state.preloader,
+      preloaders: (state) => state.preloader.preloaders,
     }),
+  },
+  mounted() {
+    console.log(this.preloaders)
   },
 }
 </script>

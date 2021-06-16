@@ -6,9 +6,9 @@ export default {
     },
     async getContacts() {
       await this.$axios.post('chat/getContacts').then((data) => {
-        // this.$store.dispatch('preloader/setPreloader', {
-        //  showing: true,
-        // })
+        this.$store.dispatch('preloader/setPreloader', {
+          showing: false,
+        })
         this.newsfeeds = data.data.contacts
       })
     },
