@@ -4,13 +4,19 @@ export default {
     swiper() {
       // this.$router.push('/login')
     },
-    getContacts() {
-      this.$axios.post('chat/getContacts').then((data) => {
+    async getContacts() {
+      await this.$axios.post('chat/getContacts').then((data) => {
+        // this.$store.dispatch('preloader/setPreloader', {
+        //  showing: true,
+        // })
         this.newsfeeds = data.data.contacts
       })
     },
   },
   mounted() {
+    this.$store.dispatch('preloader/setPreloader', {
+      showing: true,
+    })
     this.getContacts()
   },
   data() {

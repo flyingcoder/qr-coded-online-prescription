@@ -1,9 +1,11 @@
 <template>
   <div class="reseta-preloader">
     <!-- <v-skeleton-loader v-bind="attrs" type="date-picker"></v-skeleton-loader> -->
-    <v-dialog v-model="dialog" fullscreen persistent>
+    <v-dialog v-model="preloader.showing" fullscreen persistent>
       <v-skeleton-loader
-        v-bind="attrs"
+        class="mb-6"
+        :boilerplate="boilerplate"
+        elevation-2
         type="date-picker, article"
       ></v-skeleton-loader>
     </v-dialog>
@@ -11,19 +13,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'Preloader',
   data() {
     return {
-      dialog: true,
+      boilerplate: true,
     }
   },
-  attrs: {
-    class: 'mb-6',
-    boilerplate: true,
-    elevation: 2,
+  computed: {
+    ...mapState({
+      preloader: (state) => state.preloader,
+    }),
   },
-  methods: {},
 }
 </script>
 
