@@ -4,7 +4,7 @@ export default {
     return {
       profile: {
         id: 0,
-        avatar: '~/assets/images/Muzan_Anime_Profile.png',
+        avatar: 'Muzan_Anime_Profile.png',
         name: 'DR NEIL LAQUIHON',
         content: `KDHI, DIKAPAWAN CITY`,
         number: '09187829876',
@@ -17,10 +17,12 @@ export default {
     this.getDoctor()
   },
   methods: {
-    getDoctor() {
-      this.$axios.get('user/' + this.$route.params.doctor_id).then((data) => {
-        console.log(data)
-      })
+    async getDoctor() {
+      await this.$axios
+        .get('user/' + this.$route.params.doctor_id)
+        .then((data) => {
+          this.profile = data.data
+        })
     },
   },
 }
