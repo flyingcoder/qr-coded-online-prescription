@@ -1,5 +1,5 @@
 export default {
-  middleware: 'auth-guard',
+  // middleware: 'auth-guard',
   layout: 'form',
   data() {
     return {

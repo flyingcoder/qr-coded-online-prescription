@@ -16,6 +16,7 @@ export default {
   data() {
     return {
       newsfeeds: [],
+      dialog: true,
     }
   },
 }
