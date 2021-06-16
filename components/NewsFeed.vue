@@ -3,7 +3,7 @@
     <div class="user">
       <img
         class="user-icon"
-        :src="newsfeed.user_avatar"
+        :src="require(`~/assets/images/` + newsfeed.user_avatar)"
         :alt="newsfeed.user_name"
       />
     </div>

@@ -3,14 +3,16 @@
     <div>
       <v-card elevation="3" class="padding-bottom-sm">
         <div class="doctor-profile text-center">
-          <img class="user-icon" :src="profile.avator" :alt="profile.fname" />
+          <img
+            class="user-icon"
+            :src="require(`~/assets/images/` + profile.avatar)"
+            :alt="profile.fname"
+          />
         </div>
         <div class="doctor-information padding-content text-center-pd">
-          <div class="name padding-bottom-sm">
-            {{ profile.name }}
-          </div>
+          <div class="name padding-bottom-sm">Dr. {{ profile.fullname }}</div>
           <div id="word-related" class="margin-top-pull padding-bottom-sm">
-            <b>PEDIATRICIAN</b>
+            <b>{{ profile.experties }}</b>
           </div>
           <div class="address">
             {{ profile.address }}
@@ -30,7 +32,7 @@
           width="60%"
           class="btn-radius find-doctors-btn"
           style="color: white"
-          @click="profile.id"
+          @click="$router.push('/chatbox/' + profile.id)"
         >
           Contact
         </v-btn>

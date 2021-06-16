@@ -1,7 +1,11 @@
 <template>
   <div class="doctor-patient-chatbox">
     <div class="top-content">
-      <img class="user-icon" :src="profile.avatar" :alt="profile.avatar" />
+      <img
+        class="user-icon"
+        :src="require(`~/assets/images/` + profile.avatar)"
+        :alt="profile.fname"
+      />
       <div class="chatbox-undo" @click="back">
         <v-icon> mdi-arrow-left </v-icon>
       </div>
@@ -17,7 +21,7 @@
         </nuxt-link>
       </div>
     </div>
-    <div class="m-body app-scroll" style="opacity: 1">
+    <div class="m-body" style="opacity: 1">
       <div id="messages" class="messages">
         <div
           v-for="message in messages"
