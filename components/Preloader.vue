@@ -1,7 +1,12 @@
 <template>
   <div class="reseta-preloader">
     <!-- <v-skeleton-loader v-bind="attrs" type="date-picker"></v-skeleton-loader> -->
-    <v-dialog v-model="preloaders.showing" fullscreen persistent>
+    <v-dialog
+      v-model="preloaders.showing"
+      close-delay="4"
+      fullscreen
+      persistent
+    >
       <v-skeleton-loader
         class="mb-6"
         :boilerplate="boilerplate"

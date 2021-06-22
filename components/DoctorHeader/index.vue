@@ -48,14 +48,14 @@
         <NuxtLink to="/prescription-form" class="menu-icon"
           ><v-icon>mdi-prescription</v-icon></NuxtLink
         >
-        <NuxtLink to="/prescriptions" class="menu-icon"
-          ><v-icon>mdi-pill</v-icon></NuxtLink
+        <NuxtLink to="/medicine" class="menu-icon"
+          ><v-icon>mdi-medical-bag</v-icon></NuxtLink
         >
         <NuxtLink to="/patients" class="menu-icon"
           ><v-icon>mdi-contacts</v-icon></NuxtLink
         >
-        <NuxtLink to="/medicine" class="menu-icon"
-          ><v-icon>mdi-medical-bag</v-icon></NuxtLink
+        <NuxtLink to="/prescriptions" class="menu-icon"
+          ><v-icon>mdi-pill</v-icon></NuxtLink
         >
         <NuxtLink to="/wallet" class="menu-icon"
           ><v-icon>mdi-wallet</v-icon></NuxtLink
