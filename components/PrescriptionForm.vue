@@ -6,7 +6,7 @@
     <v-dialog v-model="med_method" fullscreen>
       <MedApplyMethod @selected="intakeSelected" />
     </v-dialog>
-    <v-dialog v-model="popup_prescribed" fullscreen>
+    <v-dialog v-if="allprescriptions" v-model="popup_prescribed" fullscreen>
       <PopupPrescribed
         :patient="patient_info"
         :prescriptions="meds"
@@ -20,6 +20,7 @@
         </div>
         <div class="prescription-form-info">
           <div class="prescription-patient-name">
+            {{ value_change }}
             {{ $auth.user.fname }} {{ $auth.user.lname }}
           </div>
           <div class="prescription-patient-use">{{ $auth.user.experties }}</div>
@@ -55,13 +56,13 @@
             return-object
             dense
             solo
-            :disabled="$route.params.id ? '' : disabled"
             prepend-inner-icon="mdi-magnify"
             chips
             small-chips
             placeholder="Search Any Patient"
             @change="patientSelected"
           >
+            <!-- :disabled="$route.params.id ? '' : disabled" -->
           </v-autocomplete>
         </div>
       </div>
@@ -150,10 +151,10 @@
             <v-text-field
               v-model="sig.repeat"
               outlined
+              type="number"
               dense
               label="# per cycle"
               style="width: 25%; margin-right: 10px"
-              type="number"
               :rules="[numberRule]"
             ></v-text-field>
             <v-btn
@@ -175,7 +176,12 @@
             ></v-select>
           </div>
         </div>
-        <div class="patient-sig-hours">
+        <div
+          v-for="sig_hour in sig_hours"
+          :key="sig_hour"
+          class="patient-sig-hours"
+          @submit="value_change"
+        >
           <div class="patient-sig-hours-AM">
             <v-slider
               v-model="sig.hourAM"
@@ -262,7 +268,9 @@ export default {
   auth: true,
   data() {
     return {
+      sig_hours: [],
       popup_prescribed: false,
+      allprescriptions: '',
       medicines: [],
       drug_info: '',
       medCounter: 0,
@@ -275,7 +283,7 @@ export default {
         amount: 1,
         hourAM: '',
         hourPM: '',
-        repeat: 1,
+        repeat: '',
         duration: '',
         cycle: 'Day',
         note: '',
@@ -322,6 +330,16 @@ export default {
       patient_info: {},
     }
   },
+  computed: {
+    value_change() {
+      const value = this.sig.repeat
+      this.sig_hours.forEach((e) => {
+        e.sig_hours += value
+      })
+      return value
+    },
+  },
+
   mounted() {
     if (this.$route.params.id) this.getPatient()
     this.prescribeData = JSON.parse(
@@ -344,6 +362,7 @@ export default {
     this.medCounter = parseInt(window.localStorage.getItem('medCounter'))
     if (!this.medCounter) this.medCounter = 0
     this.getAllMedicines()
+    this.getAllPrescription()
     this.getPatients()
   },
   methods: {
@@ -352,6 +371,9 @@ export default {
     },
     patientSelected() {
       this.patient = this.patient_info
+    },
+    cycleValue() {
+      console.log(this.sig.repeat)
     },
     medicineSelected() {
       this.sig.type = this.drug_info.type
@@ -434,6 +456,11 @@ export default {
     getPatient() {
       this.$axios.get('user/' + this.$route.params.id).then((data) => {
         this.patient_info = data.data
+      })
+    },
+    getAllPrescription() {
+      this.$axios.get('allprescriptions').then((data) => {
+        this.allprescriptions = data.data
       })
     },
     getMedicine() {
