@@ -119,3 +119,12 @@ a.qrx-btn {
     margin: 0 auto;
   }
 }
+
+.blue-green {
+  background-color: $primary-color !important;
+  border-color:  $primary-color !important;
+}
+
+table > thead > tr > th {
+    color: $primary-color !important;
+}

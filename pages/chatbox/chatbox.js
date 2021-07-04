@@ -13,7 +13,7 @@ export default {
           'Doctors, also known as Physicians, are licensed health professionals who maintain and restore human health through the practice of medicine. They examine patients, review their medical history, diagnose illnesses or injuries, administer treatment, and counsel patients on their health and well being.',
       },
       attachment: '',
-      messages: '',
+      messages: [],
       previewUrl: '',
       prescription_link: '/prescription-form/',
       body: {
@@ -34,6 +34,33 @@ export default {
     })
   },
   methods: {
+    touchStart(item, touchEvent) {
+      if (touchEvent.changedTouches.length !== 1) {
+        // We only care if one finger is used
+        return
+      }
+      const posXStart = touchEvent.changedTouches[0].clientX
+      addEventListener(
+        'touchend',
+        (touchEvent) => this.touchEnd(item, touchEvent, posXStart),
+        { once: true }
+      )
+    },
+    touchEnd(item, touchEvent, posXStart) {
+      if (touchEvent.changedTouches.length !== 1) {
+        // We only care if one finger is used
+        return
+      }
+      const posXEnd = touchEvent.changedTouches[0].clientX
+      const dest = item.last_message_raw.destination
+      if (posXStart < posXEnd) {
+        // swipe right
+        this.$router.push('/chatbox/' + item.user_id)
+      } else if (posXStart > posXEnd) {
+        // swipe left
+        if (dest !== null) this.$router.push(dest)
+      }
+    },
     sendMessage() {
       const msgForm = document.getElementById('message-form')
 

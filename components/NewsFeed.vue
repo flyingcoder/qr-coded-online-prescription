@@ -1,6 +1,6 @@
 <template>
   <div class="newsfeed" @click="singleFeed(newsfeed.user_id)">
-    <!-- <div class="user">
+    <div class="user">
       <img
         class="user-icon"
         :src="require(`~/assets/images/` + newsfeed.user_avatar)"
@@ -13,13 +13,13 @@
         <span class="time">{{ newsfeed.lastMessage.time }}</span>
       </div>
       <div class="up-message">
-         eslint-disable
+        <!-- eslint-disable -->
         <div 
           v-if="newsfeed.lastMessage.message" 
           v-html="newsfeed.lastMessage.message" 
           class="message">
         </div>
-         eslint-disable 
+        <!-- eslint-disable --> 
         <div v-else class="thumbnails"><v-icon>mdi-image</v-icon></div>
         <nuxt-link v-if="false" to="/medication/01">
           <div v-if="newsfeed.id" class="sent-prescription">
@@ -27,7 +27,7 @@
           </div>
         </nuxt-link>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 <script>

@@ -12,11 +12,7 @@
     </template>
 
     <div class="user">
-      <img
-        class="user-icon"
-        :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-        :alt="$auth.user.fname"
-      />
+      <img class="user-icon" :src="$auth.user.avatar" :alt="$auth.user.fname" />
     </div>
 
     <v-spacer></v-spacer>
@@ -48,7 +44,7 @@
         <NuxtLink to="/prescription-form" class="menu-icon"
           ><v-icon>mdi-prescription</v-icon></NuxtLink
         >
-        <NuxtLink to="/medicine" class="menu-icon"
+        <NuxtLink to="/all-medicines" class="menu-icon"
           ><v-icon>mdi-medical-bag</v-icon></NuxtLink
         >
         <NuxtLink to="/patients" class="menu-icon"
