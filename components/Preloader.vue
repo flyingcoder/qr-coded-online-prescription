@@ -3,7 +3,7 @@
     <!-- <v-skeleton-loader v-bind="attrs" type="date-picker"></v-skeleton-loader> -->
     <v-dialog
       v-model="preloaders.showing"
-      close-delay="4"
+      close-delay="200"
       fullscreen
       persistent
     >

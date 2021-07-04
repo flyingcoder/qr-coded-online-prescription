@@ -1,10 +1,10 @@
 <template>
   <div class="wallet-payment-method">
     <v-row class="d-block">
-      <h4 class="wallet-title">SELECT PAYMENT METHOD</h4>
+      <h4 class="wallet-title">{{ title }}</h4>
     </v-row>
     <v-row justify="center">
-      <v-expansion-panels>
+      <v-expansion-panels v-model="defaultPanel">
         <v-expansion-panel v-for="item in payment_method" :key="item.id">
           <v-expansion-panel-header
             ><img class="wallet-dropdown-icon" :src="item.icon" />
@@ -91,8 +91,17 @@
 <script>
 export default {
   name: 'PaymentMethod',
+  props: {
+    title: {
+      type: String,
+      default() {
+        return 'AVAILABLE PAYMENT METHOD'
+      },
+    },
+  },
   data() {
     return {
+      defaultPanel: 0,
       ex11: '',
       payment_method: [
         {
@@ -102,7 +111,7 @@ export default {
           title: 'GCash e-Wallet',
           content:
             'Reseta Qrx can now accept payment using GCash. You will be redirected to the GCash website to finish the payment.',
-          confirm: 'PAY WITH GCash',
+          confirm: 'Use GCash',
         },
         /** {
           id: 'reseta-credit',
@@ -125,6 +134,9 @@ export default {
     }
   },
   methods: {
+    checkIndex(index) {
+      console.log(index)
+    },
     pay(method) {
       this.$emit('methodconfirm', method)
     },

@@ -1,6 +1,6 @@
 export default {
   layout: 'dashboard',
-  middleware: 'auth-pharmacy',
+  middleware: 'auth',
   data() {
     return {
       allmedicines: [],

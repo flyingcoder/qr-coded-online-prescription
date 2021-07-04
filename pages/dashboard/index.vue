@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!gridEnabled" id="dashboard" @touchstart="touchStart">
+  <div id="dashboard" @touchstart="touchStart">
     <!-- <Preloader /> -->
     <div v-if="newsfeeds.length !== 0">
       <div v-if="false" class="dashboard-main-btns">

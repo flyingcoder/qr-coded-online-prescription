@@ -459,7 +459,7 @@ export default {
       })
     },
     getAllPrescription() {
-      this.$axios.get('allprescriptions').then((data) => {
+      this.$axios.get('prescriptions').then((data) => {
         this.allprescriptions = data.data
       })
     },

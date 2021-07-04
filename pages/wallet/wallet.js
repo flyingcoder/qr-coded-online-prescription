@@ -1,6 +1,46 @@
 export default {
   layout: 'dashboard',
+  middleware: 'auth',
+  data() {
+    return {
+      tab: null,
+      ex11: true,
+      method: '',
+      history: [],
+    }
+  },
+  mounted() {
+    this.getMyWalletData()
+  },
   methods: {
+    processPayment(method) {
+      this.method = 'gcash'
+    },
+    payUsingGcash() {
+      const order = {
+        items: this.cart.meds,
+        doctor_id: this.cart.doctor_id,
+        total: this.total_quantity_amount,
+        prescription_id: this.cart.prescription_id,
+        payment_method: 'gcash',
+      }
+      this.$axios.post('process-payment', order).then((data) => {
+        this.$store.dispatch('snackbar/setSnackbar', {
+          text: 'Payment successful!',
+        })
+      })
+    },
+    async getMyWalletData() {
+      try {
+        const wallet = await this.$axios.get('wallets')
+        this.history = wallet.data
+      } catch (err) {
+        this.$store.dispatch('snackbar/setSnackbar', {
+          color: 'red',
+          text: 'Oops! Something wrong happened.',
+        })
+      }
+    },
     delayLoad(event) {
       setTimeout(() => {
         this.$router.push(event.target.pathname)
@@ -38,38 +78,5 @@ export default {
     overall_total() {
       return this.total_quantity_amount + this.service_fee
     },
-  },
-  data() {
-    return {
-      ex11: true,
-      snackbar: false,
-      amount: '1,000.00',
-      counter: 0,
-      service_fee: 4.2,
-
-      payments: [
-        {
-          id: 1,
-          name: 'Colchicine ',
-          dose: '0.6mg',
-          qty: 1,
-          price: 2.0,
-        },
-        {
-          id: 2,
-          name: 'Colchicine',
-          dose: '600mg',
-          qty: 1,
-          price: 4.5,
-        },
-        {
-          id: 3,
-          name: 'Colchicine',
-          dose: '0.6mg',
-          qty: 1,
-          price: 5.5,
-        },
-      ],
-    }
   },
 }

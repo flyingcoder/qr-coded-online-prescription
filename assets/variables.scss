@@ -33,3 +33,7 @@ $box-shadow:                        0px 8px 20px rgba(0, 0, 0, 0.4);
 
 $data-table-mobile-row-min-height: 30px;
 
+table > thead > tr > th {
+    color: $primary-color !important;
+}
+
