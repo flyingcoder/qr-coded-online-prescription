@@ -143,6 +143,7 @@ export default {
           break
       }
       console.log(this.routes)
+      console.log(this.$route.name)
       if (xs < xe) {
         // swipe right
         this.$router.back()

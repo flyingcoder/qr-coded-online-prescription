@@ -47,11 +47,7 @@
                 style="margin: 5px"
               >
                 <div class="grid-single-image text-center-pd">
-                  <img
-                    class="user-icon"
-                    :src="require(`~/assets/images/` + item.avatar)"
-                    :alt="item.fname"
-                  />
+                  <img class="user-icon" :src="item.avatar" :alt="item.fname" />
                 </div>
                 <v-divider></v-divider>
                 <div class="grid-single-name d-flex justify-center">
@@ -107,11 +103,7 @@
 
               <v-list-item :key="item.fname">
                 <v-list-item-avatar>
-                  <img
-                    class="user-icon"
-                    :src="require(`~/assets/images/` + item.avatar)"
-                    :alt="item.fname"
-                  />
+                  <img class="user-icon" :src="item.avatar" :alt="item.fname" />
                 </v-list-item-avatar>
 
                 <v-list-item-content>

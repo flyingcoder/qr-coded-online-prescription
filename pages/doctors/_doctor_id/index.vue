@@ -3,11 +3,7 @@
     <div>
       <v-card elevation="3" class="padding-bottom-sm">
         <div class="doctor-profile text-center">
-          <img
-            class="user-icon"
-            :src="require(`~/assets/images/` + profile.avatar)"
-            :alt="profile.fname"
-          />
+          <img class="user-icon" :src="profile.avatar" :alt="profile.fname" />
         </div>
         <div class="doctor-information padding-content text-center-pd">
           <div class="name padding-bottom-sm">Dr. {{ profile.fullname }}</div>
