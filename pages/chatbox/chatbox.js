@@ -4,14 +4,10 @@ export default {
   data() {
     return {
       profile: {
-        id: 0,
-        avatar: 'Muzan_Anime_Profile.png',
-        name: 'DR NEIL LAQUIHON',
-        content: `KDHI, DIKAPAWAN CITY`,
-        number: '09187829876',
-        description:
-          'Doctors, also known as Physicians, are licensed health professionals who maintain and restore human health through the practice of medicine. They examine patients, review their medical history, diagnose illnesses or injuries, administer treatment, and counsel patients on their health and well being.',
+        id: 1,
       },
+      loading: false,
+      loader: null,
       attachment: '',
       messages: [],
       previewUrl: '',
@@ -28,7 +24,7 @@ export default {
   mounted() {
     this.getRecepient()
     this.fetchMessage()
-    console.log(this.$echo)
+    // console.log(this.$echo)
     this.$echo.channel('chat').listen('messaging', (e) => {
       console.log(e)
     })
@@ -61,7 +57,15 @@ export default {
         if (dest !== null) this.$router.push(dest)
       }
     },
-    sendMessage() {
+    async sendMessage() {
+      this.loader = 'loading'
+      this.loading = true
+
+      if (this.body.message === '' && this.attachment === '') {
+        this.loading = false
+        return
+      }
+
       const msgForm = document.getElementById('message-form')
 
       const formData = new FormData(msgForm)
@@ -72,17 +76,20 @@ export default {
 
       formData.append('type', this.body.type)
 
-      this.$axios
-        .post('chat/sendMessage', formData, {
+      try {
+        const res = await this.$axios.post('chat/sendMessage', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
         })
-        .then((data) => {
-          this.messages.push(data.data.message)
-          this.body.message = ''
-          this.attachment = ''
-        })
+
+        this.messages.push(res.data.message)
+        this.body.message = ''
+        this.attachment = ''
+        this.loading = false
+      } catch (err) {
+        this.loading = false
+      }
     },
     fileSelected(e) {
       const file = e.target.files[0]

@@ -160,6 +160,9 @@ a.chat-link {
 }
 #message-form > button {
   height: 40px;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 .messenger-sendCard {
   display: none;
@@ -253,7 +256,7 @@ svg.seen {
 .message-card p {
   margin: 5px 0 0 0;
   padding: 6px 15px;
-  background-color: white;
+  background-color: #eee;
   padding-bottom: 5px;
   max-width: 80%;
   border-radius: 20px;

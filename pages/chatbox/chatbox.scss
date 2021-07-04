@@ -31,7 +31,13 @@ a.chat-link {
   max-height: 200px;
 }
 #message-form > button {
+  ::before {
+    background: none !important;
+  }
   height: 40px;
+   background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 .messenger-sendCard {
   display: none;

@@ -17,7 +17,7 @@
         </nuxt-link>
       </div>
     </div>
-    <div class="m-body" style="opacity: 1">
+    <div class="" style="opacity: 1">
       <div id="messages" class="messages">
         <SwiperMessages :mock-swipe-list="messages"></SwiperMessages>
       </div>
@@ -94,11 +94,15 @@
             style="overflow: hidden; overflow-wrap: break-word; height: 42px"
             control-id="ControlID-2"
           ></textarea>
-          <button @click.prevent="sendMessage">
+          <v-btn
+            :loading="loading"
+            :disabled="loading"
+            @click.prevent="sendMessage"
+          >
             <div style="display: flex; align-items: center; padding: 0 10px">
               <img width="23px" src="~/assets/icons/paper-plane.svg" />
             </div>
-          </button>
+          </v-btn>
         </form>
       </div>
     </div>
