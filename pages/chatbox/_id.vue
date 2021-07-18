@@ -21,7 +21,7 @@
       <div id="messages" class="messages">
         <SwiperMessages :mock-swipe-list="messages"></SwiperMessages>
       </div>
-      <div class="typing-indicator">
+      <div v-show="isTyping" class="typing-indicator">
         <div class="message-card typing">
           <p>
             <span class="typing-dots">
@@ -93,6 +93,7 @@
             placeholder="Type a message.."
             style="overflow: hidden; overflow-wrap: break-word; height: 42px"
             control-id="ControlID-2"
+            @keydown="meIsTyping"
           ></textarea>
           <v-btn
             :loading="loading"

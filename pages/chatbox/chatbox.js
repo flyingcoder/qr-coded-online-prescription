@@ -6,6 +6,7 @@ export default {
       profile: {
         id: 1,
       },
+      isTyping: false,
       loading: false,
       loader: null,
       attachment: '',
@@ -19,17 +20,40 @@ export default {
         id: 0,
         temporaryMsgId: 'temp_1',
       },
+      typingTimer: null,
     }
   },
   mounted() {
     this.getRecepient()
     this.fetchMessage()
-    // console.log(this.$echo)
-    this.$echo.channel('chat').listen('messaging', (e) => {
-      console.log(e)
-    })
+  },
+  computed: {
+    chatRoomNumber() {
+      return Number(this.$auth.user.id) < Number(this.profile.id)
+        ? `${this.$auth.user.id}_${this.profile.id}`
+        : `${this.profile.id}_${this.$auth.user.id}`
+    },
   },
   methods: {
+    setUpRealtime() {
+      const _this = this
+      _this.$echo
+        .private(`chatify.${this.chatRoomNumber}`)
+        .listen('.NewChatMessage', ({ message }) => {
+          if (message.from_id === this.profile.id) {
+            this.messages.push(message)
+          }
+        })
+      _this.typingChannel = _this.$echo.private(`typing.${this.chatRoomNumber}`)
+      if (_this.typingChannel) {
+        _this.typingChannel.listenForWhisper('typing', (payload) => {
+          _this.isTyping = Number(payload.user) !== Number(_this.$auth.user.id)
+          setTimeout(function () {
+            _this.isTyping = false
+          }, 900)
+        })
+      }
+    },
     touchStart(item, touchEvent) {
       if (touchEvent.changedTouches.length !== 1) {
         // We only care if one finger is used
@@ -120,11 +144,24 @@ export default {
       this.$router.back()
     },
     async getRecepient() {
-      await this.$axios.get('user/' + this.$route.params.id).then((data) => {
-        this.profile = data.data
-        this.body.id = data.data.id
-        this.prescription_link = this.prescription_link + this.profile.id
-      })
+      await this.$axios
+        .get('user/' + this.$route.params.id)
+        .then((data) => {
+          this.profile = data.data
+          this.body.id = data.data.id
+          this.prescription_link = this.prescription_link + this.profile.id
+        })
+        .finally(() => this.setUpRealtime())
+    },
+    meIsTyping() {
+      if (this.typingChannel) {
+        this.typingTimer = setTimeout(() => {
+          this.typingChannel.whisper('typing', {
+            user: this.$auth.user.id,
+            typing: true,
+          })
+        }, 300)
+      }
     },
   },
 }

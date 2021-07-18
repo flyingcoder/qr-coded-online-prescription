@@ -1,4 +1,5 @@
-import colors from 'vuetify/es5/util/colors'
+/* eslint-disable prettier/prettier */
+import colors from 'vuetify/es5/util/colors' 
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -16,7 +17,7 @@ export default {
     ],
     script: [
       {
-        src: "https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js",
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -25,14 +26,11 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/scss/style.scss',
-    'vue-swipe-actions/dist/vue-swipe-actions.css'
+    'vue-swipe-actions/dist/vue-swipe-actions.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~plugins/filters.js',
-    '~plugins/echo.js'
-  ],
+  plugins: ['~plugins/filters.js', '~plugins/echo.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -40,16 +38,16 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    ['@nuxtjs/eslint-module', {
-      fix: true
-    }],
-    // With options
-    ['@nuxtjs/laravel-echo', { 'authModule': true }],
+    [
+      '@nuxtjs/eslint-module',
+      {
+        fix: true,
+      },
+    ],
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    '@nuxtjs/moment',
+    '@nuxtjs/moment', 
   ],
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
@@ -61,29 +59,36 @@ export default {
 
   auth: {
     strategies: {
-      'laravelSanctum': {
+      laravelSanctum: {
         provider: 'laravel/sanctum',
-        url: process.env.NODE_ENV === 'production' ? 'https://api.resetaqrx.com' : 'http://localhost/resetaqrx-api/public',
+        url:
+          process.env.NODE_ENV === 'production'
+            ? 'https://api.resetaqrx.com'
+            : 'http://localhost:8000',
         endpoints: {
           login: {
-            url: '/api/login'
+            url: '/api/login',
           },
           logout: {
-            url: '/api/auth/logout', method: 'post'
-          }
-        }
-      }
+            url: '/api/auth/logout',
+            method: 'post',
+          },
+        },
+      },
     },
     redirect: {
       login: '/login',
-      home: '/dashboard'
-    }
+      home: '/dashboard',
+    },
   },
 
   axios: {
-    //proxy: true,
+    // proxy: true,
     credentials: true,
-    baseUrl: process.env.NODE_ENV === 'production' ? 'https://api.resetaqrx.com/api' : 'http://localhost/resetaqrx-api/public/api'
+    baseUrl:
+      process.env.NODE_ENV === 'production'
+        ? 'https://api.resetaqrx.com/api'
+        : 'http://localhost:8000/api',
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -95,9 +100,9 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ["~/assets/variables.scss"],
+    customVariables: ['~/assets/variables.scss'],
     options: {
-      customProperties: true
+      customProperties: true,
     },
     theme: {
       dark: false,
@@ -120,7 +125,7 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
-        }
+        },
       },
     },
   },
@@ -129,6 +134,9 @@ export default {
   build: {},
 
   publicRuntimeConfig: {
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://api.resetaqrx.com' : 'http://localhost/resetaqrx-api/public'
-  }
+    baseURL:
+      process.env.NODE_ENV === 'production'
+        ? 'https://api.resetaqrx.com'
+        : 'http://localhost:8000',
+  },
 }
