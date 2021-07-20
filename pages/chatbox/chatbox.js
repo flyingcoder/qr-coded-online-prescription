@@ -117,6 +117,8 @@ export default {
         this.messages.push(res.data.message)
         this.body.message = ''
         this.attachment = ''
+        const fileInput = this.$el.querySelector('.upload-attachment')
+        fileInput.value = ''
         this.loading = false
         this.scrollDown()
       } catch (err) {
