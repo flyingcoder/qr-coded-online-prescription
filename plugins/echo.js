@@ -4,11 +4,11 @@
 import Pusher from 'pusher-js'
 import Echo from 'laravel-echo';
 export default ({ env, store }, inject) => {
-
+    console.log(env.pusherApi)
     // Pusher.logToConsole = true; // update: added this
     const echo = new Echo({
         broadcaster: 'pusher',
-        key: 'c2acd5975df0263c5b09',
+        key: '61645228ea9a0f13cac0',
         cluster: 'ap1',
         encrypted: true,
         forceTLS: true,
