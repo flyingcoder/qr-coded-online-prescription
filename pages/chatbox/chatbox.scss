@@ -39,11 +39,13 @@ a.chat-link {
   border: none !important;
   box-shadow: none !important;
 }
+.center-content {
+  margin-bottom: 50px;
+  margin-top: 70px;
+}
 .messenger-sendCard {
-  display: none;
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
 }
 .messenger-sendCard form {
@@ -221,6 +223,10 @@ svg.seen {
 }
 
 .top-content {
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  width: 100%;
   background: #1ac6b6;
   padding: 1% 9%;
   .doctor-name {

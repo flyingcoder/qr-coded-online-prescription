@@ -35,6 +35,11 @@ export default {
     },
   },
   methods: {
+    scrollDown() {
+      setTimeout(function () {
+        window.scrollTo(0, document.body.scrollHeight)
+      }, 300)
+    },
     setUpRealtime() {
       const _this = this
       _this.$echo
@@ -42,15 +47,17 @@ export default {
         .listen('.NewChatMessage', ({ message }) => {
           if (message.from_id === this.profile.id) {
             this.messages.push(message)
+            this.scrollDown()
           }
         })
       _this.typingChannel = _this.$echo.private(`typing.${this.chatRoomNumber}`)
       if (_this.typingChannel) {
         _this.typingChannel.listenForWhisper('typing', (payload) => {
           _this.isTyping = Number(payload.user) !== Number(_this.$auth.user.id)
+          this.scrollDown()
           setTimeout(function () {
             _this.isTyping = false
-          }, 900)
+          }, 5000)
         })
       }
     },
@@ -111,6 +118,7 @@ export default {
         this.body.message = ''
         this.attachment = ''
         this.loading = false
+        this.scrollDown()
       } catch (err) {
         this.loading = false
       }
@@ -131,13 +139,14 @@ export default {
         reader.readAsDataURL(file)
       }
     },
-    fetchMessage() {
+    async fetchMessage() {
       const params = {
         type: 'user',
         id: this.$route.params.id,
       }
-      this.$axios.post('chat/fetchMessages', params).then((data) => {
+      await this.$axios.post('chat/fetchMessages', params).then((data) => {
         this.messages = data.data.messages
+        this.scrollDown()
       })
     },
     back() {

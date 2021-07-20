@@ -8,7 +8,7 @@ export default ({ env, store }, inject) => {
     // Pusher.logToConsole = true; // update: added this
     const echo = new Echo({
         broadcaster: 'pusher',
-        key: 'd9e29930ee45f6dec163',
+        key: 'c2acd5975df0263c5b09',
         cluster: 'ap1',
         encrypted: true,
         forceTLS: true,
