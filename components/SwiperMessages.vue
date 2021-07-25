@@ -25,8 +25,8 @@
         ></div>
         <p v-if="item.message">
           <!-- eslint-disable -->
-            <span class="message-main-content" v-html="item.message"></span>
-            <!-- eslint-enable -->
+          <span class="message-main-content" v-html="item.message"></span>
+          <!-- eslint-enable -->
         </p>
         <sub
           :title="item.fullTime"
