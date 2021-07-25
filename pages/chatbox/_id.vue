@@ -1,5 +1,5 @@
 <template>
-  <div class="doctor-patient-chatbox">
+  <div class="doctor-patient-chatbox" @click="handleActiveChat">
     <div class="top-content">
       <img class="user-icon" :src="profile.avatar" :alt="profile.fname" />
       <div class="chatbox-undo" @click="back">
@@ -7,8 +7,9 @@
       </div>
       <div class="doctors-upper-name">
         <div class="doctor-name">{{ profile.fname + ' ' + profile.lname }}</div>
-        <div v-if="profile.active_status" class="active-user-sign">
-          <span id="active-sign">●</span>&nbsp;active
+        <div class="active-user-sign">
+          <span id="active-sign" :class="{ online: isOnline }">●</span> &nbsp;
+          {{ !isOnline ? 'offline' : 'online' }}
         </div>
       </div>
       <div v-if="$auth.user.role == 'doctor'" class="add-prescription">

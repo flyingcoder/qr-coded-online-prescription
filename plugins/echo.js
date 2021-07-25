@@ -30,13 +30,23 @@ export default ({ env, store }, inject) => {
         }
     });
 
-
     // Pass a channel ID to leave it
     const leaveChannel = (channelName) => {
         const channel = echo.channel(channelName)
         if (channel) channel.leave()
     }
 
+    echo
+        .join('online')
+        .here((users) => {
+            store.commit('SET_ONLINES', users)
+        })
+        .joining((user) => {
+            store.commit('SET_NEW_ONLINE', user)
+        })
+        .leaving((user) => {
+            store.commit('SET_OFFLINE', user)
+        })
     // Now accessible in views/vuex
     // So you can call this.$pusher from anywhere
     // You can also dynamically call $leaveChannel if needed
