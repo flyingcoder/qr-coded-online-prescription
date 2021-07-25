@@ -28,6 +28,12 @@ export default {
     this.fetchMessage()
   },
   computed: {
+    onlines() {
+      return this.$store.getters.GET_ONLINES
+    },
+    isOnline() {
+      return !!this.onlines.find((i) => i.id === this.profile.id)
+    },
     chatRoomNumber() {
       return Number(this.$auth.user.id) < Number(this.profile.id)
         ? `${this.$auth.user.id}_${this.profile.id}`
@@ -48,6 +54,14 @@ export default {
           if (message.from_id === this.profile.id) {
             this.messages.push(message)
             this.scrollDown()
+          }
+        })
+        .listen('.MessageIsRead', ({ data }) => {
+          if (data.read_by === this.profile.id) {
+            this.messages = this.messages.map((i) => {
+              if (i.to_id !== this.$auth.user.id) i.seen = 1
+              return i
+            })
           }
         })
       _this.typingChannel = _this.$echo.private(`typing.${this.chatRoomNumber}`)
@@ -172,6 +186,20 @@ export default {
             typing: true,
           })
         }, 300)
+      }
+    },
+    handleActiveChat(event) {
+      const hasUnreadMessages = this.messages.filter(
+        (i) => !!(i.seen === 0 && i.to_id === this.$auth.user.id)
+      )
+
+      if (hasUnreadMessages.length > 0) {
+        this.$axios.post('chat/makeSeen', { id: this.profile.id }).then(() => {
+          this.messages = this.messages.map((i) => {
+            if (i.to_id === this.$auth.user.id) i.seen = 1
+            return i
+          })
+        })
       }
     },
   },
