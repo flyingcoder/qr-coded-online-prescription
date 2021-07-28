@@ -1,55 +1,51 @@
-.settings-header-content-title {
-  font-size: 19px;
+.color-white {
+  color: white;
 }
-.settings-header-sub-title {
+.settings-header {
+  background: #1ac6b6;
   display: flex;
-  align-items: center;
-  padding-left: 10px;
-  font-size: 18px;
+  height: 50px;
+  align-self: center;
+  .back-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .header-title {
+    color: white !important;
+    justify-content: center;
+    width: 100%;
+    font-weight: 400;
+    text-align: center;
+    font-size: 19px;
+  }
 }
-.settings-header-content,
-.settings-first-header-section,
-.settings-second-section,
-.settings-third-section {
-  border-bottom: 1px solid;
-  padding-bottom: 5px;
+.settings-body {
+  padding: 20px 0 0 0;
+  .user-image {
+    text-align: center;
+    img {
+      border-radius: 100%;
+      border: 2px solid #1ac6b6;
+    }
+    .mainuser-name {
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .mainuser-email {
+      font-weight: 400;
+      font-size: 16px;
+    }
+  }
+  .settings-options {
+    padding-top: 30px;
+    .accordion-title {
+      padding-left: 10px;
+    }
+  }
 }
-.setting-image-icon {
-  width: 30px;
-}
-.settings-dropdown {
-  width: 66%;
-}
-.edit-profile-button {
-  display: flex;
+.settings-footer {
+  margin-top: 20px;
+  text-align: center;
   justify-content: center;
-  padding: 10px 0px;
-}
-.personal-info-content-title,
-.personal-info-content-one span,
-.personal-info-content-two span,
-.security-login-description {
-  padding-left: 40px;
-}
-.manage-btn {
-  margin-top: 17px;
-}
-.personal-info-content,
-.settings-second-section {
-  margin-top: 10px;
-}
-.security-sub-title {
-  padding-left: 10px;
-  font-size: 18px;
-}
-.personal-info-content-one,
-.personal-info-content-two {
-  display: grid;
-}
-.personal-info-title,
-.change-password-header,
-.settings-fourth-section {
-  display: flex;
-  align-items: center;
-  padding-top: 10px;
 }

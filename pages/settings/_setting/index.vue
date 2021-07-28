@@ -14,14 +14,12 @@
           width="90px"
           height="90px"
         />
-        <div class="mainuser-name">{{ $auth.user.fname }}</div>
-        <div class="mainuser-email">{{ $auth.user.email }}</div>
+        <div class="user-name">{{ $auth.user.fname }}</div>
       </div>
       <div class="settings-options">
-        <v-expansion-panels accordion elevation="0">
-          <v-expansion-panel elevation="0">
+        <v-expansion-panels accordion>
+          <v-expansion-panel>
             <v-expansion-panel-header
-              style="border-top: 1px solid rgb(245 228 228)"
               expand-icon="mdi-chevron-right"
               disable-icon-rotate
               pre
@@ -33,12 +31,7 @@
             </v-expansion-panel-header>
             <v-expansion-panel-content class="text-center">
               Manage your phone numbers, emails and address
-              <v-btn
-                width="90%"
-                style="margin-top: 25px"
-                color="#00e676"
-                to="edit-profile"
-              >
+              <v-btn width="90%" style="margin-top: 25px">
                 Manage Information</v-btn
               >
             </v-expansion-panel-content>
@@ -56,16 +49,12 @@
             <v-expansion-panel-content class="text-center">
               Change your password and take actions to add more security to your
               account
-              <v-btn
-                width="90%"
-                style="margin-top: 25px"
-                color="#00e676"
-                to="edit-profile"
+              <v-btn width="90%" style="margin-top: 25px" to="edit-profile"
                 >Secure</v-btn
               >
             </v-expansion-panel-content>
           </v-expansion-panel>
-          <v-expansion-panel style="border-bottom: 1px solid rgb(245 228 228)">
+          <v-expansion-panel>
             <v-expansion-panel-header
               expand-icon="mdi-chevron-right"
               disable-icon-rotate
@@ -80,11 +69,7 @@
             <v-expansion-panel-content class="text-center">
               Its a good idea to use a strong password that your not using
               elsewhere.
-              <v-btn
-                width="90%"
-                style="margin-top: 25px"
-                color="#00e676"
-                to="edit-profile"
+              <v-btn width="90%" style="margin-top: 25px" to="edit-profile"
                 >Change</v-btn
               >
             </v-expansion-panel-content>
@@ -103,10 +88,68 @@
   </div>
 </template>
 
-<script src="./settings.js"></script>
-<style scoped>
-.v-expansion-panel::before {
-  box-shadow: none !important;
+<script>
+export default {
+  layout: 'search-notification',
+  data() {
+    return {}
+  },
+  methods: {
+    backRoute() {
+      this.$router.go(-1)
+    },
+    logout() {
+      this.$auth.logout()
+    },
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.color-white {
+  color: white;
+}
+.settings-header {
+  background: #1ac6b6;
+  display: flex;
+  height: 50px;
+  align-self: center;
+  .back-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .header-title {
+    color: white !important;
+    justify-content: center;
+    width: 100%;
+    font-weight: 400;
+    text-align: center;
+    font-size: 19px;
+  }
+}
+.settings-body {
+  padding: 20px 0 0 0;
+  .user-image {
+    text-align: center;
+    img {
+      border-radius: 100%;
+      border: 2px solid #1ac6b6;
+    }
+    .user-name {
+      font-weight: 600;
+    }
+  }
+  .settings-options {
+    padding-top: 30px;
+    .accordion-title {
+      padding-left: 10px;
+    }
+  }
+}
+.settings-footer {
+  margin-top: 20px;
+  text-align: center;
+  justify-content: center;
 }
 </style>
-<style lang="scss" src="./settings.scss" scoped></style>

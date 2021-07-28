@@ -10,7 +10,7 @@
         class="main-search-input"
       ></v-text-field>
     </div>
-    <div class="list-grid-btn text-right">
+    <div class="list-grid-btn text-right" style="right: 10px">
       <v-icon :class="{ active: grid }" large color="grey" @click="grid = true">
         mdi-format-list-bulleted-square
       </v-icon>
