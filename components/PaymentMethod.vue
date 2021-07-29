@@ -12,7 +12,7 @@
               {{ item.title }}
             </div></v-expansion-panel-header
           >
-          <v-expansion-panel-content>
+          <v-expansion-panel-content class="gcash-payment-method-content">
             <img :src="item.icon_inner" alt="" width="100%" />
             <div class="wallet-content full-width">
               <div
@@ -147,10 +147,13 @@ export default {
 .wallet-payment-method {
   margin-bottom: 50px;
 }
+
 .v-expansion-panels {
   border-bottom: 1px solid #e4e4e4;
   border-radius: 0px;
   margin: 0 12px;
+}
+.gcash-payment-method-content {
 }
 .v-expansion-panel--active:not(:first-child),
 .v-expansion-panel--active + .v-expansion-panel {
@@ -209,6 +212,13 @@ input#input-89 {
   .wallet-title-main-amout-title {
     width: 50%;
     padding-left: 10px;
+  }
+}
+</style>
+<style lang="scss">
+.gcash-payment-method-content {
+  .v-expansion-panel-content__wrap {
+    padding: 0 !important;
   }
 }
 </style>

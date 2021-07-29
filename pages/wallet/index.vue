@@ -1,12 +1,18 @@
 <template>
   <div id="wallet">
     <h3 class="mt-0 mb-4 wallet-title">My Wallet</h3>
-    <v-tabs v-model="tab" background-color="transparent" grow>
+    <v-tabs
+      v-model="tab"
+      background-color="transparent"
+      centered
+      style="width: 80%; display: flex; margin: auto"
+      grow
+    >
       <v-tab> Balance </v-tab>
       <v-tab> Transactions </v-tab>
     </v-tabs>
 
-    <v-tabs-items v-model="tab">
+    <v-tabs-items v-model="tab" style="margin: 0 20px">
       <v-tab-item>
         <br />
         <h3 class="mt-0 mb-4 wallet-title wallet-main-balance">

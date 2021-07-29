@@ -20,7 +20,6 @@
         </div>
         <div class="prescription-form-info">
           <div class="prescription-patient-name">
-            {{ value_change }}
             {{ $auth.user.fname }} {{ $auth.user.lname }}
           </div>
           <div class="prescription-patient-use">{{ $auth.user.experties }}</div>
@@ -176,33 +175,58 @@
             ></v-select>
           </div>
         </div>
-        <div
-          v-for="sig_hour in sig_hours"
-          :key="sig_hour"
-          class="patient-sig-hours"
-          @submit="value_change"
-        >
-          <div class="patient-sig-hours-AM">
-            <v-slider
-              v-model="sig.hourAM"
-              :tick-labels="hoursLabelAM"
-              :max="11"
-              step="1"
-              label="AM"
-              ticks="always"
-              tick-size="2"
-            ></v-slider>
-          </div>
-          <div class="patient-sig-hours-PM padding-top-sm">
-            <v-slider
-              v-model="sig.hourPM"
-              :tick-labels="hoursLabelPM"
-              max="11"
-              step="1"
-              label="PM"
-              ticks="always"
-              tick-size="2"
-            ></v-slider>
+        <div v-if="sig.repeat.length === 1" class="patient-sig-hours">
+          <div class="patient-sig-am">
+            <v-item-group multiple :max="cycle_value">
+              <v-item
+                v-for="n in hours_am"
+                :key="n"
+                v-slot="{ active, toggle }"
+                disabled
+              >
+                <v-chip
+                  active-class="active-hours-cycle"
+                  :input-value="active"
+                  style="
+                    width: 46px;
+                    padding: 0;
+                    justify-content: center;
+                    margin-right: 4px;
+                    margin-top: 5px;
+                  "
+                  label
+                  outlined
+                  @click="toggle"
+                >
+                  {{ n }} am
+                </v-chip>
+              </v-item>
+              <br />
+              <br />
+              <v-item
+                v-for="n in hours_pm"
+                :key="n"
+                v-slot="{ active, toggle }"
+                disabled
+              >
+                <v-chip
+                  active-class="active-hours-cycle"
+                  :input-value="active"
+                  style="
+                    width: 46px;
+                    padding: 0;
+                    justify-content: center;
+                    margin-right: 4px;
+                    margin-top: 5px;
+                  "
+                  label
+                  outlined
+                  @click="toggle"
+                >
+                  {{ n }} pm
+                </v-chip>
+              </v-item>
+            </v-item-group>
           </div>
         </div>
       </div>
@@ -281,7 +305,7 @@ export default {
       sig: {
         intake: 'Take',
         amount: 1,
-        hourAM: '',
+        hourAM: ['1', '2', '3'],
         hourPM: '',
         repeat: '',
         duration: '',
@@ -297,46 +321,17 @@ export default {
       minimumAM: 0,
       minimumPM: 0,
       duration: ['Day', 'Week', 'Month', 'Year'],
-      hoursLabelAM: [
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
-        '10',
-        '11',
-        '12',
-      ],
-      hoursLabelPM: [
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
-        '10',
-        '11',
-        '12',
-      ],
+      hours_am: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+      hours_pm: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
       meds: [],
       patients: [],
       patient_info: {},
     }
   },
   computed: {
-    value_change() {
-      const value = this.sig.repeat
-      this.sig_hours.forEach((e) => {
-        e.sig_hours += value
-      })
-      return value
+    cycle_value() {
+      const cycle = this.sig.repeat
+      return cycle
     },
   },
 
@@ -472,6 +467,20 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.patient-sig-hours {
+  label {
+    position: absolute !important;
+    top: -15px;
+  }
+}
+.patient-sig-am {
+  text-align: center;
+}
+span.v-chip.active-hours-cycle.v-chip--active.v-chip--clickable.v-chip--label.v-chip--no-color.v-chip--outlined.theme--light.v-size--default.v-item--active {
+  background-color: #1ac6b6 !important;
+  color: white;
+  font-weight: 500;
+}
 .prescription-form-image {
   width: 25%;
   text-align: center;
