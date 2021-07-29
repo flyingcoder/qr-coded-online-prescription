@@ -39,6 +39,9 @@
                 color="#00e676"
                 to="edit-profile"
               >
+                <v-icon color="white" left size="20px"
+                  >mdi-hammer-screwdriver</v-icon
+                >
                 Manage Information</v-btn
               >
             </v-expansion-panel-content>
@@ -61,6 +64,7 @@
                 style="margin-top: 25px"
                 color="#00e676"
                 to="edit-profile"
+                ><v-icon color="white" left size="20px">mdi-shield-check</v-icon
                 >Secure</v-btn
               >
             </v-expansion-panel-content>
@@ -85,6 +89,7 @@
                 style="margin-top: 25px"
                 color="#00e676"
                 to="edit-profile"
+                ><v-icon color="white" left size="20">mdi-key-change</v-icon
                 >Change</v-btn
               >
             </v-expansion-panel-content>
