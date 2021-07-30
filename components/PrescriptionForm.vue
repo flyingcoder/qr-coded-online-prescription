@@ -179,8 +179,8 @@
           <div class="patient-sig-am">
             <v-item-group multiple :max="cycle_value">
               <v-item
-                v-for="n in hours_am"
-                :key="n"
+                v-for="n in sig.hours_am"
+                :key="n.id"
                 v-slot="{ active, toggle }"
                 disabled
               >
@@ -198,14 +198,14 @@
                   outlined
                   @click="toggle"
                 >
-                  {{ n }} am
+                  {{ n.value }}
                 </v-chip>
               </v-item>
               <br />
               <br />
               <v-item
-                v-for="n in hours_pm"
-                :key="n"
+                v-for="n in sig.hours_pm"
+                :key="n.id"
                 v-slot="{ active, toggle }"
                 disabled
               >
@@ -223,7 +223,7 @@
                   outlined
                   @click="toggle"
                 >
-                  {{ n }} pm
+                  {{ n.value }}
                 </v-chip>
               </v-item>
             </v-item-group>
@@ -305,8 +305,106 @@ export default {
       sig: {
         intake: 'Take',
         amount: 1,
-        hourAM: ['1', '2', '3'],
-        hourPM: '',
+        hours_am: [
+          {
+            id: 1,
+            value: '1am',
+          },
+          {
+            id: 2,
+            value: '2am',
+          },
+          {
+            id: 3,
+            value: '3am',
+          },
+          {
+            id: 4,
+            value: '4am',
+          },
+          {
+            id: 5,
+            value: '5am',
+          },
+          {
+            id: 6,
+            value: '6am',
+          },
+          {
+            id: 7,
+            value: '7am',
+          },
+          {
+            id: 8,
+            value: '8am',
+          },
+          {
+            id: 9,
+            value: '9am',
+          },
+          {
+            id: 10,
+            value: '10am',
+          },
+          {
+            id: 11,
+            value: '11am',
+          },
+          {
+            id: 12,
+            value: '12am',
+          },
+        ],
+        hours_pm: [
+          {
+            id: 1,
+            value: '1pm',
+          },
+          {
+            id: 2,
+            value: '2pm',
+          },
+          {
+            id: 3,
+            value: '3pm',
+          },
+          {
+            id: 4,
+            value: '4pm',
+          },
+          {
+            id: 5,
+            value: '5pm',
+          },
+          {
+            id: 6,
+            value: '6pm',
+          },
+          {
+            id: 7,
+            value: '7pm',
+          },
+          {
+            id: 8,
+            value: '8pm',
+          },
+          {
+            id: 9,
+            value: '9pm',
+          },
+          {
+            id: 10,
+            value: '10pm',
+          },
+          {
+            id: 11,
+            value: '11pm',
+          },
+          {
+            id: 12,
+            value: '12pm',
+          },
+        ],
         repeat: '',
         duration: '',
         cycle: 'Day',
@@ -321,8 +419,6 @@ export default {
       minimumAM: 0,
       minimumPM: 0,
       duration: ['Day', 'Week', 'Month', 'Year'],
-      hours_am: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
-      hours_pm: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
       meds: [],
       patients: [],
       patient_info: {},
@@ -410,6 +506,7 @@ export default {
       return true
     },
     addMedicine() {
+      console.log(this)
       if (this.validateForm()) {
         const datus = {
           drug_info: this.drug_info,

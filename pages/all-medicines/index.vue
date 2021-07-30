@@ -32,24 +32,28 @@
             <img :src="$config.baseURL + '/storage/medicines/' + item.image" />
           </v-list-item-avatar>
 
-          <v-list-item-content>
-            <v-list-item-title>
-              {{ item.generic_name }} ({{ item.brand }})
-              <br />
-              <span class="medicine-sub-info">
-                {{ item.dosage }} - {{ item.type }}
-              </span>
-            </v-list-item-title>
-            <v-btn
-              class="ma-2 list-contact-pharmacy"
-              outlined
-              x-small
-              fab
-              color="indigo"
-              @click="sellMed(item.id)"
-            >
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
+          <v-list-item-content class="medicines-content">
+            <div class="d-block">
+              <v-list-item-title>
+                {{ item.generic_name }} ({{ item.brand }})
+                <br />
+                <span class="medicine-sub-info">
+                  {{ item.dosage }} - {{ item.type }}
+                </span>
+              </v-list-item-title>
+            </div>
+            <div class="d-flex">
+              <v-btn
+                class="ma-2 list-contact-pharmacy"
+                outlined
+                x-small
+                fab
+                color="indigo"
+                @click="sellMed(item.id)"
+              >
+                <v-icon>mdi-plus</v-icon>
+              </v-btn>
+            </div>
           </v-list-item-content>
         </v-list-item>
       </template>
