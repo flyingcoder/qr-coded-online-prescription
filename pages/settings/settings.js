@@ -2,7 +2,7 @@ export default {
   layout: 'search-notification',
   methods: {
     backRoute() {
-      this.$router.back()
+      this.$router.push('/dashboard')
     },
     logout() {
       this.$auth.logout()

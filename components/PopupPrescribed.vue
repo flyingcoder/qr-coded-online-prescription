@@ -134,6 +134,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.popup-prescribed {
+  .view-prescription-data {
+    height: 100%;
+  }
+  .prescription-popup-body {
+    background: white;
+  }
+}
 .prescription-notes {
   border: 1px solid #1ac6b6;
   padding: 12px;
@@ -231,7 +239,8 @@ export default {
 }
 .send-prescribed {
   width: 100%;
-  margin-top: 15px;
+  padding-top: 15px;
+  background: white;
   text-align: center;
   padding-bottom: 30px;
 }

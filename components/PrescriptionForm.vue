@@ -6,7 +6,12 @@
     <v-dialog v-model="med_method" fullscreen>
       <MedApplyMethod @selected="intakeSelected" />
     </v-dialog>
-    <v-dialog v-if="allprescriptions" v-model="popup_prescribed" fullscreen>
+    <v-dialog
+      v-if="allprescriptions"
+      v-model="popup_prescribed"
+      fullscreen
+      scrollable
+    >
       <PopupPrescribed
         :patient="patient_info"
         :prescriptions="meds"
@@ -177,16 +182,19 @@
         </div>
         <div v-if="sig.repeat.length === 1" class="patient-sig-hours">
           <div class="patient-sig-am">
-            <v-item-group multiple :max="cycle_value">
+            <v-item-group
+              v-model="hoursTime"
+              multiple
+              :max="cycle_value"
+              @change="saveTime($event)"
+            >
               <v-item
-                v-for="n in sig.hours_am"
+                v-for="n in 24"
                 :key="n.id"
                 v-slot="{ active, toggle }"
                 disabled
               >
                 <v-chip
-                  active-class="active-hours-cycle"
-                  :input-value="active"
                   style="
                     width: 46px;
                     padding: 0;
@@ -195,35 +203,12 @@
                     margin-top: 5px;
                   "
                   label
-                  outlined
-                  @click="toggle"
-                >
-                  {{ n.value }}
-                </v-chip>
-              </v-item>
-              <br />
-              <br />
-              <v-item
-                v-for="n in sig.hours_pm"
-                :key="n.id"
-                v-slot="{ active, toggle }"
-                disabled
-              >
-                <v-chip
-                  active-class="active-hours-cycle"
+                  active-class="active-hour-time"
                   :input-value="active"
-                  style="
-                    width: 46px;
-                    padding: 0;
-                    justify-content: center;
-                    margin-right: 4px;
-                    margin-top: 5px;
-                  "
-                  label
-                  outlined
                   @click="toggle"
                 >
-                  {{ n.value }}
+                  <span v-if="n <= 12">{{ n }}am</span>
+                  <span v-else>{{ n - 12 }}pm</span>
                 </v-chip>
               </v-item>
             </v-item-group>
@@ -296,6 +281,7 @@ export default {
       popup_prescribed: false,
       allprescriptions: '',
       medicines: [],
+      hoursTime: [],
       drug_info: '',
       medCounter: 0,
       numberRule: (v) => {
@@ -305,106 +291,6 @@ export default {
       sig: {
         intake: 'Take',
         amount: 1,
-        hours_am: [
-          {
-            id: 1,
-            value: '1am',
-          },
-          {
-            id: 2,
-            value: '2am',
-          },
-          {
-            id: 3,
-            value: '3am',
-          },
-          {
-            id: 4,
-            value: '4am',
-          },
-          {
-            id: 5,
-            value: '5am',
-          },
-          {
-            id: 6,
-            value: '6am',
-          },
-          {
-            id: 7,
-            value: '7am',
-          },
-          {
-            id: 8,
-            value: '8am',
-          },
-          {
-            id: 9,
-            value: '9am',
-          },
-          {
-            id: 10,
-            value: '10am',
-          },
-          {
-            id: 11,
-            value: '11am',
-          },
-          {
-            id: 12,
-            value: '12am',
-          },
-        ],
-        hours_pm: [
-          {
-            id: 1,
-            value: '1pm',
-          },
-          {
-            id: 2,
-            value: '2pm',
-          },
-          {
-            id: 3,
-            value: '3pm',
-          },
-          {
-            id: 4,
-            value: '4pm',
-          },
-          {
-            id: 5,
-            value: '5pm',
-          },
-          {
-            id: 6,
-            value: '6pm',
-          },
-          {
-            id: 7,
-            value: '7pm',
-          },
-          {
-            id: 8,
-            value: '8pm',
-          },
-          {
-            id: 9,
-            value: '9pm',
-          },
-          {
-            id: 10,
-            value: '10pm',
-          },
-          {
-            id: 11,
-            value: '11pm',
-          },
-          {
-            id: 12,
-            value: '12pm',
-          },
-        ],
         repeat: '',
         duration: '',
         cycle: 'Day',
@@ -413,6 +299,7 @@ export default {
       },
       med_type: false,
       med_method: false,
+      active: false,
       amount: '1',
       take: '2',
       items: ['1', '2', '3', '4'],
@@ -457,6 +344,19 @@ export default {
     this.getPatients()
   },
   methods: {
+    saveTime(el) {
+      console.log(this.hoursTime)
+      // console.log(el.target)
+      // if (this.hoursTime.length <= this.sig.repeat) {
+      //   if (this.hoursTime.includes(n)) {
+      //     this.hoursTime.splice(this.hoursTime.indexOf(n), 1)
+      //   } else {
+      //     this.hoursTime.push(n)
+      //     this.active = !this.active
+      //     console.log(this.active)
+      //   }
+      // }
+    },
     closePrescription() {
       this.popup_prescribed = false
     },
@@ -505,6 +405,7 @@ export default {
       }
       return true
     },
+
     addMedicine() {
       console.log(this)
       if (this.validateForm()) {
@@ -563,6 +464,12 @@ export default {
   },
 }
 </script>
+<style>
+.active-hour-time {
+  background: #1ac6b6;
+  color: white !important;
+}
+</style>
 <style lang="scss" scoped>
 .patient-sig-hours {
   label {
