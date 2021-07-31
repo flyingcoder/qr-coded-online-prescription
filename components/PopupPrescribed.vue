@@ -77,6 +77,18 @@
             <div class="prescription-body-date-consumation">
               for {{ prescription.sig.duration }} {{ prescription.sig.cycle }}/s
             </div>
+            <div class="d-flex" style="padding: 15px 0 0 20px">
+              <div
+                v-for="n in prescription.sig.hours_time"
+                :key="n"
+                style="color: #1ac6b6 !important"
+              >
+                <span v-if="n <= 12" class="time-take-span">
+                  {{ n + 1 }}am
+                </span>
+                <span v-else class="time-take-span"> {{ n - 11 }}pm</span>
+              </div>
+            </div>
             <div class="prescription-body-time-consumation"></div>
             <div class="prescription-notes">
               Notes: {{ prescription.sig.note }}
@@ -145,6 +157,11 @@ export default {
 .prescription-notes {
   border: 1px solid #1ac6b6;
   padding: 12px;
+}
+.time-take-span {
+  border: 1px solid #1ac6b6;
+  margin-right: 5px;
+  padding: 4px 5px;
 }
 .prescription-form-image {
   width: 25%;

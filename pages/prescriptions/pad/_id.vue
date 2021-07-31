@@ -74,7 +74,21 @@
         <div class="prescription-till-intake">
           for {{ pres.pivot.duration }} {{ pres.pivot.cycle }}/s
         </div>
-        <div class="prescription-hours"></div>
+        <div class="prescription-hours">
+          <!-- <div class="d-flex" style="padding: 15px 0 0 20px">
+            <div
+              v-for="n in prescription.sig.hoursTime"
+              :key="n"
+              style="color: #1ac6b6 !important"
+            >
+              <span v-if="n <= 12" class="time-take-span">
+                {{ n + 1 }}am
+              </span>
+              <span v-else class="time-take-span"> {{ n - 11 }}pm</span>
+              </div>
+            </div> -->
+          {{ pres.pivot.cycle_time }}
+        </div>
         <div class="prescription-notes">Notes: {{ pres.pivot.note }}</div>
       </div>
     </div>
@@ -99,6 +113,7 @@ export default {
       },
     }
   },
+  computed: {},
 
   mounted() {
     this.getPrescription()

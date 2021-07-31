@@ -6,12 +6,7 @@
     <v-dialog v-model="med_method" fullscreen>
       <MedApplyMethod @selected="intakeSelected" />
     </v-dialog>
-    <v-dialog
-      v-if="allprescriptions"
-      v-model="popup_prescribed"
-      fullscreen
-      scrollable
-    >
+    <v-dialog v-model="popup_prescribed" fullscreen scrollable>
       <PopupPrescribed
         :patient="patient_info"
         :prescriptions="meds"
@@ -183,7 +178,7 @@
         <div v-if="sig.repeat.length === 1" class="patient-sig-hours">
           <div class="patient-sig-am">
             <v-item-group
-              v-model="hoursTime"
+              v-model="sig.hours_time"
               multiple
               :max="cycle_value"
               @change="saveTime($event)"
@@ -281,7 +276,6 @@ export default {
       popup_prescribed: false,
       allprescriptions: '',
       medicines: [],
-      hoursTime: [],
       drug_info: '',
       medCounter: 0,
       numberRule: (v) => {
@@ -290,6 +284,7 @@ export default {
       },
       sig: {
         intake: 'Take',
+        hours_time: [],
         amount: 1,
         repeat: '',
         duration: '',
@@ -303,8 +298,6 @@ export default {
       amount: '1',
       take: '2',
       items: ['1', '2', '3', '4'],
-      minimumAM: 0,
-      minimumPM: 0,
       duration: ['Day', 'Week', 'Month', 'Year'],
       meds: [],
       patients: [],
@@ -345,13 +338,13 @@ export default {
   },
   methods: {
     saveTime(el) {
-      console.log(this.hoursTime)
+      console.log(this.sig.hours_time)
       // console.log(el.target)
-      // if (this.hoursTime.length <= this.sig.repeat) {
-      //   if (this.hoursTime.includes(n)) {
-      //     this.hoursTime.splice(this.hoursTime.indexOf(n), 1)
+      // if (this.hours_time.length <= this.sig.repeat) {
+      //   if (this.hours_time.includes(n)) {
+      //     this.hours_time.splice(this.hours_time.indexOf(n), 1)
       //   } else {
-      //     this.hoursTime.push(n)
+      //     this.hours_time.push(n)
       //     this.active = !this.active
       //     console.log(this.active)
       //   }
