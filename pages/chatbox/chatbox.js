@@ -51,7 +51,10 @@ export default {
       _this.$echo
         .private(`chatify.${this.chatRoomNumber}`)
         .listen('.NewChatMessage', ({ message }) => {
-          if (message.from_id === this.profile.id) {
+          console.log(message)
+          console.log(this.profile.id)
+          console.log(parseInt(message.from_id) === parseInt(this.profile.id))
+          if (parseInt(message.from_id) === parseInt(this.profile.id)) {
             this.messages.push(message)
             this.scrollDown()
           }
