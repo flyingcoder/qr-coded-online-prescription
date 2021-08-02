@@ -87,7 +87,10 @@
               <span v-else class="time-take-span"> {{ n - 11 }}pm</span>
               </div>
             </div> -->
-          {{ pres.pivot.cycle_time }}
+          <div v-for="time in pres.pivot.cycle_time" :key="time">
+            <span v-if="time <= 12">{{ time + 1 }}am</span>
+            <span v-else>{{ time - 11 }}pm</span>
+          </div>
         </div>
         <div class="prescription-notes">Notes: {{ pres.pivot.note }}</div>
       </div>
@@ -195,7 +198,13 @@ export default {
     padding-top: 10px;
   }
   .prescription-hours {
-    padding-bottom: 15px;
+    display: flex;
+    margin-bottom: 10px;
+    div {
+      border: 1px solid #1ac6b6;
+      padding: 5px;
+      margin-right: 10px;
+    }
   }
 }
 .prescription-pad-header {

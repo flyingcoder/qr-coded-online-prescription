@@ -190,6 +190,7 @@
                 disabled
               >
                 <v-chip
+                  class="sig-time-pick"
                   style="
                     width: 46px;
                     padding: 0;
