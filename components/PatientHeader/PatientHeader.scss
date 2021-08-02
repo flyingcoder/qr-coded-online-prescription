@@ -27,14 +27,20 @@
 .notification-icon {
   margin-left: 16px;
 }
+.notification-icon {
+  position: absolute;
+  right: 5%;
+}
+.search-icon {
+  position: absolute;
+  right: 20%;
+}
 .reseta-logo-text {
   color: white !important;
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 400;
+  align-self: center;
   padding-left: 10px;
-  letter-spacing: 1px;
-  display: flex;
-  align-self: self-end;
 }
 .sn-icons {
   display: flex;

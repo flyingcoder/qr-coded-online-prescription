@@ -4,9 +4,13 @@
     <div class="edit-profile-image">
       <img src="~/assets/images/Inosuke_Anime_Profile.png" alt="" />
       <div class="edit-image">
-        <v-btn small class="mx-2" fab dark color="cyan" type="file">
-          <v-icon dark> mdi-pencil </v-icon>
-        </v-btn>
+        <v-file-input
+          hide-input
+          show-size
+          class="change-profile-icon"
+          prepend-icon="mdi-pencil"
+          truncate-length="15"
+        ></v-file-input>
       </div>
       <div class="back-button" @click="exitprofile">
         <v-icon color="green darken-2"> mdi-close </v-icon>
@@ -99,5 +103,17 @@
 </template>
 
 <script src="./edit-profile.js"></script>
-
+<style scoped>
+>>> .change-profile-icon .v-input__prepend-outer {
+  background: #00bcd4;
+  padding: 10px;
+  border-radius: 100%;
+}
+>>> .change-profile-icon .v-input__prepend-outer .v-icon {
+  color: white;
+}
+>>> .change-profile-icon {
+  padding-top: 0 !important;
+}
+</style>
 <style lang="scss" src="./edit-profile.scss"></style>

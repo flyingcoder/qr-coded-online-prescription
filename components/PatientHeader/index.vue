@@ -20,21 +20,26 @@
     </div>
 
     <v-spacer></v-spacer>
-
-    <v-app-bar-title>
-      <img class="logo-wide" src="@/assets/images/white-main-logo.png"
-    /></v-app-bar-title>
-    <div class="reseta-logo-text">Reseta QRx</div>
-
-    <v-spacer></v-spacer>
-
-    <NuxtLink to="/search">
-      <v-icon>mdi-magnify</v-icon>
-    </NuxtLink>
-
-    <NuxtLink to="/notification" class="notification-icon">
-      <v-icon>mdi-bell</v-icon>
-    </NuxtLink>
+    <div class="d-flex" style="width: 100%; padding-left: 13%">
+      <v-app-bar-title>
+        <img class="logo-wide" src="@/assets/images/white-main-logo.png"
+      /></v-app-bar-title>
+      <div class="reseta-logo-text">ResetaQrx</div>
+    </div>
+    <div class="search-icon">
+      <NuxtLink to="/search">
+        <v-btn icon>
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+      </NuxtLink>
+    </div>
+    <div class="notification-icon">
+      <NuxtLink to="/notification">
+        <v-btn icon>
+          <v-icon>mdi-bell</v-icon>
+        </v-btn>
+      </NuxtLink>
+    </div>
     <template #extension style="padding-bottom: 0">
       <div class="menu-icons">
         <NuxtLink to="/dashboard" class="menu-icon"
@@ -63,4 +68,4 @@
     </template>
   </v-app-bar>
 </template>
-<style src="./PatientHeader.scss" lang="scss"></style>
+<style src="./PatientHeader.scss" lang="scss" scope></style>
