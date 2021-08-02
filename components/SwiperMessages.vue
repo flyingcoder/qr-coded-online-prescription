@@ -113,13 +113,16 @@ export default {
         return
       }
       const posXEnd = touchEvent.changedTouches[0].clientX
+      const posChat = Math.abs(posXEnd)
       const dest = item.destination
-      if (posXStart < posXEnd) {
-        // swipe right
-        // this.$router.push('/chatbox/' + item.user_id)
-      } else if (posXStart > posXEnd) {
-        // swipe left
-        if (dest !== null) this.$router.push(dest)
+      if (posChat < 100) {
+        if (posXStart < posXEnd) {
+          // swipe right
+          // this.$router.push('/chatbox/' + item.user_id)
+        } else if (posXStart > posXEnd) {
+          // swipe left
+          if (dest !== null) this.$router.push(dest)
+        }
       }
     },
   },
