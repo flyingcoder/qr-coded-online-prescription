@@ -96,7 +96,7 @@ export default {
       const dest = item.last_message_raw.destination
       if (posXStart < posXEnd) {
         // swipe right
-        this.$router.push('/chatbox/' + item.user_id)
+        // this.$router.push('/chatbox/' + item.user_id)
       } else if (posXStart > posXEnd) {
         // swipe left
         if (dest !== null) this.$router.push(dest)
