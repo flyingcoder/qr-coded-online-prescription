@@ -53,8 +53,8 @@ export default {
         .listen('.NewChatMessage', ({ message }) => {
           console.log(message)
           console.log(this.profile.id)
-          console.log(message.from_id === this.profile.id)
-          if (message.from_id === this.profile.id) {
+          console.log(parseInt(message.from_id) === parseInt(this.profile.id))
+          if (parseInt(message.from_id) === parseInt(this.profile.id)) {
             this.messages.push(message)
             this.scrollDown()
           }
