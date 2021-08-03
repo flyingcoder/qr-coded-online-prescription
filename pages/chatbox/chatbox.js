@@ -50,17 +50,14 @@ export default {
       const _this = this
       _this.$echo
         .private(`chatify.${this.chatRoomNumber}`)
-        .listen('.NewChatMessage', ({ message }) => {
-          console.log(message)
-          console.log(this.profile.id)
-          console.log(parseInt(message.from_id) === parseInt(this.profile.id))
-          if (parseInt(message.from_id) === parseInt(this.profile.id)) {
-            this.messages.push(message)
+        .listen('.NewChatMessage', (payload) => {
+          if (parseInt(payload.from_id) === parseInt(this.profile.id)) {
+            this.messages.push(payload)
             this.scrollDown()
           }
         })
-        .listen('.MessageIsRead', ({ data }) => {
-          if (data.read_by === this.profile.id) {
+        .listen('.MessageIsRead', (payload) => {
+          if (payload.read_by === this.profile.id) {
             this.messages = this.messages.map((i) => {
               if (i.to_id !== this.$auth.user.id) i.seen = 1
               return i
