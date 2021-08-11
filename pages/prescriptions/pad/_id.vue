@@ -53,10 +53,12 @@
       :key="index"
       class="prescription-pad-content"
     >
+      <div class="text-right">
+        <v-btn icon color="red">
+          <v-icon @click="removePrescription">mdi-close</v-icon>
+        </v-btn>
+      </div>
       <div class="prescription-pad-content-header d-flex">
-        <div class="delete-prescription">
-          <v-icon color="red">mdi-close</v-icon>
-        </div>
         <div class="left d-block">
           <div class="top">
             {{ index + 1 }}.) {{ pres.generic_name }} {{ pres.brand }}
@@ -125,6 +127,7 @@ export default {
     this.getPrescription()
   },
   methods: {
+    removePrescription() {},
     getPrescription() {
       this.$axios.get('prescriptions/' + this.$route.params.id).then((data) => {
         this.prescriptions = data.data
