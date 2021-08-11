@@ -130,7 +130,7 @@
               style="width: 50%; margin-right: 10px"
               outlined
               dense
-              label="# of meds/cycle"
+              label="Quantity"
               type="number"
               :rules="[numberRule]"
             ></v-text-field>
@@ -152,7 +152,7 @@
               outlined
               type="number"
               dense
-              label="# per cycle"
+              label="Dosage"
               style="width: 25%; margin-right: 10px"
               :rules="[numberRule]"
             ></v-text-field>
@@ -424,9 +424,14 @@ export default {
         this.meds = parseMed.meds
         window.localStorage.setItem('prescribeData', JSON.stringify(parseMed))
         this.drug_info = ''
+        // this.sig.repeat = ''
+        // this.sig.hours_time = ''
+        // this.sig.duration = ''
+        // this.sig.amount = ''
+        // this.sig.note = ''
+        window.location.reload()
         this.medCounter = this.medCounter + 1
         window.localStorage.setItem('medCounter', this.medCounter)
-
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `A medicine is added to prescription pad.`,
         })

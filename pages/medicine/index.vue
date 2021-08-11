@@ -82,7 +82,7 @@
                       x-small
                       fab
                       color="indigo"
-                      @click="viewProfile(item.id)"
+                      @click="editMedicine(id)"
                     >
                       <v-icon>mdi-pencil</v-icon>
                     </v-btn>

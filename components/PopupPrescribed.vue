@@ -51,6 +51,11 @@
           :key="prescription.id"
           class="popup-prescribed-content"
         >
+          <div class="text-right">
+            <v-btn icon color="red">
+              <v-icon @click="removePrescription(id)">mdi-close</v-icon>
+            </v-btn>
+          </div>
           <div class="prescription-content-header d-flex">
             <div class="prescription-id">{{ index + 1 }}.)</div>
             &nbsp;
@@ -77,11 +82,17 @@
             <div class="prescription-body-date-consumation">
               for {{ prescription.sig.duration }} {{ prescription.sig.cycle }}/s
             </div>
-            <div class="d-flex" style="padding: 15px 0 0 20px">
+            <div
+              style="
+                padding: 15px 0 0 20px;
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+              "
+            >
               <div
                 v-for="n in prescription.sig.hours_time"
                 :key="n"
-                style="color: #1ac6b6 !important"
+                style="color: #1ac6b6 !important; margin-bottom: 10px"
               >
                 <span v-if="n <= 12" class="time-take-span">
                   {{ n + 1 }}am
@@ -138,6 +149,7 @@ export default {
         this.$router.push('/chatbox/' + this.patient.id)
       })
     },
+    removePrescription(id) {},
     close() {
       this.$emit('closed')
     },

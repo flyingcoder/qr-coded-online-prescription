@@ -54,6 +54,9 @@
       class="prescription-pad-content"
     >
       <div class="prescription-pad-content-header d-flex">
+        <div class="delete-prescription">
+          <v-icon color="red">mdi-close</v-icon>
+        </div>
         <div class="left d-block">
           <div class="top">
             {{ index + 1 }}.) {{ pres.generic_name }} {{ pres.brand }}
@@ -95,7 +98,7 @@
         <div class="prescription-notes">Notes: {{ pres.pivot.note }}</div>
       </div>
     </div>
-    <div class="send-prescribed">
+    <div v-if="$auth.user.role === 'patient'" class="send-prescribed">
       <v-btn @click="buyMeds">Buy Medication</v-btn>
     </div>
   </div>

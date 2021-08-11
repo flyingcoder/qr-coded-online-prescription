@@ -147,7 +147,7 @@ export default {
       if (diff > 100) {
         if (xs < xe) {
           // swipe right
-          this.$router.push(-1)
+          this.$router.back()
         } else if (xs > xe) {
           // swipe left
           this.$router.push(
