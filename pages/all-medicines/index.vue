@@ -44,6 +44,7 @@
             </div>
             <div class="d-flex">
               <v-btn
+                v-if="$auth.user.role === 'pharmacy'"
                 class="ma-2 list-contact-pharmacy"
                 outlined
                 x-small
@@ -52,6 +53,17 @@
                 @click="sellMed(item.id)"
               >
                 <v-icon>mdi-plus</v-icon>
+              </v-btn>
+              <v-btn
+                v-if="$auth.user.role === 'doctor'"
+                class="ma-2 list-contact-pharmacy"
+                outlined
+                x-small
+                fab
+                color="indigo"
+                @click="viewProfile(id)"
+              >
+                <v-icon>mdi-eye-outline</v-icon>
               </v-btn>
             </div>
           </v-list-item-content>
