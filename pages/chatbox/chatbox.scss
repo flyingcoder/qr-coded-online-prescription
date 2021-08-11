@@ -106,70 +106,6 @@ svg.svg-inline--fa.fa-file-image.fa-w-12 {
 //   position: relative;
 //   animation: jump 1s infinite;
 // }
-.typing-dots {
-  position: relative;
-  display: flex;
-}
-.typing-dots .dot-1,
-.typing-dots .dot-2,
-.typing-dots .dot-3 {
-  width: 12px;
-  height: 12px;
-  position: relative;
-  background: #ebeae8;
-  border-radius: 100% !important;
-  margin-right: 7px;
-}
-.typing-dots .dot-1 {
-  animation-timing-function: ease-in-out;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-duration: 3s;
-  animation-name: dot1;
-  animation-iteration-count: infinite;
-}
-.typing-dots .dot-2 {
-  animation-timing-function: ease-in-out;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-duration: 3s;
-  animation-name: dot2;
-  animation-iteration-count: infinite;
-}
-.typing-dots .dot-3 {
-  animation-timing-function: ease-in-out;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-duration: 3s;
-  animation-name: dot3;
-  animation-iteration-count: infinite;
-}
-@keyframes dot1 {
-  0% {
-  	top: 0px;
-  }
-  50% {
-  	background: #d6d5d4;
-    top: -6px;
-  }
-}
-@keyframes dot2 {
-  20% {
-  	top: 0px;
-  }
-  70% {
-  	background: #d6d5d4;
-    top: -6px;
-    
-  }
-}
-@keyframes dot3 {
-  40% {
-  	top: 0px;
-  }
-  90% {
-  	background: #d6d5d4;
-    top: -6px;
-    
-  }
-}
 // .typing-dots .dot-2 {
 //   -webkit-animation-delay: 200ms;
 //   animation-delay: 200ms;
@@ -404,4 +340,75 @@ svg.seen {
   position: absolute;
   top: 15px;
   left: 5px;
+}
+.typing-dots {
+  position: relative;
+  display: flex;
+}
+.typing-dots .dot-1,
+.typing-dots .dot-2,
+.typing-dots .dot-3 {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  background: #e0dede;
+  border-radius: 100% !important;
+  margin-right: 7px;
+}
+.typing-dots .dot-1 {
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-name: dot1;
+  animation-iteration-count: infinite;
+}
+.typing-dots .dot-2 {
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-name: dot2;
+  animation-iteration-count: infinite;
+}
+.typing-dots .dot-3 {
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-name: dot3;
+  animation-iteration-count: infinite;
+}
+@keyframes dot1 {
+  0% {
+  	top: 0px;
+  }
+  30% {
+  	background: #d6d5d4;
+    top: -8px;
+  }
+  80% {
+  	top: 0px;
+  }
+}
+@keyframes dot2 {
+  10% {
+  	top: 0px;
+  }
+  50% {
+  	background: #d6d5d4;
+    top: -8px;
+  }
+  90% {
+  	top: 0px;
+  }
+}
+@keyframes dot3 {
+  20% {
+  	top: 0px;
+  }
+  60% {
+  	background: #d6d5d4;
+    top: -8px;
+  }
+  100% {
+  	top: 0px;
+  }
 }
