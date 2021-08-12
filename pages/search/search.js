@@ -1,12 +1,29 @@
 export default {
   layout: 'search-notification',
   methods: {
-    to() {
+    back() {
       this.$router.go(-1)
+    },
+    focus() {
+      this.isActive = true
+    },
+    blur() {
+      this.isActive = false
+    },
+    clearSearch() {
+      this.global_search = ''
+      this.isActive = false
+    },
+    searchLink() {
+      this.$router.push('search/1')
     },
   },
   data() {
     return {
+      isActive: false,
+      all_search_result: '',
+      global_search: '',
+      items: ['test', 'test2', 'test3'],
       results: [
         {
           user: 'mdi-account',
