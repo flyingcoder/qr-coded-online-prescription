@@ -7,9 +7,6 @@ export default {
     focus() {
       this.isActive = true
     },
-    blur() {
-      this.isActive = false
-    },
     clearSearch() {
       this.global_search = ''
       this.isActive = false
