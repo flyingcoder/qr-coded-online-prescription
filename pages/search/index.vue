@@ -56,6 +56,7 @@
               <v-list-item
                 v-for="result in results"
                 :key="result"
+                style="height: 42px"
                 @click="searchLink"
               >
                 <v-list-item-avatar>
