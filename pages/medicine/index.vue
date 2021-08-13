@@ -26,71 +26,29 @@
     <div class="pharmacy-list-view">
       <v-card max-width="450" class="mx-auto pharmacy">
         <div class="pharmacy-list-main-btn">
-          <v-list three-line class="pharmacys-background-color">
-            <template v-for="(item, index) in medicines">
-              <v-subheader
-                v-if="index == 0"
-                :key="item.id"
-                :class="{
-                  'page-item': true,
-                  patient_pharmacy_title: $auth.user.role == 'patient',
-                  patient_pharmacy_title: $auth.user.role == 'doctor',
-                }"
-                class="pharmacys-list-title"
-                >Pharmacy Medicine</v-subheader
+          <v-slide-group v-model="all_medicine" active-class="success">
+            <v-slide-item v-for="item in medicines" :key="item">
+              <v-card
+                class="ma-4"
+                height="200"
+                width="100"
+                @click="editMedicine(id)"
               >
-
-              <v-divider :key="index + 'div' + item.id"></v-divider>
-
-              <v-list-item :key="index + 'span'" class="pharmacy-list-section">
-                <v-list-item-avatar>
-                  <img
-                    :src="$config.baseURL + '/storage/medicines/' + item.image"
-                  />
-                </v-list-item-avatar>
-
-                <v-list-item-content>
-                  <!-- <v-list-item-title class="medicine-list-content">
-                    {{ item.generic_name }} &nbsp;&nbsp;{{ item.size }}
-                  </v-list-item-title> -->
-                  <v-list-item-title>
-                    {{ item.generic_name }} ({{ item.brand }}) {{ item.dosage }}
-                    <br />
-                    <span class="medicine-sub-info">
-                      Type: {{ item.type }} &nbsp;&nbsp;Price: ₱{{
-                        item.pivot.price
-                      }}
-                      &nbsp;&nbsp;Stock:
-                      {{ item.pivot.stocks }} pcs.
-                    </span>
-                  </v-list-item-title>
-                  <v-list-item-subtitle>
-                    <div class="pharmacy-content">
-                      {{ item.address }}
-                    </div>
-                    <div class="pharmacy-number">
-                      {{ item.phone }}
-                    </div>
-                  </v-list-item-subtitle>
-                  <div
-                    v-if="$auth.user.role == 'pharmacy'"
-                    class="medicine-option"
-                  >
-                    <v-btn
-                      class="ma-2"
-                      outlined
-                      x-small
-                      fab
-                      color="indigo"
-                      @click="editMedicine(id)"
-                    >
-                      <v-icon>mdi-pencil</v-icon>
-                    </v-btn>
+                <v-row class="fill-height" align="center" justify="center">
+                  <div class="d-flex">
+                    <img
+                      :src="
+                        $config.baseURL + '/storage/medicines/' + item.image
+                      "
+                    />
                   </div>
-                </v-list-item-content>
-              </v-list-item>
-            </template>
-          </v-list>
+                  <div class="d-flex">
+                    {{ item.generic_name }} ({{ item.brand }}) {{ item.dosage }}
+                  </div>
+                </v-row>
+              </v-card>
+            </v-slide-item>
+          </v-slide-group>
         </div>
       </v-card>
     </div>

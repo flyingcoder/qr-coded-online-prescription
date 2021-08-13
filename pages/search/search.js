@@ -1,48 +1,65 @@
 export default {
   layout: 'search-notification',
+  data() {
+    return {
+      isActive: false,
+      awaitingChange: false,
+      search_query: '',
+      hasHeader: true,
+      item: '',
+      items: [
+        {
+          id: 0,
+          name: 'Mike',
+          sub: 'Pediatrician',
+          image: 'mdi-account',
+          model_id: 1,
+        },
+      ],
+    }
+  },
+  watch: {
+    search_query(q) {
+      if (q.length >= 3) {
+        this.hasHeader = false
+        if (!this.awaitingChange) {
+          setTimeout(() => {
+            this.searchQuery()
+            this.awaitingChange = false
+          }, 1000)
+        }
+        this.awaitingChange = true
+      }
+    },
+  },
+  mounted() {
+    this.recentQuery()
+    console.log(this.sendItem)
+  },
   methods: {
+    searchQuery() {
+      this.$axios.get('search?q=' + this.search_query).then((data) => {
+        this.items = data.data
+      })
+    },
+    sendItem() {},
+    recentQuery() {
+      this.$axios.get('search/recent').then((data) => {
+        this.items = data.data
+      })
+    },
     back() {
-      this.$router.go(-1)
+      this.$router.back()
     },
     focus() {
       this.isActive = true
     },
     clearSearch() {
-      this.global_search = ''
+      this.search_query = ''
       this.isActive = false
     },
     searchLink() {
       this.$router.push('search/1')
     },
-  },
-  data() {
-    return {
-      isActive: false,
-      all_search_result: '',
-      global_search: '',
-      items: ['test', 'test2', 'test3'],
-      results: [
-        {
-          user: 'mdi-account',
-          name: 'Virginia Laquihon',
-        },
-        {
-          user: 'mdi-account',
-          name: 'Weng Artes M.D.',
-        },
-        {
-          user: 'mdi-magnify',
-          name: 'Internist in Kidapawan City',
-        },
-        {
-          user: 'mdi-magnify',
-          name: 'Pediatrician',
-        },
-        {
-          user: 'mdi-magnify',
-          name: 'Colchicire',
-        },
-      ],
-    }
   },
 }
