@@ -36,6 +36,7 @@
               dense
               rounded
               @focus="focus"
+              @blur="out"
             ></v-text-field>
           </v-col>
 
@@ -74,13 +75,17 @@
                 style="height: 42px"
                 @click="searchLink"
               >
-                <v-list-item-avatar>
-                  <v-icon v-text="result.user"></v-icon>
+                <v-list-item-avatar style="border: 1px solid">
+                  <v-icon v-text="result.image"></v-icon>
                 </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-title v-text="result.name"></v-list-item-title>
+                  <v-list-item-subtitle
+                    v-text="result.sub"
+                  ></v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-action
+                  v-if="!isActive"
                   class="justify-center"
                   style="padding-right: 5px"
                 >

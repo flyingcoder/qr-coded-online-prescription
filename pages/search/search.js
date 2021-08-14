@@ -54,6 +54,9 @@ export default {
     focus() {
       this.isActive = true
     },
+    out() {
+      this.isActive = false
+    },
     clearSearch() {
       this.search_query = ''
       this.isActive = false
