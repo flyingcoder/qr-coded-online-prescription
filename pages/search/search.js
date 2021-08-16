@@ -7,6 +7,7 @@ export default {
       search_query: '',
       hasHeader: true,
       item: '',
+      placeholder: '',
       categories: ['medicine', 'doctor', 'pharmacy', 'people'],
       allowDelete: false,
       items: [],
@@ -14,6 +15,8 @@ export default {
   },
   watch: {
     search_query(q) {
+      this.suggest()
+
       if (q.length > 0) this.isActive = true
       else this.isActive = false
 
@@ -37,6 +40,7 @@ export default {
     this.recentQuery()
   },
   methods: {
+    suggest() {},
     searchQuery() {
       if (this.search_query) {
         this.$axios.get('search?q=' + this.search_query).then((data) => {
