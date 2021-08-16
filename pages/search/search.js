@@ -45,10 +45,11 @@ export default {
       }
     },
     selectItem() {
-      this.item.query = this.search_query
+      this.item.q = this.search_query
       this.$axios.post('search/learn', this.item)
       if (this.item.type === 'medicine')
         this.$router.push('medicine/' + this.item.model_id)
+      else this.$router.push(this.item.type + '/' + this.item.model_id)
     },
     recentQuery() {
       this.$axios.get('search/recent').then((data) => {
