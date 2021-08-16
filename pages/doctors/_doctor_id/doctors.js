@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     getDoctor() {
-      this.$axios.get('user/' + this.$route.params.id).then((data) => {
+      this.$axios.get('user/' + this.$route.params.doctor_id).then((data) => {
         console.log(data)
       })
     },

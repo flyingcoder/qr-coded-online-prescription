@@ -7,19 +7,16 @@ export default {
       search_query: '',
       hasHeader: true,
       item: '',
-      items: [
-        {
-          id: 0,
-          name: 'Mike',
-          sub: 'Pediatrician',
-          image: 'mdi-account',
-          model_id: 1,
-        },
-      ],
+      categories: ['medicine', 'doctor', 'pharmacy', 'people'],
+      allowDelete: false,
+      items: [],
     }
   },
   watch: {
     search_query(q) {
+      if (q.length > 0) this.isActive = true
+      else this.isActive = false
+
       if (q.length >= 3) {
         this.hasHeader = false
         if (!this.awaitingChange) {
@@ -31,18 +28,28 @@ export default {
         this.awaitingChange = true
       }
     },
+    item(data) {
+      console.log(data)
+      this.selectItem()
+    },
   },
   mounted() {
     this.recentQuery()
-    console.log(this.sendItem)
   },
   methods: {
     searchQuery() {
-      this.$axios.get('search?q=' + this.search_query).then((data) => {
-        this.items = data.data
-      })
+      if (this.search_query) {
+        this.$axios.get('search?q=' + this.search_query).then((data) => {
+          this.items = data.data
+        })
+      }
     },
-    sendItem() {},
+    selectItem() {
+      this.item.query = this.search_query
+      this.$axios.post('search/learn', this.item)
+      if (this.item.type === 'medicine')
+        this.$router.push('medicine/' + this.item.model_id)
+    },
     recentQuery() {
       this.$axios.get('search/recent').then((data) => {
         this.items = data.data
@@ -51,18 +58,9 @@ export default {
     back() {
       this.$router.back()
     },
-    focus() {
-      this.isActive = true
-    },
-    out() {
-      this.isActive = false
-    },
     clearSearch() {
       this.search_query = ''
       this.isActive = false
-    },
-    searchLink() {
-      this.$router.push('search/1')
     },
   },
 }

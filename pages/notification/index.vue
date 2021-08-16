@@ -40,15 +40,11 @@
                 <div class="notification-main-content">
                   {{ notification.content }}
                   <div
-                    v-if="notification.accept || notification.cancel"
+                    v-if="notification.friend_request"
                     class="notification-tag-request"
                   >
-                    <v-btn v-if="notification.accept" cols="5">{{
-                      notification.accept
-                    }}</v-btn>
-                    <v-btn v-if="notification.cancel" cols="5">{{
-                      notification.cancel
-                    }}</v-btn>
+                    <v-btn cols="5">ACCEPT</v-btn>
+                    <v-btn cols="5">CANCEL</v-btn>
                   </div>
                 </div>
               </v-col>

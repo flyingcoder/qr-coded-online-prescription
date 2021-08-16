@@ -37,6 +37,6 @@
   </div>
 </template>
 
-<script src="./_doctors.js"></script>
+<script src="./doctors.js"></script>
 
 <style src="../doctors.scss" lang="scss" scoped></style>

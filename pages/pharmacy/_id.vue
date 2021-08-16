@@ -10,25 +10,25 @@
               border: 2px solid #1ac6b6;
               margin-top: 10px;
             "
-            :src="pharmacy.avatar"
-            :alt="pharmacy.fname"
+            :src="profile.avatar"
+            :alt="profile.fname"
           />
         </div>
         <div class="doctor-information padding-content text-center-pd">
           <div class="name padding-bottom-sm">
-            {{ pharmacy.name }}
+            {{ profile.name }}
           </div>
           <div id="word-related" class="margin-top-pull padding-bottom-sm">
             <b>PHARMACY</b>
           </div>
           <div class="address">
-            {{ pharmacy.address }}
+            {{ profile.address }}
           </div>
           <div class="contact">
-            {{ pharmacy.number }}
+            {{ profile.number }}
           </div>
           <div class="content">
-            {{ pharmacy.description }}
+            {{ profile.description }}
           </div>
         </div>
       </v-card>
@@ -39,7 +39,7 @@
           width="60%"
           class="btn-radius find-doctors-btn"
           style="color: white"
-          to="/chatbox/2"
+          @click="$route.push('chatbox/' + profile.id)"
         >
           Contact
         </v-btn>
@@ -51,18 +51,21 @@
 <script>
 export default {
   layout: 'dashboard',
+  middleware: 'auth',
   data() {
     return {
-      pharmacy: {
-        id: 0,
-        avatar: '/_nuxt/assets/images/pharmacy-logo.jpg',
-        name: 'Brennen Drugs CO.',
-        address: `Davao Del Sur`,
-        number: '09187829876',
-        description:
-          'Pharmacy is the clinical health science that links medical science with chemistry and it is charged with the discovery',
-      },
+      profile: {},
     }
+  },
+  mounted() {
+    this.getUser()
+  },
+  methods: {
+    async getUser() {
+      await this.$axios.get('user/' + this.$route.params.id).then((data) => {
+        this.profile = data.data
+      })
+    },
   },
 }
 </script>
