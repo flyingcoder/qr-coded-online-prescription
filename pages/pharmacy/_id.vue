@@ -15,20 +15,27 @@
           />
         </div>
         <div class="doctor-information padding-content text-center-pd">
-          <div class="name padding-bottom-sm">
-            {{ profile.name }}
-          </div>
           <div id="word-related" class="margin-top-pull padding-bottom-sm">
-            <b>PHARMACY</b>
+            <b
+              style="font-size: 21px !important; font-weight: 600 !important"
+              >{{ profile.fullname }}</b
+            ><br />
+            <span class="pharmacy-top-info">{{ profile.experties }}</span
+            ><br />
+            <span class="pharmacy-top-info" style="top: -12px">{{
+              profile.address
+            }}</span
+            ><br />
+            <span class="pharmacy-top-info" style="top: -17px">{{
+              profile.phone
+            }}</span>
           </div>
-          <div class="address">
-            {{ profile.address }}
+
+          <div>
+            {{ profile.bio }}
           </div>
-          <div class="contact">
-            {{ profile.number }}
-          </div>
-          <div class="content">
-            {{ profile.description }}
+          <div style="margin-top: 24px; font-weight: 900; font-size: 16px">
+            {{ profile.email }}
           </div>
         </div>
       </v-card>
@@ -70,4 +77,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.pharmacy-top-info {
+  position: relative !important;
+  top: -6px;
+  font-size: 15px;
+}
+</style>

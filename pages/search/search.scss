@@ -47,6 +47,12 @@
 }
 .cancel-search-section {
   padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.search_positioning {
+  position: absolute !important;
+  width: 95%;
 }
 .user i {
   border: 1px solid;
