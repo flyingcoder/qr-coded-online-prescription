@@ -7,6 +7,7 @@ export default {
       search_query: '',
       hasHeader: true,
       item: '',
+      placeholder: '',
       categories: ['medicine', 'doctor', 'pharmacy', 'people'],
       allowDelete: false,
       items: [],
@@ -14,6 +15,8 @@ export default {
   },
   watch: {
     search_query(q) {
+      this.suggest()
+
       if (q.length > 0) this.isActive = true
       else this.isActive = false
 
@@ -37,6 +40,7 @@ export default {
     this.recentQuery()
   },
   methods: {
+    suggest() {},
     searchQuery() {
       if (this.search_query) {
         this.$axios.get('search?q=' + this.search_query).then((data) => {
@@ -45,10 +49,11 @@ export default {
       }
     },
     selectItem() {
-      this.item.query = this.search_query
+      this.item.q = this.search_query
       this.$axios.post('search/learn', this.item)
       if (this.item.type === 'medicine')
         this.$router.push('medicine/' + this.item.model_id)
+      else this.$router.push(this.item.type + '/' + this.item.model_id)
     },
     recentQuery() {
       this.$axios.get('search/recent').then((data) => {

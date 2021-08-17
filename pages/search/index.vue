@@ -57,6 +57,12 @@
         </v-col>
       </v-row>
 
+      <v-row v-if="false" class="search-options">
+        <v-col cols="12" @click="hint">
+          <p class="secondary-color">Do you mean "{{ suggest }}"?</p>
+        </v-col>
+      </v-row>
+
       <v-row
         class="search-result justify-center"
         :class="{ recent_result: !isActive }"
