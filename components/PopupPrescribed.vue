@@ -53,7 +53,9 @@
         >
           <div class="text-right">
             <v-btn icon color="red">
-              <v-icon @click="removePrescription(id)">mdi-close</v-icon>
+              <v-icon @click="removePrescription(prescription)"
+                >mdi-close</v-icon
+              >
             </v-btn>
           </div>
           <div class="prescription-content-header d-flex">
@@ -149,7 +151,9 @@ export default {
         this.$router.push('/chatbox/' + this.patient.id)
       })
     },
-    removePrescription(id) {},
+    removePrescription(data) {
+      this.$emit('delmeds', data)
+    },
     close() {
       this.$emit('closed')
     },

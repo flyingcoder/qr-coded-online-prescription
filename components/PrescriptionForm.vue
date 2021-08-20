@@ -11,6 +11,7 @@
         :patient="patient_info"
         :prescriptions="meds"
         @closed="closePrescription"
+        @delmeds="removeMeds"
       />
     </v-dialog>
     <v-form id="main-prescription-form">
@@ -177,12 +178,7 @@
         </div>
         <div v-if="sig.repeat.length === 1" class="patient-sig-hours">
           <div class="patient-sig-am">
-            <v-item-group
-              v-model="sig.hours_time"
-              multiple
-              :max="cycle_value"
-              @change="saveTime($event)"
-            >
+            <v-item-group v-model="sig.hours_time" multiple :max="cycle_value">
               <v-item
                 v-for="n in 24"
                 :key="n.id"
@@ -338,18 +334,18 @@ export default {
     this.getPatients()
   },
   methods: {
-    saveTime(el) {
-      console.log(this.sig.hours_time)
-      // console.log(el.target)
-      // if (this.hours_time.length <= this.sig.repeat) {
-      //   if (this.hours_time.includes(n)) {
-      //     this.hours_time.splice(this.hours_time.indexOf(n), 1)
-      //   } else {
-      //     this.hours_time.push(n)
-      //     this.active = !this.active
-      //     console.log(this.active)
-      //   }
-      // }
+    removeMeds(data) {
+      this.medCounter = this.medCounter - 1
+      delete this.meds[this.meds.indexOf(data)]
+      const parseMed = {
+        patient: this.patient_info,
+        meds: this.meds,
+      }
+      window.localStorage.setItem('medCounter', this.medCounter)
+      window.localStorage.setItem('prescribeData', JSON.stringify(parseMed))
+      this.$store.dispatch('snackbar/setSnackbar', {
+        text: `A medicine is removed to prescription pad.`,
+      })
     },
     closePrescription() {
       this.popup_prescribed = false
