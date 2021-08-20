@@ -28,6 +28,7 @@
           <v-text-field
             v-model="search_query"
             class="glocal-search-main-input search_focus"
+            :class="{ search_positioning: search_query }"
             placeholder="Search"
             background-color="#eeeeee"
             color="#737373"
