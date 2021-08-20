@@ -53,7 +53,7 @@
         >
           <div class="text-right">
             <v-btn icon color="red">
-              <v-icon @click="removePrescription(id)">mdi-close</v-icon>
+              <v-icon @click="removePrescription()">mdi-close</v-icon>
             </v-btn>
           </div>
           <div class="prescription-content-header d-flex">
@@ -149,7 +149,9 @@ export default {
         this.$router.push('/chatbox/' + this.patient.id)
       })
     },
-    removePrescription(id) {},
+    removePrescription() {
+      this.$axios.delete('prescriptions/delete').response(() => {})
+    },
     close() {
       this.$emit('closed')
     },

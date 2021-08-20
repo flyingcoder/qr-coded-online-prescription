@@ -15,7 +15,7 @@
           />
         </div>
         <div class="doctor-information padding-content text-center-pd">
-          <div id="word-related" class="margin-top-pull padding-bottom-sm">
+          <div id="word-related" class="padding-bottom-sm">
             <b
               style="font-size: 21px !important; font-weight: 600 !important"
               >{{ profile.fullname }}</b

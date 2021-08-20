@@ -25,7 +25,9 @@
             :key="item + 'tinda'"
             :item="item"
           >
-            <v-btn> cart-icon ({{ item.pivot.price }}) </v-btn>
+            <v-btn elevation="0" color="transparent">
+              <v-icon left>mdi-cart-outline</v-icon> ({{ item.pivot.price }})
+            </v-btn>
           </pharma-list-item>
         </v-list>
       </v-row>
