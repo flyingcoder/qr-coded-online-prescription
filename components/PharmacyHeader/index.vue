@@ -41,21 +41,24 @@
         <NuxtLink to="/dashboard" class="menu-icon"
           ><v-icon>mdi-home</v-icon></NuxtLink
         >
-        <NuxtLink to="/dispense" class="menu-icon"
+        <!-- <NuxtLink to="/dispense" class="menu-icon"
           ><v-icon>mdi-hand-heart</v-icon></NuxtLink
-        >
+        > -->
         <NuxtLink to="/orders" class="menu-icon"
           ><v-icon>mdi-cart-plus</v-icon></NuxtLink
         >
-        <NuxtLink to="/medicine" class="menu-icon"
+        <!-- <NuxtLink to="/medicine" class="menu-icon"
           ><v-icon>mdi-hospital-box</v-icon></NuxtLink
-        >
+        > -->
         <NuxtLink to="/all-medicines" class="menu-icon"
           ><v-icon>mdi-contacts</v-icon></NuxtLink
         >
-        <NuxtLink to="/sales-report" class="menu-icon"
-          ><v-icon>mdi-chart-line</v-icon></NuxtLink
+        <NuxtLink to="/doctors" class="menu-icon"
+          ><v-icon>mdi-contacts</v-icon></NuxtLink
         >
+        <!-- <NuxtLink to="/sales-report" class="menu-icon"
+          ><v-icon>mdi-chart-line</v-icon></NuxtLink
+        > -->
         <NuxtLink to="/wallet" class="menu-icon"
           ><v-icon>mdi-wallet</v-icon></NuxtLink
         >
