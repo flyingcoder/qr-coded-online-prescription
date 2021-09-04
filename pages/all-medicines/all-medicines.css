@@ -1,3 +1,10 @@
 .list-grid-btn {
     top: 80px;
 }
+.medicines-content {
+    display: grid !important;
+    grid-template-columns: 80% 20%;
+}
+.list-contact-pharmacy {
+    top: 10px;
+}

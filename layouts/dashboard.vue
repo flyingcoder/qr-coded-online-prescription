@@ -118,7 +118,6 @@ export default {
 
       const posXEnd = touchEvent.changedTouches[0].clientX
       let pos = 0
-
       if (posXStart < posXEnd) {
         // swipe right
         pos = '100px'
@@ -142,16 +141,19 @@ export default {
           this.routes = this.patient
           break
       }
-      console.log(this.routes)
-      console.log(this.$route.name)
-      if (xs < xe) {
-        // swipe right
-        this.$router.back()
-      } else if (xs > xe) {
-        // swipe left
-        this.$router.push(
-          this.routes[this.routes.indexOf(this.$route.name) + 1]
-        )
+
+      const diff = Math.abs(xs - xe)
+
+      if (diff > 100) {
+        if (xs < xe) {
+          // swipe right
+          this.$router.back()
+        } else if (xs > xe) {
+          // swipe left
+          this.$router.push(
+            this.routes[this.routes.indexOf(this.$route.name) + 1]
+          )
+        }
       }
     },
     touchEnd(touchEvent, posXStart) {

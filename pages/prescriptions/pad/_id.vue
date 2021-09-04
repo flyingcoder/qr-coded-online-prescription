@@ -53,6 +53,11 @@
       :key="index"
       class="prescription-pad-content"
     >
+      <div class="text-right">
+        <v-btn icon color="red">
+          <v-icon @click="removePrescription">mdi-close</v-icon>
+        </v-btn>
+      </div>
       <div class="prescription-pad-content-header d-flex">
         <div class="left d-block">
           <div class="top">
@@ -74,11 +79,28 @@
         <div class="prescription-till-intake">
           for {{ pres.pivot.duration }} {{ pres.pivot.cycle }}/s
         </div>
-        <div class="prescription-hours"></div>
+        <div class="prescription-hours">
+          <!-- <div class="d-flex" style="padding: 15px 0 0 20px">
+            <div
+              v-for="n in prescription.sig.hoursTime"
+              :key="n"
+              style="color: #1ac6b6 !important"
+            >
+              <span v-if="n <= 12" class="time-take-span">
+                {{ n + 1 }}am
+              </span>
+              <span v-else class="time-take-span"> {{ n - 11 }}pm</span>
+              </div>
+            </div> -->
+          <div v-for="time in pres.pivot.cycle_time" :key="time">
+            <span v-if="time <= 12">{{ time + 1 }}am</span>
+            <span v-else>{{ time - 11 }}pm</span>
+          </div>
+        </div>
         <div class="prescription-notes">Notes: {{ pres.pivot.note }}</div>
       </div>
     </div>
-    <div class="send-prescribed">
+    <div v-if="$auth.user.role === 'patient'" class="send-prescribed">
       <v-btn @click="buyMeds">Buy Medication</v-btn>
     </div>
   </div>
@@ -99,11 +121,13 @@ export default {
       },
     }
   },
+  computed: {},
 
   mounted() {
     this.getPrescription()
   },
   methods: {
+    removePrescription() {},
     getPrescription() {
       this.$axios.get('prescriptions/' + this.$route.params.id).then((data) => {
         this.prescriptions = data.data
@@ -180,7 +204,13 @@ export default {
     padding-top: 10px;
   }
   .prescription-hours {
-    padding-bottom: 15px;
+    display: flex;
+    margin-bottom: 10px;
+    div {
+      border: 1px solid #1ac6b6;
+      padding: 5px;
+      margin-right: 10px;
+    }
   }
 }
 .prescription-pad-header {

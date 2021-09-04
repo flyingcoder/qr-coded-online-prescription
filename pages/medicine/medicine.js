@@ -6,6 +6,7 @@ export default {
       grid: true,
       align: '',
       medicines: '',
+      all_medicine: '',
     }
   },
   mounted() {
@@ -14,6 +15,11 @@ export default {
   methods: {
     pharmacy(id) {
       this.$router.push('/pharmacy/' + id)
+    },
+    editMedicine(id) {
+      this.$axios.put('medicines/' + id).then((data) => {
+        this.medicine = data.data
+      })
     },
     async getMedicines() {
       await this.$axios

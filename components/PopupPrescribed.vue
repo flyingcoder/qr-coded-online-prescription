@@ -51,6 +51,13 @@
           :key="prescription.id"
           class="popup-prescribed-content"
         >
+          <div class="text-right">
+            <v-btn icon color="red">
+              <v-icon @click="removePrescription(prescription)"
+                >mdi-close</v-icon
+              >
+            </v-btn>
+          </div>
           <div class="prescription-content-header d-flex">
             <div class="prescription-id">{{ index + 1 }}.)</div>
             &nbsp;
@@ -76,6 +83,24 @@
             </div>
             <div class="prescription-body-date-consumation">
               for {{ prescription.sig.duration }} {{ prescription.sig.cycle }}/s
+            </div>
+            <div
+              style="
+                padding: 15px 0 0 20px;
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+              "
+            >
+              <div
+                v-for="n in prescription.sig.hours_time"
+                :key="n"
+                style="color: #1ac6b6 !important; margin-bottom: 10px"
+              >
+                <span v-if="n <= 12" class="time-take-span">
+                  {{ n + 1 }}am
+                </span>
+                <span v-else class="time-take-span"> {{ n - 11 }}pm</span>
+              </div>
             </div>
             <div class="prescription-body-time-consumation"></div>
             <div class="prescription-notes">
@@ -126,6 +151,9 @@ export default {
         this.$router.push('/chatbox/' + this.patient.id)
       })
     },
+    removePrescription(data) {
+      this.$emit('delmeds', data)
+    },
     close() {
       this.$emit('closed')
     },
@@ -134,9 +162,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.popup-prescribed {
+  .view-prescription-data {
+    height: 100%;
+  }
+  .prescription-popup-body {
+    background: white;
+  }
+}
 .prescription-notes {
   border: 1px solid #1ac6b6;
   padding: 12px;
+}
+.time-take-span {
+  border: 1px solid #1ac6b6;
+  margin-right: 5px;
+  padding: 4px 5px;
 }
 .prescription-form-image {
   width: 25%;
@@ -231,7 +272,8 @@ export default {
 }
 .send-prescribed {
   width: 100%;
-  margin-top: 15px;
+  padding-top: 15px;
+  background: white;
   text-align: center;
   padding-bottom: 30px;
 }

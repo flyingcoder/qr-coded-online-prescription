@@ -28,6 +28,12 @@ export default {
     this.fetchMessage()
   },
   computed: {
+    onlines() {
+      return this.$store.getters.GET_ONLINES
+    },
+    isOnline() {
+      return !!this.onlines.find((i) => i.id === this.profile.id)
+    },
     chatRoomNumber() {
       return Number(this.$auth.user.id) < Number(this.profile.id)
         ? `${this.$auth.user.id}_${this.profile.id}`
@@ -35,22 +41,40 @@ export default {
     },
   },
   methods: {
+    scrollDown() {
+      setTimeout(function () {
+        window.scrollTo(0, document.body.scrollHeight)
+      }, 300)
+    },
     setUpRealtime() {
       const _this = this
       _this.$echo
         .private(`chatify.${this.chatRoomNumber}`)
         .listen('.NewChatMessage', ({ message }) => {
-          if (message.from_id === this.profile.id) {
+          console.log(message)
+          console.log(this.profile.id)
+          console.log(parseInt(message.from_id) === parseInt(this.profile.id))
+          if (parseInt(message.from_id) === parseInt(this.profile.id)) {
             this.messages.push(message)
+            this.scrollDown()
+          }
+        })
+        .listen('.MessageIsRead', ({ data }) => {
+          if (data.read_by === this.profile.id) {
+            this.messages = this.messages.map((i) => {
+              if (i.to_id !== this.$auth.user.id) i.seen = 1
+              return i
+            })
           }
         })
       _this.typingChannel = _this.$echo.private(`typing.${this.chatRoomNumber}`)
       if (_this.typingChannel) {
         _this.typingChannel.listenForWhisper('typing', (payload) => {
           _this.isTyping = Number(payload.user) !== Number(_this.$auth.user.id)
+          this.scrollDown()
           setTimeout(function () {
             _this.isTyping = false
-          }, 900)
+          }, 5000)
         })
       }
     },
@@ -75,7 +99,7 @@ export default {
       const dest = item.last_message_raw.destination
       if (posXStart < posXEnd) {
         // swipe right
-        this.$router.push('/chatbox/' + item.user_id)
+        // this.$router.push('/chatbox/' + item.user_id)
       } else if (posXStart > posXEnd) {
         // swipe left
         if (dest !== null) this.$router.push(dest)
@@ -110,7 +134,10 @@ export default {
         this.messages.push(res.data.message)
         this.body.message = ''
         this.attachment = ''
+        const fileInput = this.$el.querySelector('.upload-attachment')
+        fileInput.value = ''
         this.loading = false
+        this.scrollDown()
       } catch (err) {
         this.loading = false
       }
@@ -131,13 +158,14 @@ export default {
         reader.readAsDataURL(file)
       }
     },
-    fetchMessage() {
+    async fetchMessage() {
       const params = {
         type: 'user',
         id: this.$route.params.id,
       }
-      this.$axios.post('chat/fetchMessages', params).then((data) => {
+      await this.$axios.post('chat/fetchMessages', params).then((data) => {
         this.messages = data.data.messages
+        this.scrollDown()
       })
     },
     back() {
@@ -161,6 +189,20 @@ export default {
             typing: true,
           })
         }, 300)
+      }
+    },
+    handleActiveChat(event) {
+      const hasUnreadMessages = this.messages.filter(
+        (i) => !!(i.seen === 0 && i.to_id === this.$auth.user.id)
+      )
+
+      if (hasUnreadMessages.length > 0) {
+        this.$axios.post('chat/makeSeen', { id: this.profile.id }).then(() => {
+          this.messages = this.messages.map((i) => {
+            if (i.to_id === this.$auth.user.id) i.seen = 1
+            return i
+          })
+        })
       }
     },
   },

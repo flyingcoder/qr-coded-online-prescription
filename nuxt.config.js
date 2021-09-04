@@ -139,4 +139,7 @@ export default {
         ? 'https://api.resetaqrx.com'
         : 'http://localhost:8000',
   },
+  privateRuntimeConfig: {
+    pusherApi: process.env.puserApi
+  },
 }

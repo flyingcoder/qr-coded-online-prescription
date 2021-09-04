@@ -47,12 +47,13 @@
   }
 }
 .doctor-profile {
-  margin-top: 60px;
-  img {
-    width: 40%;
-    height: 40%;
-    margin-top: -50px;
-  }
+  margin-top: 10px;
+}
+.doctors-list-info {
+  position: relative !important;
+  top: -3px;
+  font-size: 15px !important;
+  font-weight: 400;
 }
 .grid-single-image {
   img {

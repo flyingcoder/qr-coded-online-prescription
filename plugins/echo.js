@@ -4,11 +4,11 @@
 import Pusher from 'pusher-js'
 import Echo from 'laravel-echo';
 export default ({ env, store }, inject) => {
-
+    console.log(env.pusherApi)
     // Pusher.logToConsole = true; // update: added this
     const echo = new Echo({
         broadcaster: 'pusher',
-        key: 'd9e29930ee45f6dec163',
+        key: '61645228ea9a0f13cac0',
         cluster: 'ap1',
         encrypted: true,
         forceTLS: true,
@@ -30,13 +30,23 @@ export default ({ env, store }, inject) => {
         }
     });
 
-
     // Pass a channel ID to leave it
     const leaveChannel = (channelName) => {
         const channel = echo.channel(channelName)
         if (channel) channel.leave()
     }
 
+    echo
+        .join('online')
+        .here((users) => {
+            store.commit('SET_ONLINES', users)
+        })
+        .joining((user) => {
+            store.commit('SET_NEW_ONLINE', user)
+        })
+        .leaving((user) => {
+            store.commit('SET_OFFLINE', user)
+        })
     // Now accessible in views/vuex
     // So you can call this.$pusher from anywhere
     // You can also dynamically call $leaveChannel if needed

@@ -10,7 +10,7 @@
         class="main-search-input"
       ></v-text-field>
     </div>
-    <div class="list-grid-btn text-right">
+    <div class="list-grid-btn text-right" style="right: 10px">
       <v-icon :class="{ active: grid }" large color="grey" @click="grid = true">
         mdi-format-list-bulleted-square
       </v-icon>
@@ -59,27 +59,29 @@
                 <div class="grid-single-number d-flex justify-center">
                   {{ item.phone }}
                 </div>
-                <v-btn
-                  class="ma-2 grid-contact-patient"
-                  outlined
-                  x-small
-                  fab
-                  color="indigo"
-                  background="red"
-                  @click="contact(item.id)"
-                >
-                  <v-icon>mdi-phone</v-icon>
-                </v-btn>
-                <v-btn
-                  class="ma-2 grid-profile-patient"
-                  outlined
-                  x-small
-                  fab
-                  color="indigo"
-                  @click="viewProfile(item.id)"
-                >
-                  <v-icon>mdi-account</v-icon>
-                </v-btn>
+                <div class="d-flex justify-center" style="margin-top: 5px">
+                  <v-btn
+                    class="ma-2 grid-contact-patient"
+                    outlined
+                    x-small
+                    fab
+                    color="indigo"
+                    background="red"
+                    @click="contact(item.id)"
+                  >
+                    <v-icon>mdi-phone</v-icon>
+                  </v-btn>
+                  <v-btn
+                    class="ma-2 grid-profile-patient"
+                    outlined
+                    x-small
+                    fab
+                    color="indigo"
+                    @click="viewProfile(item.id)"
+                  >
+                    <v-icon>mdi-account</v-icon>
+                  </v-btn>
+                </div>
               </v-card>
             </div>
           </v-col>

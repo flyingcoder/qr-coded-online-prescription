@@ -25,8 +25,8 @@
         ></div>
         <p v-if="item.message">
           <!-- eslint-disable -->
-            <span class="message-main-content" v-html="item.message"></span>
-            <!-- eslint-enable -->
+          <span class="message-main-content" v-html="item.message"></span>
+          <!-- eslint-enable -->
         </p>
         <sub
           :title="item.fullTime"
@@ -113,13 +113,16 @@ export default {
         return
       }
       const posXEnd = touchEvent.changedTouches[0].clientX
+      const posChat = Math.abs(posXEnd)
       const dest = item.destination
-      if (posXStart < posXEnd) {
-        // swipe right
-        // this.$router.push('/chatbox/' + item.user_id)
-      } else if (posXStart > posXEnd) {
-        // swipe left
-        if (dest !== null) this.$router.push(dest)
+      if (posChat < 100) {
+        if (posXStart < posXEnd) {
+          // swipe right
+          // this.$router.push('/chatbox/' + item.user_id)
+        } else if (posXStart > posXEnd) {
+          // swipe left
+          if (dest !== null) this.$router.push(dest)
+        }
       }
     },
   },
