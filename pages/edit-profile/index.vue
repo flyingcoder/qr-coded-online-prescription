@@ -80,7 +80,7 @@
           dense
         ></v-text-field>
       </v-row>
-      <v-row class="sm-side-padding">
+      <v-row id="password" class="sm-side-padding">
         <v-text-field
           v-model="password"
           label="Password"

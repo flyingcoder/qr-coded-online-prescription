@@ -1,6 +1,9 @@
 export default {
   layout: 'search-notification',
   methods: {
+    test() {
+      console.log(this.notifications)
+    },
     to() {
       this.$router.go(-1)
     },

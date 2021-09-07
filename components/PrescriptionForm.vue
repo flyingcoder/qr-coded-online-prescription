@@ -336,7 +336,7 @@ export default {
   methods: {
     removeMeds(data) {
       this.medCounter = this.medCounter - 1
-      delete this.meds[this.meds.indexOf(data)]
+      this.meds.splice(this.meds.indexOf(data), 1)
       const parseMed = {
         patient: this.patient_info,
         meds: this.meds,

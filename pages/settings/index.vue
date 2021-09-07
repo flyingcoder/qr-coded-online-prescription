@@ -88,7 +88,7 @@
                 width="90%"
                 style="margin-top: 25px"
                 color="#00e676"
-                to="edit-profile"
+                to="edit-profile/#password"
                 ><v-icon color="white" left size="20">mdi-key-change</v-icon
                 >Change</v-btn
               >
