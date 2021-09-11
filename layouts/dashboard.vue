@@ -69,6 +69,7 @@ export default {
         'wallet',
         'settings',
       ],
+      notification: 0,
       items: [
         {
           icon: 'mdi-apps',
@@ -87,8 +88,15 @@ export default {
       title: 'Vuetify.js',
     }
   },
-  mounted() {},
+  mounted() {
+    this.getNotification()
+  },
   methods: {
+    getNotification() {
+      this.$axios.get('notifications/count').then((data) => {
+        this.notification = data.data
+      })
+    },
     nextPage(touchEvent) {
       if (touchEvent.changedTouches.length !== 1) {
         // We only care if one finger is used

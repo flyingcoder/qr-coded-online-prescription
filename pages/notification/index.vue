@@ -14,7 +14,9 @@
       <v-row class="notification-options">
         <v-col cols="12">
           <p class="text-end text-right">
-            <NuxtLink to="/" class="secondary-color">Mark All as Read</NuxtLink>
+            <span class="secondary-color" @click="markReadAll"
+              >Mark All as Read</span
+            >
           </p>
         </v-col>
       </v-row>
@@ -23,29 +25,37 @@
       <div class="notification-content">
         <div class="notifications">
           <div
-            v-for="notification in notifications"
-            :key="notification"
+            v-for="noti in notifications"
+            :key="noti"
             class="notification-created"
           >
             <v-row class="notification-content-box">
               <v-col cols="2" class="notification-logo-icon">
-                <v-icon large class="outlined">
-                  {{ notification.icon }}
-                </v-icon>
+                <!-- <img :src="notifications.avatar" width="30px" height="30px" />-->
+                <img
+                  src="~/assets/images/main-logo.png"
+                  width="45px"
+                  height="45px"
+                />
               </v-col>
-              <v-col cols="10" class="text-center">
-                <div class="notification-created-at">
-                  {{ notification.created_at }} <br />
-                </div>
-                <div class="notification-main-content">
-                  {{ notification.content }}
-                  <div
-                    v-if="notification.friend_request"
-                    class="notification-tag-request"
-                  >
-                    <v-btn cols="5">ACCEPT</v-btn>
-                    <v-btn cols="5">CANCEL</v-btn>
+              <v-col
+                cols="10"
+                class="text-center"
+                style="padding-left: 0 !important"
+              >
+                <div class="notification-created-at d-flex">
+                  <div>
+                    <span v-if="!noti.read_at" @click="markRead(id)">Read</span>
+                    <span v-if="noti.read_at">Seen</span>
                   </div>
+                  <v-spacer />
+                  <div>{{ $moment(noti.created_at).fromNow() }}</div>
+                </div>
+                <div
+                  class="notification-main-content"
+                  :class="{ seen: noti.read_at }"
+                >
+                  <div v-html="noti.data.message"></div>
                 </div>
               </v-col>
             </v-row>

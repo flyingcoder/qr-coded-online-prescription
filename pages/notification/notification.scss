@@ -36,29 +36,39 @@
     padding-right: 0 !important;
   }
 }
+.seen {
+  background: #f3f3f3 !important;
+  opacity: 0.7;
+}
 .notification-content {
-  padding-top: 5px;
-  position: relative;
-  top: 40px;
+  padding-top: 40px;
+  ::-webkit-scrollbar {
+      width: 0;  
+      background: transparent; 
+  }
 
   .notification-main-content {
     border: 1px solid grey;
     text-align: center;
     padding: 10px;
     border-radius: 5px;
+    background: transparent;
+
   }
   .notification-icon-back {
     text-decoration: none !important;
   }
   .notification-logo-icon {
-    font-weight: bold;
-    i {
-      font-size: 25px !important;
-      margin-top: 10px;
+    display: flex;
+    align-self: center;
+    padding: 0 10px !important;
+    img {
+      border-radius: 100%;
     }
   }
   .notification-created-at {
-    font-size: 14px;
+    font-size: 10px;
+    text-align: right;
   }
   .notification-tag-request {
     padding-top: 13px;
