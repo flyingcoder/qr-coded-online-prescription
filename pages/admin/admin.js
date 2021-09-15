@@ -5,6 +5,7 @@ export default {
   data() {
     return {
       pharmacies: [],
+      patient_info: '',
     }
   },
   mounted() {

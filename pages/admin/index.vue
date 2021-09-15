@@ -2,12 +2,13 @@
   <div class="admin-page">
     <div class="d-block">
       <label class="text-cl">Pharmacy</label>
-      <v-select
-        v-model="pharmacies"
-        dense
+      <v-autocomplete
+        v-model="patient_info"
+        :items="pharmacies"
         outlined
+        dense
         placeholder="Pharmacy User"
-      ></v-select>
+      ></v-autocomplete>
     </div>
     <div class="d-block">
       <label class="text-cl">Amount</label>

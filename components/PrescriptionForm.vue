@@ -526,12 +526,12 @@ span.v-chip.active-hours-cycle.v-chip--active.v-chip--clickable.v-chip--label.v-
 .patient-info-time {
   font-size: 13px;
 }
-.patient-sig-hours {
-  label {
-    position: absolute !important;
-    top: -15px;
-  }
-}
+// .patient-sig-hours {
+//   label {
+//     position: absolute !important;
+//     top: -15px;
+//   }
+// }
 .patient-duration-input {
   #input-60 {
     display: none;
