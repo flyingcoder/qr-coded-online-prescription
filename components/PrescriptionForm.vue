@@ -169,16 +169,15 @@
               v-model="sig.cycle"
               :items="duration"
               dense
-              append-icon=""
               style="width: 30%"
               clear-icon
               outlined
             ></v-select>
           </div>
         </div>
-        <div v-if="sig.repeat.length === 1" class="patient-sig-hours">
+        <div v-if="sig.repeat.length === 1" class="patient-sig-hours" v->
           <div class="patient-sig-am">
-            <v-item-group v-model="sig.hours_time" multiple :max="cycle_value">
+            <v-item-group v-model="sig.hours_time" multiple :max="sig.repeat">
               <v-item
                 v-for="n in 24"
                 :key="n.id"
@@ -301,13 +300,8 @@ export default {
       patient_info: {},
     }
   },
-  computed: {
-    cycle_value() {
-      const cycle = this.sig.repeat
-      return cycle
-    },
-  },
-
+  computed: {},
+  watch: {},
   mounted() {
     if (this.$route.params.id) this.getPatient()
     this.prescribeData = JSON.parse(

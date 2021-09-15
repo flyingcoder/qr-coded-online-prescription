@@ -125,19 +125,24 @@ export default {
       }
 
       const posXEnd = touchEvent.changedTouches[0].clientX
+      const diff = Math.abs(posXStart - posXEnd)
+      console.log(diff)
       let pos = 0
-      if (posXStart < posXEnd) {
-        // swipe right
-        pos = '100px'
-      } else if (posXStart > posXEnd) {
-        // swipe left
-        pos = '-100px'
-      }
-      if (this.$route.name === 'dashboard') {
-        if (touchEvent.target === this.$refs.full)
+      if (diff > 10) {
+        if (posXStart < posXEnd) {
+          // swipe right
+          pos = '100px'
+        } else if (posXStart > posXEnd) {
+          // swipe left
+          pos = '-100px'
+        }
+        if (this.$route.name === 'dashboard') {
+          if (touchEvent.target === this.$refs.full)
+            this.$refs.full.style.transform =
+              'translate3D(' + pos + ', 0px, 0px)'
+        } else {
           this.$refs.full.style.transform = 'translate3D(' + pos + ', 0px, 0px)'
-      } else {
-        this.$refs.full.style.transform = 'translate3D(' + pos + ', 0px, 0px)'
+        }
       }
     },
     reRoute(xs, xe) {
@@ -149,9 +154,7 @@ export default {
           this.routes = this.patient
           break
       }
-
       const diff = Math.abs(xs - xe)
-
       if (diff > 100) {
         if (xs < xe) {
           // swipe right
@@ -170,7 +173,15 @@ export default {
         return
       }
       const posXEnd = touchEvent.changedTouches[0].clientX
-
+      // const diffe = Math.abs(posXStart - posXEnd)
+      // console.log(diffe)
+      // if (posXStart < posXEnd) {
+      //   // swipe right
+      //   pos = '100px'
+      // } else if (posXStart > posXEnd) {
+      //   // swipe left
+      //   pos = '-100px'
+      // }
       this.$refs.full.style.transform = 'translate3D(0px, 0px, 0px)'
 
       if (this.$route.name === 'dashboard') {

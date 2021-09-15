@@ -66,4 +66,5 @@
     </template>
   </v-app-bar>
 </template>
-<style src="./DoctorHeader.scss" lang="scss" scope></style>
+<style src="./DoctorHeader.scss" lang="scss" scoped></style>
+<style scoped></style>

@@ -77,4 +77,4 @@
     </template>
   </v-app-bar>
 </template>
-<style src="./PharmacyHeader.scss" lang="scss" scope></style>
+<style src="./PharmacyHeader.scss" lang="scss" scoped></style>

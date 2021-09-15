@@ -70,4 +70,4 @@
     </template>
   </v-app-bar>
 </template>
-<style src="./PatientHeader.scss" lang="scss" scope></style>
+<style src="./PatientHeader.scss" lang="scss" scoped></style>
