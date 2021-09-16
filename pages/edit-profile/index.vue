@@ -94,7 +94,7 @@
       </v-row>
       <v-row class="sm-side-padding">
         <v-text-field
-          v-model="user_info.new_password"
+          v-model="user_info.password_confirmed"
           label="New Password"
           outlined
           dense

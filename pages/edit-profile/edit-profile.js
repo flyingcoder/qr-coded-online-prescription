@@ -12,7 +12,7 @@ export default {
         license_number: '',
         tin_number: '',
         password: '',
-        new_password: '',
+        password_confirmed: '',
         bio: '',
       },
       rules: {
