@@ -10,10 +10,27 @@
         class="main-search-input"
       ></v-text-field>
     </div>
-
+    <div class="d-flex">
+      <div
+        :class="{
+          'page-item': true,
+          patient_pharmacy_title: $auth.user.role === 'patient',
+          patient_pharmacy_title: $auth.user.role === 'doctor',
+        }"
+        class="pharmacys-list-title align-self-center"
+      >
+        All Medicine in the Database
+      </div>
+      <v-spacer />
+      <div>
+        <v-btn class="mx-2" fab dark small color="primary" to="medicine/add">
+          <v-icon dark> mdi-plus </v-icon>
+        </v-btn>
+      </div>
+    </div>
     <v-list three-line class="pharmacys-background-color">
       <template v-for="(item, index) in allmedicines">
-        <v-subheader
+        <!-- <v-subheader
           v-if="index == 0"
           :key="index + item.created_at"
           :class="{
@@ -23,7 +40,7 @@
           }"
           class="pharmacys-list-title"
           >All Medicine in the Database</v-subheader
-        >
+        > -->
 
         <v-divider :key="index + 'div'"></v-divider>
 

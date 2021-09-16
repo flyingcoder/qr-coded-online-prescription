@@ -28,17 +28,14 @@
       border-radius: 100%;
       border: 2px solid #1ac6b6;
     }
-    .mainuser-name {
-      font-weight: 600;
-      font-size: 18px;
-    }
-    .mainuser-email {
-      font-weight: 400;
-      font-size: 16px;
-    }
+  }
+  .settings-title {
+    font-size: 22px;
+    font-weight: 600;
+    padding-top: 20px;
   }
   .settings-options {
-    padding-top: 30px;
+    padding-top: 10px;
     .accordion-title {
       padding-left: 10px;
     }

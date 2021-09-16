@@ -53,13 +53,13 @@
           ><v-icon>mdi-hand-heart</v-icon></NuxtLink
         > -->
         <NuxtLink to="/orders" class="menu-icon"
-          ><v-icon>mdi-cart-plus</v-icon></NuxtLink
+          ><v-icon>mdi-hand-heart</v-icon></NuxtLink
         >
         <!-- <NuxtLink to="/medicine" class="menu-icon"
           ><v-icon>mdi-hospital-box</v-icon></NuxtLink
         > -->
         <NuxtLink to="/all-medicines" class="menu-icon"
-          ><v-icon>mdi-contacts</v-icon></NuxtLink
+          ><v-icon>mdi-cart-plus</v-icon></NuxtLink
         >
         <NuxtLink to="/doctors" class="menu-icon"
           ><v-icon>mdi-contacts</v-icon></NuxtLink

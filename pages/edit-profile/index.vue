@@ -20,7 +20,7 @@
       <v-row>
         <v-col>
           <v-text-field
-            v-model="fname"
+            v-model="patient_info.fname"
             label="First Name"
             outlined
             dense
@@ -28,7 +28,7 @@
         </v-col>
         <v-col>
           <v-text-field
-            v-model="lname"
+            v-model="patient_info.lname"
             label="Last Name"
             outlined
             dense
@@ -38,7 +38,7 @@
       <v-row>
         <v-col
           ><v-text-field
-            v-model="email"
+            v-model="patient_info.email"
             label="Email"
             :rules="[rules.required, rules.email]"
             outlined
@@ -47,7 +47,7 @@
         ></v-col>
         <v-col>
           <v-text-field
-            v-model="address"
+            v-model="patient_info.address"
             label="Address"
             outlined
             dense
@@ -57,16 +57,8 @@
       <v-row>
         <v-col
           ><v-text-field
-            v-model="phone"
+            v-model="patient_info.phone"
             label="Phone Number"
-            outlined
-            dense
-          ></v-text-field
-        ></v-col>
-        <v-col
-          ><v-text-field
-            v-model="license_number"
-            label="License Number"
             outlined
             dense
           ></v-text-field
@@ -74,7 +66,17 @@
       </v-row>
       <v-row class="sm-side-padding">
         <v-text-field
-          v-model="tin_number"
+          v-if="$auth.user.role === 'pharmacy' || $auth.user.role === 'doctor'"
+          v-model="patient_info.license_number"
+          label="License Number"
+          outlined
+          dense
+        ></v-text-field>
+      </v-row>
+      <v-row class="sm-side-padding">
+        <v-text-field
+          v-if="$auth.user.role === 'pharmacy' || $auth.user.role === 'doctor'"
+          v-model="patient_info.tin_number"
           label="Tin Number"
           outlined
           dense
@@ -82,20 +84,29 @@
       </v-row>
       <v-row id="password" class="sm-side-padding">
         <v-text-field
-          v-model="password"
+          v-model="patient_info.password"
           label="Password"
           outlined
           dense
         ></v-text-field>
       </v-row>
       <v-row class="sm-side-padding">
-        <v-text-field label="New Password" outlined dense></v-text-field>
+        <v-text-field
+          v-model="patient_info.new_password"
+          label="New Password"
+          outlined
+          dense
+        ></v-text-field>
       </v-row>
       <v-row class="sm-side-padding">
-        <v-textarea v-model="bio" outlined label="BIO"></v-textarea>
+        <v-textarea
+          v-model="patient_info.bio"
+          outlined
+          label="BIO"
+        ></v-textarea>
       </v-row>
     </div>
-    <v-btn tile color="success">
+    <v-btn tile color="success" @click="saveChanges">
       <v-icon left> mdi-content-save </v-icon>
       Save Changes
     </v-btn>

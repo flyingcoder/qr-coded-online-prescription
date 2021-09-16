@@ -14,9 +14,8 @@
           width="90px"
           height="90px"
         />
-        <div class="mainuser-name">{{ $auth.user.fname }}</div>
-        <div class="mainuser-email">{{ $auth.user.email }}</div>
       </div>
+      <div class="d-flex justify-center settings-title">Options</div>
       <div class="settings-options">
         <v-expansion-panels accordion elevation="0">
           <v-expansion-panel elevation="0">

@@ -12,7 +12,13 @@
     </div>
     <div class="d-block">
       <label class="text-cl">Amount</label>
-      <v-text-field placeholder="Amount" outlined dense></v-text-field>
+      <v-text-field
+        v-model="amount"
+        placeholder="Amount"
+        outlined
+        dense
+        type="number"
+      ></v-text-field>
     </div>
     <div class="d-flex" style="margin-top: 20px">
       <v-btn outlined color="black" width="100%"> Add Amount </v-btn>
@@ -24,7 +30,7 @@
 
 <style lang="scss" scoped>
 .admin-page {
-  padding: 10px 20px;
+  padding: 60px 20px;
 }
 .text-cl {
   color: black !important;
