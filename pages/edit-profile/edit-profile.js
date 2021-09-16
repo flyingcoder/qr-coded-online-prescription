@@ -3,7 +3,7 @@ export default {
   layout: 'search-notification',
   data() {
     return {
-      patient_info: {
+      user_info: {
         fname: '',
         lname: '',
         email: '',
@@ -33,13 +33,12 @@ export default {
     },
     getUserInfo() {
       this.$axios.get('login-user').then((data) => {
-        this.patient_info = data.data
-        console.log(this.patient_info)
+        this.user_info = data.data
       })
     },
     saveChanges() {
-      this.$axios.put('users/edit').then((data) => {
-        this.patient_info = data.data
+      this.$axios.put('user/edit', this.user_info).then(() => {
+        location.reload()
       })
     },
   },
