@@ -87,7 +87,7 @@
       <v-row id="password" class="sm-side-padding">
         <v-text-field
           v-model="user_info.password"
-          label="Password"
+          label="New Password"
           outlined
           dense
         ></v-text-field>
@@ -95,7 +95,7 @@
       <v-row class="sm-side-padding">
         <v-text-field
           v-model="user_info.password_confirmed"
-          label="New Password"
+          label="Confirm Password"
           outlined
           dense
         ></v-text-field>
