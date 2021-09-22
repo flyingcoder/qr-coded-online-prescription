@@ -15,7 +15,6 @@
       three-line
       class="pharmacys-background-color"
     >
-      <div>Your Prescriptions will Show Here.</div>
       <template v-for="(item, index) in prescriptions">
         <v-subheader
           v-if="index == 0"
