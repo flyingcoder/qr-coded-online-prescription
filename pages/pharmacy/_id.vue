@@ -2,7 +2,7 @@
   <div>
     <div>
       <v-card elevation="3" class="padding-bottom-sm">
-        <div class="doctor-profile text-center">
+        <div class="doctor-profile text-center mb-4">
           <img
             style="
               border-radius: 100%;

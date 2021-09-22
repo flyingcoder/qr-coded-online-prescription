@@ -38,7 +38,9 @@ export default {
     },
     saveChanges() {
       this.$axios.put('user/edit', this.user_info).then(() => {
-        location.reload()
+        this.$store.dispatch('snackbar/setSnackbar', {
+          text: `Profile updated`,
+        })
       })
     },
   },
