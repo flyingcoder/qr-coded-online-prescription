@@ -22,7 +22,7 @@
         All Medicine in the Database
       </div>
       <v-spacer />
-      <div>
+      <div v-if="$auth.user.role === 'pharmacy'">
         <v-btn class="mx-2" fab dark small color="primary" to="medicine/add">
           <v-icon dark> mdi-plus </v-icon>
         </v-btn>

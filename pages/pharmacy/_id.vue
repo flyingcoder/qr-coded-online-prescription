@@ -46,7 +46,7 @@
           width="60%"
           class="btn-radius find-doctors-btn"
           style="color: white"
-          @click="$route.push('chatbox/' + profile.id)"
+          @click="$router.push('/chatbox/' + profile.id)"
         >
           Contact
         </v-btn>
