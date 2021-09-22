@@ -20,7 +20,9 @@
             </div></v-expansion-panel-header
           >
           <v-expansion-panel-content class="gcash-payment-method-content">
-            <img :src="item.icon_inner" alt="" width="200px" />
+            <div class="d-flex justify-center">
+              <img :src="item.icon_inner" alt="" width="200px" />
+            </div>
             <div class="wallet-content full-width">
               <div
                 v-if="item.content"
@@ -114,8 +116,8 @@ export default {
       payment_method: [
         {
           id: 'gcash',
-          icon: '@/assets/images/gcash-icon-small.png',
-          icon_inner: '@/assets/images/gcash-icon.png',
+          icon: '/_nuxt/assets/images/gcash-icon-small.png',
+          icon_inner: '/_nuxt/assets/images/gcash-icon.png',
           title: 'GCash e-Wallet',
           content:
             'Reseta Qrx can now accept payment using GCash. You will be redirected to the GCash website to finish the payment.',
