@@ -57,8 +57,6 @@
             dense
             solo
             prepend-inner-icon="mdi-magnify"
-            chips
-            small-chips
             placeholder="Search Any Patient"
             @change="patientSelected"
           >
@@ -94,8 +92,6 @@
             dense
             solo
             prepend-inner-icon="mdi-magnify"
-            chips
-            small-chips
             placeholder="Search Any Medicine"
             @change="medicineSelected"
           ></v-autocomplete>
