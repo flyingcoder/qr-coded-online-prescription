@@ -229,6 +229,7 @@ export default {
     display: flex;
     align-self: center;
     color: black !important;
+    padding-left: 10px;
   }
 }
 .prescription-content-header {
