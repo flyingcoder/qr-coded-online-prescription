@@ -1,5 +1,12 @@
 <template>
   <div class="wallet-payment-method">
+    <v-dialog
+      v-model="payment_form"
+      transition="dialog-bottom-transition"
+      max-width="600"
+    >
+      <PaymentForm @closed="closePayment" />
+    </v-dialog>
     <v-row class="d-block">
       <h4 class="wallet-title">{{ title }}</h4>
     </v-row>
@@ -76,8 +83,8 @@
               </div>
               <div
                 v-if="item.confirm"
-                class="wallet-confirm-selection text-center-pd"
-                @click="pay(item.id)"
+                class="wallet-confirm-selection text-center-pd pb-1"
+                @click="paymentForm"
               >
                 <v-btn elevation="2" text tile>{{ item.confirm }}</v-btn>
               </div>
@@ -103,6 +110,7 @@ export default {
     return {
       defaultPanel: 0,
       ex11: '',
+      payment_form: false,
       payment_method: [
         {
           id: 'gcash',
@@ -139,6 +147,12 @@ export default {
     },
     pay(method) {
       this.$emit('methodconfirm', method)
+    },
+    paymentForm() {
+      this.payment_form = true
+    },
+    closePayment() {
+      this.payment_form = false
     },
   },
 }

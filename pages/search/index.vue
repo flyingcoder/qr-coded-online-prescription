@@ -133,5 +133,16 @@
 </template>
 
 <script src="./search.js"></script>
-
-<style src="./search.scss" lang="scss"></style>
+<style scoped>
+>>> .v-menu__content {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  left: 0 !important;
+  height: 100% !important;
+  box-shadow: none !important;
+  top: 105px !important;
+}
+</style>
+<style src="./search.scss" lang="scss" scoped></style>
