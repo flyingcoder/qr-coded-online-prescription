@@ -41,7 +41,6 @@
             <div>
               <v-card
                 class="pa-2"
-                height="150px"
                 elevation="2"
                 width="95%"
                 style="margin: 5px"
