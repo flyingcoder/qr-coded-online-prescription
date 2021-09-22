@@ -23,7 +23,7 @@
       </div>
       <v-spacer />
       <div v-if="$auth.user.role === 'pharmacy'">
-        <v-btn class="mx-2" fab dark small color="primary" to="medicine/add">
+        <v-btn class="mx-2" fab dark small color="#1ac6b6" to="medicine/add">
           <v-icon dark> mdi-plus </v-icon>
         </v-btn>
       </div>
@@ -66,7 +66,7 @@
                 outlined
                 x-small
                 fab
-                color="indigo"
+                color="#1ac6b6"
                 @click="sellMed(item.id)"
               >
                 <v-icon>mdi-plus</v-icon>
@@ -77,7 +77,7 @@
                 outlined
                 x-small
                 fab
-                color="indigo"
+                color="#1ac6b6"
                 @click="viewProfile(id)"
               >
                 <v-icon>mdi-eye-outline</v-icon>

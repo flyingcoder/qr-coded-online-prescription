@@ -10,7 +10,12 @@
         class="main-search-input"
       ></v-text-field>
     </div>
-    <v-list three-line class="pharmacys-background-color">
+    <v-list
+      v-if="prescriptions.length > 0"
+      three-line
+      class="pharmacys-background-color"
+    >
+      <div>Your Prescriptions will Show Here.</div>
       <template v-for="(item, index) in prescriptions">
         <v-subheader
           v-if="index == 0"
@@ -45,6 +50,9 @@
         </v-list-item>
       </template>
     </v-list>
+    <div v-else class="no-prescription">
+      The prescriptions will display here.
+    </div>
   </div>
 </template>
 
@@ -76,5 +84,11 @@ export default {
 <style lang="scss" scoped>
 .search-pharmacy-input {
   height: 45px;
+}
+.no-prescription {
+  padding-top: 100px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
 }
 </style>

@@ -65,7 +65,7 @@
                     outlined
                     x-small
                     fab
-                    color="indigo"
+                    color="#1ac6b6"
                     background="red"
                     @click="contact(item.id)"
                   >
@@ -76,7 +76,7 @@
                     outlined
                     x-small
                     fab
-                    color="indigo"
+                    color="#1ac6b6"
                     @click="viewProfile(item.id)"
                   >
                     <v-icon>mdi-account</v-icon>
@@ -120,7 +120,7 @@
                     outlined
                     x-small
                     fab
-                    color="indigo"
+                    color="#1ac6b6"
                     @click="contact(item.id)"
                   >
                     <v-icon>mdi-phone</v-icon>
@@ -130,7 +130,7 @@
                     outlined
                     x-small
                     fab
-                    color="indigo"
+                    color="#1ac6b6"
                     @click="viewProfile(item.id)"
                   >
                     <v-icon>mdi-account</v-icon>
