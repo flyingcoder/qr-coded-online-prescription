@@ -11,6 +11,7 @@
         :patient="patient_info"
         :prescriptions="meds"
         @closed="closePrescription"
+        @delmeds="removeMeds"
       />
     </v-dialog>
     <v-form id="main-prescription-form">
@@ -56,8 +57,6 @@
             dense
             solo
             prepend-inner-icon="mdi-magnify"
-            chips
-            small-chips
             placeholder="Search Any Patient"
             @change="patientSelected"
           >
@@ -93,8 +92,6 @@
             dense
             solo
             prepend-inner-icon="mdi-magnify"
-            chips
-            small-chips
             placeholder="Search Any Medicine"
             @change="medicineSelected"
           ></v-autocomplete>
@@ -130,7 +127,7 @@
               style="width: 50%; margin-right: 10px"
               outlined
               dense
-              label="# of meds/cycle"
+              label="Quantity"
               type="number"
               :rules="[numberRule]"
             ></v-text-field>
@@ -152,7 +149,7 @@
               outlined
               type="number"
               dense
-              label="# per cycle"
+              label="Dosage"
               style="width: 25%; margin-right: 10px"
               :rules="[numberRule]"
             ></v-text-field>
@@ -168,21 +165,15 @@
               v-model="sig.cycle"
               :items="duration"
               dense
-              append-icon=""
               style="width: 30%"
               clear-icon
               outlined
             ></v-select>
           </div>
         </div>
-        <div v-if="sig.repeat.length === 1" class="patient-sig-hours">
+        <div v-if="sig.repeat.length === 1" class="patient-sig-hours" v->
           <div class="patient-sig-am">
-            <v-item-group
-              v-model="sig.hours_time"
-              multiple
-              :max="cycle_value"
-              @change="saveTime($event)"
-            >
+            <v-item-group v-model="sig.hours_time" multiple :max="sig.repeat">
               <v-item
                 v-for="n in 24"
                 :key="n.id"
@@ -305,13 +296,8 @@ export default {
       patient_info: {},
     }
   },
-  computed: {
-    cycle_value() {
-      const cycle = this.sig.repeat
-      return cycle
-    },
-  },
-
+  computed: {},
+  watch: {},
   mounted() {
     if (this.$route.params.id) this.getPatient()
     this.prescribeData = JSON.parse(
@@ -338,18 +324,18 @@ export default {
     this.getPatients()
   },
   methods: {
-    saveTime(el) {
-      console.log(this.sig.hours_time)
-      // console.log(el.target)
-      // if (this.hours_time.length <= this.sig.repeat) {
-      //   if (this.hours_time.includes(n)) {
-      //     this.hours_time.splice(this.hours_time.indexOf(n), 1)
-      //   } else {
-      //     this.hours_time.push(n)
-      //     this.active = !this.active
-      //     console.log(this.active)
-      //   }
-      // }
+    removeMeds(data) {
+      this.medCounter = this.medCounter - 1
+      this.meds.splice(this.meds.indexOf(data), 1)
+      const parseMed = {
+        patient: this.patient_info,
+        meds: this.meds,
+      }
+      window.localStorage.setItem('medCounter', this.medCounter)
+      window.localStorage.setItem('prescribeData', JSON.stringify(parseMed))
+      this.$store.dispatch('snackbar/setSnackbar', {
+        text: `A medicine is removed to prescription pad.`,
+      })
     },
     closePrescription() {
       this.popup_prescribed = false
@@ -424,9 +410,14 @@ export default {
         this.meds = parseMed.meds
         window.localStorage.setItem('prescribeData', JSON.stringify(parseMed))
         this.drug_info = ''
+        // this.sig.repeat = ''
+        // this.sig.hours_time = ''
+        // this.sig.duration = ''
+        // this.sig.amount = ''
+        // this.sig.note = ''
+        window.location.reload()
         this.medCounter = this.medCounter + 1
         window.localStorage.setItem('medCounter', this.medCounter)
-
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `A medicine is added to prescription pad.`,
         })
@@ -531,12 +522,12 @@ span.v-chip.active-hours-cycle.v-chip--active.v-chip--clickable.v-chip--label.v-
 .patient-info-time {
   font-size: 13px;
 }
-.patient-sig-hours {
-  label {
-    position: absolute !important;
-    top: -15px;
-  }
-}
+// .patient-sig-hours {
+//   label {
+//     position: absolute !important;
+//     top: -15px;
+//   }
+// }
 .patient-duration-input {
   #input-60 {
     display: none;

@@ -95,7 +95,7 @@
         <div class="prescription-notes">Notes: {{ pres.pivot.note }}</div>
       </div>
     </div>
-    <div class="send-prescribed">
+    <div v-if="$auth.user.role === 'patient'" class="send-prescribed">
       <v-btn @click="buyMeds">Buy Medication</v-btn>
     </div>
   </div>

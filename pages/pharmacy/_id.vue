@@ -2,7 +2,7 @@
   <div>
     <div>
       <v-card elevation="3" class="padding-bottom-sm">
-        <div class="doctor-profile text-center">
+        <div class="doctor-profile text-center mb-4">
           <img
             style="
               border-radius: 100%;
@@ -10,25 +10,32 @@
               border: 2px solid #1ac6b6;
               margin-top: 10px;
             "
-            :src="pharmacy.avatar"
-            :alt="pharmacy.fname"
+            :src="profile.avatar"
+            :alt="profile.fname"
           />
         </div>
         <div class="doctor-information padding-content text-center-pd">
-          <div class="name padding-bottom-sm">
-            {{ pharmacy.name }}
-          </div>
           <div id="word-related" class="margin-top-pull padding-bottom-sm">
-            <b>PHARMACY</b>
+            <b
+              style="font-size: 21px !important; font-weight: 600 !important"
+              >{{ profile.fullname }}</b
+            ><br />
+            <span class="pharmacy-top-info">{{ profile.experties }}</span
+            ><br />
+            <span class="pharmacy-top-info" style="top: -12px">{{
+              profile.address
+            }}</span
+            ><br />
+            <span class="pharmacy-top-info" style="top: -17px">{{
+              profile.phone
+            }}</span>
           </div>
-          <div class="address">
-            {{ pharmacy.address }}
+
+          <div>
+            {{ profile.bio }}
           </div>
-          <div class="contact">
-            {{ pharmacy.number }}
-          </div>
-          <div class="content">
-            {{ pharmacy.description }}
+          <div style="margin-top: 24px; font-weight: 900; font-size: 16px">
+            {{ profile.email }}
           </div>
         </div>
       </v-card>
@@ -39,7 +46,7 @@
           width="60%"
           class="btn-radius find-doctors-btn"
           style="color: white"
-          to="/chatbox/2"
+          @click="$router.push('/chatbox/' + profile.id)"
         >
           Contact
         </v-btn>
@@ -51,20 +58,29 @@
 <script>
 export default {
   layout: 'dashboard',
+  middleware: 'auth',
   data() {
     return {
-      pharmacy: {
-        id: 0,
-        avatar: '/_nuxt/assets/images/pharmacy-logo.jpg',
-        name: 'Brennen Drugs CO.',
-        address: `Davao Del Sur`,
-        number: '09187829876',
-        description:
-          'Pharmacy is the clinical health science that links medical science with chemistry and it is charged with the discovery',
-      },
+      profile: {},
     }
+  },
+  mounted() {
+    this.getUser()
+  },
+  methods: {
+    async getUser() {
+      await this.$axios.get('user/' + this.$route.params.id).then((data) => {
+        this.profile = data.data
+      })
+    },
   },
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.pharmacy-top-info {
+  position: relative !important;
+  top: -6px;
+  font-size: 15px;
+}
+</style>

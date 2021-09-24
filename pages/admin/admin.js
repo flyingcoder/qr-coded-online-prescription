@@ -1,11 +1,12 @@
 export default {
-  name: 'Pharmacy',
-  layout: 'dashboard',
+  name: 'Admin',
+  layout: 'admin',
+  middleware: 'auth',
   data() {
     return {
-      grid: true,
-      align: '',
       pharmacies: [],
+      patient_info: '',
+      amount: '',
     }
   },
   mounted() {
@@ -13,8 +14,9 @@ export default {
   },
   methods: {
     async getPharmacies() {
-      await this.$axios.get('stores').then((data) => {
+      await this.$axios.get('users/pharmacy').then((data) => {
         this.pharmacies = data.data
+        console.log(data)
       })
     },
   },

@@ -95,30 +95,27 @@ svg.svg-inline--fa.fa-file-image.fa-w-12 {
 .messenger-sendCard svg:active {
   transform: scale(0.9);
 }
-.dot {
-  width: 8px;
-  height: 8px;
-  background: #bcc1c6;
-  display: inline-block;
-  border-radius: 50%;
-  right: 0px;
-  bottom: 0px;
-  position: relative;
-  animation: jump 1s infinite;
-}
-.typing-dots .dot-1 {
-  -webkit-animation-delay: 100ms;
-  animation-delay: 100ms;
-}
-.typing-dots .dot-2 {
-  -webkit-animation-delay: 200ms;
-  animation-delay: 200ms;
-}
+// .dot {
+//   width: 8px;
+//   height: 8px;
+//   background: #bcc1c6;
+//   display: inline-block;
+//   border-radius: 50%;
+//   right: 0px;
+//   bottom: 0px;
+//   position: relative;
+//   animation: jump 1s infinite;
+// }
+// .typing-dots .dot-2 {
+//   -webkit-animation-delay: 200ms;
+//   animation-delay: 200ms;
+// }
 
-.typing-dots .dot-3 {
-  -webkit-animation-delay: 300ms;
-  animation-delay: 300ms;
-}
+// .typing-dots .dot-3 {
+//   -webkit-animation-delay: 300ms;
+//   animation-delay: 300ms;
+// }
+
 .message-card {
   display: block;
   margin: 2px 15px;
@@ -343,4 +340,75 @@ svg.seen {
   position: absolute;
   top: 15px;
   left: 5px;
+}
+.typing-dots {
+  position: relative;
+  display: flex;
+}
+.typing-dots .dot-1,
+.typing-dots .dot-2,
+.typing-dots .dot-3 {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  background: #e0dede;
+  border-radius: 100% !important;
+  margin-right: 7px;
+}
+.typing-dots .dot-1 {
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-name: dot1;
+  animation-iteration-count: infinite;
+}
+.typing-dots .dot-2 {
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-name: dot2;
+  animation-iteration-count: infinite;
+}
+.typing-dots .dot-3 {
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-name: dot3;
+  animation-iteration-count: infinite;
+}
+@keyframes dot1 {
+  0% {
+  	top: 0px;
+  }
+  30% {
+  	background: #d6d5d4;
+    top: -8px;
+  }
+  80% {
+  	top: 0px;
+  }
+}
+@keyframes dot2 {
+  10% {
+  	top: 0px;
+  }
+  50% {
+  	background: #d6d5d4;
+    top: -8px;
+  }
+  90% {
+  	top: 0px;
+  }
+}
+@keyframes dot3 {
+  20% {
+  	top: 0px;
+  }
+  60% {
+  	background: #d6d5d4;
+    top: -8px;
+  }
+  100% {
+  	top: 0px;
+  }
 }

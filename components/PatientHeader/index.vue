@@ -36,7 +36,9 @@
     <div class="notification-icon">
       <NuxtLink to="/notification">
         <v-btn icon>
-          <v-icon>mdi-bell</v-icon>
+          <v-badge dot overlap color="red">
+            <v-icon>mdi-bell</v-icon>
+          </v-badge>
         </v-btn>
       </NuxtLink>
     </div>
@@ -68,4 +70,4 @@
     </template>
   </v-app-bar>
 </template>
-<style src="./PatientHeader.scss" lang="scss" scope></style>
+<style src="./PatientHeader.scss" lang="scss" scoped></style>
