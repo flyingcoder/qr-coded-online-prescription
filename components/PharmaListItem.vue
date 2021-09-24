@@ -1,5 +1,5 @@
 <template>
-  <v-list-item :key="item.fullname" class="pharmacy-list-section">
+  <v-list-item :key="item.fullname" class="pharmacy-list-section d-block">
     <v-list-item-avatar>
       <img :src="item.avatar" :alt="item.fullname" />
     </v-list-item-avatar>
@@ -15,7 +15,7 @@
       </v-list-item-title>
     </v-list-item-content>
 
-    <slot>
+    <!-- <slot>
       <v-btn
         class="ma-2 list-contact-pharmacy"
         outlined
@@ -26,7 +26,7 @@
       >
         <v-icon>mdi-eye-outline</v-icon>
       </v-btn>
-    </slot>
+    </slot> -->
   </v-list-item>
 </template>
 

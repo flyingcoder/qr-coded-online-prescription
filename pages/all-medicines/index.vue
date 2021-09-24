@@ -78,7 +78,7 @@
                 x-small
                 fab
                 color="#1ac6b6"
-                @click="viewProfile(id)"
+                @click="viewProfile(item.id)"
               >
                 <v-icon>mdi-eye-outline</v-icon>
               </v-btn>
