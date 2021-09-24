@@ -3,7 +3,7 @@
     <div class="search-patients-input">
       <v-text-field
         label="Search"
-        placeholder="Search Patient"
+        placeholder="Search Medicine"
         prepend-inner-icon="mdi-magnify"
         outlined
         dense
