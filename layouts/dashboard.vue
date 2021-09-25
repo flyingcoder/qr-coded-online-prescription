@@ -90,6 +90,23 @@ export default {
   },
   mounted() {
     this.getNotification()
+    this.$echo
+      .private(`notifications.${this.$auth.user.id}`)
+      .listen('.NewPrescription', (payload) => {
+        console.log('.NewPrescription', payload)
+        this.notification += 1
+        this.$bus.$emit('NewPrescription', payload)
+      })
+      .listen('.NewChatMessage', (payload) => {
+        console.log('.NewChatMessage', payload)
+        this.notification += 1
+        this.$bus.$emit('NewChatMessage', payload)
+      })
+      .listen('.NewUser', (payload) => {
+        console.log('.NewUser', payload)
+        this.notification += 1
+        this.$bus.$emit('NewUser', payload)
+      })
   },
   methods: {
     getNotification() {
