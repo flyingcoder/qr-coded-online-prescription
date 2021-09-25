@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="medicine-badge">
-          <v-badge color="#223A6B" :content="medCounter">
+          <v-badge v-if="medCounter > 0" color="#223A6B" :content="medCounter">
             <v-btn
               class="mx-2"
               fab

@@ -17,9 +17,7 @@ export default {
       this.$router.push('/pharmacy/' + id)
     },
     editMedicine(id) {
-      this.$axios.put('medicines/' + id).then((data) => {
-        this.medicine = data.data
-      })
+      this.$router.push('/medicine/edit/' + id)
     },
     async getMedicines() {
       await this.$axios

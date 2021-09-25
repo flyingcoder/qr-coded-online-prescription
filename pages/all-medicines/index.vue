@@ -3,7 +3,7 @@
     <div class="search-patients-input">
       <v-text-field
         label="Search"
-        placeholder="Search Patient"
+        placeholder="Search Medicine"
         prepend-inner-icon="mdi-magnify"
         outlined
         dense
@@ -78,7 +78,7 @@
                 x-small
                 fab
                 color="#1ac6b6"
-                @click="viewProfile(id)"
+                @click="viewProfile(item.id)"
               >
                 <v-icon>mdi-eye-outline</v-icon>
               </v-btn>

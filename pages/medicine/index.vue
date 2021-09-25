@@ -32,7 +32,7 @@
                 class="ma-4"
                 height="200"
                 width="100"
-                @click="editMedicine(id)"
+                @click="editMedicine(item.id)"
               >
                 <v-row class="fill-height" align="center" justify="center">
                   <div class="d-flex">
@@ -40,6 +40,7 @@
                       :src="
                         $config.baseURL + '/storage/medicines/' + item.image
                       "
+                      width="120px"
                     />
                   </div>
                   <div class="d-flex">

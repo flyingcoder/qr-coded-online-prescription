@@ -3,7 +3,7 @@
     <div class="search-pharmacy-input">
       <v-text-field
         label="Search"
-        placeholder="Search Patient"
+        placeholder="Search Prescription"
         prepend-inner-icon="mdi-magnify"
         outlined
         dense
