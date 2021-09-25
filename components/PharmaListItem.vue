@@ -1,5 +1,5 @@
 <template>
-  <v-list-item :key="item.fullname" class="pharmacy-list-section d-block">
+  <v-list-item :key="item.fullname" class="pharmacy-list-section">
     <v-list-item-avatar>
       <img :src="item.avatar" :alt="item.fullname" />
     </v-list-item-avatar>
