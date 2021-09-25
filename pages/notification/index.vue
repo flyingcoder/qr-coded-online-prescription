@@ -26,7 +26,7 @@
         <div class="notifications">
           <div
             v-for="noti in notifications"
-            :key="noti"
+            :key="noti.id"
             class="notification-created"
           >
             <v-row class="notification-content-box">

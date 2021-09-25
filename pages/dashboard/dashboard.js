@@ -15,7 +15,7 @@ export default {
         this.$store.dispatch('preloader/setPreloader', {
           showing: false,
         })
-        this.newsfeeds = data.data.contacts === '' ? [] : data.data.contacts
+        this.newsfeeds = data.data.contacts
       })
     },
   },
@@ -24,5 +24,11 @@ export default {
       showing: true,
     })
     this.getContacts()
+    this.$bus.$on('NewPrescription', (payload) => {
+      this.getContacts()
+    })
+    this.$bus.$on('NewChatMessage', (payload) => {
+      this.getContacts()
+    })
   },
 }
