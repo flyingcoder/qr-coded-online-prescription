@@ -7,6 +7,15 @@ export default {
   },
   mounted() {
     this.getNotifications()
+    this.$bus.$on('NewPrescription', (payload) => {
+      this.getNotifications()
+    })
+    this.$bus.$on('NewUser', (payload) => {
+      this.getNotifications()
+    })
+    this.$bus.$on('NewChatMessage', (payload) => {
+      this.getNotifications()
+    })
   },
   methods: {
     to() {
