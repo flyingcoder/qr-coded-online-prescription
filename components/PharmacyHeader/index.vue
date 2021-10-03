@@ -19,7 +19,7 @@
 
     <div class="d-flex" style="width: 100%; padding-left: 13%">
       <v-app-bar-title>
-        <img class="logo-wide" src="@/assets/images/white-main-logo.png"
+        <img class="logo-wide" :src="$auth.user.avatar"
       /></v-app-bar-title>
       <div class="reseta-logo-text">ResetaQrx</div>
     </div>

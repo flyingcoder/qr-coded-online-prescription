@@ -12,11 +12,7 @@
     </template>
 
     <div class="user">
-      <img
-        class="user-icon"
-        :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-        alt="Alvin Pacot"
-      />
+      <img class="user-icon" :src="$auth.user.avatar" alt="Alvin Pacot" />
     </div>
 
     <v-spacer></v-spacer>
