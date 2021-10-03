@@ -19,6 +19,10 @@ export default {
         .get('medicines/prescribe/' + this.$route.params.prescription_id)
         .then((data) => {
           console.log(this.$auth.user.id)
+          this.allmedicines = data.data.meds
+          this.doctor_id = data.data.doctor_id
+          this.prescription_id = data.data.prescription_id
+          /*
           if (
             this.$auth.user.id === data.data.patient_id ||
             this.$auth.user.id === data.data.doctor_id
@@ -28,7 +32,7 @@ export default {
             this.prescription_id = data.data.prescription_id
           } else {
             //this.$router.back()
-          }
+          }*/
         })
     },
     addToCart() {
