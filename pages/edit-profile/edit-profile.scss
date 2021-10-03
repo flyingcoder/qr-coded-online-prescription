@@ -10,11 +10,14 @@
   top: 15px;
 }
 .edit-profile-image {
+  min-height: 150px;
+  height: auto;
   display: flex;
   justify-content: center;
   margin: 15px 0 40px 0;
   img {
     border-radius: 100%;
+    width: 150px;
   }
 }
 .edit-image {
