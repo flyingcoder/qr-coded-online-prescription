@@ -18,6 +18,7 @@ export default {
       await this.$axios
         .get('medicines/prescribe/' + this.$route.params.prescription_id)
         .then((data) => {
+          console.log(this.$auth.user.id)
           if (
             this.$auth.user.id === data.data.patient_id ||
             this.$auth.user.id === data.data.doctor_id
@@ -26,7 +27,7 @@ export default {
             this.doctor_id = data.data.doctor_id
             this.prescription_id = data.data.prescription_id
           } else {
-            this.$router.back()
+            //this.$router.back()
           }
         })
     },
