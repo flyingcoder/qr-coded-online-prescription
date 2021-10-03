@@ -415,7 +415,8 @@ export default {
         // this.sig.duration = ''
         // this.sig.amount = ''
         // this.sig.note = ''
-        window.location.reload()
+        // window.location.reload()
+        this.$emit('reloadComponent')
         this.medCounter = this.medCounter + 1
         window.localStorage.setItem('medCounter', this.medCounter)
         this.$store.dispatch('snackbar/setSnackbar', {
