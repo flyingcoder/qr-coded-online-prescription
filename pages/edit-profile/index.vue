@@ -2,9 +2,10 @@
   <div class="edit-profile-page">
     <div class="edit-profile-title">Edit Profile</div>
     <div class="edit-profile-image">
-      <img src="~/assets/images/Inosuke_Anime_Profile.png" alt="" />
+      <img :src="user_info.avatar" alt="" />
       <div class="edit-image">
         <v-file-input
+          v-model="user_info.avatar"
           hide-input
           show-size
           class="change-profile-icon"
