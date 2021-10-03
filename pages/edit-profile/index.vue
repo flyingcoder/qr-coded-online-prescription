@@ -5,12 +5,14 @@
       <img :src="user_info.avatar" alt="" />
       <div class="edit-image">
         <v-file-input
-          v-model="user_info.avatar"
+          v-model="profile_image"
           hide-input
-          show-size
+          accept="image/*"
+          solo
+          autocomplete="off"
           class="change-profile-icon"
           prepend-icon="mdi-pencil"
-          truncate-length="15"
+          @change="displayImage"
         ></v-file-input>
       </div>
       <div class="back-button" @click="exitprofile">

@@ -1,6 +1,6 @@
 <template>
   <div class="prescription-form-page">
-    <PrescriptionForm />
+    <PrescriptionForm v-if="render" @reloadComponent="forceRerender" />
   </div>
 </template>
 
