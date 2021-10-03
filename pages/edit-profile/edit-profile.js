@@ -71,7 +71,8 @@ export default {
           )),
       }
 
-      this.$axios.post('user/edit', this.form, config).then(() => {
+      this.$axios.post('user/edit', this.form, config).then((data) => {
+        this.$auth.user.avatar = data.data.avatar
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `Profile updated`,
         })
