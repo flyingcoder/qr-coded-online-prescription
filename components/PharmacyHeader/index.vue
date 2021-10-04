@@ -48,9 +48,12 @@
         <!-- <NuxtLink to="/dispense" class="menu-icon"
           ><v-icon>mdi-hand-heart</v-icon></NuxtLink
         > -->
-        <NuxtLink to="/orders" class="menu-icon"
+        <NuxtLink to="/medicine" class="menu-icon"
           ><v-icon>mdi-hand-heart</v-icon></NuxtLink
         >
+        <!-- <NuxtLink to="/orders" class="menu-icon"
+          ><v-icon>mdi-hand-heart</v-icon></NuxtLink
+        > -->
         <!-- <NuxtLink to="/medicine" class="menu-icon"
           ><v-icon>mdi-hospital-box</v-icon></NuxtLink
         > -->
