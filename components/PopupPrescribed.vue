@@ -110,7 +110,7 @@
         </div>
       </div>
       <div class="send-prescribed">
-        <v-btn @click="submit">Prescribed</v-btn>
+        <v-btn v-if="!btnhide" @click="submit">Prescribed</v-btn>
       </div>
     </v-card>
   </div>
@@ -132,7 +132,9 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      btnhide: false,
+    }
   },
   mounted() {},
   methods: {
@@ -142,6 +144,7 @@ export default {
         doctor_id: this.$auth.user.id,
         drugs: this.prescriptions,
       }
+      this.btnhide = true
       this.$axios.post('prescriptions', datus).then((data) => {
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `You have successfully created the prescrition`,
@@ -229,6 +232,7 @@ export default {
     display: flex;
     align-self: center;
     color: black !important;
+    padding-left: 10px;
   }
 }
 .prescription-content-header {

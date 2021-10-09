@@ -2,7 +2,7 @@
   <div>
     <div>
       <v-card elevation="3" class="padding-bottom-sm">
-        <div class="doctor-profile text-center">
+        <div class="doctor-profile text-center mb-4">
           <img
             style="
               border-radius: 100%;
@@ -46,7 +46,7 @@
           width="60%"
           class="btn-radius find-doctors-btn"
           style="color: white"
-          @click="$route.push('chatbox/' + profile.id)"
+          @click="$router.push('/chatbox/' + profile.id)"
         >
           Contact
         </v-btn>

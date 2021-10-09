@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="medicine-badge">
-          <v-badge color="#223A6B" :content="medCounter">
+          <v-badge v-if="medCounter > 0" color="#223A6B" :content="medCounter">
             <v-btn
               class="mx-2"
               fab
@@ -57,8 +57,6 @@
             dense
             solo
             prepend-inner-icon="mdi-magnify"
-            chips
-            small-chips
             placeholder="Search Any Patient"
             @change="patientSelected"
           >
@@ -94,8 +92,6 @@
             dense
             solo
             prepend-inner-icon="mdi-magnify"
-            chips
-            small-chips
             placeholder="Search Any Medicine"
             @change="medicineSelected"
           ></v-autocomplete>
@@ -169,16 +165,15 @@
               v-model="sig.cycle"
               :items="duration"
               dense
-              append-icon=""
               style="width: 30%"
               clear-icon
               outlined
             ></v-select>
           </div>
         </div>
-        <div v-if="sig.repeat.length === 1" class="patient-sig-hours">
+        <div v-if="sig.repeat.length === 1" class="patient-sig-hours" v->
           <div class="patient-sig-am">
-            <v-item-group v-model="sig.hours_time" multiple :max="cycle_value">
+            <v-item-group v-model="sig.hours_time" multiple :max="sig.repeat">
               <v-item
                 v-for="n in 24"
                 :key="n.id"
@@ -301,13 +296,8 @@ export default {
       patient_info: {},
     }
   },
-  computed: {
-    cycle_value() {
-      const cycle = this.sig.repeat
-      return cycle
-    },
-  },
-
+  computed: {},
+  watch: {},
   mounted() {
     if (this.$route.params.id) this.getPatient()
     this.prescribeData = JSON.parse(
@@ -336,7 +326,7 @@ export default {
   methods: {
     removeMeds(data) {
       this.medCounter = this.medCounter - 1
-      delete this.meds[this.meds.indexOf(data)]
+      this.meds.splice(this.meds.indexOf(data), 1)
       const parseMed = {
         patient: this.patient_info,
         meds: this.meds,
@@ -425,7 +415,8 @@ export default {
         // this.sig.duration = ''
         // this.sig.amount = ''
         // this.sig.note = ''
-        window.location.reload()
+        // window.location.reload()
+        this.$emit('reloadComponent')
         this.medCounter = this.medCounter + 1
         window.localStorage.setItem('medCounter', this.medCounter)
         this.$store.dispatch('snackbar/setSnackbar', {
@@ -532,12 +523,12 @@ span.v-chip.active-hours-cycle.v-chip--active.v-chip--clickable.v-chip--label.v-
 .patient-info-time {
   font-size: 13px;
 }
-.patient-sig-hours {
-  label {
-    position: absolute !important;
-    top: -15px;
-  }
-}
+// .patient-sig-hours {
+//   label {
+//     position: absolute !important;
+//     top: -15px;
+//   }
+// }
 .patient-duration-input {
   #input-60 {
     display: none;

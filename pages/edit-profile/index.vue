@@ -2,14 +2,17 @@
   <div class="edit-profile-page">
     <div class="edit-profile-title">Edit Profile</div>
     <div class="edit-profile-image">
-      <img src="~/assets/images/Inosuke_Anime_Profile.png" alt="" />
+      <img :src="user_info.avatar" alt="" />
       <div class="edit-image">
         <v-file-input
+          v-model="profile_image"
           hide-input
-          show-size
+          accept="image/*"
+          solo
+          autocomplete="off"
           class="change-profile-icon"
           prepend-icon="mdi-pencil"
-          truncate-length="15"
+          @change="displayImage"
         ></v-file-input>
       </div>
       <div class="back-button" @click="exitprofile">
@@ -17,10 +20,10 @@
       </div>
     </div>
     <div class="edit-profile-inputs">
-      <v-row>
+      <v-row style="height: 70px">
         <v-col>
           <v-text-field
-            v-model="fname"
+            v-model="user_info.fname"
             label="First Name"
             outlined
             dense
@@ -28,17 +31,17 @@
         </v-col>
         <v-col>
           <v-text-field
-            v-model="lname"
+            v-model="user_info.lname"
             label="Last Name"
             outlined
             dense
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-row>
+      <v-row style="height: 70px">
         <v-col
           ><v-text-field
-            v-model="email"
+            v-model="user_info.email"
             label="Email"
             :rules="[rules.required, rules.email]"
             outlined
@@ -47,26 +50,20 @@
         ></v-col>
         <v-col>
           <v-text-field
-            v-model="address"
+            v-model="user_info.address"
             label="Address"
             outlined
             dense
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-row>
+      <v-row style="height: 80px">
         <v-col
           ><v-text-field
-            v-model="phone"
+            v-model="user_info.phone"
             label="Phone Number"
-            outlined
-            dense
-          ></v-text-field
-        ></v-col>
-        <v-col
-          ><v-text-field
-            v-model="license_number"
-            label="License Number"
+            type="tel"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             outlined
             dense
           ></v-text-field
@@ -74,28 +71,43 @@
       </v-row>
       <v-row class="sm-side-padding">
         <v-text-field
-          v-model="tin_number"
+          v-if="$auth.user.role === 'pharmacy' || $auth.user.role === 'doctor'"
+          v-model="user_info.license_number"
+          label="License Number"
+          outlined
+          dense
+        ></v-text-field>
+      </v-row>
+      <v-row class="sm-side-padding">
+        <v-text-field
+          v-if="$auth.user.role === 'pharmacy' || $auth.user.role === 'doctor'"
+          v-model="user_info.tin_number"
           label="Tin Number"
           outlined
           dense
         ></v-text-field>
       </v-row>
-      <v-row class="sm-side-padding">
+      <v-row id="password" class="sm-side-padding">
         <v-text-field
-          v-model="password"
-          label="Password"
+          v-model="user_info.password"
+          label="New Password"
           outlined
           dense
         ></v-text-field>
       </v-row>
       <v-row class="sm-side-padding">
-        <v-text-field label="New Password" outlined dense></v-text-field>
+        <v-text-field
+          v-model="user_info.password_confirmed"
+          label="Confirm Password"
+          outlined
+          dense
+        ></v-text-field>
       </v-row>
       <v-row class="sm-side-padding">
-        <v-textarea v-model="bio" outlined label="BIO"></v-textarea>
+        <v-textarea v-model="user_info.bio" outlined label="BIO"></v-textarea>
       </v-row>
     </div>
-    <v-btn tile color="success">
+    <v-btn tile color="success" @click="saveChanges">
       <v-icon left> mdi-content-save </v-icon>
       Save Changes
     </v-btn>

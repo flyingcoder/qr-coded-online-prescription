@@ -10,14 +10,14 @@
       <v-row class="justify-center">
         <div class="add-product-title">Drug details form</div>
       </v-row>
-      <v-row>
+      <div class="d-flex" style="margin-top: 25px">
         <v-file-input
           ref="medFile"
           name="file"
           accept="image/*"
           label="Medicine Image"
         ></v-file-input>
-      </v-row>
+      </div>
       <v-row class="row-height">
         <v-col>
           <v-text-field

@@ -26,36 +26,30 @@
     <div class="pharmacy-list-view">
       <v-card max-width="450" class="mx-auto pharmacy">
         <div class="pharmacy-list-main-btn">
-          <v-row>
-            <v-slide-group v-model="all_medicine" active-class="success">
-              <v-slide-item v-for="item in medicines" :key="item">
-                <v-card
-                  class="ma-4"
-                  height="200"
-                  width="100"
-                  @click="editMedicine(id)"
-                >
-                  <v-row align="center" justify="center">
-                    <div class="d-flex">
-                      <img
-                        width="100%"
-                        height="100%"
-                        :src="
-                          $config.baseURL + '/storage/medicines/' + item.image
-                        "
-                      />
-                    </div>
-                    <div class="d-flex" style="font-weight: 600">
-                      {{ item.generic_name }}
-                    </div>
-                    <div style="font-size: 14px">
-                      ({{ item.brand }}) {{ item.dosage }}
-                    </div>
-                  </v-row>
-                </v-card>
-              </v-slide-item>
-            </v-slide-group>
-          </v-row>
+          <v-slide-group v-model="all_medicine" active-class="success">
+            <v-slide-item v-for="item in medicines" :key="item">
+              <v-card
+                class="ma-4"
+                height="200"
+                width="100"
+                @click="editMedicine(item.id)"
+              >
+                <v-row class="fill-height" align="center" justify="center">
+                  <div class="d-flex">
+                    <img
+                      :src="
+                        $config.baseURL + '/storage/medicines/' + item.image
+                      "
+                      width="120px"
+                    />
+                  </div>
+                  <div class="d-flex">
+                    {{ item.generic_name }} ({{ item.brand }}) {{ item.dosage }}
+                  </div>
+                </v-row>
+              </v-card>
+            </v-slide-item>
+          </v-slide-group>
         </div>
       </v-card>
     </div>

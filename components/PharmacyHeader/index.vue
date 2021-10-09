@@ -12,18 +12,14 @@
     </template>
 
     <div class="user">
-      <img
-        class="user-icon"
-        :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-        alt="Alvin Pacot"
-      />
+      <img class="user-icon" :src="$auth.user.avatar" alt="Alvin Pacot" />
     </div>
 
     <v-spacer></v-spacer>
 
     <div class="d-flex" style="width: 100%; padding-left: 13%">
       <v-app-bar-title>
-        <img class="logo-wide" src="@/assets/images/white-main-logo.png"
+        <img class="logo-wide" :src="$auth.user.avatar"
       /></v-app-bar-title>
       <div class="reseta-logo-text">ResetaQrx</div>
     </div>
@@ -37,7 +33,9 @@
     <div class="notification-icon">
       <NuxtLink to="/notification">
         <v-btn icon>
-          <v-icon>mdi-bell</v-icon>
+          <v-badge dot overlap color="red">
+            <v-icon>mdi-bell</v-icon>
+          </v-badge>
         </v-btn>
       </NuxtLink>
     </div>
@@ -47,21 +45,27 @@
         <NuxtLink to="/dashboard" class="menu-icon"
           ><v-icon>mdi-home</v-icon></NuxtLink
         >
-        <NuxtLink to="/dispense" class="menu-icon"
+        <!-- <NuxtLink to="/dispense" class="menu-icon"
+          ><v-icon>mdi-hand-heart</v-icon></NuxtLink
+        > -->
+        <NuxtLink to="/medicine" class="menu-icon"
           ><v-icon>mdi-hand-heart</v-icon></NuxtLink
         >
-        <NuxtLink to="/orders" class="menu-icon"
+        <!-- <NuxtLink to="/orders" class="menu-icon"
+          ><v-icon>mdi-hand-heart</v-icon></NuxtLink
+        > -->
+        <!-- <NuxtLink to="/medicine" class="menu-icon"
+          ><v-icon>mdi-hospital-box</v-icon></NuxtLink
+        > -->
+        <NuxtLink to="/all-medicines" class="menu-icon"
           ><v-icon>mdi-cart-plus</v-icon></NuxtLink
         >
-        <NuxtLink to="/medicine" class="menu-icon"
-          ><v-icon>mdi-hospital-box</v-icon></NuxtLink
-        >
-        <NuxtLink to="/all-medicines" class="menu-icon"
+        <NuxtLink to="/doctors" class="menu-icon"
           ><v-icon>mdi-contacts</v-icon></NuxtLink
         >
-        <NuxtLink to="/sales-report" class="menu-icon"
+        <!-- <NuxtLink to="/sales-report" class="menu-icon"
           ><v-icon>mdi-chart-line</v-icon></NuxtLink
-        >
+        > -->
         <NuxtLink to="/wallet" class="menu-icon"
           ><v-icon>mdi-wallet</v-icon></NuxtLink
         >
@@ -72,4 +76,4 @@
     </template>
   </v-app-bar>
 </template>
-<style src="./PharmacyHeader.scss" lang="scss" scope></style>
+<style src="./PharmacyHeader.scss" lang="scss" scoped></style>

@@ -69,6 +69,7 @@ export default {
         'wallet',
         'settings',
       ],
+      notification: 0,
       items: [
         {
           icon: 'mdi-apps',
@@ -87,8 +88,32 @@ export default {
       title: 'Vuetify.js',
     }
   },
-  mounted() {},
+  mounted() {
+    this.getNotification()
+    this.$echo
+      .private(`notifications.${this.$auth.user.id}`)
+      .listen('.NewPrescription', (payload) => {
+        console.log('.NewPrescription', payload)
+        this.notification += 1
+        this.$bus.$emit('NewPrescription', payload)
+      })
+      .listen('.NewChatMessage', (payload) => {
+        console.log('.NewChatMessage', payload)
+        this.notification += 1
+        this.$bus.$emit('NewChatMessage', payload)
+      })
+      .listen('.NewUser', (payload) => {
+        console.log('.NewUser', payload)
+        this.notification += 1
+        this.$bus.$emit('NewUser', payload)
+      })
+  },
   methods: {
+    getNotification() {
+      this.$axios.get('notifications/count').then((data) => {
+        this.notification = data.data
+      })
+    },
     nextPage(touchEvent) {
       if (touchEvent.changedTouches.length !== 1) {
         // We only care if one finger is used
@@ -117,19 +142,24 @@ export default {
       }
 
       const posXEnd = touchEvent.changedTouches[0].clientX
+      const diff = Math.abs(posXStart - posXEnd)
+      console.log(diff)
       let pos = 0
-      if (posXStart < posXEnd) {
-        // swipe right
-        pos = '100px'
-      } else if (posXStart > posXEnd) {
-        // swipe left
-        pos = '-100px'
-      }
-      if (this.$route.name === 'dashboard') {
-        if (touchEvent.target === this.$refs.full)
+      if (diff > 10) {
+        if (posXStart < posXEnd) {
+          // swipe right
+          pos = '100px'
+        } else if (posXStart > posXEnd) {
+          // swipe left
+          pos = '-100px'
+        }
+        if (this.$route.name === 'dashboard') {
+          if (touchEvent.target === this.$refs.full)
+            this.$refs.full.style.transform =
+              'translate3D(' + pos + ', 0px, 0px)'
+        } else {
           this.$refs.full.style.transform = 'translate3D(' + pos + ', 0px, 0px)'
-      } else {
-        this.$refs.full.style.transform = 'translate3D(' + pos + ', 0px, 0px)'
+        }
       }
     },
     reRoute(xs, xe) {
@@ -141,9 +171,7 @@ export default {
           this.routes = this.patient
           break
       }
-
       const diff = Math.abs(xs - xe)
-
       if (diff > 100) {
         if (xs < xe) {
           // swipe right
@@ -162,7 +190,15 @@ export default {
         return
       }
       const posXEnd = touchEvent.changedTouches[0].clientX
-
+      // const diffe = Math.abs(posXStart - posXEnd)
+      // console.log(diffe)
+      // if (posXStart < posXEnd) {
+      //   // swipe right
+      //   pos = '100px'
+      // } else if (posXStart > posXEnd) {
+      //   // swipe left
+      //   pos = '-100px'
+      // }
       this.$refs.full.style.transform = 'translate3D(0px, 0px, 0px)'
 
       if (this.$route.name === 'dashboard') {

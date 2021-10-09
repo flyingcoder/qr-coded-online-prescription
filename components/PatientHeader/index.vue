@@ -12,11 +12,7 @@
     </template>
 
     <div class="user">
-      <img
-        class="user-icon"
-        :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-        alt="Alvin Pacot"
-      />
+      <img class="user-icon" :src="$auth.user.avatar" alt="Alvin Pacot" />
     </div>
 
     <v-spacer></v-spacer>
@@ -36,7 +32,9 @@
     <div class="notification-icon">
       <NuxtLink to="/notification">
         <v-btn icon>
-          <v-icon>mdi-bell</v-icon>
+          <v-badge dot overlap color="red">
+            <v-icon>mdi-bell</v-icon>
+          </v-badge>
         </v-btn>
       </NuxtLink>
     </div>
@@ -68,4 +66,4 @@
     </template>
   </v-app-bar>
 </template>
-<style src="./PatientHeader.scss" lang="scss" scope></style>
+<style src="./PatientHeader.scss" lang="scss" scoped></style>

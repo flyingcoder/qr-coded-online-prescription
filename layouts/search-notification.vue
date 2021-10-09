@@ -6,7 +6,21 @@
   </v-app>
 </template>
 <script>
-export default {}
+export default {
+  mounted() {
+    this.$echo
+      .private(`notifications.${this.$auth.user.id}`)
+      .listen('.NewPrescription', (payload) => {
+        this.$bus.$emit('NewPrescription', payload)
+      })
+      .listen('.NewChatMessage', (payload) => {
+        this.$bus.$emit('NewChatMessage', payload)
+      })
+      .listen('.NewUser', (payload) => {
+        this.$bus.$emit('NewUser', payload)
+      })
+  },
+}
 </script>
 <style scoped>
 main {
