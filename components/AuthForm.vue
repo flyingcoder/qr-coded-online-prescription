@@ -114,6 +114,7 @@
             v-model="datus.password"
             type="password"
             label="Password"
+            :rules="passwordRules"
             required
           >
             <v-icon slot="prepend" color="#1ac6b6" medium> mdi-lock </v-icon>
@@ -171,6 +172,12 @@ export default {
         password_confirmation: '',
         role: '',
       },
+      passwordRules: [
+        (v) =>
+          !v ||
+          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(v) ||
+          'Password must be atleast 8 Digit',
+      ],
       emailRules: [
         (v) =>
           !v ||
