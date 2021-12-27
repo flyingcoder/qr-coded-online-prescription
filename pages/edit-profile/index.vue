@@ -91,6 +91,8 @@
         <v-text-field
           v-model="user_info.password"
           label="New Password"
+          autocomplete="off"
+          type="password"
           outlined
           dense
         ></v-text-field>
@@ -99,6 +101,8 @@
         <v-text-field
           v-model="user_info.password_confirmed"
           label="Confirm Password"
+          type="password"
+          :rules="passwordConfirmationRule"
           outlined
           dense
         ></v-text-field>

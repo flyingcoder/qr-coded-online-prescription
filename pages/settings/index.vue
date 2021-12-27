@@ -9,7 +9,7 @@
     <div class="settings-body">
       <div class="user-image">
         <img
-          :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
+          :src="$auth.user.avatar"
           :alt="$auth.user.fname"
           width="90px"
           height="90px"

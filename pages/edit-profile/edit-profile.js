@@ -18,6 +18,7 @@ export default {
       },
       profile_image: '',
       progress: 0,
+      passwordConfirmationRule: '',
       rules: {
         email: (value) => {
           console.log(value)
@@ -32,6 +33,9 @@ export default {
     this.getUserInfo()
   },
   computed: {
+    passwordConfirmationRule() {
+      this.password = this.new_password || 'Password must match'
+    },
     /* The FormData : Here We Make A Form With Images Data To Submit. */
     form() {
       const form = new FormData()
