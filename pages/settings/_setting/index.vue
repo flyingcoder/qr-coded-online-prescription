@@ -49,7 +49,7 @@
             <v-expansion-panel-content class="text-center">
               Change your password and take actions to add more security to your
               account
-              <v-btn width="90%" style="margin-top: 25px" to="edit-profile"
+              <v-btn width="90%" style="margin-top: 25px" to="update-password"
                 >Secure</v-btn
               >
             </v-expansion-panel-content>

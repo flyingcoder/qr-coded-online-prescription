@@ -62,7 +62,7 @@
                 width="90%"
                 style="margin-top: 25px"
                 color="#00e676"
-                to="edit-profile"
+                to="update-password"
                 ><v-icon color="white" left size="20px">mdi-shield-check</v-icon
                 >Secure</v-btn
               >
@@ -74,22 +74,22 @@
               disable-icon-rotate
             >
               <div>
-                <v-icon>mdi-key-variant</v-icon>
+                <v-icon>mdi-card-bulleted</v-icon>
                 <span class="accordion-title" to="edit-profile"
-                  >Change Password</span
+                  >Payment Details</span
                 >
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content class="text-center">
-              Its a good idea to use a strong password that your not using
-              elsewhere.
+              Setup your payment details
               <v-btn
                 width="90%"
                 style="margin-top: 25px"
                 color="#00e676"
                 to="edit-profile/#password"
-                ><v-icon color="white" left size="20">mdi-key-change</v-icon
-                >Change</v-btn
+                ><v-icon color="white" left size="20"
+                  >mdi-card-bulleted-outline</v-icon
+                >Setup</v-btn
               >
             </v-expansion-panel-content>
           </v-expansion-panel>
