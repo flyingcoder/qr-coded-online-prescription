@@ -1,20 +1,12 @@
 export default {
-  name: 'Edit Profile',
+  name: 'Update Password',
   layout: 'search-notification',
   data() {
     return {
       user_info: {
-        fname: '',
-        lname: '',
-        email: '',
-        address: '',
-        phone: '',
-        license_number: '',
-        tin_number: '',
-        bio: '',
-        avatar: '',
+        password: '',
+        password_confirmed: '',
       },
-      profile_image: '',
       progress: 0,
       passwordConfirmationRule: '',
       rules: {
@@ -37,16 +29,8 @@ export default {
     /* The FormData : Here We Make A Form With Images Data To Submit. */
     form() {
       const form = new FormData()
-
-      form.append('image', this.profile_image)
-      form.append('fname', this.user_info.fname)
-      form.append('lname', this.user_info.lname)
-      form.append('email', this.user_info.email)
-      form.append('address', this.user_info.address)
-      form.append('phone', this.user_info.phone)
-      form.append('license_number', this.user_info.license_number)
-      form.append('tin_number', this.user_info.tin_number)
-      form.append('bio', this.user_info.bio)
+      form.append('password', this.user_info.password)
+      form.append('password_confirmed', this.user_info.password_confirmed)
 
       return form
     },

@@ -39,15 +39,6 @@
         </v-col>
       </v-row>
       <v-row style="height: 70px">
-        <v-col
-          ><v-text-field
-            v-model="user_info.email"
-            label="Email"
-            :rules="[rules.required, rules.email]"
-            outlined
-            dense
-          ></v-text-field
-        ></v-col>
         <v-col>
           <v-text-field
             v-model="user_info.address"
@@ -83,26 +74,6 @@
           v-if="$auth.user.role === 'pharmacy' || $auth.user.role === 'doctor'"
           v-model="user_info.tin_number"
           label="Tin Number"
-          outlined
-          dense
-        ></v-text-field>
-      </v-row>
-      <v-row id="password" class="sm-side-padding">
-        <v-text-field
-          v-model="user_info.password"
-          label="New Password"
-          autocomplete="off"
-          type="password"
-          outlined
-          dense
-        ></v-text-field>
-      </v-row>
-      <v-row class="sm-side-padding">
-        <v-text-field
-          v-model="user_info.password_confirmed"
-          label="Confirm Password"
-          type="password"
-          :rules="passwordConfirmationRule"
           outlined
           dense
         ></v-text-field>
