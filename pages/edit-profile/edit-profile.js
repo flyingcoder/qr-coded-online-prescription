@@ -1,12 +1,45 @@
+import useVuelidate from '@vuelidate/core'
+import { required } from 'vuelidate/lib/validators'
+import { reactive, computed } from 'vue'
+
 export default {
   name: 'Edit Profile',
   layout: 'search-notification',
+  setup() {
+    const state = reactive({
+      user_info: {
+        fname: '',
+        lname: '',
+        address: '',
+        phone: '',
+        license_number: '',
+        tin_number: '',
+        bio: '',
+        avatar: '',
+      },
+    })
+
+    const rules = computed(() => {
+      return {
+        user_info: {
+          fname: { required },
+          lname: { required },
+        },
+      }
+    })
+
+    const v$ = useVuelidate(rules, state)
+
+    return {
+      state,
+      v$,
+    }
+  },
   data() {
     return {
       user_info: {
         fname: '',
         lname: '',
-        email: '',
         address: '',
         phone: '',
         license_number: '',
@@ -16,14 +49,22 @@ export default {
       },
       profile_image: '',
       progress: 0,
-      passwordConfirmationRule: '',
-      rules: {
-        email: (value) => {
-          console.log(value)
-          const pattern =
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          return pattern.test(value) || 'Invalid e-mail.'
-        },
+      // passwordConfirmationRule: '',
+      // rules: {
+      //   email: (value) => {
+      //     console.log(value)
+      //     const pattern =
+      //       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      //     return pattern.test(value) || 'Invalid e-mail.'
+      //   },
+      // },
+    }
+  },
+  validations() {
+    return {
+      user_info: {
+        fname: { required },
+        lname: { required },
       },
     }
   },
@@ -41,7 +82,6 @@ export default {
       form.append('image', this.profile_image)
       form.append('fname', this.user_info.fname)
       form.append('lname', this.user_info.lname)
-      form.append('email', this.user_info.email)
       form.append('address', this.user_info.address)
       form.append('phone', this.user_info.phone)
       form.append('license_number', this.user_info.license_number)
@@ -64,19 +104,21 @@ export default {
       })
     },
     saveChanges() {
-      const config = {
-        onUploadProgress: (progressEvent) =>
-          (this.progress = Math.round(
-            (progressEvent.loaded * 100) / progressEvent.total
-          )),
-      }
-
-      this.$axios.post('user/edit', this.form, config).then((data) => {
-        this.$auth.user.avatar = data.data.avatar
-        this.$store.dispatch('snackbar/setSnackbar', {
-          text: `Profile updated`,
+      this.v$.$validate()
+      if (!this.v$.error) {
+        const config = {
+          onUploadProgress: (progressEvent) =>
+            (this.progress = Math.round(
+              (progressEvent.loaded * 100) / progressEvent.total
+            )),
+        }
+        this.$axios.post('user/edit', this.form, config).then((data) => {
+          this.$auth.user.avatar = data.data.avatar
+          this.$store.dispatch('snackbar/setSnackbar', {
+            text: `Profile updated`,
+          })
         })
-      })
+      }
     },
   },
 }

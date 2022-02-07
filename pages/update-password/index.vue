@@ -6,26 +6,22 @@
       <v-icon color="green darken-2"> mdi-close </v-icon>
     </div>
     <div class="edit-profile-inputs">
-      <v-row id="password" class="sm-side-padding">
-        <v-text-field
-          v-model="user_info.password"
-          label="New Password"
-          autocomplete="off"
-          type="password"
-          outlined
-          dense
-        ></v-text-field>
-      </v-row>
-      <v-row class="sm-side-padding">
-        <v-text-field
-          v-model="user_info.password_confirmed"
-          label="Confirm Password"
-          type="password"
-          :rules="passwordConfirmationRule"
-          outlined
-          dense
-        ></v-text-field>
-      </v-row>
+      <v-text-field
+        v-model="user_info.password"
+        label="New Password"
+        autocomplete="off"
+        type="password"
+        outlined
+        dense
+      ></v-text-field>
+      <v-text-field
+        v-model="user_info.password_confirmed"
+        label="Confirm Password"
+        type="password"
+        :rules="passwordConfirmationRule"
+        outlined
+        dense
+      ></v-text-field>
     </div>
     <v-btn tile color="success" @click="saveChanges">
       <v-icon left> mdi-content-save </v-icon>

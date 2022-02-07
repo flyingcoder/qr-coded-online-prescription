@@ -4,19 +4,22 @@ export default {
   data() {
     return {
       user_info: {
+        fname: '',
+        lname: '',
+        email: '',
         password: '',
         password_confirmed: '',
       },
       progress: 0,
       passwordConfirmationRule: '',
-      rules: {
-        email: (value) => {
-          console.log(value)
-          const pattern =
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          return pattern.test(value) || 'Invalid e-mail.'
-        },
-      },
+      // rules: {
+      //   email: (value) => {
+      //     console.log(value)
+      //     const pattern =
+      //       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      //     return pattern.test(value) || 'Invalid e-mail.'
+      //   },
+      // },
     }
   },
   mounted() {
@@ -29,6 +32,10 @@ export default {
     /* The FormData : Here We Make A Form With Images Data To Submit. */
     form() {
       const form = new FormData()
+
+      form.append('fname', this.user_info.fname)
+      form.append('lname', this.user_info.lname)
+      form.append('email', this.user_info.email)
       form.append('password', this.user_info.password)
       form.append('password_confirmed', this.user_info.password_confirmed)
 

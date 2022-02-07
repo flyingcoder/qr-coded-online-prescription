@@ -5,7 +5,7 @@
       <img :src="user_info.avatar" alt="" />
       <div class="edit-image">
         <v-file-input
-          v-model="profile_image"
+          v-model="state.profile_image"
           hide-input
           accept="image/*"
           solo
@@ -23,7 +23,7 @@
       <v-row style="height: 70px">
         <v-col>
           <v-text-field
-            v-model="user_info.fname"
+            v-model="state.user_info.fname"
             label="First Name"
             outlined
             dense
@@ -31,7 +31,7 @@
         </v-col>
         <v-col>
           <v-text-field
-            v-model="user_info.lname"
+            v-model="state.user_info.lname"
             label="Last Name"
             outlined
             dense
@@ -41,7 +41,7 @@
       <v-row style="height: 70px">
         <v-col>
           <v-text-field
-            v-model="user_info.address"
+            v-model="state.user_info.address"
             label="Address"
             outlined
             dense
@@ -51,7 +51,7 @@
       <v-row style="height: 80px">
         <v-col
           ><v-text-field
-            v-model="user_info.phone"
+            v-model="state.user_info.phone"
             label="Phone Number"
             type="tel"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
@@ -63,7 +63,7 @@
       <v-row class="sm-side-padding">
         <v-text-field
           v-if="$auth.user.role === 'pharmacy' || $auth.user.role === 'doctor'"
-          v-model="user_info.license_number"
+          v-model="state.user_info.license_number"
           label="License Number"
           outlined
           dense
@@ -72,14 +72,18 @@
       <v-row class="sm-side-padding">
         <v-text-field
           v-if="$auth.user.role === 'pharmacy' || $auth.user.role === 'doctor'"
-          v-model="user_info.tin_number"
+          v-model="state.user_info.tin_number"
           label="Tin Number"
           outlined
           dense
         ></v-text-field>
       </v-row>
       <v-row class="sm-side-padding">
-        <v-textarea v-model="user_info.bio" outlined label="BIO"></v-textarea>
+        <v-textarea
+          v-model="state.user_info.bio"
+          outlined
+          label="BIO"
+        ></v-textarea>
       </v-row>
     </div>
     <v-btn tile color="success" @click="saveChanges">
