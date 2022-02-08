@@ -12,24 +12,61 @@
     </v-row>
     <v-row justify="center">
       <v-expansion-panels v-model="defaultPanel">
-        <v-expansion-panel v-for="item in payment_method" :key="item.id">
-          <v-expansion-panel-header
-            ><img class="wallet-dropdown-icon" :src="item.icon" />
+        <v-expansion-panel
+          v-for="item in payment_method"
+          :id="item.id"
+          :key="item.id"
+        >
+          <v-expansion-panel-header v-if="item.id == 'ptp'" expand-icon="">
+            <img
+              v-if="item.id == 'gcash'"
+              class="wallet-dropdown-icon"
+              :src="item.icon"
+            />
+            <v-icon v-else large class="wallet-dropdown-icon">{{
+              item.icon
+            }}</v-icon>
             <div class="wallet-accordion-title">
               {{ item.title }}
             </div></v-expansion-panel-header
           >
-          <v-expansion-panel-content class="gcash-payment-method-content">
-            <div class="d-flex justify-center">
+
+          <v-expansion-panel-header v-else>
+            <img
+              v-if="item.id == 'gcash'"
+              class="wallet-dropdown-icon"
+              :src="item.icon"
+            />
+            <v-icon v-else large class="wallet-dropdown-icon">{{
+              item.icon
+            }}</v-icon>
+            <div class="wallet-accordion-title">
+              {{ item.title }}
+            </div></v-expansion-panel-header
+          >
+          <v-expansion-panel-content
+            v-if="item.content"
+            class="gcash-payment-method-content"
+          >
+            <div v-if="item.icon_inner" class="d-flex justify-center">
               <img :src="item.icon_inner" alt="" width="200px" />
             </div>
             <div class="wallet-content full-width">
               <div
-                v-if="item.content"
                 class="wallet-main-content full-width"
                 style="text-align: center; font-size: 18px"
               >
                 {{ item.content }}
+                <table v-if="item.id == 'cod'" class="cod-table">
+                  <tr>
+                    <td class="text-left cod-table-title">GutomKa Express</td>
+                    <td class="text-right">09123456789</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left cod-table-title">Food Panda</td>
+                    <td class="text-right">09876543210</td>
+                  </tr>
+                </table>
               </div>
               <div v-if="item.cancel" class="d-flex justify-center">
                 <v-btn
@@ -123,6 +160,19 @@ export default {
             'Reseta Qrx can now accept payment using GCash. You will be redirected to the GCash website to finish the payment.',
           confirm: 'Use GCash',
         },
+        {
+          id: 'cod',
+          icon: 'mdi-truck',
+          icon_inner: 'mdi-truck',
+          title: 'Cash on Delivery',
+          content: 'Please contact your local delivery service.',
+        },
+        {
+          id: 'ptp',
+          icon: 'mdi-account-cash',
+          icon_inner: 'mdi-account-cash',
+          title: 'Pay to Pharmacy',
+        },
         /** {
           id: 'reseta-credit',
           icon: 'mdi-wallet-outline',
@@ -163,13 +213,24 @@ export default {
 .wallet-payment-method {
   margin-bottom: 50px;
 }
-
 .v-expansion-panels {
   border-bottom: 1px solid #e4e4e4;
   border-radius: 0px;
   margin: 0 12px;
 }
-.gcash-payment-method-content {
+.cod-table {
+  width: 80%;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.cod-table-title:before {
+  content: '\A';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1ac6b6;
+  margin-right: 5px;
+  display: inline-block;
 }
 .v-expansion-panel--active:not(:first-child),
 .v-expansion-panel--active + .v-expansion-panel {
@@ -208,12 +269,15 @@ input#input-89 {
 .active {
   display: none !important;
 }
-.wallet-dropdown-icon {
-  width: 10% !important;
-  position: absolute !important;
+.wallet-dropdown-icon,
+i.wallet-dropdown-icon {
+  flex-grow: 0;
+  width: 50px;
+  font-size: 50px;
+  color: $primary-color;
 }
 .wallet-accordion-title {
-  padding-left: 13%;
+  padding-left: 1rem;
 }
 .wallet-title {
   .wallet-title-e {
@@ -230,8 +294,7 @@ input#input-89 {
     padding-left: 10px;
   }
 }
-</style>
-<style lang="scss">
+
 .gcash-payment-method-content {
   .v-expansion-panel-content__wrap {
     padding: 0 !important;
