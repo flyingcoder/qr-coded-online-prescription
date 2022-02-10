@@ -12,7 +12,11 @@
     </template>
 
     <div class="user">
-      <img class="user-icon" :src="$auth.user.avatar" :alt="$auth.user.fname" />
+      <img
+        class="user-icon"
+        :src="require(`~/assets/images/` + $auth.user.avatar)"
+        :alt="$auth.user.fname"
+      />
     </div>
 
     <v-spacer></v-spacer>

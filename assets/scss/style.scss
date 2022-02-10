@@ -148,10 +148,21 @@ table > thead > tr > th {
   top: 15px;
   cursor: pointer;
 }
-button.dark{
-  background-color: $primary-color;
-  border-color: $primary-color;
+button.v-btn.dark, a.v-btn.dark{
+  background-color: $primary-color !important;
+  border-color: $primary-color !important;
   .v-btn__content{
     color: $white;
   }
+}
+.v-icon.primary-color{
+  color: $primary-color !important;
+}
+.accordion-title{
+  font-weight: 400;
+}
+.v-expansion-panel-content .v-expansion-panel-content__wrap{
+  color: $secondary-color !important;
+  border-top: 1px solid $border-gray;
+  padding: 1rem .25rem;
 }
