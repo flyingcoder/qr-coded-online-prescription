@@ -20,7 +20,7 @@
     </div>
 
     <v-spacer></v-spacer>
-    <div class="d-flex" style="width: 100%; padding-left: 13%">
+    <div class="d-flex" style="width: 100%">
       <v-app-bar-title>
         <img class="logo-wide" src="@/assets/images/white-main-logo.png"
       /></v-app-bar-title>

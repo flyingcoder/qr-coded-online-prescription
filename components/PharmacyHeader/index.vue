@@ -15,7 +15,7 @@
       <img
         class="user-icon"
         :src="require(`~/assets/images/` + $auth.user.avatar)"
-        alt="Alvin Pacot"
+        :alt="$auth.user.fname"
       />
     </div>
 

@@ -15,32 +15,35 @@
       <img
         class="user-icon"
         :src="require(`~/assets/images/` + $auth.user.avatar)"
-        alt="Alvin Pacot"
+        :alt="$auth.user.fname"
       />
     </div>
 
     <v-spacer></v-spacer>
-    <div class="d-flex" style="width: 100%; padding-left: 13%">
+    <div class="header-logo">
       <v-app-bar-title>
         <img class="logo-wide" src="@/assets/images/white-main-logo.png"
       /></v-app-bar-title>
       <div class="reseta-logo-text">ResetaQrx</div>
     </div>
-    <div class="search-icon">
-      <NuxtLink to="/search">
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-      </NuxtLink>
-    </div>
-    <div class="notification-icon">
-      <NuxtLink to="/notification">
-        <v-btn icon>
-          <v-badge dot overlap color="red">
-            <v-icon>mdi-bell</v-icon>
-          </v-badge>
-        </v-btn>
-      </NuxtLink>
+    <v-spacer></v-spacer>
+    <div class="other-icons">
+      <div class="search-icon">
+        <NuxtLink to="/search">
+          <v-btn icon>
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
+        </NuxtLink>
+      </div>
+      <div class="notification-icon">
+        <NuxtLink to="/notification">
+          <v-btn icon>
+            <v-badge dot overlap color="red">
+              <v-icon>mdi-bell</v-icon>
+            </v-badge>
+          </v-btn>
+        </NuxtLink>
+      </div>
     </div>
     <template #extension style="padding-bottom: 0">
       <div class="menu-icons">
