@@ -17,21 +17,7 @@
           :id="item.id"
           :key="item.id"
         >
-          <v-expansion-panel-header v-if="item.id == 'ptp'" expand-icon="">
-            <img
-              v-if="item.id == 'gcash'"
-              class="wallet-dropdown-icon"
-              :src="item.icon"
-            />
-            <v-icon v-else large class="wallet-dropdown-icon">{{
-              item.icon
-            }}</v-icon>
-            <div class="wallet-accordion-title">
-              {{ item.title }}
-            </div></v-expansion-panel-header
-          >
-
-          <v-expansion-panel-header v-else>
+          <v-expansion-panel-header>
             <img
               v-if="item.id == 'gcash'"
               class="wallet-dropdown-icon"
@@ -79,7 +65,7 @@
                 >
                 <v-btn elevation="2" text tile>{{ item.cancel }}</v-btn>
               </div>
-              <div v-if="item.credit" class="credit-card">
+              <!-- <div v-if="item.credit" class="credit-card">
                 <div class="credit-card-image">
                   <img width="40px" src="~/assets/icons/symbols.svg" />
                   <img width="40px" src="~/assets/icons/master.svg" />
@@ -119,13 +105,29 @@
                     ></v-switch>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div
                 v-if="item.confirm"
                 class="wallet-confirm-selection text-center-pd pb-5"
-                @click="paymentForm"
               >
-                <v-btn elevation="2" text tile>{{ item.confirm }}</v-btn>
+                <v-btn
+                  v-if="item.id == 'gcash'"
+                  elevation="2"
+                  text
+                  tile
+                  class="dark"
+                  @click="paymentForm"
+                  >{{ item.confirm }}</v-btn
+                >
+                <v-btn
+                  v-else
+                  elevation="2"
+                  text
+                  tile
+                  class="dark"
+                  @click="proceedToOrder(item.id)"
+                  >{{ item.confirm }}</v-btn
+                >
               </div>
             </div>
           </v-expansion-panel-content>
@@ -143,6 +145,9 @@ export default {
       default() {
         return 'AVAILABLE PAYMENT METHOD'
       },
+    },
+    listorder: {
+      type: Object,
     },
   },
   data() {
@@ -164,32 +169,18 @@ export default {
           id: 'cod',
           icon: 'mdi-truck',
           icon_inner: 'mdi-truck',
-          title: 'Cash on Delivery',
+          title: 'Cash On Delivery',
           content: 'Please contact your local delivery service.',
+          confirm: 'Proceed to Order',
         },
         {
           id: 'ptp',
           icon: 'mdi-account-cash',
           icon_inner: 'mdi-account-cash',
-          title: 'Pay to Pharmacy',
+          title: 'Pay To Pharmacy',
+          content: 'Pay directly to Pharmacy.',
+          confirm: 'Proceed to Order',
         },
-        /** {
-          id: 'reseta-credit',
-          icon: 'mdi-wallet-outline',
-          icon_inner: 'mdi-wallet-outline',
-          title: 'Reseta e-Wallet',
-          content: 'Paynow',
-          cancel: 'Cancel',
-          yes: 'Yes',
-        }, 
-        {
-          id: 'cc',
-          icon: 'mdi-credit-card-multiple',
-          icon_inner: '',
-          title: 'Credit / Debit Card',
-          confirm: 'CONFIRM SELECTION',
-          credit: 'Add new Card',
-        }**/
       ],
     }
   },
@@ -205,6 +196,25 @@ export default {
     },
     closePayment() {
       this.payment_form = false
+    },
+    proceedToOrder(val) {
+      const order = {
+        items: this.listorder.items,
+        doctor_id: this.listorder.doctor_id,
+        total: this.listorder.total,
+        prescription_id: this.listorder.prescription_id,
+        payment_method: val,
+      }
+      this.$axios.post('checkout/order', order).then((data) => {
+        this.$store.dispatch('snackbar/setSnackbar', {
+          text: 'Payment successful!',
+        })
+        this.$router.push('orders')
+        this.resetCart()
+      })
+    },
+    resetCart() {
+      window.localStorage.removeItem('cart')
     },
   },
 }
