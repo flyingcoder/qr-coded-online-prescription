@@ -16,7 +16,7 @@
     >
       <template #[`item.total`]="{ item }"> ₱{{ item.total }} </template>
       <template #[`item.status`]="{ item }">
-        {{ item.status | capitalize }}
+        {{ item.status ? 'Completed' : 'Pending' }}
       </template>
       <template #[`item.created_at`]="{ item }">
         {{ $moment(item.created_at).format('LL HH:mm A') }}

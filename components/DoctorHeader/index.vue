@@ -12,11 +12,15 @@
     </template>
 
     <div class="user">
-      <img class="user-icon" :src="$auth.user.avatar" :alt="$auth.user.fname" />
+      <img
+        class="user-icon"
+        :src="require(`~/assets/images/` + $auth.user.avatar)"
+        :alt="$auth.user.fname"
+      />
     </div>
 
     <v-spacer></v-spacer>
-    <div class="d-flex" style="width: 100%; padding-left: 13%">
+    <div class="d-flex" style="width: 100%">
       <v-app-bar-title>
         <img class="logo-wide" src="@/assets/images/white-main-logo.png"
       /></v-app-bar-title>

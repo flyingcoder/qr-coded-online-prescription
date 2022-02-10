@@ -12,14 +12,20 @@
     </template>
 
     <div class="user">
-      <img class="user-icon" :src="$auth.user.avatar" alt="Alvin Pacot" />
+      <img
+        class="user-icon"
+        :src="require(`~/assets/images/` + $auth.user.avatar)"
+        :alt="$auth.user.fname"
+      />
     </div>
 
     <v-spacer></v-spacer>
 
     <div class="d-flex" style="width: 100%; padding-left: 13%">
       <v-app-bar-title>
-        <img class="logo-wide" :src="$auth.user.avatar"
+        <img
+          class="logo-wide"
+          :src="require(`~/assets/images/` + $auth.user.avatar)"
       /></v-app-bar-title>
       <div class="reseta-logo-text">ResetaQrx</div>
     </div>

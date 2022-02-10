@@ -132,3 +132,37 @@ a.qrx-btn {
 table > thead > tr > th {
     color: $primary-color !important;
 }
+
+.page-content{
+  padding: 0.75rem;
+}
+.page-title{
+  color: $primary-color;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+.back-button {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  cursor: pointer;
+}
+button.v-btn.dark, a.v-btn.dark{
+  background-color: $primary-color !important;
+  border-color: $primary-color !important;
+  .v-btn__content{
+    color: $white;
+  }
+}
+.v-icon.primary-color{
+  color: $primary-color !important;
+}
+.accordion-title{
+  font-weight: 400;
+}
+.v-expansion-panel-content .v-expansion-panel-content__wrap{
+  color: $secondary-color !important;
+  border-top: 1px solid $border-gray;
+  padding: 1rem .25rem;
+}

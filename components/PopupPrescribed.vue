@@ -11,7 +11,10 @@
         </div>
         <div class="patient-info d-flex">
           <div class="prescription-form-image">
-            <img class="user-icon" :src="$auth.user.avatar" />
+            <img
+              class="user-icon"
+              :src="require(`~/assets/images/` + $auth.user.avatar)"
+            />
           </div>
           <div class="prescription-form-info">
             <div class="prescription-patient-name">

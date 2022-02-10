@@ -81,7 +81,7 @@
       </tr>
     </table>
     <br />
-    <PaymentMethod @methodconfirm="processPayment" />
+    <PaymentMethod :listorder="order" @methodconfirm="processPayment" />
   </div>
 </template>
 <script src="./checkout.js"></script>
