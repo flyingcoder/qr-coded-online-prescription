@@ -25,15 +25,12 @@
         :alt="$auth.user.fname"
       />
     </div>
-
-    <v-spacer></v-spacer>
     <div class="header-logo">
       <v-app-bar-title>
         <img class="logo-wide" src="@/assets/images/white-main-logo.png"
       /></v-app-bar-title>
       <div class="reseta-logo-text">ResetaQrx</div>
     </div>
-    <v-spacer></v-spacer>
     <div class="other-icons">
       <div class="search-icon">
         <NuxtLink to="/search">
