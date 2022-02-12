@@ -13,20 +13,24 @@
 
     <div class="user">
       <img
+        v-if="$auth.user.avatar == 'avatar.png'"
         class="user-icon"
-        :src="require(`~/assets/images/` + $auth.user.avatar)"
+        :src="$auth.user.avatar"
+        :alt="$auth.user.fname"
+      />
+      <img
+        v-else
+        class="user-icon"
+        :src="require(`~/assets/images/avatar.png`)"
         :alt="$auth.user.fname"
       />
     </div>
-
-    <v-spacer></v-spacer>
     <div class="header-logo">
       <v-app-bar-title>
         <img class="logo-wide" src="@/assets/images/white-main-logo.png"
       /></v-app-bar-title>
       <div class="reseta-logo-text">ResetaQrx</div>
     </div>
-    <v-spacer></v-spacer>
     <div class="other-icons">
       <div class="search-icon">
         <NuxtLink to="/search">

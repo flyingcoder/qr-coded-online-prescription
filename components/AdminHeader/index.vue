@@ -7,9 +7,13 @@
     class="reseta-header"
     height="50px"
   >
-    <div class="d-flex justify-center" style="width: 100%">
+    <div class="user">
+      <img class="user-icon" :src="require(`~/assets/images/avatar.png`)" />
+    </div>
+    <div class="header-logo">
       <div class="reseta-logo-text">Admin User Only</div>
     </div>
+    <div class="other-icons"></div>
     <template #extension style="padding-bottom: 0">
       <div class="menu-icons">
         <NuxtLink to="/dashboard" class="menu-icon"

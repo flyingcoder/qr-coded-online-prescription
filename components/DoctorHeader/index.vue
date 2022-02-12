@@ -13,36 +13,42 @@
 
     <div class="user">
       <img
+        v-if="$auth.user.avatar == 'avatar.png'"
         class="user-icon"
-        :src="require(`~/assets/images/` + $auth.user.avatar)"
+        :src="$auth.user.avatar"
+        :alt="$auth.user.fname"
+      />
+      <img
+        v-else
+        class="user-icon"
+        :src="require(`~/assets/images/avatar.png`)"
         :alt="$auth.user.fname"
       />
     </div>
-
-    <v-spacer></v-spacer>
-    <div class="d-flex" style="width: 100%">
+    <div class="header-logo">
       <v-app-bar-title>
         <img class="logo-wide" src="@/assets/images/white-main-logo.png"
       /></v-app-bar-title>
       <div class="reseta-logo-text">ResetaQrx</div>
     </div>
-    <div class="search-icon">
-      <NuxtLink to="/search">
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-      </NuxtLink>
+    <div class="other-icons">
+      <div class="search-icon">
+        <NuxtLink to="/search">
+          <v-btn icon>
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
+        </NuxtLink>
+      </div>
+      <div class="notification-icon">
+        <NuxtLink to="/notification">
+          <v-btn icon>
+            <v-badge dot overlap color="red">
+              <v-icon>mdi-bell</v-icon>
+            </v-badge>
+          </v-btn>
+        </NuxtLink>
+      </div>
     </div>
-    <div class="notification-icon">
-      <NuxtLink to="/notification">
-        <v-btn icon>
-          <v-badge dot overlap color="red">
-            <v-icon>mdi-bell</v-icon>
-          </v-badge>
-        </v-btn>
-      </NuxtLink>
-    </div>
-    <v-divider class="divide"></v-divider>
     <template #extension style="padding-bottom: 0" class="test">
       <div class="menu-icons">
         <NuxtLink to="/dashboard" class="menu-icon"
