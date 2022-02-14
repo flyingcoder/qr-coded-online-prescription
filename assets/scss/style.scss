@@ -214,7 +214,7 @@ button.v-btn.dark, a.v-btn.dark{
   font-weight: 400;
   align-self: center;
   padding-left: 10px;
-  animation: glow 1s ease-in-out infinite alternate;
+  // animation: glow 1s ease-in-out infinite alternate;
 }
 .sn-icons {
   display: flex;
@@ -255,6 +255,8 @@ button.v-btn.dark, a.v-btn.dark{
       text-shadow: 0 0 20px #fff, 0 0 25px #59e6ff, 0 0 30px #59e6ff, 0 0 35px #59e6ff, 0 0 40px #59e6ff, 0 0 45px #59e6ff, 0 0 50px #59e6ff;
     }
   }
-
+.user-profile img{
+  object-fit: cover;
+}
 
 /* Header End */

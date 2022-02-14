@@ -2,7 +2,7 @@
   <div>
     <div>
       <v-card elevation="3" class="padding-bottom-sm">
-        <div class="doctor-profile text-center">
+        <div class="user-profile text-center">
           <img
             :src="profile.avatar"
             style="
