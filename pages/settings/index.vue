@@ -9,7 +9,15 @@
     <div class="settings-body">
       <div class="user-image">
         <img
+          v-if="$auth.user.avatar == 'avatar.png'"
           :src="$auth.user.avatar"
+          :alt="$auth.user.fname"
+          width="90px"
+          height="90px"
+        />
+        <img
+          v-else
+          :src="require(`~/assets/images/avatar.png`)"
           :alt="$auth.user.fname"
           width="90px"
           height="90px"
@@ -26,7 +34,7 @@
               pre
             >
               <div>
-                <v-icon>mdi-account</v-icon>
+                <v-icon class="primary-color">mdi-account</v-icon>
                 <span class="accordion-title">Personal Information</span>
               </div>
             </v-expansion-panel-header>
@@ -35,7 +43,7 @@
               <v-btn
                 width="90%"
                 style="margin-top: 25px"
-                color="#00e676"
+                class="dark"
                 to="edit-profile"
               >
                 <v-icon color="white" left size="20px"
@@ -51,7 +59,9 @@
               disable-icon-rotate
             >
               <div>
-                <v-icon>mdi-shield-account-outline</v-icon>
+                <v-icon class="primary-color"
+                  >mdi-shield-account-outline</v-icon
+                >
                 <span class="accordion-title">Security and Login</span>
               </div>
             </v-expansion-panel-header>
@@ -61,7 +71,7 @@
               <v-btn
                 width="90%"
                 style="margin-top: 25px"
-                color="#00e676"
+                class="dark"
                 to="update-password"
                 ><v-icon color="white" left size="20px">mdi-shield-check</v-icon
                 >Secure</v-btn
@@ -74,7 +84,7 @@
               disable-icon-rotate
             >
               <div>
-                <v-icon>mdi-card-bulleted</v-icon>
+                <v-icon class="primary-color">mdi-card-bulleted</v-icon>
                 <span class="accordion-title" to="edit-profile"
                   >Payment Details</span
                 >
@@ -85,7 +95,7 @@
               <v-btn
                 width="90%"
                 style="margin-top: 25px"
-                color="#00e676"
+                class="dark"
                 to="edit-profile/#password"
                 ><v-icon color="white" left size="20"
                   >mdi-card-bulleted-outline</v-icon
@@ -97,7 +107,7 @@
       </div>
     </div>
     <div class="settings-footer">
-      <v-btn width="80%" color="#00e676" @click="logout">
+      <v-btn width="80%" class="dark" @click="logout">
         <v-icon color="white" style="margin-right: 10px"
           >mdi-exit-to-app</v-icon
         >

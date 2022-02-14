@@ -49,8 +49,6 @@
   </div>
 </template>
 
-<script>
-
-</script>
+<script></script>
 
 <style src="./medication.scss" lang="scss"></style>
