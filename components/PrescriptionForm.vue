@@ -226,6 +226,7 @@
             clear-icon
             outlined
             style="width: 50%"
+            hide-details
           ></v-text-field>
           <div class="duration-day">
             <h3>{{ sig.cycle }}/s</h3>
@@ -255,12 +256,12 @@
       </!-->
       <v-divider></v-divider>
       <div class="patient-prescribed-buttons d-flex justify-center">
-        <v-btn class="patient-add-medicine-button" @click="addMedicine">
-          <v-icon left size="30px" color="green"> mdi-plus </v-icon>
+        <v-btn class="patient-add-medicine-button dark" @click="addMedicine">
+          <v-icon left size="30px" class="dark"> mdi-plus </v-icon>
           Medicine
         </v-btn>
         <v-btn
-          class="patient-prescribed-button-prescribe"
+          class="dark patient-prescribed-button-prescribe"
           @click="popup_prescribed = !popup_prescribed"
         >
           View
@@ -532,7 +533,11 @@ span.v-chip.active-hours-cycle.v-chip--active.v-chip--clickable.v-chip--label.v-
   .duration-day {
     padding: 5px 0px 0px 11px;
     display: flex;
-    align-self: flex-end;
+    align-self: center;
+
+    h3 {
+      margin: 0;
+    }
   }
 }
 .patient-prescribed-buttons {

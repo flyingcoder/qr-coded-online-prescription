@@ -46,7 +46,16 @@
 
         <v-list-item :key="index + 'span'" class="pharmacy-list-section">
           <v-list-item-avatar>
-            <img :src="$config.baseURL + '/storage/medicines/' + item.image" />
+            <img
+              v-if="item.image == 'default-medicine-image.png'"
+              class="drug-image user-icon"
+              :src="require(`~/assets/images/colchine1.jpg`)"
+            />
+            <img
+              v-else
+              class="drug-image user-icon"
+              :src="$config.baseURL + '/storage/images/' + item.image"
+            />
           </v-list-item-avatar>
 
           <v-list-item-content class="medicines-content">
