@@ -76,11 +76,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.pharmacy-top-info {
-  position: relative !important;
-  top: -6px;
-  font-size: 15px;
-}
-</style>

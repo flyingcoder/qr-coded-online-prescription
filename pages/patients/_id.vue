@@ -1,18 +1,14 @@
 <template>
   <div>
     <div>
-      <v-card elevation="3" class="padding-bottom-sm">
+      <div class="padding-bottom-sm">
         <div class="user-profile text-center">
           <img
-            :src="profile.avatar"
-            style="
-              border-radius: 100%;
-              width: 30%;
-              border: 2px solid #1ac6b6;
-              margin-top: 10px;
-            "
+            v-if="profile.avatar == 'avatar.png'"
+            :src="require(`~/assets/images/avatar.png`)"
             :alt="profile.fname"
           />
+          <img v-else :src="profile.avatar" :alt="profile.fname" />
         </div>
         <div class="doctor-information padding-content text-center-pd">
           <div
@@ -21,10 +17,10 @@
           >
             {{ profile.fullname }}
           </div>
-          <div class="pharmacy-top-info">
+          <div class="profile-top-info">
             {{ profile.address }}
           </div>
-          <div class="pharmacy-top-info">
+          <div class="profile-top-info">
             {{ profile.phone }}
           </div>
           <div
@@ -37,7 +33,7 @@
             {{ profile.email }}
           </div>
         </div>
-      </v-card>
+      </div>
       <div class="text-center-pd padding-top-md">
         <v-btn
           depressed

@@ -11,23 +11,17 @@
       ></v-text-field>
     </div>
     <div class="list-grid-btn text-right" style="right: 10px">
-      <v-icon :class="{ active: grid }" large color="grey" @click="grid = true">
+      <v-icon :class="{ active: grid }" large @click="grid = true">
         mdi-format-list-bulleted-square
       </v-icon>
-      <v-icon
-        :class="{ active: !grid }"
-        large
-        color="grey"
-        @click="grid = false"
-      >
+      <v-icon :class="{ active: !grid }" large @click="grid = false">
         mdi-view-grid
       </v-icon>
     </div>
 
     <div v-if="!grid" class="patients-grid-view">
       <v-card
-        max-width="450"
-        class="mx-auto patients patients-background-color"
+        class="patients patients-background-color"
         :class="{ 'prop-name': !grid }"
       >
         <div class="v-subheader patients-grid-title page-item page-list-title">

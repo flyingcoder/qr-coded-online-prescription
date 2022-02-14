@@ -14,18 +14,10 @@
 .doctors-grid-main-view {
   padding-bottom: 15px !important;
 }
-.grid-single-name {
-  font-size: 14px;
-}
 .grid-single-content,
 .grid-single-number{
   font-size: 12px;
   color: $black !important;
-}
-.grid-single-name {
-  font-weight: bold;
-  display: flex;
-  align-items: center;
 }
 .search-doctors-input {
   padding: 15px 15px 0 15px;
@@ -34,9 +26,6 @@
 .page-list-title {
   font-weight: 500;
   font-size: 1rem;
-}
-.list-grid-btn button{
-  color: $secondary-color;
 }
 .doctor-content, .doctor-number{
   color: $black !important;

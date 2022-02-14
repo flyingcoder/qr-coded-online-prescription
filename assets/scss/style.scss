@@ -305,9 +305,38 @@ button.v-btn.dark, a.v-btn.dark{
 
 /* Header End */
 
-/* Table Start */
-
+/* Table or List Start */
 .table-avatar{
   margin-top: auto !important;
   margin-bottom: auto !important;
 }
+.list-grid-btn button{
+  color: $secondary-color !important;
+}
+
+.grid-single-name {
+  font-size: 16px !important;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-top: .25rem;
+}
+.grid-single-content{
+  font-size: 14px;
+  color: $black !important;
+}
+/* Table or List End */
+
+/* Singe Profile Start */
+.user-profile img{
+  border-radius: 100%;
+  max-width: 200px;
+  border: 2px solid $primary-color;
+  margin-top: 10px;
+}
+.profile-top-info {
+  position: relative !important;
+  font-size: 16px;
+  color: $black !important;
+}
+/* Singe Profile End */
