@@ -5,7 +5,7 @@
     </!-->
     <div class="prescription-pad-header d-flex">
       <div class="reseta-logo">
-        <img src="~/assets/images/main-logo.png" />
+        <img src="~/assets/images/white-main-logo.png" />
         <div class="reseta-logo-text">Reseta QRx</div>
       </div>
       <div class="back-button">
@@ -14,19 +14,30 @@
     </div>
     <div class="patient-info d-flex">
       <div class="prescription-form-image">
-        <img class="user-icon" :src="prescriptions.doctor.avatar" />
+        <img
+          v-if="prescriptions.doctor.avatar == 'avatar.png'"
+          class="user-icon"
+          :src="require(`~/assets/images/avatar.png`)"
+          :alt="prescriptions.doctor.fname"
+        />
+        <img
+          v-else
+          class="user-icon"
+          :src="prescriptions.doctor.avatar"
+          :alt="prescriptions.doctor.fname"
+        />
       </div>
       <div class="prescription-form-info">
-        <div class="prescription-patient-name">
+        <div class="prescription-doctor-name">
           {{ prescriptions.doctor.fname }} {{ prescriptions.doctor.lname }}
         </div>
-        <div class="prescription-patient-use">
+        <div class="prescription-doctor-use">
           {{ prescriptions.doctor.experties }}
         </div>
-        <div class="prescription-patient-clinic">
+        <div class="prescription-doctor-clinic">
           {{ prescriptions.doctor.licence_number }}
         </div>
-        <div class="prescription-patient-number">
+        <div class="prescription-doctor-number">
           {{ prescriptions.doctor.phone }}
         </div>
       </div>
@@ -96,7 +107,7 @@
       </div>
     </div>
     <div v-if="$auth.user.role === 'patient'" class="send-prescribed">
-      <v-btn @click="buyMeds">Buy Medication</v-btn>
+      <v-btn class="dark" @click="buyMeds">Buy Medication</v-btn>
     </div>
   </div>
 </template>
@@ -141,38 +152,30 @@ export default {
 .patient-info,
 .prescribed-patient-address {
   padding: 0 17px;
+  font-size: 16px;
+  color: $black !important;
 }
 .prescription-form-info {
   width: 55%;
   padding-left: 12px;
-  margin-bottom: 20px;
 }
 .prescribed-left-info {
   padding-left: 20px;
   .prescribed-patient-name {
     font-weight: 500;
-    font-size: 17px;
+    font-size: 18px;
   }
 }
 .reseta-logo {
   width: 80%;
   display: flex;
-  justify-content: center;
-  margin-top: 15px;
   img {
     width: 15%;
   }
   .reseta-logo-text {
     display: flex;
     align-self: center;
-    margin-left: 10px;
   }
-}
-.back-button {
-  width: 20%;
-  display: flex;
-  justify-content: center;
-  align-self: center;
 }
 .prescription-pad-content-header {
   .left {
@@ -185,17 +188,27 @@ export default {
 }
 .prescription-pad-content {
   padding: 10px 15px 10px 20px;
+  color: $black !important;
+
+  .top,
+  .left,
+  .right,
+  .bottom {
+    color: $black !important;
+  }
 }
 .prescription-pad-content-body {
   .prescription-notes {
     border: 1px solid #1ac6b6;
     padding: 12px;
+    color: $black !important;
   }
   .prescription-sig-content,
   .prescription-till-intake,
   .prescription-hours {
     padding-left: 20px;
     padding-top: 10px;
+    color: $black !important;
   }
   .prescription-hours {
     display: flex;
@@ -209,6 +222,9 @@ export default {
 }
 .prescription-pad-header {
   margin-bottom: 14px;
+  background: $primary-color;
+  padding: 1rem;
+  align-items: center;
 }
 .send-prescribed {
   width: 100%;

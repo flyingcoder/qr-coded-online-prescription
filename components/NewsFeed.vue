@@ -73,12 +73,6 @@ export default {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.time {
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 9px;
-}
 .user-name {
   font-size: 16px;
   font-weight: 500;

@@ -1,12 +1,20 @@
 <template>
-  <v-list-item :key="item.fullname" class="pharmacy-list-section">
+  <v-list-item :key="item.fullname" class="page-list-title">
     <v-list-item-avatar>
-      <img :src="item.avatar" :alt="item.fullname" />
+      <v-icon
+        v-if="item.avatar == 'avatar.png'"
+        class="user-icon"
+        color="#1ac6b6"
+        medium
+      >
+        mdi-medical-bag
+      </v-icon>
+      <img v-else class="user-icon" :src="item.avatar" :alt="item.fullname" />
     </v-list-item-avatar>
 
     <v-list-item-content>
       <v-list-item-title>
-        {{ item.fullname }}
+        <strong>{{ item.fullname }}</strong>
         <br />
         <span class="medicine-sub-info">
           {{ item.address }} &nbsp;&nbsp;<br />
@@ -46,3 +54,10 @@ export default {
   methods: {},
 }
 </script>
+<style lang="scss">
+@import '~/assets/variables.scss';
+
+.medicine-sub-info {
+  color: $black !important;
+}
+</style>

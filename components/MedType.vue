@@ -121,7 +121,7 @@
     <v-card-actions class="apply-close">
       <v-spacer></v-spacer>
 
-      <v-btn color="green darken-1" text @click="pick"> Ok </v-btn>
+      <v-btn color="dark" @click="pick"> Ok </v-btn>
     </v-card-actions>
   </v-card>
 </template>

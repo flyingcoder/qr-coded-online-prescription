@@ -6,9 +6,11 @@
           <v-icon @click="close">mdi-arrow-left</v-icon>
         </div>
         <div class="reseta-logo">
-          <img src="~/assets/images/main-logo.png" alt="" />
+          <img src="~/assets/images/white-main-logo.png" alt="" />
           <div class="reseta-logo-text">Reseta QRx</div>
         </div>
+      </div>
+      <div class="content-wrapper">
         <div class="patient-info d-flex">
           <div class="prescription-form-image">
             <img
@@ -25,16 +27,16 @@
             />
           </div>
           <div class="prescription-form-info">
-            <div class="prescription-patient-name">
+            <div class="prescription-doctor-name">
               {{ $auth.user.fname }} {{ $auth.user.lname }}
             </div>
-            <div class="prescription-patient-use">
+            <div class="prescription-doctor-use">
               {{ $auth.user.experties }}
             </div>
-            <div class="prescription-patient-clinic">
+            <div class="prescription-doctor-clinic">
               {{ $auth.user.licence_number }}
             </div>
-            <div class="prescription-patient-number">
+            <div class="prescription-doctor-number">
               {{ $auth.user.phone }}
             </div>
           </div>
@@ -55,73 +57,74 @@
             {{ patient.address }}
           </div>
         </div>
-      </div>
-      <div class="prescription-popup-body">
-        <div
-          v-for="(prescription, index) in prescriptions"
-          :key="prescription.id"
-          class="popup-prescribed-content"
-        >
-          <div class="text-right">
-            <v-btn icon color="red">
-              <v-icon @click="removePrescription(prescription)"
-                >mdi-close</v-icon
-              >
-            </v-btn>
-          </div>
-          <div class="prescription-content-header d-flex">
-            <div class="prescription-id">{{ index + 1 }}.)</div>
-            &nbsp;
-            <div class="medicine-name">
-              {{ prescription.drug_info.medicine }}
+        <div class="prescription-popup-body">
+          <div
+            v-for="(prescription, index) in prescriptions"
+            :key="prescription.id"
+            class="popup-prescribed-content"
+          >
+            <div class="text-right">
+              <v-btn icon color="red">
+                <v-icon @click="removePrescription(prescription)"
+                  >mdi-close</v-icon
+                >
+              </v-btn>
             </div>
-            <div class="medicine-tab-id">
-              #
-              {{
-                prescription.sig.duration *
-                prescription.sig.repeat *
-                prescription.sig.amount
-              }}
-            </div>
-          </div>
-          <div class="prescription-content-body">
-            <div class="prescription-body-main-content">
-              Sig: {{ prescription.sig.intake }}
-              {{ prescription.sig.amount }}
-              {{ prescription.drug_info.type }}, {{ prescription.sig.repeat }} x
-              a
-              {{ prescription.sig.cycle }}
-            </div>
-            <div class="prescription-body-date-consumation">
-              for {{ prescription.sig.duration }} {{ prescription.sig.cycle }}/s
-            </div>
-            <div
-              style="
-                padding: 15px 0 0 20px;
-                display: grid;
-                grid-template-columns: repeat(6, 1fr);
-              "
-            >
-              <div
-                v-for="n in prescription.sig.hours_time"
-                :key="n"
-                style="color: #1ac6b6 !important; margin-bottom: 10px"
-              >
-                <span v-if="n <= 12" class="time-take-span">
-                  {{ n + 1 }}am
-                </span>
-                <span v-else class="time-take-span"> {{ n - 11 }}pm</span>
+            <div class="prescription-content-header d-flex">
+              <div class="prescription-id">{{ index + 1 }}.)</div>
+              &nbsp;
+              <div class="medicine-name">
+                {{ prescription.drug_info.medicine }}
+              </div>
+              <div class="medicine-tab-id">
+                #
+                {{
+                  prescription.sig.duration *
+                  prescription.sig.repeat *
+                  prescription.sig.amount
+                }}
               </div>
             </div>
-            <div class="prescription-body-time-consumation"></div>
-            <div class="prescription-notes">
-              Notes: {{ prescription.sig.note }}
+            <div class="prescription-content-body">
+              <div class="prescription-body-main-content">
+                Sig: {{ prescription.sig.intake }}
+                {{ prescription.sig.amount }}
+                {{ prescription.drug_info.type }},
+                {{ prescription.sig.repeat }} x a
+                {{ prescription.sig.cycle }}
+              </div>
+              <div class="prescription-body-date-consumation">
+                for {{ prescription.sig.duration }}
+                {{ prescription.sig.cycle }}/s
+              </div>
+              <div
+                style="
+                  padding: 15px 0 0 20px;
+                  display: grid;
+                  grid-template-columns: repeat(6, 1fr);
+                "
+              >
+                <div
+                  v-for="n in prescription.sig.hours_time"
+                  :key="n"
+                  style="color: #1ac6b6 !important; margin-bottom: 10px"
+                >
+                  <span v-if="n <= 12" class="time-take-span">
+                    {{ n + 1 }}am
+                  </span>
+                  <span v-else class="time-take-span"> {{ n - 11 }}pm</span>
+                </div>
+              </div>
+              <div class="prescription-body-time-consumation"></div>
+              <div class="prescription-notes">
+                Notes: {{ prescription.sig.note }}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="send-prescribed">
-        <v-btn v-if="!btnhide" @click="submit">Prescribed</v-btn>
+        <div class="send-prescribed">
+          <v-btn v-if="!btnhide" class="dark" @click="submit">Prescribed</v-btn>
+        </div>
       </div>
     </v-card>
   </div>
@@ -184,45 +187,24 @@ export default {
     background: white;
   }
 }
+.popup-prescribed-header {
+  background-color: $primary-color;
+}
+.content-wrapper {
+  padding: 16px;
+}
 .prescription-notes {
-  border: 1px solid #1ac6b6;
+  border: 1px solid $primary-color;
   padding: 12px;
+  color: $black !important;
 }
 .time-take-span {
   border: 1px solid #1ac6b6;
   margin-right: 5px;
   padding: 4px 5px;
 }
-.prescription-form-image {
-  width: 25%;
-  text-align: center;
-}
 .prescription-form-info {
   width: 75%;
-}
-.medicine-badge {
-  margin-right: 17px;
-}
-.prescription-patient-name {
-  font-size: 16px;
-  font-weight: 400;
-}
-.prescription-patient-use,
-.prescription-patient-clinic,
-.prescription-patient-number {
-  font-size: 14px;
-  height: 15px;
-}
-.popup-prescribed-content {
-  padding: 10px 10px 10px 17px;
-}
-.top-patient-info,
-.center-patient-info,
-.bottom-patient-info,
-.medicine-top,
-.medicine-bottom,
-.patient-day-uses-prescription {
-  height: 50px;
 }
 .popup-prescribed-back {
   position: absolute;
@@ -231,9 +213,8 @@ export default {
 }
 .reseta-logo {
   margin: auto;
-  padding-top: 15px;
+  padding: 15px 0;
   width: 100%;
-  margin-bottom: 25px;
   display: flex;
   justify-content: center;
   img {
@@ -242,14 +223,14 @@ export default {
   .reseta-logo-text {
     display: flex;
     align-self: center;
-    color: black !important;
     padding-left: 10px;
   }
 }
 .prescription-content-header {
-  font-size: 18px;
+  font-size: 16px;
   .medicine-name {
     width: 70%;
+    font-weight: 400;
   }
   .medicine-dosage {
     width: 30%;
@@ -257,13 +238,13 @@ export default {
 }
 .prescribed-left-info {
   margin-top: 20px;
-  padding-left: 17px;
 }
 .prescription-body-main-content,
 .prescription-body-date-consumation,
 .prescription-body-time-consumation {
-  padding: 15px 0 0 20px;
-  font-size: 17px;
+  padding: 8px 0 0 20px;
+  font-size: 16px;
+  color: $black !important;
 }
 .prescribed-patient-name {
   width: 70%;
@@ -281,9 +262,9 @@ export default {
   }
 }
 .prescribed-patient-address {
-  padding-left: 17px;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
+  color: $black !important;
 }
 .send-prescribed {
   width: 100%;
@@ -291,5 +272,8 @@ export default {
   background: white;
   text-align: center;
   padding-bottom: 30px;
+}
+.medicine-tab-id {
+  margin-left: auto;
 }
 </style>

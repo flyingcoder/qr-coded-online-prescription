@@ -31,11 +31,11 @@
           />
         </div>
         <div class="prescription-form-info">
-          <div class="prescription-patient-name">
+          <div class="prescription-doctor-name">
             {{ $auth.user.fname }} {{ $auth.user.lname }}
           </div>
-          <div class="prescription-patient-use">{{ $auth.user.experties }}</div>
-          <div class="prescription-patient-number">
+          <div class="prescription-doctor-use">{{ $auth.user.experties }}</div>
+          <div class="prescription-doctor-number">
             {{ $auth.user.phone }}
           </div>
         </div>
@@ -226,6 +226,7 @@
             clear-icon
             outlined
             style="width: 50%"
+            hide-details
           ></v-text-field>
           <div class="duration-day">
             <h3>{{ sig.cycle }}/s</h3>
@@ -255,12 +256,12 @@
       </!-->
       <v-divider></v-divider>
       <div class="patient-prescribed-buttons d-flex justify-center">
-        <v-btn class="patient-add-medicine-button" @click="addMedicine">
-          <v-icon left size="30px" color="green"> mdi-plus </v-icon>
+        <v-btn class="patient-add-medicine-button dark" @click="addMedicine">
+          <v-icon left size="30px" class="dark"> mdi-plus </v-icon>
           Medicine
         </v-btn>
         <v-btn
-          class="patient-prescribed-button-prescribe"
+          class="dark patient-prescribed-button-prescribe"
           @click="popup_prescribed = !popup_prescribed"
         >
           View
@@ -482,32 +483,8 @@ span.v-chip.active-hours-cycle.v-chip--active.v-chip--clickable.v-chip--label.v-
   color: white;
   font-weight: 500;
 }
-.prescription-form-image {
-  width: 25%;
-  text-align: center;
-}
 .prescription-form-info {
   width: 75%;
-}
-.prescription-patient-name {
-  font-size: 16px;
-  font-weight: 400;
-}
-.prescription-patient-use {
-  margin-bottom: 4px;
-}
-.prescription-patient-use,
-.prescription-patient-number {
-  font-size: 14px;
-  height: 15px;
-}
-.top-patient-info,
-.center-patient-info,
-.bottom-patient-info,
-.medicine-top,
-.medicine-bottom,
-.patient-day-uses-prescription {
-  height: 50px;
 }
 .medicine-bottom {
   margin-top: 35px;
@@ -521,18 +498,10 @@ span.v-chip.active-hours-cycle.v-chip--active.v-chip--clickable.v-chip--label.v-
 .patient-medicine-prescription {
   margin-top: 0px;
 }
-
-.medicine-badge {
-  margin-right: 20px;
-  margin-top: 10px;
-}
 .patient-date-prescription {
   .logo-wide {
     width: 25%;
   }
-}
-.patient-info-time {
-  font-size: 13px;
 }
 // .patient-sig-hours {
 //   label {
@@ -564,7 +533,11 @@ span.v-chip.active-hours-cycle.v-chip--active.v-chip--clickable.v-chip--label.v-
   .duration-day {
     padding: 5px 0px 0px 11px;
     display: flex;
-    align-self: flex-end;
+    align-self: center;
+
+    h3 {
+      margin: 0;
+    }
   }
 }
 .patient-prescribed-buttons {

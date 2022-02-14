@@ -11,26 +11,24 @@
       ></v-text-field>
     </div>
     <div class="list-grid-btn text-right" style="right: 10px">
-      <v-icon :class="{ active: grid }" large color="grey" @click="grid = true">
+      <v-icon :class="{ active: grid }" large @click="grid = true">
         mdi-format-list-bulleted-square
       </v-icon>
-      <v-icon
-        :class="{ active: !grid }"
-        large
-        color="grey"
-        @click="grid = false"
-      >
+      <v-icon :class="{ active: !grid }" large @click="grid = false">
         mdi-view-grid
       </v-icon>
     </div>
 
     <div v-if="!grid" class="patients-grid-view">
       <v-card
-        max-width="450"
-        class="mx-auto patients patients-background-color"
+        class="patients patients-background-color"
         :class="{ 'prop-name': !grid }"
       >
-        <div class="v-subheader patients-grid-title">Patients</div>
+        <div class="v-subheader patients-grid-title page-item page-list-title">
+          Patients
+        </div>
+
+        <v-divider></v-divider>
         <v-row no-gutters style="height: 100%" class="patients-grid">
           <v-col
             v-for="item in patients"
@@ -46,7 +44,18 @@
                 style="margin: 5px"
               >
                 <div class="grid-single-image text-center-pd">
-                  <img class="user-icon" :src="item.avatar" :alt="item.fname" />
+                  <img
+                    v-if="item.avatar == 'avatar.png'"
+                    class="user-icon"
+                    :src="require(`~/assets/images/avatar.png`)"
+                    :alt="item.fname"
+                  />
+                  <img
+                    v-else
+                    class="user-icon"
+                    :src="item.avatar"
+                    :alt="item.fname"
+                  />
                 </div>
                 <v-divider></v-divider>
                 <div class="grid-single-name d-flex justify-center">
@@ -89,22 +98,33 @@
     </div>
 
     <div v-if="grid" class="patient-list-view">
-      <v-card max-width="450" class="mx-auto doctors">
+      <v-card class="doctors">
         <div class="patient-list-main-btn">
           <v-list three-line class="patient-background-color">
             <template v-for="(item, index) in patients">
               <v-subheader
                 v-if="index == 0"
                 :key="item.id"
-                class="patients-list-title"
+                class="page-item page-list-title"
                 >Patients</v-subheader
               >
 
               <v-divider :key="index + 'div' + item.id"></v-divider>
 
               <v-list-item :key="item.fname" style="padding: 0">
-                <v-list-item-avatar>
-                  <img class="user-icon" :src="item.avatar" :alt="item.fname" />
+                <v-list-item-avatar class="table-avatar">
+                  <img
+                    v-if="item.avatar == 'avatar.png'"
+                    class="user-icon"
+                    :src="require(`~/assets/images/avatar.png`)"
+                    :alt="item.fname"
+                  />
+                  <img
+                    v-else
+                    class="user-icon"
+                    :src="item.avatar"
+                    :alt="item.fname"
+                  />
                 </v-list-item-avatar>
 
                 <v-list-item-content>

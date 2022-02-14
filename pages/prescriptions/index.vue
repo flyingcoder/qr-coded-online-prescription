@@ -24,7 +24,7 @@
             patient_pharmacy_title: $auth.user.role == 'patient',
             patient_pharmacy_title: $auth.user.role == 'doctor',
           }"
-          class="pharmacys-list-title"
+          class="page-list-title"
           >My Prescriptions</v-subheader
         >
 
@@ -36,14 +36,16 @@
           @click="viewPrescription(item.id)"
         >
           <v-list-item-avatar>
-            <v-icon>mdi-prescription</v-icon>
+            <v-icon class="user-icon" color="#1ac6b6">mdi-prescription</v-icon>
           </v-list-item-avatar>
 
           <v-list-item-content>
             <v-list-item-title>
-              From: {{ item.doctor.prefix ? item.doctor.prefix : 'Dr.' }}
+              <strong>From:</strong>
+              {{ item.doctor.prefix ? item.doctor.prefix : 'Dr.' }}
               {{ item.doctor.fname }} {{ item.doctor.lname }} <br />
-              Given: {{ $moment(item.created_at).format('ll') }}
+              <strong>Given:</strong>
+              {{ $moment(item.created_at).format('ll') }}
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>

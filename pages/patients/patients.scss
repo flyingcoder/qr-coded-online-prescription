@@ -14,17 +14,6 @@
 .patients-grid-main-view {
   padding-bottom: 15px !important;
 }
-.grid-single-name,
-.grid-single-content,
-.grid-single-number {
-  font-size: 11px;
-}
-.grid-single-name {
-  font-weight: bold;
-  height: 29px;
-  display: flex;
-  align-items: center;
-}
 .search-patients-input {
   margin-bottom: -15px;
 }
@@ -76,6 +65,9 @@ div#word-related {
   position: absolute;
   right: 24px;
   z-index: 999 !important;
+}
+.patients-background-color{
+  padding: 8px 0;
 }
 // .grid-contact-patient {
 //   margin-top: 10px !important;

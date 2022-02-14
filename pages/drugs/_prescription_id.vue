@@ -78,15 +78,21 @@
                 <div class="product-content">
                   <div class="product-image">
                     <img
+                      v-if="med.image == 'default-medicine-image.png'"
                       class="drug-image"
-                      :src="$config.baseURL + '/storage/medicines/' + med.image"
+                      :src="require(`~/assets/images/colchine1.jpg`)"
+                    />
+                    <img
+                      v-else
+                      class="drug-image"
+                      :src="$config.baseURL + '/storage/images/' + med.image"
                     />
                   </div>
                   <v-divider></v-divider>
-                  <div class="d-flex product-price_store">
-                    Price: ₱{{ med.price }} <br />
-                    Brand: {{ med.brand }} <br />
-                    Pharmacy: {{ med.store }}
+                  <div class="product-price_store">
+                    <div><strong>Price: </strong> ₱{{ med.price }}</div>
+                    <div><strong>Brand: </strong> {{ med.brand }}</div>
+                    <div><strong>Pharmacy: </strong> {{ med.store }}</div>
                   </div>
                 </div>
               </v-card>

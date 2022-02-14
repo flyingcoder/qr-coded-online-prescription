@@ -45,8 +45,17 @@
         <v-divider :key="index + 'div'"></v-divider>
 
         <v-list-item :key="index + 'span'" class="pharmacy-list-section">
-          <v-list-item-avatar>
-            <img :src="$config.baseURL + '/storage/medicines/' + item.image" />
+          <v-list-item-avatar class="table-avatar">
+            <img
+              v-if="item.image == 'default-medicine-image.png'"
+              class="user-icon"
+              :src="require(`~/assets/images/colchine1.jpg`)"
+            />
+            <img
+              v-else
+              class="user-icon"
+              :src="$config.baseURL + '/storage/images/' + item.image"
+            />
           </v-list-item-avatar>
 
           <v-list-item-content class="medicines-content">

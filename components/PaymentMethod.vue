@@ -229,9 +229,11 @@ export default {
   margin: 0 12px;
 }
 .cod-table {
-  width: 80%;
+  width: 100%;
+  max-width: 330px;
   justify-content: space-between;
   margin: 0 auto;
+  font-size: 0.95rem;
 }
 .cod-table-title:before {
   content: '\A';

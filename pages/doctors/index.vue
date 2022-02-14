@@ -11,15 +11,10 @@
       ></v-text-field>
     </div>
     <div class="list-grid-btn text-right">
-      <v-icon :class="{ active: grid }" large color="grey" @click="grid = true">
+      <v-icon :class="{ active: grid }" large @click="grid = true">
         mdi-format-list-bulleted-square
       </v-icon>
-      <v-icon
-        :class="{ active: !grid }"
-        large
-        color="grey"
-        @click="grid = false"
-      >
+      <v-icon :class="{ active: !grid }" large @click="grid = false">
         mdi-view-grid
       </v-icon>
     </div>
@@ -30,7 +25,8 @@
         class="mx-auto doctors doctors-background-color"
         :class="{ 'prop-name': !grid }"
       >
-        <div class="v-subheader doctors-grid-title">Doctors</div>
+        <v-subheader class="page-list-title">Doctors</v-subheader>
+        <v-divider></v-divider>
         <v-row no-gutters style="height: 100%" class="doctors-grid">
           <v-col
             v-for="item in doctors"
@@ -46,7 +42,18 @@
                 style="margin: 5px"
               >
                 <div class="grid-single-image text-center-pd">
-                  <img class="user-icon" :src="item.avatar" :alt="item.fname" />
+                  <img
+                    v-if="item.avatar == 'avatar.png'"
+                    class="user-icon"
+                    :src="require(`~/assets/images/` + item.avatar)"
+                    :alt="item.fname"
+                  />
+                  <img
+                    v-else
+                    class="user-icon"
+                    :src="item.avatar"
+                    :alt="item.fname"
+                  />
                 </div>
                 <v-divider></v-divider>
                 <div class="grid-single-name d-flex justify-center">
@@ -94,7 +101,7 @@
               <v-subheader
                 v-if="index == 0"
                 :key="item.id"
-                class="doctors-list-title"
+                class="page-list-title"
                 >Doctors</v-subheader
               >
 
@@ -102,7 +109,18 @@
 
               <v-list-item :key="item.fname">
                 <v-list-item-avatar>
-                  <img class="user-icon" :src="item.avatar" :alt="item.fname" />
+                  <img
+                    v-if="item.avatar == 'avatar.png'"
+                    class="user-icon"
+                    :src="require(`~/assets/images/` + item.avatar)"
+                    :alt="item.fname"
+                  />
+                  <img
+                    v-else
+                    class="user-icon"
+                    :src="item.avatar"
+                    :alt="item.fname"
+                  />
                 </v-list-item-avatar>
 
                 <v-list-item-content>

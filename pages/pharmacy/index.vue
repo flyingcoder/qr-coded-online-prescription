@@ -35,7 +35,7 @@
                   patient_pharmacy_title: $auth.user.role == 'patient',
                   patient_pharmacy_title: $auth.user.role == 'doctor',
                 }"
-                class="pharmacys-list-title"
+                class="page-list-title"
                 >Pharmacy List</v-subheader
               >
 
