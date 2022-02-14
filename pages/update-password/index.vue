@@ -27,7 +27,7 @@
         ></v-text-field>
       </v-row>
     </div>
-    <v-btn tile color="success" @click="saveChanges">
+    <v-btn tile class="dark" @click="saveChanges">
       <v-icon left> mdi-content-save </v-icon>
       Save Changes
     </v-btn>
