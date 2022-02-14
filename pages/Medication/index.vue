@@ -15,7 +15,7 @@
             <img
               class="user-icon"
               :src="require(`~/assets/images/Muzan_Anime_Profile.png`)"
-              alt="Alvin Pacot"
+              :alt="$auth.user.fname"
             />
           </div>
         </div>

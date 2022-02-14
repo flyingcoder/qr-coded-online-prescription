@@ -13,6 +13,13 @@ export default {
         doctor_id: '',
       },
       method: '',
+      order: {
+        items: [],
+        doctor_id: '',
+        total: 0,
+        prescription_id: '',
+        payment_method: '',
+      },
     }
   },
   watch: {
@@ -85,5 +92,11 @@ export default {
     this.cart = JSON.parse(window.localStorage.getItem('cart'))
     console.log(this.cart)
     if (!this.cart) this.$router.back()
+
+    this.order.items = this.cart.meds
+    this.order.doctor_id = this.cart.doctor_id
+    this.order.total = this.total_quantity_amount
+    this.order.prescription_id = this.cart.prescription_id
+    this.order.payment_method = 'gcash'
   },
 }
