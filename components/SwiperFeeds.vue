@@ -9,6 +9,13 @@
       <v-row class="newsfeed" @touchstart="touchStart(item, $event)">
         <div class="col-1 pr-10">
           <img
+            v-if="item.user_avatar == 'avatar.png'"
+            class="user-icon"
+            :src="require(`~/assets/images/` + item.user_avatar)"
+            :alt="item.user_name"
+          />
+          <img
+            v-else
             class="user-icon"
             :src="item.user_avatar"
             :alt="item.user_name"
@@ -118,12 +125,6 @@ export default {
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-.time {
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 9px;
 }
 .user-name {
   font-size: 16px;

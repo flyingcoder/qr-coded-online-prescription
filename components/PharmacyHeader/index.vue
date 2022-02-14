@@ -35,14 +35,14 @@
     <div class="other-icons">
       <div class="search-icon">
         <NuxtLink to="/search">
-          <v-btn icon>
+          <v-btn icon small>
             <v-icon>mdi-magnify</v-icon>
           </v-btn>
         </NuxtLink>
       </div>
       <div class="notification-icon">
         <NuxtLink to="/notification">
-          <v-btn icon>
+          <v-btn icon small>
             <v-badge dot overlap color="red">
               <v-icon>mdi-bell</v-icon>
             </v-badge>

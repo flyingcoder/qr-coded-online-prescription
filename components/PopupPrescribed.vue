@@ -25,16 +25,16 @@
             />
           </div>
           <div class="prescription-form-info">
-            <div class="prescription-patient-name">
+            <div class="prescription-doctor-name">
               {{ $auth.user.fname }} {{ $auth.user.lname }}
             </div>
-            <div class="prescription-patient-use">
+            <div class="prescription-doctor-use">
               {{ $auth.user.experties }}
             </div>
-            <div class="prescription-patient-clinic">
+            <div class="prescription-doctor-clinic">
               {{ $auth.user.licence_number }}
             </div>
-            <div class="prescription-patient-number">
+            <div class="prescription-doctor-number">
               {{ $auth.user.phone }}
             </div>
           </div>
@@ -193,36 +193,11 @@ export default {
   margin-right: 5px;
   padding: 4px 5px;
 }
-.prescription-form-image {
-  width: 25%;
-  text-align: center;
-}
 .prescription-form-info {
   width: 75%;
 }
-.medicine-badge {
-  margin-right: 17px;
-}
-.prescription-patient-name {
-  font-size: 16px;
-  font-weight: 400;
-}
-.prescription-patient-use,
-.prescription-patient-clinic,
-.prescription-patient-number {
-  font-size: 14px;
-  height: 15px;
-}
 .popup-prescribed-content {
   padding: 10px 10px 10px 17px;
-}
-.top-patient-info,
-.center-patient-info,
-.bottom-patient-info,
-.medicine-top,
-.medicine-bottom,
-.patient-day-uses-prescription {
-  height: 50px;
 }
 .popup-prescribed-back {
   position: absolute;
@@ -282,8 +257,9 @@ export default {
 }
 .prescribed-patient-address {
   padding-left: 17px;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
+  color: $black !important;
 }
 .send-prescribed {
   width: 100%;
