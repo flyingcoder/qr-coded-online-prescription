@@ -14,7 +14,7 @@
 
     <v-list-item-content>
       <v-list-item-title>
-        {{ item.fullname }}
+        <strong>{{ item.fullname }}</strong>
         <br />
         <span class="medicine-sub-info">
           {{ item.address }} &nbsp;&nbsp;<br />
@@ -54,3 +54,10 @@ export default {
   methods: {},
 }
 </script>
+<style lang="scss">
+@import '~/assets/variables.scss';
+
+.medicine-sub-info {
+  color: $black !important;
+}
+</style>

@@ -45,15 +45,15 @@
         <v-divider :key="index + 'div'"></v-divider>
 
         <v-list-item :key="index + 'span'" class="pharmacy-list-section">
-          <v-list-item-avatar>
+          <v-list-item-avatar class="drug-avatar">
             <img
               v-if="item.image == 'default-medicine-image.png'"
-              class="drug-image user-icon"
+              class="user-icon"
               :src="require(`~/assets/images/colchine1.jpg`)"
             />
             <img
               v-else
-              class="drug-image user-icon"
+              class="user-icon"
               :src="$config.baseURL + '/storage/images/' + item.image"
             />
           </v-list-item-avatar>

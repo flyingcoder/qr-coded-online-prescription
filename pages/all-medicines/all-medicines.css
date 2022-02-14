@@ -1,10 +1,16 @@
-.list-grid-btn {
-    top: 80px;
-}
 .medicines-content {
     display: grid !important;
     grid-template-columns: 80% 20%;
 }
-.list-contact-pharmacy {
-    top: 10px;
+
+.pharmacy-list-section{
+    align-items: center;
+}
+.pharmacy-list-section .v-avatar{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.drug-avatar{
+    margin-top: auto !important;
+    margin-bottom: auto !important;
 }

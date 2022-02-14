@@ -9,9 +9,14 @@
       </v-row>
       <v-row class="medicine-image">
         <img
-          width="60%"
-          style="border-radius: 70%"
-          :src="$config.baseURL + '/storage/medicines/' + medicine.image"
+          v-if="medicine.image == 'default-medicine-image.png'"
+          class="big-medicine-image"
+          :src="require(`~/assets/images/colchine1.jpg`)"
+        />
+        <img
+          v-else
+          class="big-medicine-image"
+          :src="$config.baseURL + '/storage/images/' + medicine.image"
         />
       </v-row>
       <v-row class="medicine-info">
@@ -78,9 +83,7 @@ export default {
 }
 .add-product-title {
   font-size: 24px;
-}
-.row-height {
-  height: 70px;
+  font-weight: 500;
 }
 .medicine-image {
   margin: 40px auto;
@@ -94,5 +97,8 @@ export default {
   font-size: 17px;
   font-weight: 500;
   text-align: center;
+}
+img.big-medicine-image {
+  max-width: 300px;
 }
 </style>
