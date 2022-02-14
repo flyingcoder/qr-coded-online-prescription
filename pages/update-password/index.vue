@@ -40,6 +40,7 @@
   background: #00bcd4;
   padding: 10px;
   border-radius: 100%;
+  object-fit: cover;
 }
 >>> .change-profile-icon .v-input__prepend-outer .v-icon {
   color: white;

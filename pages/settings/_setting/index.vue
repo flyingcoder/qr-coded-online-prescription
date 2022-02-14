@@ -135,6 +135,7 @@ export default {
     img {
       border-radius: 100%;
       border: 2px solid #1ac6b6;
+      object-fit: cover;
     }
     .user-name {
       font-weight: 600;

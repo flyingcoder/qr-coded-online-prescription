@@ -17,7 +17,18 @@
     <v-form id="main-prescription-form">
       <div class="patient-info d-flex">
         <div class="prescription-form-image">
-          <img class="user-icon" :src="$auth.user.avatar" />
+          <img
+            v-if="$auth.user.avatar == 'avatar.png'"
+            class="user-icon"
+            :src="require(`~/assets/images/avatar.png`)"
+            :alt="$auth.user.fname"
+          />
+          <img
+            v-else
+            class="user-icon"
+            :src="$auth.user.avatar"
+            :alt="$auth.user.fname"
+          />
         </div>
         <div class="prescription-form-info">
           <div class="prescription-patient-name">

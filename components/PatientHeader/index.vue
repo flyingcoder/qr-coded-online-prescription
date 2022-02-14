@@ -12,7 +12,18 @@
     </template>
 
     <div class="user">
-      <img class="user-icon" :src="$auth.user.avatar" alt="Alvin Pacot" />
+      <img
+        v-if="$auth.user.avatar == 'avatar.png'"
+        :src="require(`~/assets/images/avatar.png`)"
+        class="user-icon"
+        :alt="$auth.user.fname"
+      />
+      <img
+        v-else
+        class="user-icon"
+        :src="$auth.user.avatar"
+        :alt="$auth.user.fname"
+      />
     </div>
 
     <v-spacer></v-spacer>
