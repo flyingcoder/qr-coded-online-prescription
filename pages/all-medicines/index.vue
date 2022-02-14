@@ -45,7 +45,7 @@
         <v-divider :key="index + 'div'"></v-divider>
 
         <v-list-item :key="index + 'span'" class="pharmacy-list-section">
-          <v-list-item-avatar class="drug-avatar">
+          <v-list-item-avatar class="table-avatar">
             <img
               v-if="item.image == 'default-medicine-image.png'"
               class="user-icon"
