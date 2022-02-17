@@ -2,17 +2,13 @@
   <div>
     <div>
       <v-card elevation="3" class="padding-bottom-sm">
-        <div class="doctor-profile text-center">
+        <div class="user-profile text-center">
           <img
-            style="
-              border-radius: 100%;
-              width: 30%;
-              border: 2px solid #1ac6b6;
-              margin-top: 10px;
-            "
-            :src="profile.avatar"
+            v-if="profile.avatar == 'avatar.png'"
+            :src="require(`~/assets/images/avatar.png`)"
             :alt="profile.fname"
           />
+          <img v-else :src="profile.avatar" :alt="profile.fname" />
         </div>
         <div class="doctor-information padding-content text-center-pd">
           <div class="name padding-bottom-sm">Dr. {{ profile.fullname }}</div>

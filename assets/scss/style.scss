@@ -339,4 +339,9 @@ button.v-btn.dark, a.v-btn.dark{
   font-size: 16px;
   color: $black !important;
 }
+.profile-image img{
+  border-radius: 100%;
+  max-width: 200px;
+  margin-top: 10px;
+}
 /* Singe Profile End */

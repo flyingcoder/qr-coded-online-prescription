@@ -17,7 +17,7 @@
           patient_pharmacy_title: $auth.user.role === 'patient',
           patient_pharmacy_title: $auth.user.role === 'doctor',
         }"
-        class="pharmacys-list-title align-self-center"
+        class="page-list-title align-self-center"
       >
         All Medicine in the Database
       </div>
@@ -58,20 +58,18 @@
             />
           </v-list-item-avatar>
 
-          <v-list-item-content class="medicines-content">
-            <div class="d-block">
-              <v-list-item-title>
-                {{ item.generic_name }} ({{ item.brand }})
-                <br />
-                <span class="medicine-sub-info">
-                  {{ item.dosage }} - {{ item.type }}
-                </span>
-              </v-list-item-title>
+          <div class="medicines-content">
+            <div class="medicine-details">
+              <strong>{{ item.generic_name }} ({{ item.brand }})</strong>
+              <br />
+              <span class="medicine-sub-info">
+                {{ item.dosage }} - {{ item.type }}
+              </span>
             </div>
-            <div class="d-flex">
+            <div class="table-options">
               <v-btn
                 v-if="$auth.user.role === 'pharmacy'"
-                class="ma-2 list-contact-pharmacy"
+                class="ma-2"
                 outlined
                 x-small
                 fab
@@ -82,7 +80,7 @@
               </v-btn>
               <v-btn
                 v-if="$auth.user.role === 'doctor'"
-                class="ma-2 list-contact-pharmacy"
+                class="ma-2"
                 outlined
                 x-small
                 fab
@@ -92,7 +90,7 @@
                 <v-icon>mdi-eye-outline</v-icon>
               </v-btn>
             </div>
-          </v-list-item-content>
+          </div>
         </v-list-item>
       </template>
     </v-list>

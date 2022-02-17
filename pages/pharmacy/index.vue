@@ -23,7 +23,7 @@
       </v-btn>
     </div>
     <div class="pharmacy-list-view">
-      <v-card max-width="450" class="mx-auto pharmacy">
+      <v-card class="pharmacy">
         <div class="pharmacy-list-main-btn">
           <v-list three-line class="pharmacys-background-color">
             <template v-for="(item, index) in pharmacies">

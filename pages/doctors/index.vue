@@ -21,8 +21,7 @@
 
     <div v-if="!grid" class="doctors-grid-view">
       <v-card
-        max-width="450"
-        class="mx-auto doctors doctors-background-color"
+        class="doctors doctors-background-color"
         :class="{ 'prop-name': !grid }"
       >
         <v-subheader class="page-list-title">Doctors</v-subheader>
@@ -57,7 +56,7 @@
                 </div>
                 <v-divider></v-divider>
                 <div class="grid-single-name d-flex justify-center">
-                  Dr. {{ item.fname + ' ' + item.lname }}
+                  <strong>Dr. {{ item.fname + ' ' + item.lname }}</strong>
                 </div>
                 <div class="grid-single-content d-flex justify-center">
                   {{ item.address }}
@@ -94,7 +93,7 @@
     </div>
 
     <div v-if="grid" class="doctor-list-view">
-      <v-card max-width="450" class="mx-auto doctors">
+      <v-card class="doctors">
         <div class="doctor-list-main-btn">
           <v-list three-line class="doctors-background-color">
             <template v-for="(item, index) in doctors">
@@ -125,7 +124,7 @@
 
                 <v-list-item-content>
                   <v-list-item-title>
-                    Dr. {{ item.fname + ' ' + item.lname }}
+                    <strong>Dr. {{ item.fname + ' ' + item.lname }}</strong>
                   </v-list-item-title>
                   <v-btn
                     class="ma-2 list-contact-doctor"
