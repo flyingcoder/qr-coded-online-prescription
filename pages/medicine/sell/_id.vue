@@ -5,17 +5,23 @@
         <v-icon> mdi-arrow-left </v-icon>
       </div>
       <v-row class="justify-center">
-        <div class="add-product-title">Add to store</div>
+        <div class="add-product-title"><strong>Add to store</strong></div>
       </v-row>
-      <v-row class="medicine-image">
+      <v-row class="medicine-image profile-image">
         <img
-          width="60%"
-          style="border-radius: 70%"
+          v-if="medicine.image == 'default-medicine-image.png'"
+          :src="require(`~/assets/images/colchine1.jpg`)"
+        />
+        <img
+          v-else
           :src="$config.baseURL + '/storage/medicines/' + medicine.image"
         />
       </v-row>
-      <v-row class="medicine-info">
-        {{ medicine.generic_name }} ({{ medicine.brand }}) <br />
+      <v-row
+        class="medicine-info"
+        style="flex-direction: column; font-weight: normal"
+      >
+        <strong>{{ medicine.generic_name }} ({{ medicine.brand }})</strong>
         {{ medicine.dosage }} - {{ medicine.type }} <br />
         <span v-if="medicine.price_refs_index"
           >Drug Price Referrence Index: ₱ {{ medicine.price_refs_index }}</span
@@ -43,12 +49,7 @@
         </v-col>
       </v-row>
       <v-row style="width: 100%; margin: 0 !important">
-        <v-btn
-          color="blue-grey"
-          class="white--text"
-          style="width: 100%"
-          @click="saveProduct"
-        >
+        <v-btn class="dark" style="width: 100%" @click="saveProduct">
           Sell
           <v-icon right dark> mdi-content-save </v-icon>
         </v-btn>

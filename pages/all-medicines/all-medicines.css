@@ -1,6 +1,5 @@
 .medicines-content {
-    display: grid !important;
-    grid-template-columns: 80% 20%;
+    display: flex;
 }
 
 .pharmacy-list-section{
