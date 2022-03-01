@@ -23,7 +23,7 @@
       </v-btn>
     </div>
     <div class="pharmacy-list-view">
-      <v-card class="pharmacy">
+      <div class="pharmacy">
         <div class="pharmacy-list-main-btn">
           <v-list three-line class="pharmacys-background-color">
             <template v-for="(item, index) in pharmacies">
@@ -46,7 +46,7 @@
             </template>
           </v-list>
         </div>
-      </v-card>
+      </div>
     </div>
   </div>
 </template>
