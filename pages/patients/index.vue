@@ -120,7 +120,7 @@
                   <img
                     v-if="
                       item.avatar == 'avatar.png' ||
-                      item.user_avatar ==
+                      item.avatar ==
                         'https://api.resetaqrx.com/storage/users/user-default.png'
                     "
                     class="user-icon"

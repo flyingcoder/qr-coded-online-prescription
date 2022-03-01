@@ -47,7 +47,9 @@
         <v-list-item :key="index + 'span'" class="pharmacy-list-section">
           <v-list-item-avatar class="table-avatar">
             <img
-              v-if="item.image == 'default-medicine-image.png'"
+              v-if="
+                item.image == 'default-medicine-image.png' || item.image == ''
+              "
               class="user-icon"
               :src="require(`~/assets/images/colchine1.jpg`)"
             />
