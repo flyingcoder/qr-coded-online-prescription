@@ -42,7 +42,11 @@
               >
                 <div class="grid-single-image text-center-pd">
                   <img
-                    v-if="item.avatar == 'avatar.png'"
+                    v-if="
+                      item.avatar == 'avatar.png' ||
+                      item.avatar ==
+                        'https://api.resetaqrx.com/storage/users/user-default.png'
+                    "
                     class="user-icon"
                     :src="require(`~/assets/images/` + item.avatar)"
                     :alt="item.fname"
@@ -109,7 +113,11 @@
               <v-list-item :key="item.fname">
                 <v-list-item-avatar>
                   <img
-                    v-if="item.avatar == 'avatar.png'"
+                    v-if="
+                      item.avatar == 'avatar.png' ||
+                      item.user_avatar ==
+                        'https://api.resetaqrx.com/storage/users/user-default.png'
+                    "
                     class="user-icon"
                     :src="require(`~/assets/images/` + item.avatar)"
                     :alt="item.fname"

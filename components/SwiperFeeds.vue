@@ -9,7 +9,11 @@
       <v-row class="newsfeed" @touchstart="touchStart(item, $event)">
         <div class="col-1 pr-10">
           <img
-            v-if="item.user_avatar == 'avatar.png'"
+            v-if="
+              item.user_avatar == 'avatar.png' ||
+              item.user_avatar ==
+                'https://api.resetaqrx.com/storage/users/user-default.png'
+            "
             class="user-icon"
             :src="require(`~/assets/images/` + item.user_avatar)"
             :alt="item.user_name"

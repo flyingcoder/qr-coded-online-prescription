@@ -2,7 +2,11 @@
   <v-list-item :key="item.fullname" class="page-list-title">
     <v-list-item-avatar>
       <v-icon
-        v-if="item.avatar == 'avatar.png'"
+        v-if="
+          item.avatar == 'avatar.png' ||
+          item.avatar ==
+            'https://api.resetaqrx.com/storage/users/user-default.png'
+        "
         class="user-icon"
         color="#1ac6b6"
         medium

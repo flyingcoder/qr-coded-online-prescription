@@ -4,7 +4,11 @@
       <div class="padding-bottom-sm">
         <div class="user-profile text-center">
           <img
-            v-if="profile.avatar == 'avatar.png'"
+            v-if="
+              profile.avatar == 'avatar.png' ||
+              profile.avatar ==
+                'https://api.resetaqrx.com/storage/users/user-default.png'
+            "
             :src="require(`~/assets/images/avatar.png`)"
             :alt="profile.fname"
           />

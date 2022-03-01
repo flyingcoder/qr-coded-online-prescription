@@ -15,7 +15,11 @@
     <div class="patient-info d-flex">
       <div class="prescription-form-image">
         <img
-          v-if="prescriptions.doctor.avatar == 'avatar.png'"
+          v-if="
+            prescriptions.doctor.avatar == 'avatar.png' ||
+            prescriptions.doctor.avatar ==
+              'https://api.resetaqrx.com/storage/users/user-default.png'
+          "
           class="user-icon"
           :src="require(`~/assets/images/avatar.png`)"
           :alt="prescriptions.doctor.fname"
