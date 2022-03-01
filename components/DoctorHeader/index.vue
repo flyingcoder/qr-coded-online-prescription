@@ -13,7 +13,11 @@
 
     <div class="user">
       <img
-        v-if="$auth.user.avatar == 'avatar.png'"
+        v-if="
+          $auth.user.avatar == 'avatar.png' ||
+          $auth.user.avatar ==
+            'https://api.resetaqrx.com/storage/users/user-default.png'
+        "
         class="user-icon"
         :src="require(`~/assets/images/avatar.png`)"
         :alt="$auth.user.fname"

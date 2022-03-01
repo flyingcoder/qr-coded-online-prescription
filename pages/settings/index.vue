@@ -9,7 +9,11 @@
     <div class="settings-body">
       <div class="user-image">
         <img
-          v-if="$auth.user.avatar == 'avatar.png'"
+          v-if="
+            $auth.user.avatar == 'avatar.png' ||
+            $auth.user.avatar ==
+              'https://api.resetaqrx.com/storage/users/user-default.png'
+          "
           :src="require(`~/assets/images/avatar.png`)"
           :alt="$auth.user.fname"
           width="90px"
