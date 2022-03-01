@@ -2,7 +2,17 @@
   <div class="edit-profile-page">
     <div class="edit-profile-title">Edit Profile</div>
     <div class="edit-profile-image">
-      <img :src="user_info.avatar" alt="" />
+      <img
+        v-if="
+          user_info.avatar == 'avatar.png' ||
+          user_info.avatar ==
+            'https://api.resetaqrx.com/storage/users/user-default.png'
+        "
+        :src="require(`~/assets/images/avatar.png`)"
+        :alt="user_info.fullname"
+      />
+
+      <img v-else :src="user_info.avatar" :alt="user_info.fullname" />
       <div class="edit-image">
         <v-file-input
           v-model="profile_image"
