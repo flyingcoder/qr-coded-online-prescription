@@ -1,5 +1,8 @@
+/* All Medicines - Doctor's Account*/
 .medicines-content {
     display: flex;
+    width: 100%;
+    justify-content: space-between
 }
 
 .pharmacy-list-section{

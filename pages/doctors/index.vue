@@ -48,7 +48,7 @@
                         'https://api.resetaqrx.com/storage/users/user-default.png'
                     "
                     class="user-icon"
-                    :src="require(`~/assets/images/` + item.avatar)"
+                    :src="require(`~/assets/images/avatar.png`)"
                     :alt="item.fname"
                   />
                   <img
@@ -115,11 +115,11 @@
                   <img
                     v-if="
                       item.avatar == 'avatar.png' ||
-                      item.user_avatar ==
+                      item.avatar ==
                         'https://api.resetaqrx.com/storage/users/user-default.png'
                     "
                     class="user-icon"
-                    :src="require(`~/assets/images/` + item.avatar)"
+                    :src="require(`~/assets/images/avatar.png`)"
                     :alt="item.fname"
                   />
                   <img
