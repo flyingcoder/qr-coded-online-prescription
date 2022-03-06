@@ -9,7 +9,10 @@
       </v-row>
       <v-row class="medicine-image profile-image">
         <img
-          v-if="medicine.image == 'default-medicine-image.png'"
+          v-if="
+            medicine.image == 'default-medicine-image.png' ||
+            medicine.image == ''
+          "
           :src="require(`~/assets/images/colchine1.jpg`)"
         />
         <img
