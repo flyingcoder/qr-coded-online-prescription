@@ -60,6 +60,7 @@ export default {
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `Profile updated`,
         })
+        this.$router.push('/settings')
       })
     },
   },

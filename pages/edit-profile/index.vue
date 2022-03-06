@@ -26,7 +26,7 @@
         ></v-file-input>
       </div>
       <div class="back-button" @click="exitprofile">
-        <v-icon color="green darken-2"> mdi-close </v-icon>
+        <v-icon color="darken-2"> mdi-close </v-icon>
       </div>
     </div>
     <div class="edit-profile-inputs">
