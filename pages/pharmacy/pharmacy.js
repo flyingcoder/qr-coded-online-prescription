@@ -6,6 +6,8 @@ export default {
       grid: true,
       align: '',
       pharmacies: [],
+      filtered: '',
+      search: '',
     }
   },
   mounted() {
@@ -15,6 +17,12 @@ export default {
     async getPharmacies() {
       await this.$axios.get('stores').then((data) => {
         this.pharmacies = data.data
+        this.filtered = this.pharmacies
+      })
+    },
+    filterPharmacy() {
+      this.filtered = this.pharmacies.filter((phar) => {
+        return phar.fullname.toLowerCase().match(this.search.toLowerCase())
       })
     },
   },

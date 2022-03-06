@@ -2,11 +2,13 @@
   <div class="pharmacy-main-list">
     <div class="search-pharmacy-input">
       <v-text-field
+        v-model="search"
         label="Search Pharmacy"
         prepend-inner-icon="mdi-magnify"
         outlined
         dense
         class="main-search-input"
+        @keyup="filterPharmacy"
       ></v-text-field>
     </div>
     <div v-if="$auth.user.role == 'pharmacy'" class="list-grid-btn text-right">
@@ -26,7 +28,7 @@
       <div class="pharmacy">
         <div class="pharmacy-list-main-btn">
           <v-list three-line class="pharmacys-background-color">
-            <template v-for="(item, index) in pharmacies">
+            <template v-for="(item, index) in filtered">
               <v-subheader
                 v-if="index == 0"
                 :key="item.id"
