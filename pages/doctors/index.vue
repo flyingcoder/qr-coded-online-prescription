@@ -2,12 +2,14 @@
   <div class="main-doctors-page">
     <div class="search-doctors-input">
       <v-text-field
+        v-model="search"
         label="Search"
         placeholder="Search Doctor"
         prepend-inner-icon="mdi-magnify"
         outlined
         dense
         class="main-search-input"
+        @keyup="filtered"
       ></v-text-field>
     </div>
     <div class="list-grid-btn text-right">
@@ -100,7 +102,7 @@
       <v-card class="doctors">
         <div class="doctor-list-main-btn">
           <v-list three-line class="doctors-background-color">
-            <template v-for="(item, index) in doctors">
+            <template v-for="(item, index) in filter">
               <v-subheader
                 v-if="index == 0"
                 :key="item.id"

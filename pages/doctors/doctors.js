@@ -5,15 +5,18 @@ export default {
       grid: true,
       align: '',
       doctors: '',
+      filter: '',
+      search: '',
     }
   },
   mounted() {
     this.getDoctors()
   },
   methods: {
-    getDoctors() {
-      this.$axios.get('users/doctor').then((data) => {
+    async getDoctors() {
+      await this.$axios.get('users/doctor').then((data) => {
         this.doctors = data.data
+        this.filter = this.doctors
       })
     },
     viewProfile(id) {
@@ -21,6 +24,14 @@ export default {
     },
     contact(id) {
       this.$router.push('/chatbox/' + id)
+    },
+    filtered() {
+      this.filter = this.doctors.filter((doc) => {
+        return (
+          doc.fname.toLowerCase().match(this.search.toLowerCase()) ||
+          doc.lname.toLowerCase().match(this.search.toLowerCase())
+        )
+      })
     },
   },
 }
