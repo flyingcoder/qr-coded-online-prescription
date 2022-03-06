@@ -2,12 +2,14 @@
   <div class="main-patients-page">
     <div class="search-patients-input">
       <v-text-field
+        v-model="search"
         label="Search"
         placeholder="Search Patient"
         prepend-inner-icon="mdi-magnify"
         outlined
         dense
         class="main-search-input"
+        @keyup="filterPatients"
       ></v-text-field>
     </div>
     <div class="list-grid-btn text-right" style="right: 10px">
@@ -31,7 +33,7 @@
         <v-divider></v-divider>
         <v-row no-gutters style="height: 100%" class="patients-grid">
           <v-col
-            v-for="item in patients"
+            v-for="item in filtered"
             :key="item.id"
             class="patients-grid-main-view"
             cols="6"
@@ -105,7 +107,7 @@
       <v-card class="doctors">
         <div class="patient-list-main-btn">
           <v-list three-line class="patient-background-color">
-            <template v-for="(item, index) in patients">
+            <template v-for="(item, index) in filtered">
               <v-subheader
                 v-if="index == 0"
                 :key="item.id"

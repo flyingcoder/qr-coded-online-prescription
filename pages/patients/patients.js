@@ -7,15 +7,18 @@ export default {
       grid: true,
       align: '',
       patients: '',
+      filtered: '',
+      search: '',
     }
   },
   mounted() {
     this.getPatient()
   },
   methods: {
-    getPatient() {
-      this.$axios.get('users/patient').then((data) => {
+    async getPatient() {
+      await this.$axios.get('users/patient').then((data) => {
         this.patients = data.data
+        this.filtered = this.patients
       })
     },
     viewProfile(id) {
@@ -23,6 +26,14 @@ export default {
     },
     contact(id) {
       this.$router.push('/chatbox/' + id)
+    },
+    filterPatients() {
+      this.filtered = this.patients.filter((pat) => {
+        return (
+          pat.fname.toLowerCase().match(this.search.toLowerCase()) ||
+          pat.lname.toLowerCase().match(this.search.toLowerCase())
+        )
+      })
     },
   },
 }
