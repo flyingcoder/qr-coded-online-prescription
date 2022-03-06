@@ -2,12 +2,14 @@
   <div class="main-patients-page">
     <div class="search-patients-input">
       <v-text-field
+        v-model="search"
         label="Search"
         placeholder="Search Medicine"
         prepend-inner-icon="mdi-magnify"
         outlined
         dense
         class="main-search-input"
+        @keyup="filterMedicine"
       ></v-text-field>
     </div>
     <div class="d-flex">
@@ -29,19 +31,7 @@
       </div>
     </div>
     <v-list three-line class="pharmacys-background-color">
-      <template v-for="(item, index) in allmedicines">
-        <!-- <v-subheader
-          v-if="index == 0"
-          :key="index + item.created_at"
-          :class="{
-            'page-item': true,
-            patient_pharmacy_title: $auth.user.role == 'patient',
-            patient_pharmacy_title: $auth.user.role == 'doctor',
-          }"
-          class="pharmacys-list-title"
-          >All Medicine in the Database</v-subheader
-        > -->
-
+      <template v-for="(item, index) in filtered">
         <v-divider :key="index + 'div'"></v-divider>
 
         <v-list-item :key="index + 'span'" class="pharmacy-list-section">

@@ -1,32 +1,32 @@
 export default {
+  name: 'Prescriptions',
   layout: 'dashboard',
   data() {
     return {
-      allmedicines: '',
-      product_name: [
-        {
-          id: 1,
-          title: 'COLCHICINE',
-        },
-        // {
-        //   id: 2,
-        //   title: 'N - ACETYLCYSTEINE',
-        // },
-        // {
-        //   id: 3,
-        //   title: 'AZITHROMYCIN',
-        // },
-      ],
+      prescriptions: [],
+      filtered: '',
+      search: '',
     }
   },
   mounted() {
-    this.getallMedicines()
+    this.getPrescriptions()
   },
   methods: {
-    getallMedicines() {
-      this.$axios.get('allmedicines').then((data) => {
-        this.allmedicines = data.data
-        console.log(data)
+    viewPrescription(id) {
+      this.$router.push('/prescriptions/pad/' + id)
+    },
+    async getPrescriptions() {
+      await this.$axios.get('prescriptions').then((data) => {
+        this.prescriptions = data.data
+        this.filtered = this.prescriptions
+      })
+    },
+    filterPrescriptions() {
+      this.filtered = this.prescriptions.filter((val) => {
+        return (
+          val.doctor.fname.toLowerCase().match(this.search.toLowerCase()) ||
+          val.doctor.lname.toLowerCase().match(this.search.toLowerCase())
+        )
       })
     },
   },

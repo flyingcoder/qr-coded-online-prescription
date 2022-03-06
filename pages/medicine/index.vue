@@ -32,12 +32,12 @@
         </v-btn>
       </div>
     </div>
-    <div v-for="brand in brands" :key="brand">
+    <div v-for="(brand, index) in brands" :key="index">
       <h3 class="brand-title">{{ brand }}</h3>
       <div class="pharmacy-list-view">
         <v-card
-          v-for="item in grouped[brand]"
-          :key="item"
+          v-for="(item, index2) in grouped[brand]"
+          :key="index2"
           class="med-card elevation-2"
           @click="editMedicine(item.id)"
         >

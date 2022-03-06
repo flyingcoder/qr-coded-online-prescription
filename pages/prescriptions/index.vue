@@ -2,12 +2,14 @@
   <div class="prescription-list">
     <div class="search-pharmacy-input">
       <v-text-field
+        v-model="search"
         label="Search"
         placeholder="Search Prescription"
         prepend-inner-icon="mdi-magnify"
         outlined
         dense
         class="main-search-input"
+        @keyup="filterPrescriptions"
       ></v-text-field>
     </div>
     <v-list
@@ -15,7 +17,7 @@
       three-line
       class="pharmacys-background-color"
     >
-      <template v-for="(item, index) in prescriptions">
+      <template v-for="(item, index) in filtered">
         <v-subheader
           v-if="index == 0"
           :key="index + item.created_at"
@@ -57,30 +59,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Prescriptions',
-  layout: 'dashboard',
-  data() {
-    return {
-      prescriptions: [],
-    }
-  },
-  mounted() {
-    this.getPrescriptions()
-  },
-  methods: {
-    viewPrescription(id) {
-      this.$router.push('/prescriptions/pad/' + id)
-    },
-    getPrescriptions() {
-      this.$axios.get('prescriptions').then((data) => {
-        this.prescriptions = data.data
-      })
-    },
-  },
-}
-</script>
+<script src="./prescriptions.js"></script>
 
 <style lang="scss" scoped>
 .search-pharmacy-input {
