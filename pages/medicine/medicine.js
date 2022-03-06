@@ -6,8 +6,8 @@ export default {
       grid: true,
       align: '',
       medicines: '',
-      all_medicine: '',
       brands: [],
+      search: '',
     }
   },
   mounted() {
@@ -16,12 +16,19 @@ export default {
   computed: {
     grouped() {
       const groups = {}
-      this.medicines.forEach((item) => {
+      this.filteredName.forEach((item) => {
         groups[item.brand] = groups[item.brand] || []
         groups[item.brand].push(item)
       })
-      console.log(groups)
       return groups
+    },
+    filteredName() {
+      return this.medicines.filter((med) => {
+        return (
+          med.brand.toLowerCase().match(this.search.toLowerCase()) ||
+          med.generic_name.toLowerCase().match(this.search.toLowerCase())
+        )
+      })
     },
   },
   methods: {

@@ -2,8 +2,9 @@
   <div class="pharmacy-list">
     <div class="search-pharmacy-input">
       <v-text-field
+        v-model="search"
         label="Search"
-        placeholder="Search Patient"
+        placeholder="Search Medicine"
         prepend-inner-icon="mdi-magnify"
         outlined
         dense
