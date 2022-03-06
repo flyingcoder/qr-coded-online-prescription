@@ -8,11 +8,16 @@
   font-size: 12px;
   font-weight: 300;
 }
+.brand-title{
+  margin: 0;
+  text-align: center;
+  margin-top: 1rem;
+}
 .pharmacy-list-view {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: calc(2vw + 0.5em) 0;
+  padding: 0;
 }
 .med-card{
   display: flex;
@@ -22,6 +27,8 @@
   border-radius: 3px;
   margin: calc(0.5vw + 0.5em);
   text-align: center;
+  width: 21.5%;
+  min-width: 180px;
 }
 .medicines-content{
   flex-direction: row;
@@ -34,4 +41,10 @@
 }
 .medicines-content .medicine-sub-info{
   flex: auto;
+}
+@media screen and (max-width: 480px) {
+  .med-card{
+    min-width: 150px;
+    width: 44.5%;
+  }
 }

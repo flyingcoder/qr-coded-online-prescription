@@ -3,7 +3,7 @@
     <div class="page-title">Update Password</div>
 
     <div class="back-button" @click="exitprofile">
-      <v-icon color="green darken-2"> mdi-close </v-icon>
+      <v-icon color="darken-2"> mdi-close </v-icon>
     </div>
     <div class="edit-profile-inputs">
       <v-row id="password" class="sm-side-padding">

@@ -158,8 +158,8 @@ export default {
       payment_method: [
         {
           id: 'gcash',
-          icon: '/_nuxt/assets/images/gcash-icon-small.png',
-          icon_inner: '/_nuxt/assets/images/gcash-icon.png',
+          icon: require(`~/assets/images/gcash-icon-small.png`),
+          icon_inner: require(`~/assets/images/gcash-icon.png`),
           title: 'GCash e-Wallet',
           content:
             'Reseta Qrx can now accept payment using GCash. You will be redirected to the GCash website to finish the payment.',
