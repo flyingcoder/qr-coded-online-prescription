@@ -6,7 +6,7 @@ export default {
     return {
       align: '',
       allmedicines: '',
-      filter: '',
+      filtered: '',
       search: '',
     }
   },
@@ -21,14 +21,14 @@ export default {
     async getAllMedicines() {
       await this.$axios.get('medicines').then((data) => {
         this.allmedicines = data.data
-        this.filter = this.allmedicines
+        this.filtered = this.allmedicines
       })
     },
     viewProfile(id) {
       this.$router.push('/medicine/' + id)
     },
-    filtered() {
-      this.filter = this.allmedicines.filter((med) => {
+    filterMedicine() {
+      this.filtered = this.allmedicines.filter((med) => {
         return (
           med.brand.toLowerCase().match(this.search.toLowerCase()) ||
           med.generic_name.toLowerCase().match(this.search.toLowerCase())

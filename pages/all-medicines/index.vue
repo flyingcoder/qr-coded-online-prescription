@@ -9,7 +9,7 @@
         outlined
         dense
         class="main-search-input"
-        @keyup="filtered"
+        @keyup="filterMedicine"
       ></v-text-field>
     </div>
     <div class="d-flex">
@@ -31,7 +31,7 @@
       </div>
     </div>
     <v-list three-line class="pharmacys-background-color">
-      <template v-for="(item, index) in filter">
+      <template v-for="(item, index) in filtered">
         <v-divider :key="index + 'div'"></v-divider>
 
         <v-list-item :key="index + 'span'" class="pharmacy-list-section">

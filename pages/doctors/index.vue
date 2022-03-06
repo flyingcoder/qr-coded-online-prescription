@@ -9,7 +9,7 @@
         outlined
         dense
         class="main-search-input"
-        @keyup="filtered"
+        @keyup="filterDoc"
       ></v-text-field>
     </div>
     <div class="list-grid-btn text-right">
@@ -30,7 +30,7 @@
         <v-divider></v-divider>
         <v-row no-gutters style="height: 100%" class="doctors-grid">
           <v-col
-            v-for="item in doctors"
+            v-for="item in filtered"
             :key="item.id"
             class="doctors-grid-main-view"
             cols="6"
@@ -102,7 +102,7 @@
       <v-card class="doctors">
         <div class="doctor-list-main-btn">
           <v-list three-line class="doctors-background-color">
-            <template v-for="(item, index) in filter">
+            <template v-for="(item, index) in filtered">
               <v-subheader
                 v-if="index == 0"
                 :key="item.id"
