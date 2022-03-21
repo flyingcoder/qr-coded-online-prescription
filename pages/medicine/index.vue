@@ -45,12 +45,10 @@
             v-if="
               item.image == 'default-medicine-image.png' || item.image == ''
             "
-            width="120px"
             :src="require(`~/assets/images/colchine1.jpg`)"
           />
           <img
             v-else
-            width="120px"
             :src="$config.baseURL + '/storage/medicines/' + item.image"
           />
           <v-card-text>
