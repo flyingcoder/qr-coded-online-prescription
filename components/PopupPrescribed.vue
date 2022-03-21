@@ -193,6 +193,10 @@ export default {
 }
 .popup-prescribed-header {
   background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 .content-wrapper {
   padding: 16px;
@@ -212,8 +216,10 @@ export default {
 }
 .popup-prescribed-back {
   position: absolute;
-  top: 25px;
-  left: 30px;
+  left: 1rem;
+}
+.popup-prescribed-back button {
+  color: $white;
 }
 .reseta-logo {
   margin: auto;
