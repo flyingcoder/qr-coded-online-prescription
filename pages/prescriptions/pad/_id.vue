@@ -39,7 +39,7 @@
           {{ prescriptions.doctor.experties }}
         </div>
         <div class="prescription-doctor-clinic">
-          {{ prescriptions.doctor.licence_number }}
+          {{ prescriptions.doctor.license_number }}
         </div>
         <div class="prescription-doctor-number">
           {{ prescriptions.doctor.phone }}

@@ -354,3 +354,8 @@ button.v-btn.dark, a.v-btn.dark{
 .main-doctors-page{
   position: relative;
 }
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
