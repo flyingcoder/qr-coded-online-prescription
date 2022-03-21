@@ -38,7 +38,7 @@
               {{ $auth.user.experties }}
             </div>
             <div class="prescription-doctor-clinic">
-              {{ $auth.user.licence_number }}
+              {{ $auth.user.license_number }}
             </div>
             <div class="prescription-doctor-number">
               {{ $auth.user.phone }}

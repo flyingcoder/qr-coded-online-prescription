@@ -17,8 +17,8 @@
           <v-select
             v-model="order.status"
             :items="status"
-            label="Status"
             dense
+            hide-details
           ></v-select>
         </div>
       </div>
@@ -27,7 +27,7 @@
       </div>
       <div class="order-prescribed-by">
         <span class="identifier">Prescribed by: </span>Dr.
-        {{ order.doctor.fname }} {{ order.doctor.lname }}
+        {{ order.doctor.fullname }}
       </div>
       <v-divider></v-divider>
       <h4 class="my-2 px-1">Order items:</h4>
@@ -118,7 +118,10 @@ export default {
     padding-bottom: 20px;
   }
   .order-status {
-    height: 34px;
+    align-items: center;
+  }
+  .order-status .v-input {
+    margin: 0;
   }
 }
 </style>

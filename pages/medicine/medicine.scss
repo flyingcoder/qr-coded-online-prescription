@@ -56,6 +56,9 @@
   .med-card img{
     max-width: 80px;
   }
+  input, select, textarea {
+    font-size: 16px;
+  }
 }
 @media screen and (max-width: 480px) {
   .med-card{

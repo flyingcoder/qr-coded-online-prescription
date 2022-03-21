@@ -40,7 +40,7 @@
           </div>
           <div class="prescription-doctor-use">{{ $auth.user.experties }}</div>
           <div class="prescription-doctor-number">
-            {{ $auth.user.phone }}
+            {{ $auth.user.license_number }}
           </div>
         </div>
         <div class="medicine-badge">
