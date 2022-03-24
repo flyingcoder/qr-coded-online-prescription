@@ -25,9 +25,14 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    //'@/assets/vars/colors.scss',
     '@/assets/scss/style.scss',
     'vue-swipe-actions/dist/vue-swipe-actions.css',
   ],
+
+  //styleResources: {
+  //  scss: ['./assets/vars/*.scss']
+  //},
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['~plugins/filters.js', '~plugins/echo.js', '~plugins/bus.js'],
@@ -37,6 +42,9 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // https://go.nuxtjs.dev/vuetify
+    '@nuxtjs/vuetify',
+    '@nuxtjs/moment',
     // https://go.nuxtjs.dev/eslint
     [
       '@nuxtjs/eslint-module',
@@ -44,10 +52,39 @@ export default {
         fix: true,
       },
     ],
-    // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
-    '@nuxtjs/moment', 
   ],
+
+  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    theme: {
+      dark: false,
+      light: true,
+      options: {
+        customProperties: true,
+      },
+      themes: {
+        dark: {
+          primary: '#1ac6b6',
+          accent: '#1ac6b6',
+          secondary: '#00203f',
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.red.accent4,
+          success: '#1ac6b6',
+        },
+        light: {
+          primary: '#1ac6b6',
+          accent: '#1ac6b6',
+          secondary: '#00203f',
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.red.accent4,
+          success: '#1ac6b6',
+        },
+      },
+    },
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
@@ -55,6 +92,8 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
+
+    //'@nuxtjs/style-resources',
   ],
 
   auth: {
@@ -95,38 +134,6 @@ export default {
   pwa: {
     manifest: {
       lang: 'en',
-    },
-  },
-
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
-  vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-    options: {
-      customProperties: true,
-    },
-    theme: {
-      dark: false,
-      light: true,
-      themes: {
-        dark: {
-          primary: '#1ac6b6',
-          accent: '#1ac6b6',
-          secondary: '#00203f',
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.red.accent4,
-          success: '#1ac6b6',
-        },
-        light: {
-          primary: '#1ac6b6',
-          accent: '#1ac6b6',
-          secondary: '#00203f',
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.red.accent4,
-          success: '#1ac6b6',
-        },
-      },
     },
   },
 

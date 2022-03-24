@@ -59,8 +59,6 @@ export default {
 }
 </script>
 <style lang="scss">
-@import '~/assets/variables.scss';
-
 .medicine-sub-info {
   color: $black !important;
 }

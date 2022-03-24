@@ -2,27 +2,39 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+@import '~vuetify/src/styles/tools/_functions.sass';
 
+$font-family:                       'Roboto', sans-serif;
 // Color Variables 
 // ========================================================================
-$font-family:                       'Roboto', sans-serif;
 $primary-color:                     #1ac6b6;
 $secondary-color:                   #00203f;
 $btn-bg-color:                      #07c0af;
 
 $white:			 				    #FFFFFF; 
 $black:							    #000000;
-$blue:                              #6087D2;  // Skin blue
+$blue: () !default;
+$blue: map-deep-merge(
+    (
+        'base' : #6087D2
+    ), 
+    $blue
+);  // Skin blue
 $wild-sand:                         #ffffff;  
 $silver:                            #f5f5f5;    
 $gray:                              #CCC;  
 $border-gray:                       #e0e0e0;
-$red:            					#ff0000;
+$red: () !default;
+$red: map-deep-merge(
+    (
+        'base' : #ff0000,
+    ), 
+    $red
+);
 $red-light:            				#ff9999;
 $yellow-light:           			#ffdc73;
 $green-blue:                        #1ac6b6;
 $transparent:						transparent;
-
 // Fonts 
 // ========================================================================
 $sm-font:                           9px;

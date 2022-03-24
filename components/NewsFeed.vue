@@ -47,7 +47,6 @@ export default {
 }
 </script>
 <style lang="scss">
-@import '~/assets/variables.scss';
 .v-application a {
   color: black;
 }

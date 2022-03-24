@@ -94,7 +94,6 @@
   </v-app-bar>
 </template>
 <style scoped lang="scss">
-@import '~/assets/variables.scss';
 
 .reseta-header {
   border-bottom: 1px solid $gray;
