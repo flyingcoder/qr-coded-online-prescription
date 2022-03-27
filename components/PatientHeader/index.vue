@@ -30,9 +30,7 @@
       />
     </div>
     <div class="header-logo">
-      <v-app-bar-title>
-        <img class="logo-wide" src="@/assets/images/white-main-logo.png"
-      /></v-app-bar-title>
+      <img class="logo-wide" src="@/assets/images/white-main-logo.png" />
       <div class="reseta-logo-text">ResetaQrx</div>
     </div>
     <div class="other-icons">
