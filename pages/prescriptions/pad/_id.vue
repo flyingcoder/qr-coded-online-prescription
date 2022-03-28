@@ -5,7 +5,7 @@
     </!-->
     <div class="prescription-pad-header d-flex">
       <div class="reseta-logo">
-        <img src="~/assets/images/white-main-logo.png" />
+        <img class="logo-wide" src="~/assets/images/white-main-logo.png" />
         <div class="reseta-logo-text">Reseta QRx</div>
       </div>
       <div class="back-button">

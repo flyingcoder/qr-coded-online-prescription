@@ -6,7 +6,11 @@
           <v-icon @click="close">mdi-arrow-left</v-icon>
         </div>
         <div class="reseta-logo">
-          <img src="~/assets/images/white-main-logo.png" alt="" />
+          <img
+            class="logo-wide"
+            src="~/assets/images/white-main-logo.png"
+            alt=""
+          />
           <div class="reseta-logo-text">Reseta QRx</div>
         </div>
       </div>
