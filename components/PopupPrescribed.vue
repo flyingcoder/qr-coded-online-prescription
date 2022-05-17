@@ -3,55 +3,33 @@
     <v-card class="view-prescription-data">
       <div class="popup-prescribed-header">
         <div class="popup-prescribed-back">
-          <v-icon @click="close">mdi-arrow-left</v-icon>
+          <v-icon @click="closed(prescribed)">mdi-arrow-left</v-icon>
         </div>
         <div class="reseta-logo">
           <img
             class="logo-wide"
             src="~/assets/images/white-main-logo.png"
             alt=""
+            style="width: 5%"
           />
           <div class="reseta-logo-text">Reseta QRx</div>
         </div>
       </div>
       <div class="content-wrapper">
-        <div class="patient-info d-flex">
-          <div class="prescription-form-image">
-            <img
-              v-if="
-                $auth.user.avatar == 'avatar.png' ||
-                $auth.user.avatar ==
-                  'https://api.resetaqrx.com/storage/users/user-default.png'
-              "
-              class="user-icon"
-              :src="require(`~/assets/images/avatar.png`)"
-              :alt="$auth.user.fname"
-            />
-            <img
-              v-else
-              class="user-icon"
-              :src="$auth.user.avatar"
-              :alt="$auth.user.fname"
-            />
-          </div>
+        <div class="patient-info d-flex justify-center text-center">
           <div class="prescription-form-info">
             <div class="prescription-doctor-name">
               {{ $auth.user.fname }} {{ $auth.user.lname }}
             </div>
             <div class="prescription-doctor-use">
-              {{ $auth.user.experties }}
-            </div>
-            <div class="prescription-doctor-clinic">
-              {{ $auth.user.license_number }}
-            </div>
-            <div class="prescription-doctor-number">
-              {{ $auth.user.phone }}
+              {{ $auth.user.address }}
             </div>
           </div>
-          <div class="medicine-badge">
-            <div class="prescribed-created">
-              {{ $moment().format('MM/DD/YY') }}
-            </div>
+        </div>
+
+        <div class="medicine-badge">
+          <div class="prescribed-created">
+            {{ $moment().format('MM/DD/YY') }}
           </div>
         </div>
 
@@ -130,8 +108,26 @@
             </div>
           </div>
         </div>
-        <div class="send-prescribed">
-          <v-btn v-if="!btnhide" class="dark" @click="submit">Prescribed</v-btn>
+        <div class="prescriber-info">
+          <ul>
+            <li class="prescriber-fullname">
+              {{ $auth.user.fname }} {{ $auth.user.lname }}
+            </li>
+            <li>{{ $auth.user.experties }}</li>
+            <li>{{ $auth.user.license_number }}</li>
+          </ul>
+        </div>
+        <div class="d-flex" style="padding-top: 25px; justify-content: center">
+          <div class="add-prescription">
+            <v-btn small fab dark color="green" @click="back">
+              <v-icon white> mdi-plus </v-icon>
+            </v-btn>
+          </div>
+          <div class="send-prescribed">
+            <v-btn v-if="!btnhide" class="dark" @click="submit"
+              >Prescribed</v-btn
+            >
+          </div>
         </div>
       </div>
     </v-card>
@@ -156,6 +152,7 @@ export default {
   data() {
     return {
       btnhide: false,
+      prescribed: this.prescriptions,
     }
   },
   mounted() {},
@@ -179,7 +176,11 @@ export default {
     removePrescription(data) {
       this.$emit('delmeds', data)
     },
-    close() {
+    closed(data) {
+      this.$emit('closed')
+      this.$emit('delAllMeds', data)
+    },
+    back() {
       this.$emit('closed')
     },
   },
@@ -187,12 +188,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.patient-info {
+  margin-bottom: 0;
+}
 .popup-prescribed {
   .view-prescription-data {
     height: 100%;
+    overflow-y: hidden;
   }
   .prescription-popup-body {
     background: white;
+    height: 430px;
+    padding-right: 20px;
+    overflow-y: scroll;
+  }
+}
+.prescribed-created {
+  text-align: right;
+  font-size: 20px;
+}
+.prescriber-info {
+  display: flex;
+  justify-content: end;
+  padding: 20px 30px 5px;
+
+  ul {
+    list-style: none;
+
+    .prescriber-fullname {
+      font-weight: 600;
+    }
   }
 }
 .popup-prescribed-header {
@@ -281,11 +306,9 @@ export default {
   color: $black !important;
 }
 .send-prescribed {
-  width: 100%;
-  padding-top: 15px;
   background: white;
   text-align: center;
-  padding-bottom: 30px;
+  padding-left: 30px;
 }
 .medicine-tab-id {
   margin-left: auto;

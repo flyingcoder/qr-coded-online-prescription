@@ -12,6 +12,7 @@
         :prescriptions="meds"
         @closed="closePrescription"
         @delmeds="removeMeds"
+        @delAllMeds="removeAllMeds"
       />
     </v-dialog>
 
@@ -103,13 +104,7 @@
         </div>
         <div class="patient-date-prescription d-flex">
           <div
-            class="
-              d-block
-              prescription-date
-              full-width
-              text-right
-              align-self-center
-            "
+            class="d-block prescription-date full-width text-right align-self-center"
           >
             <div class="patient-info-date"></div>
             <div class="patient-info-time"></div>
@@ -286,7 +281,17 @@
             <v-icon left size="30px" class="dark"> mdi-plus </v-icon>
             Medicine
           </v-btn>
+          <v-badge v-if="medCounter" color="#223A6B" :content="medCounter">
+            <v-btn
+              style="width: 100%"
+              class="dark patient-prescribed-button-prescribe"
+              @click="popup_prescribed = !popup_prescribed"
+            >
+              View
+            </v-btn>
+          </v-badge>
           <v-btn
+            v-else
             class="dark patient-prescribed-button-prescribe"
             @click="popup_prescribed = !popup_prescribed"
           >
@@ -381,6 +386,17 @@ export default {
       this.$store.dispatch('snackbar/setSnackbar', {
         text: `A medicine is removed to prescription pad.`,
       })
+    },
+    removeAllMeds(data) {
+      this.medCounter = 0
+      this.meds = []
+      const parseMed = {
+        patient: this.patient_info,
+        meds: this.meds,
+      }
+      // this.$delete(parseMed)
+      window.localStorage.setItem('medCounter', this.medCounter)
+      window.localStorage.setItem('prescribeData', JSON.stringify(parseMed))
     },
     closePrescription() {
       this.popup_prescribed = false

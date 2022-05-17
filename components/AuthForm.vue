@@ -28,6 +28,17 @@
           </v-text-field>
 
           <v-text-field
+            v-if="
+              $route.params.as === 'doctor' || $route.params.as === 'patient'
+            "
+            v-model="datus.lname"
+            label="Last Name"
+            class="login-input"
+          >
+            <v-icon slot="prepend" color="#1ac6b6" medium> mdi-account </v-icon>
+          </v-text-field>
+
+          <v-text-field
             v-if="$route.params.as === 'doctor'"
             v-model="datus.license_number"
             label="PRC Number"
@@ -40,7 +51,7 @@
 
           <v-text-field
             v-if="$route.params.as === 'pharmacy'"
-            v-model="datus.pname"
+            v-model="datus.pharmacy_name"
             label="Name of Pharmacy"
             class="login-input"
           >
@@ -82,14 +93,32 @@
             </v-icon>
           </v-text-field>
 
-          <v-text-field
-            v-if="$route.params.as === 'pharmacy'"
-            v-model="datus.fname"
-            label="Name of Pharmacist"
-            class="login-input"
-          >
-            <v-icon slot="prepend" color="#1ac6b6" medium> mdi-account </v-icon>
-          </v-text-field>
+          <div v-if="$route.params.as === 'pharmacy'" class="pharmacist-info">
+            <div class="pharmacist-title d-flex align-content-center">
+              <v-icon
+                slot="prepend"
+                style="padding-right: 10px"
+                color="#1ac6b6"
+                medium
+              >
+                mdi-mother-nurse </v-icon
+              >Pharmacist
+            </div>
+            <div class="pharmacist-fullname" style="padding: 8px 30px">
+              <v-text-field
+                v-model="datus.fname"
+                label="First Name"
+                class="login-input"
+              >
+              </v-text-field>
+              <v-text-field
+                v-model="datus.lname"
+                label="Last Name"
+                class="login-input"
+              >
+              </v-text-field>
+            </div>
+          </div>
 
           <v-text-field
             v-if="$route.params.as === 'pharmacy'"
@@ -167,6 +196,9 @@ export default {
         lname: '',
         email: '',
         license_number: '',
+        pharmacy_name: '',
+        lto: '',
+        address: '',
         tin_number: '',
         password: '',
         password_confirmation: '',
