@@ -118,7 +118,10 @@
               <v-divider :key="index + 'div' + item.id"></v-divider>
 
               <v-list-item :key="item.fname" style="padding: 0">
-                <v-list-item-avatar class="table-avatar">
+                <v-list-item-avatar
+                  class="table-avatar cursor-pointer"
+                  @click="viewProfile(item.id)"
+                >
                   <img
                     v-if="
                       item.avatar == 'avatar.png' ||
@@ -138,32 +141,45 @@
                 </v-list-item-avatar>
 
                 <v-list-item-content>
-                  <v-list-item-title>
-                    {{ item.fullname }}
-                    <div class="patient-content">
-                      {{ item.address }}
+                  <v-list-item-title class="d-flex">
+                    <div
+                      class="cursor-pointer"
+                      style="width: 60%"
+                      @click="viewProfile(item.id)"
+                    >
+                      {{ item.fullname }}
+                      <div class="patient-content">
+                        {{ item.address }}
+                      </div>
+                    </div>
+                    <v-divider
+                      :key="index + 'div' + item.id"
+                      vertical
+                    ></v-divider>
+                    <div class="d-flex">
+                      <v-btn
+                        class="list-profile-patient"
+                        outlined
+                        small
+                        fab
+                        color="#1ac6b6"
+                        @click="contact(item.id)"
+                      >
+                        <v-icon>mdi-message-processing-outline</v-icon>
+                      </v-btn>
+                      <a :href="'tel: ' + item.phone">
+                        <v-btn
+                          class="list-contact-patient"
+                          outlined
+                          small
+                          fab
+                          color="#1ac6b6"
+                        >
+                          <v-icon>mdi-phone</v-icon>
+                        </v-btn>
+                      </a>
                     </div>
                   </v-list-item-title>
-                  <v-btn
-                    class="ma-2 list-contact-patient"
-                    outlined
-                    x-small
-                    fab
-                    color="#1ac6b6"
-                    @click="contact(item.id)"
-                  >
-                    <v-icon>mdi-phone</v-icon>
-                  </v-btn>
-                  <v-btn
-                    class="ma-2 list-profile-patient"
-                    outlined
-                    x-small
-                    fab
-                    color="#1ac6b6"
-                    @click="viewProfile(item.id)"
-                  >
-                    <v-icon>mdi-account</v-icon>
-                  </v-btn>
                 </v-list-item-content>
               </v-list-item>
             </template>

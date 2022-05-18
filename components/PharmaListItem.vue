@@ -20,12 +20,13 @@
       <v-list-item-title>
         <strong>{{ item.fullname }}</strong>
         <br />
-        <span class="medicine-sub-info">
+        <span class="medicine-sub-info" @click="test()">
           {{ item.address }} &nbsp;&nbsp;<br />
           Store is {{ item.active_status ? 'open' : 'close' }}
         </span>
       </v-list-item-title>
     </v-list-item-content>
+    <div class="pharmacy_price_medicine">₱ {{ medicine.pivot.price }}</div>
 
     <!-- <slot>
       <v-btn
@@ -52,14 +53,25 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      medicine: this.item,
+    }
   },
   mounted() {},
-  methods: {},
+  methods: {
+    test() {
+      console.log(this.medicine)
+    },
+  },
 }
 </script>
 <style lang="scss">
 .medicine-sub-info {
   color: $black !important;
+}
+.pharmacy_price_medicine {
+  padding-left: 70px;
+  font-weight: 600;
+  font-size: 20px;
 }
 </style>

@@ -99,6 +99,6 @@ export default {
   text-align: center;
 }
 img.big-medicine-image {
-  max-width: 300px;
+  max-width: 150px;
 }
 </style>

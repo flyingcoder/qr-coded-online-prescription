@@ -150,6 +150,9 @@ table > thead > tr > th {
   top: 15px;
   cursor: pointer;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 button.v-btn.dark, a.v-btn.dark{
   background-color: $primary-color !important;
   border-color: $primary-color !important;

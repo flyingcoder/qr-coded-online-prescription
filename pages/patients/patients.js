@@ -19,6 +19,7 @@ export default {
       await this.$axios.get('users/patient').then((data) => {
         this.patients = data.data
         this.filtered = this.patients
+        console.log(this.filtered)
       })
     },
     viewProfile(id) {

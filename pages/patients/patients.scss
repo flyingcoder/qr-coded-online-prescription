@@ -63,6 +63,7 @@ div#word-related {
 }
 .list-contact-patient {
   position: absolute;
+  margin-top: 0 !important;
   right: 24px;
   z-index: 999 !important;
 }
@@ -79,6 +80,8 @@ div#word-related {
 .list-profile-patient {
   position: absolute;
   right: 65px;
+  margin-right: 20px;
+    margin-top: 0 !important;
 }
 // .grid-profile-patient {
 //   position: absolute;
