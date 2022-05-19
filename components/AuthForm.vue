@@ -51,7 +51,7 @@
 
           <v-text-field
             v-if="$route.params.as === 'pharmacy'"
-            v-model="datus.pharmacy_name"
+            v-model="datus.fname"
             label="Name of Pharmacy"
             class="login-input"
           >
@@ -106,13 +106,13 @@
             </div>
             <div class="pharmacist-fullname" style="padding: 8px 30px">
               <v-text-field
-                v-model="datus.fname"
+                v-model="datus.pharmacist_fname"
                 label="First Name"
                 class="login-input"
               >
               </v-text-field>
               <v-text-field
-                v-model="datus.lname"
+                v-model="datus.pharmacist_lname"
                 label="Last Name"
                 class="login-input"
               >
@@ -129,6 +129,15 @@
             <v-icon slot="prepend" color="#1ac6b6" medium>
               mdi-card-bulleted
             </v-icon>
+          </v-text-field>
+
+          <v-text-field
+            v-if="$route.params.as === 'pharmacy'"
+            v-model="datus.phone_number"
+            label="Contact Number"
+            class="login-input"
+          >
+            <v-icon slot="prepend" color="#1ac6b6" medium> mdi-phone </v-icon>
           </v-text-field>
 
           <v-text-field
@@ -195,8 +204,10 @@ export default {
         fname: '',
         lname: '',
         email: '',
+        pharmacist_fname: '',
+        pharmacist_lname: '',
         license_number: '',
-        pharmacy_name: '',
+        phone_number: '',
         lto: '',
         address: '',
         tin_number: '',
