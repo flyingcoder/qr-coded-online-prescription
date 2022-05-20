@@ -49,6 +49,84 @@
             </v-icon>
           </v-text-field>
 
+          <div v-if="$route.params.as === 'doctor'" class="d-flex">
+            <v-text-field
+              v-model="datus.clinic_name"
+              label="Clinic Name"
+              class="login-input"
+              style="margin-right: 25px"
+            >
+              <v-icon slot="prepend" color="#1ac6b6" medium>
+                mdi-hospital-building
+              </v-icon>
+            </v-text-field>
+            <v-text-field
+              v-model="datus.phone_number"
+              label="Contact No."
+              class="login-input"
+            >
+              <v-icon slot="prepend" color="#1ac6b6" medium> mdi-phone </v-icon>
+            </v-text-field>
+          </div>
+
+          <v-text-field
+            v-if="$route.params.as === 'doctor'"
+            v-model="datus.clinic_address"
+            label="Clinic Address"
+            class="login-input"
+          >
+            <v-icon slot="prepend" color="#1ac6b6" medium>
+              mdi-map-marker
+            </v-icon>
+          </v-text-field>
+
+          <div v-if="$route.params.as === 'doctor'" class="clinic-schedule">
+            <div class="clinic-sched-title">Clinic Schedule</div>
+            <div class="clinic-sched-time">
+              <table style="width: 100%">
+                <thead>
+                  <tr>
+                    <th width="33.33%"></th>
+                    <th width="33.33%">Start</th>
+                    <th width="33.33%">End</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="date in schedules" :key="date.id">
+                    <td>
+                      <v-checkbox
+                        v-model="datus.schedules"
+                        class="sched-checkbox"
+                        :label="date.day"
+                        color="sucess"
+                        :value="date"
+                        @click="date.checker = !date.checker"
+                      ></v-checkbox>
+                    </td>
+                    <td>
+                      <v-text-field
+                        v-if="date.checker"
+                        v-model="date.pm_time"
+                        outlined
+                        type="time"
+                        dense
+                      ></v-text-field>
+                    </td>
+                    <td>
+                      <v-text-field
+                        v-if="date.checker"
+                        v-model="date.am_time"
+                        outlined
+                        type="time"
+                        dense
+                      ></v-text-field>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <v-text-field
             v-if="$route.params.as === 'pharmacy'"
             v-model="datus.fname"
@@ -206,6 +284,9 @@ export default {
         email: '',
         pharmacist_fname: '',
         pharmacist_lname: '',
+        clinic_name: '',
+        clinic_address: '',
+        schedules: [],
         license_number: '',
         phone_number: '',
         lto: '',
@@ -215,6 +296,43 @@ export default {
         password_confirmation: '',
         role: '',
       },
+      schedules: [
+        {
+          id: 1,
+          checker: false,
+          day: 'Monday',
+          am_time: '',
+          pm_time: '',
+        },
+        {
+          id: 2,
+          checker: false,
+          day: 'Tuesday',
+          am_time: '',
+          pm_time: '',
+        },
+        {
+          id: 3,
+          checker: false,
+          day: 'Wednesday',
+          am_time: '',
+          pm_time: '',
+        },
+        {
+          id: 4,
+          checker: false,
+          day: 'Thursday',
+          am_time: '',
+          pm_time: '',
+        },
+        {
+          id: 5,
+          checker: false,
+          day: 'Friday',
+          am_time: '',
+          pm_time: '',
+        },
+      ],
       passwordRules: [
         (v) =>
           !v ||
@@ -301,6 +419,24 @@ export default {
   display: flex;
   flex-direction: column;
 }
+.clinic-sched-time {
+  table {
+    tbody {
+      tr {
+        height: 60px !important;
+        td {
+          padding: 0 20px;
+          .sched-checkbox {
+            margin-top: 0 !important;
+          }
+          .v-text-field {
+            margin-bottom: -10px !important;
+          }
+        }
+      }
+    }
+  }
+}
 .register {
   & .patient {
     top: 25px !important;
@@ -322,6 +458,11 @@ export default {
   }
   img {
     width: 70px;
+  }
+
+  .clinic-sched-title {
+    font-size: 18px;
+    font-weight: 500;
   }
 
   .form-inputs {
