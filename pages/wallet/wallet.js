@@ -5,6 +5,7 @@ export default {
     return {
       tab: null,
       ex11: true,
+      payment_short_form: false,
       method: '',
       history: [],
     }
@@ -15,6 +16,12 @@ export default {
   methods: {
     processPayment(method) {
       this.method = 'gcash'
+    },
+    paymentShortForm() {
+      this.payment_short_form = true
+    },
+    closePayment() {
+      this.payment_short_form = false
     },
     payUsingGcash() {
       const order = {

@@ -40,7 +40,7 @@
 
           <v-text-field
             v-if="$route.params.as === 'doctor'"
-            v-model="datus.license_number"
+            v-model="datus.prc_number"
             label="PRC Number"
             class="login-input"
           >
@@ -106,7 +106,7 @@
                     <td>
                       <v-text-field
                         v-if="date.checker"
-                        v-model="date.pm_time"
+                        v-model="date.start_time"
                         outlined
                         type="time"
                         dense
@@ -115,7 +115,7 @@
                     <td>
                       <v-text-field
                         v-if="date.checker"
-                        v-model="date.am_time"
+                        v-model="date.end_time"
                         outlined
                         type="time"
                         dense
@@ -291,6 +291,7 @@ export default {
         phone_number: '',
         lto: '',
         address: '',
+        prc_number: '',
         tin_number: '',
         password: '',
         password_confirmation: '',
@@ -301,36 +302,36 @@ export default {
           id: 1,
           checker: false,
           day: 'Monday',
-          am_time: '',
-          pm_time: '',
+          start_time: '',
+          end_time: '',
         },
         {
           id: 2,
           checker: false,
           day: 'Tuesday',
-          am_time: '',
-          pm_time: '',
+          start_time: '',
+          end_time: '',
         },
         {
           id: 3,
           checker: false,
           day: 'Wednesday',
-          am_time: '',
-          pm_time: '',
+          start_time: '',
+          end_time: '',
         },
         {
           id: 4,
           checker: false,
           day: 'Thursday',
-          am_time: '',
-          pm_time: '',
+          start_time: '',
+          end_time: '',
         },
         {
           id: 5,
           checker: false,
           day: 'Friday',
-          am_time: '',
-          pm_time: '',
+          start_time: '',
+          end_time: '',
         },
       ],
       passwordRules: [

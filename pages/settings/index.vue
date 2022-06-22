@@ -1,5 +1,14 @@
 <template>
   <div class="main-settings">
+    <v-dialog
+      v-model="payment_details"
+      fullscreen
+      hide-overlay
+      transition="dialog-bottom-transition"
+      max-width="600"
+    >
+      <PaymentDetails @closed="closePayment" />
+    </v-dialog>
     <div class="settings-header">
       <div class="back-btn align-self-center">
         <v-icon color="white" @click="backRoute"> mdi-chevron-left </v-icon>
@@ -100,7 +109,7 @@
                 width="90%"
                 style="margin-top: 25px"
                 class="dark"
-                to="edit-profile/#password"
+                @click="updatePaymentDetails"
                 ><v-icon color="white" left size="20"
                   >mdi-card-bulleted-outline</v-icon
                 >Setup</v-btn

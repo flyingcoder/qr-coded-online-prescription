@@ -6,46 +6,37 @@ export default {
       user_info: {
         password: '',
         password_confirmed: '',
+        email: '',
+        email_confirmed: '',
       },
       progress: 0,
+      snackbar: false,
       passwordConfirmationRule: '',
-      rules: {
-        email: (value) => {
-          console.log(value)
-          const pattern =
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          return pattern.test(value) || 'Invalid e-mail.'
-        },
-      },
+      // rules: {
+      //   email: (value) => {
+      //     const pattern =
+      //       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      //     return pattern.test(value) || 'Invalid e-mail.'
+      //   },
+      // },
+      emailRules: [
+        (v) =>
+          !v ||
+          /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+          'E-mail must be valid',
+      ],
     }
   },
-  mounted() {
-    this.getUserInfo()
-  },
+  mounted() {},
   computed: {
-    passwordConfirmationRule() {
-      this.password = this.new_password || 'Password must match'
+    passwordConfirmationRules() {
+      this.password = this.password_confirmed || 'Password must match'
     },
     /* The FormData : Here We Make A Form With Images Data To Submit. */
-    form() {
-      const form = new FormData()
-      form.append('password', this.user_info.password)
-      form.append('password_confirmed', this.user_info.password_confirmed)
-
-      return form
-    },
   },
   methods: {
-    displayImage() {
-      this.user_info.avatar = URL.createObjectURL(this.profile_image)
-    },
     exitprofile() {
       this.$router.push('/settings')
-    },
-    getUserInfo() {
-      this.$axios.get('login-user').then((data) => {
-        this.user_info = data.data
-      })
     },
     saveChanges() {
       const config = {
@@ -55,13 +46,22 @@ export default {
           )),
       }
 
-      this.$axios.post('user/edit', this.form, config).then((data) => {
-        this.$auth.user.avatar = data.data.avatar
-        this.$store.dispatch('snackbar/setSnackbar', {
-          text: `Profile updated`,
-        })
-        this.$router.push('/settings')
-      })
+      if (
+        this.user_info.password === this.user_info.password_confirmed &&
+        this.user_info.email === this.user_info.email_confirmed
+      ) {
+        this.$axios
+          .post('user/edit-pass-email', this.user_info, config)
+          .then((data) => {
+            this.$auth.user.avatar = data.data.avatar
+            this.$store.dispatch('snackbar/setSnackbar', {
+              text: `Profile updated`,
+            })
+            this.$router.push('/settings')
+          })
+      } else {
+        this.snackbar = true
+      }
     },
   },
 }

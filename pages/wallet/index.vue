@@ -1,5 +1,12 @@
 <template>
   <div id="wallet">
+    <v-dialog
+      v-model="payment_short_form"
+      transition="dialog-bottom-transition"
+      max-width="600"
+    >
+      <PaymentShortForm @closed="closePayment" />
+    </v-dialog>
     <h3 class="mt-0 mb-4 wallet-title">My Wallet</h3>
     <v-tabs
       v-model="tab"
@@ -15,9 +22,18 @@
     <v-tabs-items v-model="tab" style="margin: 0 20px">
       <v-tab-item>
         <br />
-        <h3 class="mt-0 mb-4 wallet-title wallet-main-balance">
-          ₱ {{ $auth.user.balance }}
-        </h3>
+        <div class="d-flex justify-center">
+          <v-btn
+            elevation="2"
+            class="ma-2 wallet-title wallet-main-balance"
+            x-large
+            style="font-size: 30px"
+            :class="{ pay_button: $auth.user.balance >= 1000 }"
+            :disabled="$auth.user.balance < 1000"
+            @click="paymentShortForm"
+            >₱ {{ $auth.user.balance }}</v-btn
+          >
+        </div>
         <br />
         <PaymentMethod
           title="AVAILABLE DEPOSIT METHOD"

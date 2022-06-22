@@ -203,7 +203,7 @@
               ></v-select>
             </div>
           </div>
-          <div v-if="sig.repeat.length === 1" class="patient-sig-hours" v->
+          <div v-if="sig.repeat.length === 1" class="patient-sig-hours">
             <div class="patient-sig-am">
               <v-item-group v-model="sig.hours_time" multiple :max="sig.repeat">
                 <v-item

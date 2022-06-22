@@ -174,7 +174,7 @@ export default {
   width: 80%;
   display: flex;
   img {
-    width: 15%;
+    width: 9%;
   }
   .reseta-logo-text {
     display: flex;

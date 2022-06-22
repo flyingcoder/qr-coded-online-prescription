@@ -36,7 +36,12 @@
         <div class="prescribed-patient-info">
           <div class="prescribed-left-info d-flex">
             <div class="prescribed-patient-name">
-              {{ patient.fullname }}
+              {{ patient.fullname }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="prescribed-patient-subinfo"
+                >{{ patient.age }}/{{
+                  patient.sex.charAt(0).toUpperCase()
+                }}</span
+              >
             </div>
           </div>
           <div class="prescribed-patient-address">
@@ -117,7 +122,7 @@
             <li>{{ $auth.user.license_number }}</li>
           </ul>
         </div>
-        <div class="d-flex" style="padding-top: 25px; justify-content: center">
+        <div class="d-flex" style="padding-top: 20px; justify-content: center">
           <div class="add-prescription">
             <v-btn small fab dark color="green" @click="back">
               <v-icon white> mdi-plus </v-icon>
@@ -198,7 +203,7 @@ export default {
   }
   .prescription-popup-body {
     background: white;
-    height: 430px;
+    height: 318px;
     padding-right: 20px;
     overflow-y: scroll;
   }
@@ -276,7 +281,7 @@ export default {
   }
 }
 .prescribed-left-info {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .prescription-body-main-content,
 .prescription-body-date-consumation,
@@ -289,6 +294,10 @@ export default {
   width: 70%;
   font-weight: 700;
   font-size: 20px;
+  .prescribed-patient-subinfo {
+    font-weight: 500 !important;
+    color: black;
+  }
 }
 .prescribed-age_gender {
   width: 30%;
