@@ -1,5 +1,6 @@
 <template>
   <div class="pharmacy-main-list">
+    <Preloader v-if="loading" />
     <div class="search-pharmacy-input">
       <v-text-field
         v-model="search"

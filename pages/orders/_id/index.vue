@@ -89,8 +89,10 @@ export default {
   },
   methods: {
     async getOrder() {
+      this.loading = true
       await this.$axios.get('orders/' + this.$route.params.id).then((data) => {
         this.order = data.data
+        this.loading = false
       })
     },
   },

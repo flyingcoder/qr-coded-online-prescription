@@ -6,6 +6,7 @@ export default {
     return {
       grid: true,
       align: '',
+      loading: false,
       patients: '',
       filtered: '',
       search: '',
@@ -16,9 +17,11 @@ export default {
   },
   methods: {
     async getPatient() {
+      this.loading = true
       await this.$axios.get('users/patient').then((data) => {
         this.patients = data.data
         this.filtered = this.patients
+        this.loading = false
         console.log(this.filtered)
       })
     },

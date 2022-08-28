@@ -1,5 +1,6 @@
 <template>
   <div class="edit-profile-page">
+    <Preloader v-if="loading" />
     <div class="edit-profile-title">Edit Profile</div>
     <div class="edit-profile-image">
       <img

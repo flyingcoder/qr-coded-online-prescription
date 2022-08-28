@@ -4,6 +4,7 @@ export default {
     return {
       newsfeeds: [],
       dialog: true,
+      loading: false,
     }
   },
   methods: {
@@ -11,18 +12,26 @@ export default {
       // this.$router.push('/login')
     },
     async getContacts() {
-      await this.$axios.post('chat/getContacts').then((data) => {
-        this.$store.dispatch('preloader/setPreloader', {
-          showing: false,
+      this.loading = true
+      try {
+        await this.$axios.post('chat/getContacts').then((data) => {
+          this.$store.dispatch('preloader/setPreloader', {
+            showing: false,
+          })
+          this.newsfeeds = data.data.contacts
+          this.loading = false
         })
-        this.newsfeeds = data.data.contacts
-      })
+      } catch (error) {
+        console.log('error')
+        this.loading = false
+        return error.response
+      }
     },
   },
   mounted() {
-    this.$store.dispatch('preloader/setPreloader', {
-      showing: true,
-    })
+    // this.$store.dispatch('preloader/setPreloader', {
+    //   showing: true,
+    // })
     this.getContacts()
     this.$bus.$on('NewPrescription', (payload) => {
       this.getContacts()

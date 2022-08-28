@@ -1,6 +1,7 @@
 <template>
   <div id="dashboard">
     <!-- <Preloader /> -->
+    <Preloader v-if="loading" />
     <SwiperFeeds
       v-if="newsfeeds.length > 0"
       :mock-swipe-list="newsfeeds"

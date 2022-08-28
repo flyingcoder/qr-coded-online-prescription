@@ -1,5 +1,6 @@
 <template>
   <div class="orders-table">
+    <Preloader v-if="loader" />
     <h3 class="mt-0 mb-2 order-list-title">Orders List</h3>
     <v-data-table
       dense
@@ -42,6 +43,7 @@ export default {
   layout: 'dashboard',
   data() {
     return {
+      loader: false,
       page: 1,
       pageCount: 0,
       itemsPerPage: 10,
@@ -75,9 +77,10 @@ export default {
       this.$router.push('/orders/' + order.id)
     },
     async getOrders() {
+      this.loader = true
       await this.$axios.get('orders').then((data) => {
         this.orders = data.data
-        this.loading = false
+        this.loader = false
       })
     },
   },

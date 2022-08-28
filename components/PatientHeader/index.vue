@@ -69,9 +69,9 @@
         <NuxtLink to="/doctors" class="menu-icon"
           ><v-icon>mdi-contacts</v-icon></NuxtLink
         >
-        <NuxtLink to="/wallet" class="menu-icon"
+        <!-- <NuxtLink to="/wallet" class="menu-icon"
           ><v-icon>mdi-wallet</v-icon></NuxtLink
-        >
+        > -->
         <NuxtLink to="/settings" class="menu-icon"
           ><v-icon>mdi-menu</v-icon></NuxtLink
         >

@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <!-- <Preloader /> -->
     <v-main class="no-margin">
       <v-container>
         <nuxt />
@@ -10,7 +11,9 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      preloader: false,
+    }
   },
   methods: {},
 }

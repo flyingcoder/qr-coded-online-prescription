@@ -3,6 +3,7 @@ export default {
   layout: 'search-notification',
   data() {
     return {
+      loading: false,
       user_info: {
         fname: '',
         lname: '',
@@ -104,8 +105,10 @@ export default {
       this.$router.push('/settings')
     },
     getUserInfo() {
+      this.loading = true
       this.$axios.get('login-user').then((data) => {
         this.user_info = data.data
+        this.loading = false
       })
     },
     // getUserSchedule() {

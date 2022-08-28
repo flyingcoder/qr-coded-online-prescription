@@ -2,6 +2,7 @@ export default {
   layout: 'search-notification',
   data() {
     return {
+      loading: false,
       isActive: false,
       awaitingChange: false,
       search_query: '',
@@ -56,8 +57,10 @@ export default {
       else this.$router.push(this.item.type + '/' + this.item.model_id)
     },
     recentQuery() {
+      this.loading = true
       this.$axios.get('search/recent').then((data) => {
         this.items = data.data
+        this.loading = false
       })
     },
     back() {

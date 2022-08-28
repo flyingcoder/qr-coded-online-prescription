@@ -4,6 +4,7 @@ export default {
     return {
       grid: true,
       align: '',
+      loading: false,
       doctors: '',
       filtered: '',
       search: '',
@@ -14,9 +15,11 @@ export default {
   },
   methods: {
     async getDoctors() {
+      this.loading = true
       await this.$axios.get('users/doctor').then((data) => {
         this.doctors = data.data
         this.filtered = this.doctors
+        this.loading = false
       })
     },
     viewProfile(id) {

@@ -1,6 +1,8 @@
 <template>
   <div>
+    <Preloader v-if="loading" />
     <div>
+      <v-icon class="padding-bottom-sm" @click="back">mdi-arrow-left</v-icon>
       <v-card elevation="3" class="padding-bottom-sm">
         <div class="user-profile text-center mb-4">
           <img
@@ -62,15 +64,21 @@ export default {
   data() {
     return {
       profile: {},
+      loading: false,
     }
   },
   mounted() {
     this.getUser()
   },
   methods: {
+    back() {
+      this.$router.back()
+    },
     async getUser() {
+      this.loading = true
       await this.$axios.get('user/' + this.$route.params.id).then((data) => {
         this.profile = data.data
+        this.loading = false
       })
     },
   },

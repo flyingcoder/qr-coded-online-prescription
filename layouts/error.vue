@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <!-- <Preloader /> -->
     <h1 v-if="error.statusCode === 404">
       {{ pageNotFound }}
     </h1>
@@ -21,6 +22,7 @@ export default {
   },
   data() {
     return {
+      preloader: false,
       pageNotFound: '404 Not Found',
       otherError: 'An error occurred',
     }

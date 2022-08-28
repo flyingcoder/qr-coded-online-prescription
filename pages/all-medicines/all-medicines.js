@@ -6,6 +6,7 @@ export default {
     return {
       align: '',
       allmedicines: '',
+      loading: false,
       filtered: '',
       search: '',
     }
@@ -19,9 +20,11 @@ export default {
       this.$router.push('/medicine/sell/' + id)
     },
     async getAllMedicines() {
+      this.loading = true
       await this.$axios.get('medicines').then((data) => {
         this.allmedicines = data.data
         this.filtered = this.allmedicines
+        this.loading = false
       })
     },
     viewProfile(id) {

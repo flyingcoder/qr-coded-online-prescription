@@ -3,6 +3,7 @@ export default {
   middleware: 'auth',
   data() {
     return {
+      loading: false,
       grid: true,
       align: '',
       medicines: '',
@@ -39,6 +40,7 @@ export default {
       this.$router.push('/medicine/edit/' + id)
     },
     async getMedicines() {
+      this.loading = true
       await this.$axios
         .get('medicines/in-store/' + this.$auth.user.id)
         .then((data) => {
@@ -48,6 +50,7 @@ export default {
               this.brands.push(this.medicines[i].brand)
             }
           }
+          this.loading = false
         })
     },
   },

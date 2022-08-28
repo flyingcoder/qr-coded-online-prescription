@@ -4,6 +4,7 @@ export default {
   data() {
     return {
       allmedicines: [],
+      loading: false,
       drugs: '',
       doctor_id: '',
       dialog: false,
@@ -15,6 +16,7 @@ export default {
   },
   methods: {
     async getPrescribeMeds() {
+      this.loading = true
       await this.$axios
         .get('medicines/prescribe/' + this.$route.params.prescription_id)
         .then((data) => {
@@ -22,6 +24,7 @@ export default {
           this.allmedicines = data.data.meds
           this.doctor_id = data.data.doctor_id
           this.prescription_id = data.data.prescription_id
+          this.loading = false
           /*
           if (
             this.$auth.user.id === data.data.patient_id ||
@@ -32,7 +35,7 @@ export default {
             this.prescription_id = data.data.prescription_id
           } else {
             //this.$router.back()
-          }*/
+          } */
         })
     },
     addToCart() {

@@ -1,5 +1,6 @@
 <template>
   <div class="prescription-form-page">
+    <Preloader v-if="loading" />
     <v-dialog v-model="popup_prescription" fullscreen scrollable>
       <PrescriptionForm
         :selected-patient="patientSelected"

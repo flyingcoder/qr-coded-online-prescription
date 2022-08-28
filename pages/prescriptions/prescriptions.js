@@ -4,6 +4,7 @@ export default {
   data() {
     return {
       prescriptions: [],
+      loading: false,
       filtered: '',
       search: '',
     }
@@ -16,9 +17,11 @@ export default {
       this.$router.push('/prescriptions/pad/' + id)
     },
     async getPrescriptions() {
+      this.loading = true
       await this.$axios.get('prescriptions').then((data) => {
         this.prescriptions = data.data
         this.filtered = this.prescriptions
+        this.loading = false
       })
     },
     filterPrescriptions() {

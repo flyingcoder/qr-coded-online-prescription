@@ -3,6 +3,7 @@ export default {
   middleware: 'auth',
   data() {
     return {
+      loading: false,
       render: true,
       payment: 0,
       patients: [],
@@ -27,8 +28,10 @@ export default {
       this.patient = this.patient_info
     },
     getPatients() {
+      this.loading = true
       this.$axios.get('users/patient').then((data) => {
         this.patients = data.data
+        this.loading = false
       })
     },
     payClinic() {

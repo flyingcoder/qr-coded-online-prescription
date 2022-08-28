@@ -1,5 +1,6 @@
 <template>
   <div class="search-form">
+    <Preloader v-if="loading" />
     <v-container>
       <v-row class="search-input">
         <a class="icon-back" @click="back">

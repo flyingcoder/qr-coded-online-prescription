@@ -1,5 +1,6 @@
 <template>
   <div class="search-products">
+    <Preloader v-if="loading" />
     <v-dialog v-model="dialog" persistent max-width="290">
       <v-card>
         <v-card-title class="text-h5"> Are you sure? </v-card-title>
@@ -102,12 +103,7 @@
         <!-- v-divider class="border-width-secondary"></!-->
       </div>
       <div
-        class="
-          medicine-geet-checkout
-          d-flex
-          justify-center
-          padding-top-md padding-bottom-sm
-        "
+        class="medicine-geet-checkout d-flex justify-center padding-top-md padding-bottom-sm"
       >
         <v-btn
           depressed

@@ -1,5 +1,9 @@
 <template>
-  <v-list-item :key="item.fullname" class="page-list-title">
+  <v-list-item
+    :key="item.fullname"
+    class="page-list-title"
+    @click="pharmacyLink(item.id)"
+  >
     <v-list-item-avatar>
       <v-icon
         v-if="
@@ -20,13 +24,13 @@
       <v-list-item-title>
         <strong>{{ item.fullname }}</strong>
         <br />
-        <span class="medicine-sub-info" @click="test()">
+        <span class="medicine-sub-info">
           {{ item.address }} &nbsp;&nbsp;<br />
           Store is {{ item.active_status ? 'open' : 'close' }}
         </span>
       </v-list-item-title>
     </v-list-item-content>
-    <div class="pharmacy_price_medicine">₱ {{ medicine.pivot.price }}</div>
+    <!-- <div class="pharmacy_price_medicine">₱ {{ item }}</div> -->
 
     <!-- <slot>
       <v-btn
@@ -59,8 +63,8 @@ export default {
   },
   mounted() {},
   methods: {
-    test() {
-      console.log(this.medicine)
+    pharmacyLink(pid) {
+      this.$router.push('/pharmacy/' + pid)
     },
   },
 }

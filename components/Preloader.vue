@@ -1,38 +1,38 @@
 <template>
   <div class="reseta-preloader">
     <!-- <v-skeleton-loader v-bind="attrs" type="date-picker"></v-skeleton-loader> -->
-    <v-dialog
-      v-model="preloaders.showing"
-      close-delay="200"
-      fullscreen
-      persistent
-    >
-      <v-skeleton-loader
-        class="mb-6"
-        :boilerplate="boilerplate"
-        elevation-2
-        type="date-picker, article"
-      ></v-skeleton-loader>
-    </v-dialog>
+    <loader
+      object="#1ac6b6"
+      color1="#ffffff"
+      color2="#17fd3d"
+      size="5"
+      speed="3"
+      bg="#343a40"
+      objectbg="#999793"
+      opacity="62"
+      disable-scrolling="false"
+      name="circular"
+    ></loader>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
   name: 'Preloader',
   data() {
     return {
-      boilerplate: true,
+      loading: false,
     }
   },
-  computed: {
-    ...mapState({
-      preloaders: (state) => state.preloader.preloaders,
-    }),
-  },
-  mounted() {
-    console.log(this.preloaders)
+  computed: {},
+  mounted() {},
+  methods: {
+    start() {
+      this.loading = true
+    },
+    stop() {
+      this.loading = false
+    },
   },
 }
 </script>

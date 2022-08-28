@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <!-- <Preloader /> -->
     <PatientHeader v-if="$auth.user.role == 'patient'" />
     <PharmacyHeader v-if="$auth.user.role == 'pharmacy'" />
     <DoctorHeader v-if="$auth.user.role == 'doctor'" />
@@ -39,6 +40,7 @@
 export default {
   data() {
     return {
+      preloader: false,
       clipped: false,
       drawer: false,
       fixed: false,
@@ -109,6 +111,9 @@ export default {
       })
   },
   methods: {
+    stopLoader() {
+      this.$emit('stop')
+    },
     getNotification() {
       this.$axios.get('notifications/count').then((data) => {
         this.notification = data.data

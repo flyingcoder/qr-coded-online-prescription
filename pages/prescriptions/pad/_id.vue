@@ -1,5 +1,6 @@
 <template>
   <div class="prescription-pad">
+    <Preloader v-if="loading" />
     <!-- v-dialog v-model="prescription_payment">
       <PayPrescription />
     </!-->
@@ -123,6 +124,7 @@ export default {
   props: {},
   data() {
     return {
+      loading: false,
       prescription_payment: true,
       prescriptions: {
         doctor: {},
@@ -138,8 +140,10 @@ export default {
   },
   methods: {
     getPrescription() {
+      this.loading = true
       this.$axios.get('prescriptions/' + this.$route.params.id).then((data) => {
         this.prescriptions = data.data
+        this.loading = false
       })
     },
     buyMeds() {

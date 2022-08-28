@@ -3,6 +3,7 @@ export default {
   layout: 'dashboard',
   data() {
     return {
+      loading: false,
       grid: true,
       align: '',
       pharmacies: [],
@@ -15,9 +16,11 @@ export default {
   },
   methods: {
     async getPharmacies() {
+      this.loading = true
       await this.$axios.get('stores').then((data) => {
         this.pharmacies = data.data
         this.filtered = this.pharmacies
+        this.loading = false
       })
     },
     filterPharmacy() {

@@ -1,5 +1,6 @@
 <template>
   <div class="main-doctors-page">
+    <Preloader v-if="loading" />
     <div class="search-doctors-input">
       <v-text-field
         v-model="search"

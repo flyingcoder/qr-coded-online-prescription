@@ -1,5 +1,6 @@
 <template>
   <v-app light>
+    <!-- <Preloader /> -->
     <v-main>
       <Nuxt />
     </v-main>
@@ -9,6 +10,11 @@
 export default {
   auth: false,
   middleware: 'auth-guard',
+  data() {
+    return {
+      preloader: false,
+    }
+  },
 }
 </script>
 <style lang="scss" scoped>

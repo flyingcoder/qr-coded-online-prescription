@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Preloader v-if="loading" />
     <div>
       <div class="padding-bottom-sm">
         <div class="user-profile text-center">
@@ -59,6 +60,7 @@ export default {
   layout: 'dashboard',
   data() {
     return {
+      loading: false,
       profile: {},
     }
   },
@@ -67,8 +69,10 @@ export default {
   },
   methods: {
     async getUser() {
+      this.loading = true
       await this.$axios.get('user/' + this.$route.params.id).then((data) => {
         this.profile = data.data
+        this.loading = false
       })
     },
   },
