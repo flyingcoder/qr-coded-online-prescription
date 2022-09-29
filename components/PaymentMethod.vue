@@ -8,7 +8,7 @@
       <PaymentForm @closed="closePayment" />
     </v-dialog>
     <v-row class="d-block">
-      <h4 class="wallet-title">{{ title }}</h4>
+      <h4 class="wallet-title text-center">{{ title }}</h4>
     </v-row>
     <v-row justify="center">
       <v-expansion-panels v-model="defaultPanel">
@@ -133,16 +133,6 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
-      <div class="pay-directly">
-        <div class="d-flex">
-          <h3 style="font-weight: 300 !important">Pay Directly to Pharmacy</h3>
-        </div>
-        <div class="d-flex justify-center">
-          <v-btn elevation="2" text tile class="dark" @click="paymentForm"
-            >PROCEED TO ORDER</v-btn
-          >
-        </div>
-      </div>
     </v-row>
   </div>
 </template>
@@ -153,7 +143,7 @@ export default {
     title: {
       type: String,
       default() {
-        return 'AVAILABLE PAYMENT METHOD'
+        return 'MODE OF PAYMENT'
       },
     },
     listorder: {
