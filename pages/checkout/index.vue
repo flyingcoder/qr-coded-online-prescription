@@ -1,5 +1,21 @@
 <template>
   <div id="wallet">
+    <div class="d-flex justify-center pb-8">
+      <div class="store-img d-flex align-center">
+        <img
+          src="/_nuxt/assets/images/avatar.png"
+          style="width: 60px !important; height: 60px !important"
+          class="user-icon mr-5"
+          alt=""
+        />
+      </div>
+      <div class="store-info">
+        <div class="d-flex" style="font-size: 23px; font-weight: bold">
+          Mercury Drug
+        </div>
+        <div class="d-flex">Kidapawan City</div>
+      </div>
+    </div>
     <v-row class="justify-center">
       <h3 class="wallet-title">Checkout</h3>
     </v-row>

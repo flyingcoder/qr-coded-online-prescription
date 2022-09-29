@@ -133,6 +133,16 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
+      <div class="pay-directly">
+        <div class="d-flex">
+          <h3 style="font-weight: 300 !important">Pay Directly to Pharmacy</h3>
+        </div>
+        <div class="d-flex justify-center">
+          <v-btn elevation="2" text tile class="dark" @click="paymentForm"
+            >PROCEED TO ORDER</v-btn
+          >
+        </div>
+      </div>
     </v-row>
   </div>
 </template>
