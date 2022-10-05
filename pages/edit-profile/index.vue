@@ -52,6 +52,29 @@
       <v-row style="height: 70px">
         <v-col>
           <v-text-field
+            v-model="user_info.birthday"
+            label="Birthday"
+            type="date"
+            outlined
+            dense
+          ></v-text-field>
+        </v-col>
+        <v-col>
+          <v-select
+            v-model="user_info.sex"
+            :items="sex"
+            label="Sex"
+            dense
+            outlined
+          ></v-select>
+        </v-col>
+      </v-row>
+      <v-row
+        v-if="$auth.user.role === 'pharmacy' || $auth.user.role === 'doctor'"
+        style="height: 70px"
+      >
+        <v-col>
+          <v-text-field
             v-model="user_info.prc_number"
             label="PRC Number"
             outlined
@@ -60,9 +83,6 @@
         </v-col>
         <v-col>
           <v-text-field
-            v-if="
-              $auth.user.role === 'pharmacy' || $auth.user.role === 'doctor'
-            "
             v-model="user_info.tin_number"
             label="TIN Number"
             outlined
@@ -70,7 +90,7 @@
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-row style="height: 70px">
+      <v-row v-if="$auth.user.role === 'doctor'" style="height: 70px">
         <v-col>
           <v-text-field
             v-model="user_info.experties"
@@ -80,7 +100,7 @@
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-row style="height: 70px">
+      <v-row v-if="$auth.user.role === 'pharmacy'" style="height: 70px">
         <v-col>
           <v-text-field
             v-model="user_info.clinic_name"
@@ -90,7 +110,7 @@
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-row style="height: 70px">
+      <v-row v-if="$auth.user.role === 'pharmacy'" style="height: 70px">
         <v-col>
           <v-text-field
             v-model="user_info.clinic_address"
@@ -100,7 +120,7 @@
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-row style="height: 70px">
+      <v-row v-if="$auth.user.role === 'pharmacy'" style="height: 70px">
         <v-col>
           <v-text-field
             v-model="user_info.phone"
@@ -110,7 +130,7 @@
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-row v-if="$auth.user.role == 'user'" style="height: 70px">
+      <v-row style="height: 70px">
         <v-col>
           <v-text-field
             v-model="user_info.address"
@@ -132,6 +152,38 @@
           ></v-text-field
         ></v-col>
       </v-row>
+      <div v-if="$auth.user.role == 'patient'">
+        <div style="font-size: 12px">CO-MORBIDITY</div>
+        <div>
+          <v-radio-group v-model="user_info.morbidity" class="mt-0">
+            <v-radio
+              label="Essential Hypertension"
+              value="essential_hypertension"
+            ></v-radio>
+            <v-radio label="Diabetes" value="diabetes"></v-radio>
+            <v-radio
+              label="Bronchial Asthma"
+              value="bronchial_asthma"
+            ></v-radio>
+          </v-radio-group>
+        </div>
+        <div style="font-size: 12px">OTHERS</div>
+        <div class="pl-5">
+          <v-text-field
+            v-model="user_info.others"
+            outlined
+            dense
+          ></v-text-field>
+        </div>
+      </div>
+      <v-row v-if="$auth.user.role === 'patient'" class="sm-side-padding">
+        <v-text-field
+          v-model="user_info.personto_contact"
+          label="Person To Contact"
+          outlined
+          dense
+        ></v-text-field>
+      </v-row>
       <v-row v-if="$auth.user.role === 'pharmacy'" class="sm-side-padding">
         <v-text-field
           v-model="user_info.license_number"
@@ -140,7 +192,6 @@
           dense
         ></v-text-field>
       </v-row>
-      {{ clinic_sched }}
       <div v-if="$auth.user.role === 'doctor'" class="clinic-schedule">
         <div class="clinic-sched-title">Clinic Schedule</div>
         <div class="clinic-sched-time">

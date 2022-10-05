@@ -97,22 +97,22 @@
               disable-icon-rotate
             >
               <div>
-                <v-icon class="primary-color">mdi-card-bulleted</v-icon>
+                <v-icon class="primary-color">mdi-account-group</v-icon>
                 <span class="accordion-title" to="edit-profile"
-                  >Payment Details</span
+                  >Tag Members</span
                 >
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content class="text-center">
-              Setup your payment details
+              Add a family member or a dependant to your tag members
               <v-btn
                 width="90%"
                 style="margin-top: 25px"
                 class="dark"
-                @click="updatePaymentDetails"
+                to="tag-member"
                 ><v-icon color="white" left size="20"
                   >mdi-card-bulleted-outline</v-icon
-                >Setup</v-btn
+                >Manage Tag Members</v-btn
               >
             </v-expansion-panel-content>
           </v-expansion-panel>

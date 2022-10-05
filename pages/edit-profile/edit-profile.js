@@ -4,9 +4,15 @@ export default {
   data() {
     return {
       loading: false,
+      sex: ['Male', 'Female'],
       user_info: {
         fname: '',
         lname: '',
+        birthday: '',
+        morbidity: 1,
+        others: '',
+        personto_contact: '',
+        sex: '',
         address: '',
         clinic_name: '',
         prc_number: '',
