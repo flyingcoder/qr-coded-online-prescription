@@ -99,3 +99,8 @@ div#word-related {
   position: relative;
   left: 35px;
 }
+.doctor-content,
+.doctor-number {
+  position: relative;
+  z-index: 1;
+}

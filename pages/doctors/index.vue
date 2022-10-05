@@ -114,7 +114,7 @@
               <v-divider :key="index + 'div' + item.id"></v-divider>
 
               <v-list-item :key="item.fname">
-                <v-list-item-avatar>
+                <v-list-item-avatar @click="viewProfile(item.id)">
                   <img
                     v-if="
                       item.avatar == 'avatar.png' ||
@@ -133,21 +133,14 @@
                   />
                 </v-list-item-avatar>
 
-                <v-list-item-content>
-                  <v-list-item-title>
+                <v-list-item-content
+                  class="d-flex"
+                  @click="viewProfile(item.id)"
+                >
+                  <v-list-item-title style="position: relative; z-index: 1">
                     <strong>Dr. {{ item.fname + ' ' + item.lname }}</strong>
                   </v-list-item-title>
-                  <v-btn
-                    class="ma-2 list-contact-doctor"
-                    outlined
-                    x-small
-                    fab
-                    color="#1ac6b6"
-                    @click="contact(item.id)"
-                  >
-                    <v-icon>mdi-phone</v-icon>
-                  </v-btn>
-                  <v-btn
+                  <!-- <v-btn
                     class="ma-2 list-profile-doctor"
                     outlined
                     x-small
@@ -156,7 +149,7 @@
                     @click="viewProfile(item.id)"
                   >
                     <v-icon>mdi-account</v-icon>
-                  </v-btn>
+                  </v-btn> -->
                   <v-list-item-subtitle>
                     <div class="doctor-content">
                       {{ item.address }}
@@ -166,6 +159,18 @@
                     </div>
                   </v-list-item-subtitle>
                 </v-list-item-content>
+                <v-list-item-action>
+                  <v-btn
+                    class="ma-2"
+                    outlined
+                    x-small
+                    fab
+                    color="#1ac6b6"
+                    @click="contact(item.id)"
+                  >
+                    <v-icon>mdi-phone</v-icon>
+                  </v-btn>
+                </v-list-item-action>
               </v-list-item>
             </template>
           </v-list>

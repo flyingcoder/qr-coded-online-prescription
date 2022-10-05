@@ -61,8 +61,14 @@
         <!-- <NuxtLink to="/dispense" class="menu-icon"
           ><v-icon>mdi-hand-heart</v-icon></NuxtLink
         > -->
-        <NuxtLink to="/medicine" class="menu-icon"
+        <!-- <NuxtLink to="/medicine" class="menu-icon"
           ><v-icon>mdi-hand-heart</v-icon></NuxtLink
+        > -->
+        <NuxtLink to="/orders" class="menu-icon"
+          ><v-icon>mdi-list-box-outline</v-icon></NuxtLink
+        >
+        <NuxtLink to="/virtual-medicine" class="menu-icon"
+          ><v-icon>mdi-medical-bag</v-icon></NuxtLink
         >
         <!-- <NuxtLink to="/orders" class="menu-icon"
           ><v-icon>mdi-hand-heart</v-icon></NuxtLink
