@@ -7,8 +7,14 @@
     <div class="tag-body">
       <div class="tag-family">
         <div class="tag-header py-3 px-2 d-flex">
-          <v-icon class="pr-2">mdi-human-male-female-child</v-icon>
-          <span style="font-size: 20px; font-weight: 400">Family Members</span>
+          <v-icon class="pr-2" color="#1ac6b6" large
+            >mdi-human-male-female-child</v-icon
+          >
+          <span
+            style="font-size: 20px; font-weight: 400"
+            class="d-flex align-center"
+            >Family Members</span
+          >
         </div>
         <div class="class-input">
           <div v-for="input in family" :key="input.id" class="input-group">
@@ -61,7 +67,7 @@
               ></v-text-field>
               <div style="width: 50%" class="px-2">
                 <v-btn color="error" @click="deleteFamily(input.id)">
-                  <v-icon left> mdi-plus </v-icon>
+                  <v-icon left> mdi-delete </v-icon>
                   Remove
                 </v-btn>
               </div>
@@ -76,8 +82,14 @@
       </div>
       <div class="tag-dependent mt-5">
         <div class="tag-header py-3 px-2 d-flex">
-          <v-icon class="pr-2">mdi-account-supervisor</v-icon>
-          <span style="font-size: 20px; font-weight: 400">Dependent</span>
+          <v-icon large class="pr-2" color="#1ac6b6"
+            >mdi-account-supervisor</v-icon
+          >
+          <span
+            style="font-size: 20px; font-weight: 400"
+            class="d-flex align-center"
+            >Dependent</span
+          >
         </div>
         <div class="class-input">
           <div v-for="input in dependent" :key="input.id" class="input-group">
@@ -130,7 +142,7 @@
               ></v-text-field>
               <div style="width: 50%" class="px-2">
                 <v-btn color="error" @click="deleteDependent(input.id)">
-                  <v-icon left> mdi-plus </v-icon>
+                  <v-icon left> mdi-delete </v-icon>
                   Remove
                 </v-btn>
               </div>
