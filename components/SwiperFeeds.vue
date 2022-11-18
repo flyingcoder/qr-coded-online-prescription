@@ -7,7 +7,7 @@
   >
     <template #default="{ item }">
       <v-row class="newsfeed" @touchstart="touchStart(item, $event)">
-        <div class="col-1 pr-10">
+        <div class="col-1">
           <img
             v-if="
               item.user_avatar == 'avatar.png' ||
@@ -138,7 +138,7 @@ export default {
   text-overflow: ellipsis;
 }
 .user-post {
-  margin-left: 8px;
+  margin-left: 25px;
   width: 100%;
 }
 </style>

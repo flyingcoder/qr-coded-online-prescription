@@ -67,7 +67,7 @@
         <NuxtLink to="/orders" class="menu-icon"
           ><v-icon>mdi-list-box-outline</v-icon></NuxtLink
         >
-        <NuxtLink to="/virtual-medicine" class="menu-icon"
+        <NuxtLink to="/virtual-display" class="menu-icon"
           ><v-icon>mdi-medical-bag</v-icon></NuxtLink
         >
         <!-- <NuxtLink to="/orders" class="menu-icon"

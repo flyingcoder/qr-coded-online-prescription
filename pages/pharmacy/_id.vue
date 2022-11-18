@@ -1,62 +1,45 @@
 <template>
-  <div>
+  <div class="pharmacy-main-list">
     <Preloader v-if="loading" />
-    <div>
-      <v-icon class="padding-bottom-sm" @click="back">mdi-arrow-left</v-icon>
-      <v-card elevation="3" class="padding-bottom-sm">
-        <div class="user-profile text-center mb-4">
-          <img
-            style="
-              border-radius: 100%;
-              width: 30%;
-              border: 2px solid #1ac6b6;
-              margin-top: 10px;
-            "
-            :src="profile.avatar"
-            :alt="profile.fname"
-          />
-        </div>
-        <div class="doctor-information padding-content text-center-pd">
-          <div id="word-related" class="padding-bottom-sm">
-            <b
-              style="font-size: 21px !important; font-weight: 600 !important"
-              >{{ profile.fullname }}</b
-            ><br />
-            <span class="pharmacy-top-info">{{ profile.experties }}</span
-            ><br />
-            <span class="pharmacy-top-info" style="top: -12px">{{
-              profile.address
-            }}</span
-            ><br />
-            <span class="pharmacy-top-info" style="top: -17px">{{
-              profile.phone
-            }}</span>
-          </div>
-
-          <div>
-            {{ profile.bio }}
-          </div>
-          <div style="margin-top: 24px; font-weight: 900; font-size: 16px">
-            {{ profile.email }}
-          </div>
-        </div>
-      </v-card>
-      <div class="text-center-pd padding-top-md">
-        <v-btn
-          depressed
-          color="#1ac6b6"
-          width="60%"
-          class="btn-radius find-doctors-btn"
-          style="color: white"
-          @click="$router.push('/chatbox/' + profile.id)"
-        >
-          Contact
-        </v-btn>
+    <div class="search-pharmacy-input">
+      <v-text-field
+        v-model="search"
+        label="Search Pharmacy"
+        prepend-inner-icon="mdi-magnify"
+        outlined
+        dense
+        class="main-search-input"
+      ></v-text-field>
+    </div>
+    <div class="virtual-head d-flex">
+      <div class="user-profile text-center mb-4 pr-3">
+        <img
+          style="
+            border-radius: 100%;
+            width: 60px;
+            border: 2px solid #1ac6b6;
+            margin-top: 10px;
+          "
+          :src="profile.avatar"
+          :alt="profile.fname"
+        />
       </div>
+      <div class="d-block align-self-center">
+        <div class="phar-name">{{ profile.fullname }}</div>
+        <div class="phar-address">{{ profile.address }}</div>
+      </div>
+    </div>
+    <div class="pharmacy-list-view">
+      <div class="pharmacy"></div>
     </div>
   </div>
 </template>
-
+<style scoped>
+.phar-name {
+  font-weight: 500;
+  font-size: 18px;
+}
+</style>
 <script>
 export default {
   layout: 'dashboard',

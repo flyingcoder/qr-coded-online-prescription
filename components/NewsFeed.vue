@@ -81,7 +81,7 @@ export default {
   text-overflow: ellipsis;
 }
 .user-post {
-  margin-left: 8px;
+  margin-left: 25px;
   width: 100%;
 }
 </style>
