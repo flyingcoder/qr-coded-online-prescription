@@ -49,50 +49,70 @@
         ></v-text-field>
       </div>
     </v-row>
-    <v-list
-      v-if="prescriptions.length > 0"
-      three-line
-      class="pharmacys-background-color"
-    >
-      <template v-for="(item, index) in filtered">
-        <v-subheader
-          v-if="index == 0"
-          :key="index + item.created_at"
-          :class="{
-            'page-item': true,
-            patient_pharmacy_title: $auth.user.role == 'patient',
-            patient_pharmacy_title: $auth.user.role == 'doctor',
-          }"
-          class="page-list-title"
-          >My Prescriptions</v-subheader
-        >
-
-        <v-divider :key="index + 'div'"></v-divider>
-
-        <v-list-item
-          :key="index + 'span'"
-          class="pharmacy-list-section"
-          @click="viewPrescription(item.id)"
-        >
-          <v-list-item-avatar>
-            <v-icon class="user-icon" color="#1ac6b6">mdi-prescription</v-icon>
-          </v-list-item-avatar>
-
-          <v-list-item-content>
-            <v-list-item-title>
-              <strong>From:</strong>
-              {{ item.doctor.prefix ? item.doctor.prefix : 'Dr.' }}
-              {{ item.doctor.fname }} {{ item.doctor.lname }} <br />
-              <strong>Given:</strong>
-              {{ $moment(item.created_at).format('ll') }}
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </template>
-    </v-list>
-    <div v-else class="no-prescription">
-      The prescriptions will display here.
-    </div>
+    <v-row>
+      <div class="pt-8" style="width: 90%; margin: auto">
+        <div class="header-display pa-2" style="background: gray">A</div>
+        <div class="header-display-products pt-3">
+          <div class="product_generic_name">Aspirin</div>
+          <div
+            class="medicine-product pt-2"
+            style="display: grid; grid-template-columns: repeat(3, 1fr)"
+          >
+            <v-card class="mx-auto" max-width="120">
+              <v-card-text style="padding: 10px !important">
+                <div class="d-flex" style="justify-content: space-between">
+                  <img
+                    src="~/assets/images/main-logo.png"
+                    width="30px"
+                    alt=""
+                  />
+                  <div>10</div>
+                </div>
+                <div>Sophira</div>
+                <div class="text--primary">
+                  <span class="font-size: 12px"> Aspirine 80mg</span><br />
+                  <span> ₱80.00</span>
+                </div>
+              </v-card-text>
+            </v-card>
+            <v-card class="mx-auto" max-width="120">
+              <v-card-text style="padding: 10px !important">
+                <div class="d-flex" style="justify-content: space-between">
+                  <img
+                    src="~/assets/images/main-logo.png"
+                    width="30px"
+                    alt=""
+                  />
+                  <div>10</div>
+                </div>
+                <div>Sophira</div>
+                <div class="text--primary">
+                  <span class="font-size: 12px"> Aspirine 80mg</span><br />
+                  <span> ₱80.00</span>
+                </div>
+              </v-card-text>
+            </v-card>
+            <v-card class="mx-auto" max-width="120">
+              <v-card-text style="padding: 10px !important">
+                <div class="d-flex" style="justify-content: space-between">
+                  <img
+                    src="~/assets/images/main-logo.png"
+                    width="30px"
+                    alt=""
+                  />
+                  <div>10</div>
+                </div>
+                <div>Sophira</div>
+                <div class="text--primary">
+                  <span class="font-size: 12px"> Aspirine 80mg</span><br />
+                  <span> ₱80.00</span>
+                </div>
+              </v-card-text>
+            </v-card>
+          </div>
+        </div>
+      </div>
+    </v-row>
   </div>
 </template>
 
