@@ -22,15 +22,17 @@
     </v-row>
     <v-row class="justify-center">
       <div>
-        <v-icon slot="prepend" color="#1ac6b6" large> mdi-image </v-icon>
+        <v-icon slot="prepend" color="#1ac6b6" large @click="itemDisplayIcon">
+          mdi-image
+        </v-icon>
       </div>
       <div class="px-15">
-        <v-icon slot="prepend" color="#1ac6b6" large>
+        <v-icon slot="prepend" color="#1ac6b6" large @click="itemDisplayList">
           mdi-list-box-outline
         </v-icon>
       </div>
       <div>
-        <v-icon slot="prepend" color="#1ac6b6" large>
+        <v-icon slot="prepend" color="#1ac6b6" large @click="itemDownload">
           mdi-tray-arrow-up
         </v-icon>
       </div>
@@ -50,7 +52,7 @@
       </div>
     </v-row>
     <v-row>
-      <div class="pt-8" style="width: 90%; margin: auto">
+      <div v-if="item_icon" class="pt-8" style="width: 90%; margin: auto">
         <div class="header-display pa-2" style="background: gray">A</div>
         <div class="header-display-products pt-3">
           <div class="product_generic_name">Aspirin</div>
@@ -109,6 +111,65 @@
                 </div>
               </v-card-text>
             </v-card>
+          </div>
+        </div>
+      </div>
+      <div v-if="item_list" class="pt-8" style="width: 90%; margin: auto">
+        <div class="header-display pa-2" style="background: gray">A</div>
+        <div class="header-display-products pt-3">
+          <div class="product_generic_name">Aspirin</div>
+          <div
+            class="medicine-product pt-2"
+            style="display: grid; grid-template-columns: repeat(3, 1fr)"
+          >
+            <v-list
+              :disabled="disabled"
+              :dense="dense"
+              :two-line="twoLine"
+              :three-line="threeLine"
+              :shaped="shaped"
+              :flat="flat"
+              :subheader="subheader"
+              :sub-group="subGroup"
+              :nav="nav"
+              :avatar="avatar"
+              :rounded="rounded"
+            >
+              <v-subheader>REPORTS</v-subheader>
+              <v-list-item-group v-model="item" color="primary">
+                <v-list-item
+                  v-for="(item, i) in items"
+                  :key="i"
+                  :inactive="inactive"
+                >
+                  <v-list-item-avatar v-if="avatar">
+                    <v-img :src="item.avatar"></v-img>
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <v-list-item-title v-html="item.title"></v-list-item-title>
+                    <v-list-item-subtitle
+                      v-if="twoLine || threeLine"
+                      v-html="item.subtitle"
+                    ></v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </div>
+        </div>
+      </div>
+      <div v-if="item_download" class="pt-8" style="width: 90%; margin: auto">
+        <div class="header-display">
+          <h3 class="text-center">
+            <b>Upload</b><br />
+            <span>Reseta QRx</span><br />
+            <span>Pharmacy Product List</span>
+          </h3>
+          <div class="d-flex justify-center">
+            <v-btn color="blue-grey" class="ma-2 white--text">
+              Upload
+              <v-icon right dark> mdi-cloud-upload </v-icon>
+            </v-btn>
           </div>
         </div>
       </div>
