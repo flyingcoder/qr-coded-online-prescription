@@ -22,7 +22,7 @@
         }"
         class="page-list-title align-self-center"
       >
-        All Medicine in the Database
+        List of Medicine
       </div>
       <v-spacer />
       <div v-if="$auth.user.role === 'pharmacy'">

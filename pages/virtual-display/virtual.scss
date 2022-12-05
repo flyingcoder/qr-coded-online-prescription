@@ -7,3 +7,12 @@
     font-size: 20px;
     font-weight: 500;
 }
+.medicine-product-list li {
+    list-style: none !important;
+}
+.virtual-medicine-title {
+    visibility: hidden;
+}
+.virtual-medicine-title::first-letter {
+    visibility: visible;
+}

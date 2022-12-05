@@ -52,111 +52,104 @@
       </div>
     </v-row>
     <v-row>
-      <div v-if="item_icon" class="pt-8" style="width: 90%; margin: auto">
-        <div class="header-display pa-2" style="background: gray">A</div>
-        <div class="header-display-products pt-3">
-          <div class="product_generic_name">Aspirin</div>
-          <div
-            class="medicine-product pt-2"
-            style="display: grid; grid-template-columns: repeat(3, 1fr)"
+      <div v-if="item_icon" class="pt-8 mb-10" style="width: 90%; margin: auto">
+        <v-expansion-panels flat>
+          <v-expansion-panel
+            v-for="medicine in medicines"
+            :key="medicine"
+            class="rounded-0"
           >
-            <v-card class="mx-auto" max-width="120">
-              <v-card-text style="padding: 10px !important">
-                <div class="d-flex" style="justify-content: space-between">
-                  <img
-                    src="~/assets/images/main-logo.png"
-                    width="30px"
-                    alt=""
-                  />
-                  <div>10</div>
-                </div>
-                <div>Sophira</div>
-                <div class="text--primary">
-                  <span class="font-size: 12px"> Aspirine 80mg</span><br />
-                  <span> ₱80.00</span>
-                </div>
-              </v-card-text>
-            </v-card>
-            <v-card class="mx-auto" max-width="120">
-              <v-card-text style="padding: 10px !important">
-                <div class="d-flex" style="justify-content: space-between">
-                  <img
-                    src="~/assets/images/main-logo.png"
-                    width="30px"
-                    alt=""
-                  />
-                  <div>10</div>
-                </div>
-                <div>Sophira</div>
-                <div class="text--primary">
-                  <span class="font-size: 12px"> Aspirine 80mg</span><br />
-                  <span> ₱80.00</span>
-                </div>
-              </v-card-text>
-            </v-card>
-            <v-card class="mx-auto" max-width="120">
-              <v-card-text style="padding: 10px !important">
-                <div class="d-flex" style="justify-content: space-between">
-                  <img
-                    src="~/assets/images/main-logo.png"
-                    width="30px"
-                    alt=""
-                  />
-                  <div>10</div>
-                </div>
-                <div>Sophira</div>
-                <div class="text--primary">
-                  <span class="font-size: 12px"> Aspirine 80mg</span><br />
-                  <span> ₱80.00</span>
-                </div>
-              </v-card-text>
-            </v-card>
-          </div>
-        </div>
-      </div>
-      <div v-if="item_list" class="pt-8" style="width: 90%; margin: auto">
-        <div class="header-display pa-2" style="background: gray">A</div>
-        <div class="header-display-products pt-3">
-          <div class="product_generic_name">Aspirin</div>
-          <div
-            class="medicine-product pt-2"
-            style="display: grid; grid-template-columns: repeat(3, 1fr)"
-          >
-            <v-list
-              :disabled="disabled"
-              :dense="dense"
-              :two-line="twoLine"
-              :three-line="threeLine"
-              :shaped="shaped"
-              :flat="flat"
-              :subheader="subheader"
-              :sub-group="subGroup"
-              :nav="nav"
-              :avatar="avatar"
-              :rounded="rounded"
+            <v-expansion-panel-header
+              style="background: #a6a6a6; color: white !important"
+              ><span class="virtual-medicine-title">{{
+                medicine.title
+              }}</span></v-expansion-panel-header
             >
-              <v-subheader>REPORTS</v-subheader>
-              <v-list-item-group v-model="item" color="primary">
-                <v-list-item
-                  v-for="(item, i) in items"
-                  :key="i"
-                  :inactive="inactive"
-                >
-                  <v-list-item-avatar v-if="avatar">
-                    <v-img :src="item.avatar"></v-img>
-                  </v-list-item-avatar>
-                  <v-list-item-content>
-                    <v-list-item-title v-html="item.title"></v-list-item-title>
-                    <v-list-item-subtitle
-                      v-if="twoLine || threeLine"
-                      v-html="item.subtitle"
-                    ></v-list-item-subtitle>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-          </div>
-        </div>
+            <v-expansion-panel-content>
+              <div class="header-display-products">
+                <div class="medicine-product">
+                  <div>
+                    <div class="product_generic_name">
+                      {{ medicine.title }}
+                    </div>
+                    <div
+                      class="medicine-product pt-2"
+                      style="
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                      "
+                    >
+                      <v-card
+                        v-for="pro in medicine.products"
+                        :key="pro"
+                        class="mx-auto mb-3"
+                        max-width="110"
+                        elevation="5"
+                        @click="medicineEdit(pro.id)"
+                      >
+                        <v-card-text style="padding: 10px !important">
+                          <div
+                            class="d-flex"
+                            style="justify-content: space-between"
+                          >
+                            <img
+                              src="~/assets/images/main-logo.png"
+                              width="30px"
+                              alt=""
+                            />
+                            <div>{{ pro.quantity }}</div>
+                          </div>
+                          <div>{{ pro.title }}</div>
+                          <div class="text--primary">
+                            <span>
+                              {{ pro.description }} {{ pro.grams_weight }}</span
+                            ><br />
+                            <span> ₱{{ pro.price }}</span>
+                          </div>
+                        </v-card-text>
+                      </v-card>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </div>
+      <div v-if="item_list" class="pt-8 mb-10" style="width: 90%; margin: auto">
+        <v-expansion-panels flat>
+          <v-expansion-panel
+            v-for="medicine in medicines"
+            :key="medicine"
+            class="rounded-0"
+          >
+            <v-expansion-panel-header
+              style="background: #a6a6a6; color: white !important"
+              ><span class="virtual-medicine-title">{{
+                medicine.title
+              }}</span></v-expansion-panel-header
+            >
+            <v-expansion-panel-content>
+              <div class="header-display-products">
+                <div class="product_generic_name">
+                  <b>{{ medicine.title }}</b>
+                </div>
+                <div class="medicine-product pt-2">
+                  <div>
+                    <ul class="medicine-product-list">
+                      <li v-for="product in medicine.products" :key="product">
+                        {{ product.title }} - {{ product.grams_weight }}/{{
+                          product.grams_unit
+                        }}
+                        (₱{{ product.price }}) * {{ product.quantity }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
       </div>
       <div v-if="item_download" class="pt-8" style="width: 90%; margin: auto">
         <div class="header-display">
@@ -166,10 +159,14 @@
             <span>Pharmacy Product List</span>
           </h3>
           <div class="d-flex justify-center">
-            <v-btn color="blue-grey" class="ma-2 white--text">
+            <v-file-input
+              accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+              label="File input"
+            ></v-file-input>
+            <!-- <v-btn color="blue-grey" class="ma-2 white--text">
               Upload
               <v-icon right dark> mdi-cloud-upload </v-icon>
-            </v-btn>
+            </v-btn> -->
           </div>
         </div>
       </div>
