@@ -35,7 +35,11 @@
       <template v-for="(item, index) in filtered">
         <v-divider :key="index + 'div'"></v-divider>
 
-        <v-list-item :key="index + 'span'" class="pharmacy-list-section">
+        <v-list-item
+          :key="index + 'span'"
+          class="pharmacy-list-section"
+          @click="virtualDisplay"
+        >
           <v-list-item-avatar class="table-avatar">
             <img
               v-if="
@@ -60,17 +64,15 @@
               </span>
             </div>
             <div class="table-options">
-              <v-btn
+              <v-icon
                 v-if="$auth.user.role === 'pharmacy'"
                 class="ma-2"
-                outlined
-                x-small
+                large
                 fab
                 color="#1ac6b6"
                 @click="sellMed(item.id)"
+                >mdi-plus</v-icon
               >
-                <v-icon>mdi-plus</v-icon>
-              </v-btn>
               <v-btn
                 v-if="$auth.user.role === 'doctor'"
                 class="ma-2"

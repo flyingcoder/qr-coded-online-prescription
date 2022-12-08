@@ -7,6 +7,7 @@ export default {
         id: 1,
       },
       isTyping: false,
+      patients: [],
       loading: false,
       loader: null,
       attachment: '',
@@ -26,6 +27,7 @@ export default {
   mounted() {
     this.getRecepient()
     this.fetchMessage()
+    this.getPatients()
   },
   computed: {
     onlines() {
@@ -41,6 +43,13 @@ export default {
     },
   },
   methods: {
+    getPatients() {
+      this.loading = true
+      this.$axios.get('users/patient').then((data) => {
+        this.patients = data.data
+        this.loading = false
+      })
+    },
     scrollDown() {
       setTimeout(function () {
         window.scrollTo(0, document.body.scrollHeight)
@@ -116,6 +125,7 @@ export default {
       const formData = new FormData(msgForm)
 
       formData.append('id', this.body.id)
+      console.log(this.body.type)
 
       formData.append('temporaryMsgId', this.body.temporaryMsgId)
 

@@ -34,7 +34,11 @@
         </div>
       </div>
     </div>
-    <div class="messenger-sendCard" style="display: block">
+    <div
+      v-if="$auth.user.role !== 'pharmacy'"
+      class="messenger-sendCard"
+      style="display: block"
+    >
       <div v-if="attachment" class="attachment-preview">
         <svg
           class="svg-inline--fa fa-times fa-w-11 cancel"

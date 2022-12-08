@@ -75,6 +75,16 @@
 div#word-related {
   font-size: 13px;
 }
+.clinic-sched-title,
+.doctor-sched-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.chatbox-undo {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+}
 .list-contact-doctor {
   position: absolute;
   right: 24px;
@@ -82,6 +92,12 @@ div#word-related {
 }
 .grid-contact-doctor {
   margin-top: 10px !important;
+  position: absolute;
+}
+.doctor-profile-title {
+  font-weight: bold;
+  font-size: 23px;
+  font-style: italic ;
 }
 .doctor-list-main-btn {
   position: relative !important;
@@ -93,6 +109,7 @@ div#word-related {
 }
 .grid-profile-doctor {
   position: absolute;
+  z-index: 999 !important;
   right: 35px;
 }
 .grid-contact-doctor {

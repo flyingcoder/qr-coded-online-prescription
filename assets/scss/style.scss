@@ -60,6 +60,34 @@ a.v-btn {
   text-align: center;
   // padding: 15px 50px;
 }
+.customer-order-list label {
+  left: auto !important;
+  right: 30px !important;
+  font-size: 15px;
+}
+.customer-order-list .v-data-table__mobile-row:nth-child(1) {
+  width: 40%;
+  float: left;
+}
+.customer-order-list .v-data-table__mobile-row:nth-child(2) {
+  width: 60%;
+}
+.customer-order-list .v-data-table__mobile-row:nth-child(3),
+.customer-order-list .v-data-table__mobile-row:nth-child(4),
+.customer-order-list .v-data-table__mobile-row:nth-child(5)  {
+  min-height: auto !important;
+  height: 24px !important;
+  justify-content: flex-start !important;
+}
+.customer-order-list .v-data-table__mobile-row:nth-child(6) {
+  justify-content: flex-end !important;
+  float: right;
+  margin-top: 15px;
+}
+.customer-order-list .v-data-table__mobile-row:nth-child(7) {
+  justify-content: left !important;
+  margin-top: 15px;
+}
 .no-padding {
   padding: 0 !important;
 }

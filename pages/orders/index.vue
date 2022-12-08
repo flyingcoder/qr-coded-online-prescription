@@ -5,22 +5,41 @@
     <v-data-table
       dense
       :headers="headers"
+      :header-props="headerProps"
       :items="orders"
       item-key="name"
       :page.sync="page"
       :items-per-page="itemsPerPage"
       hide-default-footer
-      class="elevation-1"
+      class="elevation-1 customer-order-list"
       :loading="loading"
       loading-text="Loading... Please wait"
-      @click:row="viewOrder"
     >
-      <template #[`item.total`]="{ item }"> ₱{{ item.total }} </template>
-      <template #[`item.status`]="{ item }">
+      <template #[`item.total`]="{ item }" @click:row="viewOrder">
+        ₱{{ item.total }}
+      </template>
+      <template
+        #[`item.status`]="{ item }"
+        class="d-block"
+        @click:row="viewOrder"
+      >
         {{ item.status ? 'Completed' : 'Pending' }}
       </template>
-      <template #[`item.created_at`]="{ item }">
+      <template #[`item.created_at`]="{ item }" @click:row="viewOrder">
         {{ $moment(item.created_at).format('LL HH:mm A') }}
+      </template>
+      <template #[`item.prescription_id`]="{ item }">
+        <v-btn
+          v-if="item.prescription_id == '1'"
+          color="primary"
+          :href="'prescriptions/pad/' + item.prescription_id"
+          dark
+          small
+          class="ma-2"
+        >
+          View Prescription
+        </v-btn>
+        <div v-else></div>
       </template>
     </v-data-table>
     <div class="text-center pt-2">
@@ -49,23 +68,29 @@ export default {
       itemsPerPage: 10,
       loading: true,
       orders: [],
+      headerProps: {
+        sortByText: 'Customized by',
+      },
     }
   },
   computed: {
     headers() {
       const name =
-        this.$auth.user.role === 'pharmacy' ? 'Customer Name' : 'Pharmacy Name'
-
+        this.$auth.user.role === 'pharmacy'
+          ? 'Customer Name:'
+          : 'Pharmacy Name:'
       return [
+        { text: 'Transaction: ', value: 'transaction_number', sortable: false },
+        { text: 'Date', value: 'created_at' },
         {
           text: name,
           align: 'start',
           value: 'fullname',
         },
-        { text: 'Doctor`s Name', value: 'doctor_name' },
-        { text: 'Total Payment', value: 'total' },
-        { text: 'Order Status', value: 'status' },
-        { text: 'Date Ordered', value: 'created_at' },
+        { text: 'Prescripted By', value: 'doctor_name' },
+        { text: 'Amount', value: 'total', sortable: false },
+        { text: 'Status', value: 'status' },
+        { value: 'prescription_id', sortable: false },
       ]
     },
   },

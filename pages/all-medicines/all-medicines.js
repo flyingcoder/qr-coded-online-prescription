@@ -16,6 +16,9 @@ export default {
   },
   computed: {},
   methods: {
+    virtualDisplay() {
+      this.$router.push('/virtual-display')
+    },
     sellMed(id) {
       this.$router.push('/medicine/sell/' + id)
     },

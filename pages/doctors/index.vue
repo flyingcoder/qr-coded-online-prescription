@@ -27,7 +27,7 @@
         class="doctors doctors-background-color"
         :class="{ 'prop-name': !grid }"
       >
-        <v-subheader class="page-list-title">Doctors</v-subheader>
+        <v-subheader class="page-list-title">Doctor's Directory</v-subheader>
         <v-divider></v-divider>
         <v-row no-gutters style="height: 100%" class="doctors-grid">
           <v-col
@@ -43,7 +43,10 @@
                 width="95%"
                 style="margin: 5px"
               >
-                <div class="grid-single-image text-center-pd">
+                <div
+                  class="grid-single-image text-center-pd"
+                  @click="viewProfile(item.id)"
+                >
                   <img
                     v-if="
                       item.avatar == 'avatar.png' ||
@@ -62,36 +65,48 @@
                   />
                 </div>
                 <v-divider></v-divider>
-                <div class="grid-single-name d-flex justify-center">
-                  <strong>Dr. {{ item.fname + ' ' + item.lname }}</strong>
-                </div>
-                <div class="grid-single-content d-flex justify-center">
-                  {{ item.address }}
-                </div>
-                <div class="grid-single-number d-flex justify-center">
-                  {{ item.phone }}
-                </div>
-                <v-btn
-                  class="ma-2 grid-contact-doctor"
-                  outlined
-                  x-small
-                  fab
-                  color="#1ac6b6"
-                  background="red"
-                  @click="contact(item.id)"
-                >
-                  <v-icon>mdi-phone</v-icon>
-                </v-btn>
-                <v-btn
-                  class="ma-2 grid-profile-doctor"
-                  outlined
-                  x-small
-                  fab
-                  color="#1ac6b6"
+                <div
+                  class="grid-single-name d-flex justify-center"
                   @click="viewProfile(item.id)"
                 >
-                  <v-icon>mdi-account</v-icon>
-                </v-btn>
+                  <strong>Dr. {{ item.fname + ' ' + item.lname }}</strong>
+                </div>
+                <div
+                  class="grid-single-content d-flex justify-center"
+                  @click="viewProfile(item.id)"
+                >
+                  {{ item.address }}
+                </div>
+                <div
+                  class="grid-single-number d-flex justify-center"
+                  @click="viewProfile(item.id)"
+                >
+                  {{ item.phone }}
+                </div>
+                <div class="doctor-grid-view">
+                  <v-btn
+                    class="ma-2 grid-contact-doctor"
+                    outlined
+                    x-small
+                    fab
+                    color="#1ac6b6"
+                    background="red"
+                    @click="contact(item.id)"
+                  >
+                    <v-icon>mdi-message-text</v-icon>
+                  </v-btn>
+                  <v-btn
+                    class="ma-2 grid-profile-doctor"
+                    outlined
+                    x-small
+                    fab
+                    color="#1ac6b6"
+                    :href="`tel:` + item.phone"
+                    style="color: #1ac6b6 !important"
+                  >
+                    <v-icon>mdi-phone</v-icon>
+                  </v-btn>
+                </div>
               </v-card>
             </div>
           </v-col>
@@ -108,7 +123,7 @@
                 v-if="index == 0"
                 :key="item.id"
                 class="page-list-title"
-                >Doctors</v-subheader
+                >Doctor's Directory</v-subheader
               >
 
               <v-divider :key="index + 'div' + item.id"></v-divider>
@@ -160,16 +175,28 @@
                   </v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-action>
-                  <v-btn
-                    class="ma-2"
-                    outlined
-                    x-small
-                    fab
-                    color="#1ac6b6"
-                    @click="contact(item.id)"
-                  >
-                    <v-icon>mdi-phone</v-icon>
-                  </v-btn>
+                  <div class="d-flex">
+                    <v-btn
+                      class="ma-2"
+                      outlined
+                      x-small
+                      fab
+                      color="#1ac6b6"
+                      @click="contact(item.id)"
+                    >
+                      <v-icon>mdi-message-text</v-icon>
+                    </v-btn>
+                    <v-btn
+                      class="ma-2"
+                      outlined
+                      x-small
+                      fab
+                      style="color: #1ac6b6 !important"
+                      :href="`tel:` + item.phone"
+                    >
+                      <v-icon>mdi-phone</v-icon>
+                    </v-btn>
+                  </div>
                 </v-list-item-action>
               </v-list-item>
             </template>

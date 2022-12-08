@@ -28,6 +28,9 @@ export default {
     contact(id) {
       this.$router.push('/chatbox/' + id)
     },
+    call(id) {
+      this.$router.push('tel: ' + id)
+    },
     filterDoc() {
       this.filtered = this.doctors.filter((doc) => {
         return (

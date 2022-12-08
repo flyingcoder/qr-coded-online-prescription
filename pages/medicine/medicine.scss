@@ -43,6 +43,10 @@
 .medicines-content .medicine-details{
   flex: auto;
 }
+.table-options {
+  position: absolute;
+  z-index: 999 !important;
+}
 .medicines-content .medicine-sub-info{
   flex: auto;
 }
