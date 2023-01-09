@@ -1,36 +1,30 @@
 <template>
   <div>
-    <h3 class="mt-0 mb-4 orders-title">Order Details</h3>
-    <div class="d-flex justify-center" style="margin-bottom: 15px">
+    <h3 class="mt-0 text-lg mb-4 orders-title">Order Details</h3>
+    <!-- <div class="d-flex justify-center" style="margin-bottom: 15px">
       <img src="@/assets/images/main-logo.png" alt="reseta logo" width="25%" />
-    </div>
+    </div> -->
     <v-card elevation="3" class="padding-bottom-sm order-card">
-      <div class="orders-fullname">
-        <span class="identifier">Fullname: </span>{{ order.fullname }}
-      </div>
-      <div class="orders-address">
-        <span class="identifier">Address: </span>{{ order.address }}
-      </div>
-      <div class="order-status d-flex">
-        <span class="identifier">Status: </span>
-        <div style="width: 60%; padding-left: 10px">
-          <v-select
-            v-model="order.status"
-            :items="status"
-            dense
-            hide-details
-          ></v-select>
+      <div class="d-flex pb-4">
+        <div class="orders-transaction" style="width: 60%">
+          <span class="identifier">Transaction: </span>asdas
+        </div>
+        <div class="orders-createdAt" style="width: 40%; text-align: right">
+          <span class="identifier">{{
+            $moment(t).format('MM/DD/YY hh:mm A')
+          }}</span>
         </div>
       </div>
-      <div class="order-doctor-name">
-        <span class="identifier">Doctor: </span>{{ order.doctor_name }}
+      <div></div>
+      <div class="orders-address">
+        <span class="identifier">Customer's Name: </span>{{ order.fullname }}
       </div>
       <div class="order-prescribed-by">
-        <span class="identifier">Prescribed by: </span>Dr.
-        {{ order.doctor.fullname }}
+        <span class="identifier">Prescribed By: </span
+        >{{ order.doctor.fullname }}
       </div>
       <v-divider></v-divider>
-      <h4 class="my-2 px-1">Order items:</h4>
+      <h4 class="my-2 px-1">ITEMS:</h4>
       <v-list-item v-for="(item, i) in order.items" :key="i + 'alvin'" two-line>
         <v-list-item-content>
           <v-list-item-title
@@ -41,6 +35,9 @@
               >Price: ₱{{ item.pivot.price }}</span
             >
             <span style="float: right">Qty: {{ item.pivot.qty }} pcs</span>
+            <div style="width: -webkit-fill-available; text-align: right">
+              ₱{{ item.pivot.qty * item.pivot.price }}
+            </div>
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -66,6 +63,7 @@ export default {
   middleware: 'auth-pharmacy',
   data() {
     return {
+      t: '',
       order: {
         doctor: {},
         buyer: {},
@@ -92,6 +90,7 @@ export default {
       this.loading = true
       await this.$axios.get('orders/' + this.$route.params.id).then((data) => {
         this.order = data.data
+        this.t = this.order.created_at
         this.loading = false
       })
     },

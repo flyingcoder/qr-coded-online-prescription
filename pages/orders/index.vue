@@ -14,6 +14,7 @@
       class="elevation-1 customer-order-list"
       :loading="loading"
       loading-text="Loading... Please wait"
+      @click:row="viewOrder"
     >
       <template #[`item.total`]="{ item }" @click:row="viewOrder">
         ₱{{ item.total }}
@@ -32,10 +33,10 @@
         <v-btn
           v-if="item.prescription_id == '1'"
           color="primary"
-          :href="'prescriptions/pad/' + item.prescription_id"
           dark
           small
           class="ma-2"
+          @click="prescriptionView(item.prescription_id)"
         >
           View Prescription
         </v-btn>
@@ -98,6 +99,9 @@ export default {
     this.getOrders()
   },
   methods: {
+    prescriptionView(id) {
+      this.$router.push('/prescriptions/pad/' + id)
+    },
     viewOrder(order) {
       this.$router.push('/orders/' + order.id)
     },

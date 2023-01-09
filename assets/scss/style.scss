@@ -80,6 +80,7 @@ a.v-btn {
   justify-content: flex-start !important;
 }
 .customer-order-list .v-data-table__mobile-row:nth-child(6) {
+  border-bottom: thin solid rgba(0, 0, 0, 0.12);
   justify-content: flex-end !important;
   float: right;
   margin-top: 15px;
