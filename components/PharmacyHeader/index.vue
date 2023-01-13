@@ -56,7 +56,7 @@
     <template #extension style="padding-bottom: 0">
       <div class="menu-icons">
         <NuxtLink to="/dashboard" class="menu-icon"
-          ><v-icon>mdi-home</v-icon></NuxtLink
+          ><v-icon>mdi-message-reply</v-icon></NuxtLink
         >
         <!-- <NuxtLink to="/dispense" class="menu-icon"
           ><v-icon>mdi-hand-heart</v-icon></NuxtLink

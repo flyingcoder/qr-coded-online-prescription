@@ -48,11 +48,19 @@
             >
               <div>
                 <v-icon class="primary-color">mdi-account</v-icon>
-                <span class="accordion-title">Personal Information</span>
+                <span class="accordion-title"
+                  ><span v-if="$auth.user.role == 'pharmacy'">Pharmacy</span>
+                  <span v-else>Personal</span>
+                  Information</span
+                >
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content class="text-center">
-              Manage your phone numbers, emails and address
+              <span v-if="$auth.user.role == 'pharmacy'"
+                >Manage pharmacy information, pharmacist, license and
+                address.</span
+              >
+              <span v-else>Manage your phone numbers, emails and address</span>
               <v-btn
                 width="90%"
                 style="margin-top: 25px"
@@ -91,7 +99,10 @@
               >
             </v-expansion-panel-content>
           </v-expansion-panel>
-          <v-expansion-panel style="border-bottom: 1px solid rgb(245 228 228)">
+          <v-expansion-panel
+            v-if="$auth.user.role !== 'pharmacy'"
+            style="border-bottom: 1px solid rgb(245 228 228)"
+          >
             <v-expansion-panel-header
               expand-icon="mdi-chevron-right"
               disable-icon-rotate

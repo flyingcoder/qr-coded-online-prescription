@@ -54,7 +54,7 @@
     <template #extension style="padding-bottom: 0" class="test">
       <div class="menu-icons">
         <NuxtLink to="/dashboard" class="menu-icon"
-          ><v-icon>mdi-home</v-icon></NuxtLink
+          ><v-icon>mdi-message-reply</v-icon></NuxtLink
         >
         <NuxtLink to="/prescription-form" class="menu-icon"
           ><v-icon>mdi-prescription</v-icon></NuxtLink
