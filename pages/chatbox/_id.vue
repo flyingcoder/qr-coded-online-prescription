@@ -35,7 +35,12 @@
       </div>
     </div>
     <div
-      v-if="$auth.user.role !== 'pharmacy'"
+      v-if="
+        ($auth.user.role == 'doctor' && profile.role == 'patient') ||
+        ($auth.user.role == 'patient' && profile.role == 'doctor') ||
+        ($auth.user.role == 'pharmacy' && profile.role == 'doctor') ||
+        ($auth.user.role == 'doctor' && profile.role == 'doctor')
+      "
       class="messenger-sendCard"
       style="display: block"
     >
