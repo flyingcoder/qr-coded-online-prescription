@@ -13,39 +13,13 @@
           <img src="@/assets/images/gcash-icon.png" width="200px" alt="" />
         </div>
         <div class="payment-fname-input payment-input-height">
-          <v-text-field
-            v-model="payment.fname"
-            label="First Name"
-            outlined
-            dense
-          ></v-text-field>
+          Scan the QR code or Pay to this number 09068360163
         </div>
         <div class="payment-lname-input payment-input-height">
-          <v-text-field
-            v-model="payment.lname"
-            label="Last Name"
-            outlined
-            dense
-          ></v-text-field>
+          Click here to verify the payment
         </div>
         <div class="payment-email-input payment-input-height">
-          <v-text-field
-            v-model="payment.email"
-            label="Email"
-            :rules="emailRules"
-            outlined
-            dense
-          ></v-text-field>
-        </div>
-        <div class="payment-gcash-input payment-input-height">
-          <v-text-field
-            v-model="payment.phone_number"
-            label="Gcash Phone Number"
-            placeholder="e.g. 09057623564"
-            type="number"
-            outlined
-            dense
-          ></v-text-field>
+          Wait for the verification
         </div>
       </div>
     </v-card-text>

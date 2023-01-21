@@ -31,6 +31,16 @@
       </div>
     </div>
     <div class="edit-profile-inputs">
+      <v-row style="display: none">
+        <v-col>
+          <v-text-field
+            v-model="user_info.email"
+            label="Email"
+            outlined
+            dense
+          ></v-text-field>
+        </v-col>
+      </v-row>
       <v-row style="height: 70px">
         <v-col>
           <v-text-field
@@ -230,7 +240,7 @@
               <tr v-for="date in schedules" :key="date.id">
                 <td>
                   <v-checkbox
-                    v-model="clinic_sched"
+                    v-model="user_info.clinic_schedules"
                     class="sched-checkbox"
                     :label="date.day"
                     color="sucess"

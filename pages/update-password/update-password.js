@@ -50,8 +50,14 @@ export default {
         this.user_info.password === this.user_info.password_confirmed &&
         this.user_info.email === this.user_info.email_confirmed
       ) {
+        const postData = {}
+        if (this.user_info.password !== '')
+          postData.password = this.user_info.password
+
+        if (this.user_info.email !== '') postData.email = this.user_info.email
+
         this.$axios
-          .post('user/edit-pass-email', this.user_info, config)
+          .post('user/edit-pass-email', postData, config)
           .then((data) => {
             this.$auth.user.avatar = data.data.avatar
             this.$store.dispatch('snackbar/setSnackbar', {

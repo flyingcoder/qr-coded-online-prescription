@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import colors from 'vuetify/es5/util/colors' 
+import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -95,7 +95,15 @@ export default {
 
     //'@nuxtjs/style-resources',
   ],
-
+  pwa: {
+    manifest: {
+      name: 'Reseta QRx',
+      short_name: 'ResetaQrx',
+      description: 'Your quickest online prescription.',
+      lang: 'fa',
+      useWebmanifestExtension: false
+    }
+  },
   auth: {
     strategies: {
       laravelSanctum: {
