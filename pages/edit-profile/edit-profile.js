@@ -8,6 +8,7 @@ export default {
       user_info: {
         fname: '',
         lname: '',
+        email: '',
         birthday: '',
         morbidity: 1,
         others: '',
@@ -21,41 +22,41 @@ export default {
         experties: '',
         license_number: '',
         tin_number: '',
+        clinic_schedules: [],
         bio: '',
         avatar: '',
       },
-      clinic_sched: [],
       schedules: [
         {
-          id: 1,
+          id: 'monday',
           checker: false,
           day: 'Monday',
           start_time: '',
           end_time: '',
         },
         {
-          id: 2,
+          id: 'tuesday',
           checker: false,
           day: 'Tuesday',
           start_time: '',
           end_time: '',
         },
         {
-          id: 3,
+          id: 'wednesday',
           checker: false,
           day: 'Wednesday',
           start_time: '',
           end_time: '',
         },
         {
-          id: 4,
+          id: 'thursday',
           checker: false,
           day: 'Thursday',
           start_time: '',
           end_time: '',
         },
         {
-          id: 5,
+          id: 'friday',
           checker: false,
           day: 'Friday',
           start_time: '',
@@ -89,13 +90,17 @@ export default {
       form.append('image', this.profile_image)
       form.append('fname', this.user_info.fname)
       form.append('lname', this.user_info.lname)
+      form.append('email', this.user_info.email)
       form.append('address', this.user_info.address)
       form.append('phone', this.user_info.phone)
       form.append('license_number', this.user_info.license_number)
       form.append('tin_number', this.user_info.tin_number)
       form.append('prc_number', this.user_info.prc_number)
       form.append('bio', this.user_info.bio)
-      form.append('clinic_schedule', this.clinic_sched)
+      form.append(
+        'clinic_schedules',
+        JSON.stringify(this.user_info.clinic_schedules)
+      )
       // form.append('clinic_sched', this.user_info.schedules)
       form.append('clinic_name', JSON.stringify(this.user_info.clinic_name))
       form.append('clinic_address', this.user_info.clinic_address)
@@ -114,6 +119,15 @@ export default {
       this.loading = true
       this.$axios.get('login-user').then((data) => {
         this.user_info = data.data
+        for (const dispSched of this.schedules) {
+          for (const userSched of this.user_info.clinic_schedules) {
+            if (userSched.day === dispSched.day) {
+              dispSched.checker = true
+              dispSched.start_time = userSched.start_time
+              dispSched.end_time = userSched.end_time
+            }
+          }
+        }
         this.loading = false
       })
     },

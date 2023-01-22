@@ -34,85 +34,17 @@
       </div>
     </div>
     <div class="edit-profile-inputs">
-      <v-row
-        v-if="$auth.user.role === 'pharmacy'"
-        class="pa-2"
-        style="height: 70px"
-      >
-        <v-text-field
-          v-model="user_info.fname"
-          outlined
-          label="Name of Pharmacy"
-          dense
-          prepend-icon="mdi-store-plus"
-        ></v-text-field>
+      <v-row style="display: none">
+        <v-col>
+          <v-text-field
+            v-model="user_info.email"
+            label="Email"
+            outlined
+            dense
+          ></v-text-field>
+        </v-col>
       </v-row>
-      <v-row
-        v-if="$auth.user.role === 'pharmacy'"
-        class="pa-2"
-        style="height: 70px"
-      >
-        <v-text-field
-          v-model="user_info.address"
-          outlined
-          label="Business Address"
-          dense
-          prepend-icon="mdi-map-marker"
-        ></v-text-field>
-      </v-row>
-      <v-row
-        v-if="$auth.user.role === 'pharmacy'"
-        class="pa-2"
-        style="height: 70px"
-      >
-        <v-text-field
-          v-model="user_info.license_number"
-          outlined
-          label="LTO(License to Operate) #:"
-          dense
-          prepend-icon="mdi-file-document"
-        ></v-text-field>
-      </v-row>
-      <v-row
-        v-if="$auth.user.role === 'pharmacy'"
-        class="pa-2"
-        style="height: 70px"
-      >
-        <v-text-field
-          v-model="user_info.ltin_number"
-          outlined
-          label="Business Permit #"
-          dense
-          prepend-icon="mdi-card-account-details"
-        ></v-text-field>
-      </v-row>
-      <v-row
-        v-if="$auth.user.role === 'pharmacy'"
-        class="pa-2"
-        style="height: 70px"
-      >
-        <v-text-field
-          v-model="user_info.prc_number"
-          label="PRC Number"
-          outlined
-          dense
-          prepend-icon="mdi-card-bulleted"
-        ></v-text-field>
-      </v-row>
-      <v-row
-        v-if="$auth.user.role === 'pharmacy'"
-        style="height: 70px"
-        class="pa-2"
-      >
-        <v-text-field
-          v-model="user_info.prc_number"
-          label="Contact Number"
-          outlined
-          dense
-          prepend-icon="mdi-phone"
-        ></v-text-field>
-      </v-row>
-      <v-row v-if="$auth.user.role !== 'pharmacy'" style="height: 70px">
+      <v-row style="height: 70px">
         <v-col>
           <v-text-field
             v-model="user_info.fname"
@@ -270,7 +202,7 @@
               <tr v-for="date in schedules" :key="date.id">
                 <td>
                   <v-checkbox
-                    v-model="clinic_sched"
+                    v-model="user_info.clinic_schedules"
                     class="sched-checkbox"
                     :label="date.day"
                     color="sucess"
