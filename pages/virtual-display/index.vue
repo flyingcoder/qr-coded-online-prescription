@@ -97,14 +97,13 @@
                               width="30px"
                               alt=""
                             />
-                            <div>{{ pro.quantity }}</div>
+                            <div>{{ pro.pivot.stocks }}</div>
                           </div>
-                          <div>{{ pro.title }}</div>
+                          <div>{{ pro.generic_name }}</div>
                           <div class="text--primary">
-                            <span>
-                              {{ pro.description }} {{ pro.grams_weight }}</span
+                            <span> {{ pro.description }} {{ pro.dosage }}</span
                             ><br />
-                            <span> ₱{{ pro.price }}</span>
+                            <span> ₱{{ pro.pivot.price }}</span>
                           </div>
                         </v-card-text>
                       </v-card>

@@ -99,7 +99,7 @@ export default {
           this.$store.dispatch('snackbar/setSnackbar', {
             text: 'Medicine is added succesfully.',
           })
-          this.$router.push('/medicine')
+          this.$router.push('/virtual-display')
         })
       } catch {
         this.$store.dispatch('snackbar/setSnackbar', {

@@ -4,74 +4,7 @@ export default {
   data() {
     return {
       prescriptions: [],
-      medicines: [
-        {
-          id: 1,
-          title: 'Aspirine',
-          products: [
-            {
-              id: 1,
-              title: 'Saphrin',
-              description: 'Aspirine',
-              grams_weight: '80mg',
-              grams_unit: 'tablet',
-              quantity: 100,
-              price: 3.0,
-            },
-            {
-              id: 2,
-              title: 'Scheeprin',
-              description: 'Aspirine',
-              grams_weight: '80mg',
-              grams_unit: 'ml Syrup',
-              quantity: 85,
-              price: 7.0,
-            },
-          ],
-        },
-        {
-          id: 2,
-          title: 'Butamirate Citrate',
-          products: [
-            {
-              id: 1,
-              title: 'Antic of SR',
-              description: 'Butomirate Citrate',
-              grams_weight: '56mg',
-              grams_unit: 'tablet',
-              quantity: 17,
-              price: 9.0,
-            },
-            {
-              id: 2,
-              title: 'test',
-              description: 'Butomirate Citrate',
-              grams_weight: '56mg',
-              grams_unit: 'tablet',
-              quantity: 17,
-              price: 4.0,
-            },
-            {
-              id: 3,
-              title: 'asd',
-              description: 'Butomirate Citrate',
-              grams_weight: '56mg',
-              grams_unit: 'tablet',
-              quantity: 17,
-              price: 15.0,
-            },
-            {
-              id: 4,
-              title: 'WEW',
-              description: 'Butomirate Citrate',
-              grams_weight: '56mg',
-              grams_unit: 'tablet',
-              quantity: 17,
-              price: 7.0,
-            },
-          ],
-        },
-      ],
+      medicines: [],
       loading: false,
       filtered: '',
       search: '',
@@ -115,12 +48,9 @@ export default {
     }
   },
   mounted() {
-    this.getPrescriptions()
+    this.getProducts()
   },
   methods: {
-    viewPrescription(id) {
-      this.$router.push('/prescriptions/pad/' + id)
-    },
     medicineEdit(id) {
       this.$router.push('/medicine/edit/' + id)
     },
@@ -139,20 +69,11 @@ export default {
       this.item_download = true
       this.item_icon = false
     },
-    async getPrescriptions() {
+    async getProducts() {
       this.loading = true
-      await this.$axios.get('prescriptions').then((data) => {
-        this.prescriptions = data.data
-        this.filtered = this.prescriptions
+      await this.$axios.get('medicines/in-store').then((data) => {
+        this.medicines = data.data
         this.loading = false
-      })
-    },
-    filterPrescriptions() {
-      this.filtered = this.prescriptions.filter((val) => {
-        return (
-          val.doctor.fname.toLowerCase().match(this.search.toLowerCase()) ||
-          val.doctor.lname.toLowerCase().match(this.search.toLowerCase())
-        )
       })
     },
   },

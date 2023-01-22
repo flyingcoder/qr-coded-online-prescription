@@ -35,11 +35,7 @@
       <template v-for="(item, index) in filtered">
         <v-divider :key="index + 'div'"></v-divider>
 
-        <v-list-item
-          :key="index + 'span'"
-          class="pharmacy-list-section"
-          @click="virtualDisplay"
-        >
+        <v-list-item :key="index + 'span'" class="pharmacy-list-section">
           <v-list-item-avatar class="table-avatar">
             <img
               v-if="
@@ -56,7 +52,7 @@
           </v-list-item-avatar>
 
           <div class="medicines-content">
-            <div class="medicine-details">
+            <div class="medicine-details" @click="viewProfile(item.id)">
               <strong>{{ item.generic_name }} ({{ item.brand }})</strong>
               <br />
               <span class="medicine-sub-info">
