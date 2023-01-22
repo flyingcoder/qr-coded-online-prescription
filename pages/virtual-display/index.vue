@@ -53,24 +53,25 @@
     </v-row>
     <v-row>
       <div v-if="item_icon" class="pt-8 mb-10" style="width: 90%; margin: auto">
-        <v-expansion-panels flat>
+        <v-expansion-panels v-for="medicine in medicines" :key="medicine" flat>
           <v-expansion-panel
-            v-for="medicine in medicines"
-            :key="medicine"
+            v-for="med in medicine"
+            :key="med"
             class="rounded-0"
           >
             <v-expansion-panel-header
               style="background: #a6a6a6; color: white !important"
-              ><span class="virtual-medicine-title">{{
-                medicine.title
-              }}</span></v-expansion-panel-header
             >
+              <span class="virtual-medicine-title">
+                {{ med[0].generic_name.charAt(0) }}
+              </span>
+            </v-expansion-panel-header>
             <v-expansion-panel-content>
               <div class="header-display-products">
                 <div class="medicine-product">
                   <div>
                     <div class="product_generic_name">
-                      {{ medicine.title }}
+                      {{ med[0].generic_name }}
                     </div>
                     <div
                       class="medicine-product pt-2"
@@ -80,7 +81,7 @@
                       "
                     >
                       <v-card
-                        v-for="pro in medicine.products"
+                        v-for="pro in med"
                         :key="pro"
                         class="mx-auto mb-3"
                         max-width="110"
@@ -99,9 +100,11 @@
                             />
                             <div>{{ pro.pivot.stocks }}</div>
                           </div>
-                          <div>{{ pro.name }}</div>
+                          <div>{{ pro.brand }}</div>
                           <div class="text--primary">
-                            <span> {{ pro.description }} {{ pro.dosage }}</span
+                            <span
+                              >{{ pro.generic_name }} {{ pro.description }}
+                              {{ pro.dosage }}</span
                             ><br />
                             <span> ₱{{ pro.pivot.price }}</span>
                           </div>
@@ -116,31 +119,32 @@
         </v-expansion-panels>
       </div>
       <div v-if="item_list" class="pt-8 mb-10" style="width: 90%; margin: auto">
-        <v-expansion-panels flat>
+        <v-expansion-panels v-for="medicine in medicines" :key="medicine" flat>
           <v-expansion-panel
-            v-for="medicine in medicines"
-            :key="medicine"
+            v-for="med in medicine"
+            :key="med"
             class="rounded-0"
           >
             <v-expansion-panel-header
               style="background: #a6a6a6; color: white !important"
               ><span class="virtual-medicine-title">{{
-                medicine.title
+                med[0].generic_name.charAt(0)
               }}</span></v-expansion-panel-header
             >
             <v-expansion-panel-content>
               <div class="header-display-products">
                 <div class="product_generic_name">
-                  <b>{{ medicine.title }}</b>
+                  <b>{{ med[0].generic_name }}</b>
                 </div>
                 <div class="medicine-product pt-2">
                   <div>
                     <ul class="medicine-product-list">
-                      <li v-for="product in medicine.products" :key="product">
-                        {{ product.title }} - {{ product.grams_weight }}/{{
-                          product.grams_unit
+                      <li v-for="product in med" :key="product">
+                        {{ product.brand }} - {{ product.dosage }}/{{
+                          product.type
                         }}
-                        (₱{{ product.price }}) * {{ product.quantity }}
+                        (₱{{ product.pivot.price }}) *
+                        {{ product.pivot.stocks }}
                       </li>
                     </ul>
                   </div>
