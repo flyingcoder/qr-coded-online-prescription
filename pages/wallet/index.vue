@@ -53,7 +53,7 @@
           </thead>
           <tbody>
             <tr v-for="item in history" :key="item.date">
-              <td>{{ moment(item.created_at).format('ll') }}</td>
+              <td>{{ item.created_at | readableDate }}</td>
               <td>{{ item.transaction }}</td>
               <td>{{ item.amount }}</td>
               <td>{{ item.balance }}</td>
