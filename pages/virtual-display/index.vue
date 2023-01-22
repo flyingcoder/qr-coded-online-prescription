@@ -99,7 +99,7 @@
                             />
                             <div>{{ pro.pivot.stocks }}</div>
                           </div>
-                          <div>{{ pro.generic_name }}</div>
+                          <div>{{ pro.name }}</div>
                           <div class="text--primary">
                             <span> {{ pro.description }} {{ pro.dosage }}</span
                             ><br />
