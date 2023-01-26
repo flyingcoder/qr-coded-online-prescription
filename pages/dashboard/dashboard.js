@@ -1,7 +1,7 @@
 export default {
   layout: 'dashboard',
   head: {
-    title: 'Home'
+    title: 'Home',
   },
   data() {
     return {

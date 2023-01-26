@@ -5,6 +5,7 @@
       :timeout="2000"
       :value="true"
       shaped
+      top
       color="red"
     >
       Fields must be match.

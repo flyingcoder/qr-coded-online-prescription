@@ -5,6 +5,7 @@
       :key="snackbar.text + Math.random()"
       v-model="snackbar.showing"
       :timeout="snackbar.timeout"
+      top
       :color="snackbar.color"
       :style="`bottom: ${index * 60 + 8}px`"
     >
