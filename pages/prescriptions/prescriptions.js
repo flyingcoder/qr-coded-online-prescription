@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     viewPrescription(id) {
-      this.$router.push('/prescriptions/pad/' + id)
+      this.$router.push('/prescription/' + id)
     },
     async getPrescriptions() {
       this.loading = true
