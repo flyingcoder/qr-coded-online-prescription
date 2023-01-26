@@ -1,5 +1,5 @@
 {
-  "name": "resetaqrx",
+  "name": "ResetaQRx",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -13,7 +13,6 @@
   "dependencies": {
     "@nuxtjs/auth-next": "5.0.0-1613647907.37b1156",
     "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.14.0",
     "laravel-echo": "^1.11.0",
     "nuxt": "^2.15.6",
@@ -27,6 +26,7 @@
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/moment": "^1.6.1",
+    "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/style-resources": "^1.2.1",
     "@nuxtjs/vuetify": "^1.12.1",
     "babel-eslint": "^10.1.0",

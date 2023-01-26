@@ -306,12 +306,6 @@
 export default {
   layout: 'dashboard',
   auth: true,
-  props: {
-    selectedPatient: {
-      type: Object,
-      required: true,
-    },
-  },
   data() {
     return {
       sig_hours: [],

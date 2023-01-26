@@ -44,6 +44,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    // https://go.nuxtjs.dev/pwa
+    '@nuxtjs/pwa',
     '@nuxtjs/moment',
     // https://go.nuxtjs.dev/eslint
     [
@@ -89,12 +91,10 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
-
     //'@nuxtjs/style-resources',
   ],
+
   pwa: {
     manifest: {
       name: 'Reseta QRx',
@@ -102,8 +102,12 @@ export default {
       description: 'Your quickest online prescription.',
       lang: 'fa',
       useWebmanifestExtension: false
+    },
+    workbox: {
+      dev: true // or use a global variable to track the current NODE_ENV, etc to determine dev mode
     }
   },
+
   auth: {
     strategies: {
       laravelSanctum: {
@@ -136,13 +140,6 @@ export default {
       process.env.NODE_ENV === 'production'
         ? 'https://api.resetaqrx.com/api'
         : 'http://localhost:8000/api',
-  },
-
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
-  pwa: {
-    manifest: {
-      lang: 'en',
-    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

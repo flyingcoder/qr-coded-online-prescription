@@ -1,7 +1,22 @@
 <template>
   <div class="doctor-patient-chatbox" @click="handleActiveChat">
     <div class="top-content">
-      <img class="user-icon" :src="profile.avatar" :alt="profile.fname" />
+      <img
+        v-if="
+          profile.avatar == 'avatar.png' ||
+          profile.avatar ==
+            'https://api.resetaqrx.com/storage/users/user-default.png'
+        "
+        class="user-icon"
+        :src="require(`~/assets/images/` + profile.avatar)"
+        :alt="profile.fname"
+      />
+      <img
+        v-else
+        class="user-icon"
+        :src="profile.avatar"
+        :alt="profile.fname"
+      />
       <div class="chatbox-undo" @click="back">
         <v-icon> mdi-arrow-left </v-icon>
       </div>
