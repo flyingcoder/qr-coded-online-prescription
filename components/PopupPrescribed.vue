@@ -10,7 +10,6 @@
             class="logo-wide"
             src="~/assets/images/white-main-logo.png"
             alt=""
-            style="width: 5%"
           />
           <div class="reseta-logo-text">Reseta QRx</div>
         </div>
@@ -262,7 +261,7 @@ export default {
   display: flex;
   justify-content: center;
   img {
-    width: 11%;
+    width: auto !important;
   }
   .reseta-logo-text {
     display: flex;

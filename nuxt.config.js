@@ -102,9 +102,6 @@ export default {
       description: 'Your quickest online prescription.',
       lang: 'fa',
       useWebmanifestExtension: false
-    },
-    workbox: {
-      dev: true // or use a global variable to track the current NODE_ENV, etc to determine dev mode
     }
   },
 

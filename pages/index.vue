@@ -1,12 +1,12 @@
 <template>
   <div class="sign-in_login">
-    <v-content>
+    <v-main>
       <v-row class="center reseta-login-logo">
         <div class="text-end" style="text-align: center">
           <img width="40%" src="~/assets/images/white-main-logo.png" />
         </div>
       </v-row>
-    </v-content>
+    </v-main>
     <div class="sign-in_login_desc">
       <v-row class="center">
         <h1 class="my-0 sign-in_login_title text-white">
