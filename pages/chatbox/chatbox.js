@@ -7,7 +7,6 @@ export default {
         id: 1,
       },
       isTyping: false,
-      patients: [],
       loading: false,
       loader: null,
       attachment: '',
@@ -27,7 +26,7 @@ export default {
   mounted() {
     this.getRecepient()
     this.fetchMessage()
-    this.getPatients()
+    // this.getPatients()
   },
   computed: {
     onlines() {

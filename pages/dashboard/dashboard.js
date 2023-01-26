@@ -1,5 +1,8 @@
 export default {
   layout: 'dashboard',
+  head: {
+    title: 'Home'
+  },
   data() {
     return {
       newsfeeds: [],

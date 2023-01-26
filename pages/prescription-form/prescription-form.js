@@ -11,9 +11,7 @@ export default {
       popup_prescription: false,
     }
   },
-  mounted() {
-    this.getPatients()
-  },
+  mounted() {},
   methods: {
     forceRerender() {
       // Remove my-component from the DOM
