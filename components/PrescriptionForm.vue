@@ -470,7 +470,6 @@ export default {
     },
 
     addMedicine() {
-      console.log(this)
       if (this.validateForm()) {
         const datus = {
           drug_info: this.drug_info,

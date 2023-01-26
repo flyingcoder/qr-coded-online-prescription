@@ -4,7 +4,13 @@ export default {
     return {
       counter: 0,
       service_fee: 4.2,
-
+      rx: {
+        doctor: {
+          fullname: '',
+          avatar: '',
+        },
+        prescribe: [],
+      },
       payments: [
         {
           id: 1,
@@ -31,20 +37,21 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$route.params.prescription)
+    this.getPrescribe()
   },
   computed: {
     total_quantity_amount() {
       let sum = 0
-      this.payments.forEach((e) => {
-        sum += e.price * e.qty
+      this.rx.prescribe.forEach((e) => {
+        console.log(e)
+        sum += e.price * e.pivot.qty
       })
       return sum
     },
     total_quantity() {
       let sum = 0
-      this.payments.forEach((e) => {
-        sum += e.qty
+      this.rx.prescribe.forEach((e) => {
+        sum += e.pivot.qty
       })
       return sum
     },
@@ -53,25 +60,23 @@ export default {
     },
   },
   methods: {
+    getPrescribe() {
+      this.loading = true
+      this.$axios
+        .get('prescriptions/' + this.$route.params.prescription)
+        .then((data) => {
+          this.rx = data.data
+          this.loading = false
+        })
+    },
     total_price(item) {
-      return item.price * item.qty
+      return item.price * item.pivot.qty
     },
     increase(qty) {
       return qty * 2
     },
     decrease(qty) {
       return (qty -= 1)
-    },
-  },
-  props: {
-    user: {
-      type: Object,
-      default() {
-        return {
-          image: 'Inosuke_Anime_Profile.png',
-          name: 'JUAN DELA CRUZ',
-        }
-      },
     },
   },
 }

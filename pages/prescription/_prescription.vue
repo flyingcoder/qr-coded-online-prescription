@@ -8,10 +8,22 @@
         <th colspan="3">
           <div class="user-inline">
             <img
+              v-if="
+                rx.doctor.avatar == 'avatar.png' ||
+                rx.doctor.avatar ==
+                  'https://api.resetaqrx.com/storage/users/user-default.png'
+              "
               class="user-icon"
-              :src="require(`~/assets/images/${user.image}`)"
+              :src="require(`~/assets/images/` + rx.doctor.avatar)"
+              :alt="rx.doctor.fullname"
             />
-            {{ user.name }}
+            <img
+              v-else
+              class="user-icon"
+              :src="rx.doctor.avatar"
+              :alt="rx.doctor.fullname"
+            />
+            {{ rx.doctor.fullname }}
           </div>
         </th>
         <th class="options text-center">
@@ -20,19 +32,19 @@
           </v-btn>
         </th>
       </tr>
-      <tr v-for="order in payments" :key="order.id" class="ordered-product">
-        <td>{{ order.id }}) {{ order.name }}</td>
-        <td>{{ order.dose }}</td>
+      <tr v-for="med in rx.prescribe" :key="med.id" class="ordered-product">
+        <td>{{ med.id }}) {{ med.name }}</td>
+        <td>{{ med.dosage }}</td>
         <td>
-          <span class="ordered-quantitity">{{ order.qty }}</span>
+          <span class="ordered-quantitity">{{ med.pivot.qty }}</span>
         </td>
         <td class="options text-center">
-          <v-btn icon @click="order.qty += 1"
+          <v-btn icon @click="med.pivot.qty += 1"
             ><v-icon color="green" size="30"
               >mdi-plus-circle-outline</v-icon
             ></v-btn
           >
-          <v-btn icon @click="order.qty -= 1"
+          <v-btn icon @click="med.pivot.qty -= 1"
             ><v-icon color="red" size="30"
               >mdi-minus-circle-outline</v-icon
             ></v-btn
@@ -48,7 +60,7 @@
         <th></th>
         <th class="total">TOTAL</th>
       </tr>
-      <tr v-for="payment in payments" :key="payment.id" class="dispense">
+      <tr v-for="payment in rx.prescribe" :key="payment.id" class="dispense">
         <td>{{ payment.name }}</td>
         <td>{{ payment.dose }}</td>
         <td>₱ {{ parseFloat(payment.price).toFixed(2) }}</td>
@@ -90,6 +102,6 @@
     </div>
   </div>
 </template>
-<script src="./prescription.js"></script>
+<script src="./single-prescription.js"></script>
 
-<style src="./prescription.scss" lang="scss" scoped></style>
+<style src="./single-prescription.scss" lang="scss" scoped></style>
