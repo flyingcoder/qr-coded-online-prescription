@@ -2,9 +2,20 @@
   <v-card>
     <v-card-text class="pb-0">
       <div class="payment-form-section pt-5">
-        <v-btn color="success" @click="gcashPaymentMethod"> GCash</v-btn>
-        <v-btn color="success" @click="bankPaymentMethod">Bank Account</v-btn>
-        <div class="payment-form-fields">
+        <v-btn
+          color="success"
+          :disabled="!isDisabledGCash"
+          @click="gcashPaymentMethod"
+        >
+          GCash</v-btn
+        >
+        <v-btn
+          color="success"
+          :disabled="!isDisabledBank"
+          @click="bankPaymentMethod"
+          >Bank Account</v-btn
+        >
+        <div class="payment-form-fields pt-4">
           <v-text-field
             v-if="gcashMethod"
             class="pt-7"
@@ -45,7 +56,9 @@ export default {
       payment: [],
       gcashMethod: false,
       bankMethod: false,
+      isDisabledBank: true,
       isDisabled: false,
+      isDisabledGCash: true,
       emailRules: [
         (v) =>
           !v ||
@@ -62,12 +75,16 @@ export default {
     gcashPaymentMethod() {
       this.gcashMethod = !this.gcashMethod
       this.bankMethod = false
-      this.isDisabled = !this.isDisabled
+      this.isDisabledGCash = false
+      this.isDisabledBank = true
+      this.isDisabled = true
     },
     bankPaymentMethod() {
       this.bankMethod = !this.bankMethod
       this.gcashMethod = false
-      this.isDisabled = !this.isDisabled
+      this.isDisabledBank = false
+      this.isDisabledGCash = true
+      this.isDisabled = true
     },
     closePayment() {
       this.$emit('closed')

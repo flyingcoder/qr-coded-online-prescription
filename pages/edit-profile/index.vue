@@ -200,7 +200,7 @@
             </thead>
             <tbody>
               <tr v-for="date in schedules" :key="date.id">
-                <td>
+                <td style="padding-inline: 0 !important">
                   <v-checkbox
                     v-model="user_info.clinic_schedules"
                     class="sched-checkbox"
@@ -210,19 +210,21 @@
                     @click="date.checker = !date.checker"
                   ></v-checkbox>
                 </td>
-                <td>
+                <td style="padding: 0 0 0 5px !important">
                   <v-text-field
                     v-if="date.checker"
                     v-model="date.start_time"
+                    style="width: 90%"
                     outlined
                     type="time"
                     dense
                   ></v-text-field>
                 </td>
-                <td>
+                <td style="padding-left: 5px !important">
                   <v-text-field
                     v-if="date.checker"
                     v-model="date.end_time"
+                    style="width: 90%"
                     outlined
                     type="time"
                     dense

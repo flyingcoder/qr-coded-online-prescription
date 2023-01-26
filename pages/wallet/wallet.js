@@ -3,6 +3,26 @@ export default {
   middleware: 'auth',
   data() {
     return {
+      items: [
+        {
+          id: 1,
+          date: '01/15/10',
+          method: 'Gcash',
+          amount: 1400,
+        },
+        {
+          id: 2,
+          date: '01/15/10',
+          method: 'Gcash',
+          amount: 1500,
+        },
+        {
+          id: 3,
+          date: '01/15/10',
+          method: 'Gcash',
+          amount: 1900,
+        },
+      ],
       tab: null,
       ex11: true,
       payment_short_form: false,
