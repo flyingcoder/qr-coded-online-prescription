@@ -33,6 +33,9 @@ export default {
         this.patients = data.data
         this.loading = false
       })
+      if (this.$route.name === 'prescription-form-id') {
+        this.popup_prescription = true
+      }
     },
     payClinic() {
       this.popup_prescription = true
