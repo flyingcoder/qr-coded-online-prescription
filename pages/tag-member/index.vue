@@ -1,10 +1,20 @@
 <template>
-  <div class="tag-member pa-2">
-    <div class="tag-header text-center py-3 d-flex justify-center align-center">
+  <div class="tag-member">
+    <div class="settings-header">
+      <div class="back-btn align-self-center">
+        <v-icon color="white" @click="exit"> mdi-chevron-left </v-icon>
+      </div>
+      <div class="header-title align-self-center">Settings</div>
+    </div>
+    <div class="edit-profile-title ma-2 d-flex justify-center">
       <v-icon class="pr-2">mdi-account-group</v-icon>
       <span style="font-size: 20px; font-weight: 400">Tag Members</span>
     </div>
-    <div class="tag-body">
+    <!-- <div class="tag-header text-center py-3 d-flex justify-center align-center">
+      <v-icon class="pr-2">mdi-account-group</v-icon>
+      <span style="font-size: 20px; font-weight: 400">Tag Members</span>
+    </div> -->
+    <div class="tag-body pa-2">
       <div class="tag-family">
         <div class="tag-header py-3 px-2 d-flex">
           <v-icon class="pr-2" color="#1ac6b6" large
@@ -66,7 +76,11 @@
                 dense
               ></v-text-field>
               <div style="width: 50%" class="px-2">
-                <v-btn color="error" @click="deleteFamily(input.id)">
+                <v-btn
+                  color="error"
+                  style="height: 40px"
+                  @click="deleteFamily(input.id)"
+                >
                   <v-icon left> mdi-delete </v-icon>
                   Remove
                 </v-btn>
@@ -141,7 +155,11 @@
                 dense
               ></v-text-field>
               <div style="width: 50%" class="px-2">
-                <v-btn color="error" @click="deleteDependent(input.id)">
+                <v-btn
+                  color="error"
+                  style="height: 40px !important"
+                  @click="deleteDependent(input.id)"
+                >
                   <v-icon left> mdi-delete </v-icon>
                   Remove
                 </v-btn>
@@ -156,7 +174,7 @@
         </div>
       </div>
     </div>
-    <div class="tag-footer py-6">
+    <div class="tag-footer ma-2 py-6">
       <v-btn color="success" @click="exit">
         <v-icon left> mdi-arrow-left </v-icon>
         Back
