@@ -30,6 +30,9 @@ export default {
       ],
     }
   },
+  mounted() {
+    console.log(this.$route.params.prescription)
+  },
   computed: {
     total_quantity_amount() {
       let sum = 0
