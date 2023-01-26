@@ -168,11 +168,11 @@ export default {
         doctor_id: this.$auth.user.id,
         drugs: this.prescriptions,
       }
-      this.btnhide = true
       this.$axios.post('prescriptions', datus).then((data) => {
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `You have successfully created the prescrition`,
         })
+        this.btnhide = true
         window.localStorage.removeItem('medCounter')
         window.localStorage.removeItem('prescribeData')
         this.$router.push('/chatbox/' + this.patient.id)
