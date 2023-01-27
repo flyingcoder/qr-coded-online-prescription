@@ -1,305 +1,330 @@
 <template>
   <div class="popup-prescription-form">
-    <v-dialog v-model="med_type" fullscreen>
-      <MedType :defaulttype="sig.type" @selected="medTypeSelected" />
-    </v-dialog>
-    <v-dialog v-model="med_method" fullscreen>
-      <MedApplyMethod @selected="intakeSelected" />
-    </v-dialog>
-    <v-dialog v-model="popup_prescribed" fullscreen scrollable>
-      <PopupPrescribed
-        :patient="patient_info"
-        :prescriptions="meds"
-        @closed="closePrescription"
-        @delmeds="removeMeds"
-        @delAllMeds="removeAllMeds"
-      />
-    </v-dialog>
+    <v-dialog v-model="popup_prescription" fullscreen scrollable>
+      <v-dialog v-model="med_type" fullscreen>
+        <MedType :defaulttype="sig.type" @selected="medTypeSelected" />
+      </v-dialog>
+      <v-dialog v-model="med_method" fullscreen>
+        <MedApplyMethod @selected="intakeSelected" />
+      </v-dialog>
+      <v-dialog v-model="popup_prescribed" fullscreen scrollable>
+        <PopupPrescribed
+          :patient="patient_info"
+          :prescriptions="meds"
+          @closed="closePrescription"
+          @delmeds="removeMeds"
+          @delAllMeds="removeAllMeds"
+        />
+      </v-dialog>
 
-    <v-card class="popup-prescription-form-inner">
-      <div class="popup-prescribed-header">
-        <div class="popup-prescribed-back dark">
-          <v-icon @click="close">mdi-arrow-left</v-icon>
+      <v-card class="popup-prescription-form-inner">
+        <div class="popup-prescribed-header">
+          <div class="popup-prescribed-back dark">
+            <v-icon @click="close">mdi-arrow-left</v-icon>
+          </div>
+          <div class="reseta-logo">
+            <img
+              class="logo-wide"
+              src="~/assets/images/white-main-logo.png"
+              alt=""
+            />
+            <div class="reseta-logo-text">Reseta QRx</div>
+          </div>
         </div>
-        <div class="reseta-logo">
-          <img
-            class="logo-wide"
-            src="~/assets/images/white-main-logo.png"
-            alt=""
-          />
-          <div class="reseta-logo-text">Reseta QRx</div>
-        </div>
-      </div>
 
-      <v-form id="main-prescription-form">
-        <div class="patient-info d-flex">
-          <div class="prescription-form-image">
-            <img
-              v-if="
-                $auth.user.avatar == 'avatar.png' ||
-                $auth.user.avatar ==
-                  'https://api.resetaqrx.com/storage/users/user-default.png'
-              "
-              class="user-icon"
-              :src="require(`~/assets/images/avatar.png`)"
-              :alt="$auth.user.fname"
-            />
-            <img
-              v-else
-              class="user-icon"
-              :src="$auth.user.avatar"
-              :alt="$auth.user.fname"
-            />
-          </div>
-          <div class="prescription-form-info">
-            <div class="prescription-doctor-name">
-              {{ $auth.user.fname }} {{ $auth.user.lname }}
+        <v-form id="main-prescription-form">
+          <div class="patient-info d-flex">
+            <div class="prescription-form-image">
+              <img
+                v-if="
+                  $auth.user.avatar == 'avatar.png' ||
+                  $auth.user.avatar ==
+                    'https://api.resetaqrx.com/storage/users/user-default.png'
+                "
+                class="user-icon"
+                :src="require(`~/assets/images/avatar.png`)"
+                :alt="$auth.user.fname"
+              />
+              <img
+                v-else
+                class="user-icon"
+                :src="$auth.user.avatar"
+                :alt="$auth.user.fname"
+              />
             </div>
-            <div class="prescription-doctor-use">
-              {{ $auth.user.experties }}
-            </div>
-            <div class="prescription-doctor-number">
-              {{ $auth.user.license_number }}
-            </div>
-          </div>
-          <div class="medicine-badge">
-            <v-badge
-              v-if="medCounter > 0"
-              color="#223A6B"
-              :content="medCounter"
-            >
-              <v-btn
-                class="mx-2"
-                fab
-                dark
-                small
-                color="#1db3a6"
-                @click="popup_prescribed = !popup_prescribed"
+            <div class="prescription-form-info">
+              <div class="prescription-doctor-name">
+                {{ $auth.user.fname }} {{ $auth.user.lname }}
+              </div>
+              <div class="prescription-doctor-use">
+                {{ $auth.user.experties }}
+              </div>
+              <div
+                v-if="$auth.user.license_number != null"
+                class="prescription-doctor-number"
               >
-                <v-icon dark> mdi-prescription </v-icon>
-              </v-btn>
-            </v-badge>
+                {{ $auth.user.license_number }}
+              </div>
+            </div>
+            <div class="medicine-badge">
+              <v-badge
+                v-if="medCounter > 0"
+                color="#223A6B"
+                :content="medCounter"
+              >
+                <v-btn
+                  class="mx-2"
+                  fab
+                  dark
+                  small
+                  color="#1db3a6"
+                  @click="popup_prescribed = !popup_prescribed"
+                >
+                  <v-icon dark> mdi-prescription </v-icon>
+                </v-btn>
+              </v-badge>
+            </div>
           </div>
-        </div>
-        <div class="patient-secondary-info">
-          <div class="patient-main-info">
+          <div class="payment-method">
             <label :for="patient_info" class="prescription-medicine-label"
-              >Patient Information</label
+              >Payment Method</label
             >
-            <v-autocomplete
-              v-model="patient_info"
-              item-text="fullname"
-              :items="patients"
+            <v-select
+              :items="payment_method"
               outlined
               return-object
+              :value="default_payment_method"
               dense
               solo
-              prepend-inner-icon="mdi-magnify"
-              placeholder="Search Any Patient"
-              @change="patientSelected"
-            >
-              <!-- :disabled="$route.params.id ? '' : disabled" -->
-            </v-autocomplete>
+            ></v-select>
           </div>
-        </div>
-        <div class="patient-date-prescription d-flex">
-          <div
-            class="d-block prescription-date full-width text-right align-self-center"
-          >
-            <div class="patient-info-date"></div>
-            <div class="patient-info-time"></div>
-          </div>
-        </div>
-        <div class="patient-medicine-prescription">
-          <div class="medicine-top">
-            <label :for="drug_info" class="prescription-medicine-label"
-              >Medicine Name</label
-            >
-            <v-autocomplete
-              v-model="drug_info"
-              :items="medicines"
-              item-text="medicine"
-              return-object
-              outlined
-              dense
-              solo
-              prepend-inner-icon="mdi-magnify"
-              placeholder="Search Any Medicine"
-              @change="medicineSelected"
-            ></v-autocomplete>
-          </div>
-          <div class="medicine-bottom">
-            <label for="" class="prescription-medicine-label"
-              >Medicine Type</label
-            >
-            <v-btn
-              depressed
-              height="40px"
-              width="100%"
-              @click="med_type = !med_type"
-            >
-              {{ sig.type }}
-            </v-btn>
-          </div>
-        </div>
-        <div class="patient-sig-prescription">
-          <div class="patient-sig-title"><h2>Sig</h2></div>
-          <div class="patient-sig-buttons">
-            <div class="patient-sig-button-top d-flex">
-              <v-btn
-                depressed
-                height="40px"
-                style="width: 50%; margin-right: 10px"
-                @click="med_method = !med_method"
+          <div class="patient-secondary-info">
+            <div class="patient-main-info">
+              <label :for="patient_info" class="prescription-medicine-label"
+                >Patient Information</label
               >
-                {{ sig.intake }}
-              </v-btn>
-              <v-text-field
-                v-model="sig.amount"
-                style="width: 50%; margin-right: 10px"
+              <v-autocomplete
+                v-model="patient_info"
+                item-text="fullname"
+                :items="patients"
+                outlined
+                return-object
+                dense
+                solo
+                prepend-inner-icon="mdi-magnify"
+                placeholder="Search Any Patient"
+                @change="patientSelected"
+              >
+                <!-- :disabled="$route.params.id ? '' : disabled" -->
+              </v-autocomplete>
+            </div>
+          </div>
+          <div class="patient-date-prescription d-flex">
+            <div
+              class="d-block prescription-date full-width text-right align-self-center"
+            >
+              <div class="patient-info-date"></div>
+              <div class="patient-info-time"></div>
+            </div>
+          </div>
+          <div class="patient-medicine-prescription">
+            <div class="medicine-top">
+              <label :for="drug_info" class="prescription-medicine-label"
+                >Medicine Name</label
+              >
+              <v-autocomplete
+                v-model="drug_info"
+                :items="medicines"
+                item-text="medicine"
+                return-object
                 outlined
                 dense
-                label="Quantity"
-                type="number"
-                :rules="[numberRule]"
-              ></v-text-field>
+                solo
+                prepend-inner-icon="mdi-magnify"
+                placeholder="Search Any Medicine"
+                @change="medicineSelected"
+              ></v-autocomplete>
             </div>
-            <div class="patient-sig-button-top d-flex">
+            <div class="medicine-bottom">
+              <label for="" class="prescription-medicine-label"
+                >Medicine Type</label
+              >
               <v-btn
-                disabled
                 depressed
                 height="40px"
                 width="100%"
-                style="margin-bottom: 20px"
+                @click="med_type = !med_type"
               >
                 {{ sig.type }}
               </v-btn>
             </div>
-            <div class="patient-sig-button-bottom d-flex">
+          </div>
+          <div class="patient-sig-prescription">
+            <div class="patient-sig-title"><h2>Sig</h2></div>
+            <div class="patient-sig-buttons">
+              <div class="patient-sig-button-top d-flex">
+                <v-btn
+                  depressed
+                  height="40px"
+                  style="width: 50%; margin-right: 10px"
+                  @click="med_method = !med_method"
+                >
+                  {{ sig.intake }}
+                </v-btn>
+                <v-text-field
+                  v-model="sig.amount"
+                  style="width: 50%; margin-right: 10px"
+                  outlined
+                  dense
+                  label="Quantity"
+                  type="number"
+                  :rules="[numberRule]"
+                ></v-text-field>
+              </div>
+              <div class="patient-sig-button-top d-flex">
+                <v-btn
+                  disabled
+                  depressed
+                  height="40px"
+                  width="100%"
+                  style="margin-bottom: 20px"
+                >
+                  {{ sig.type }}
+                </v-btn>
+              </div>
+              <div class="patient-sig-button-bottom d-flex">
+                <v-text-field
+                  v-model="sig.repeat"
+                  outlined
+                  type="number"
+                  dense
+                  label="Dosage"
+                  style="width: 25%; margin-right: 10px"
+                  :rules="[numberRule]"
+                ></v-text-field>
+                <v-btn
+                  disabled
+                  depressed
+                  height="40px"
+                  style="width: 30%; margin-right: 10px"
+                >
+                  Times
+                </v-btn>
+                <v-select
+                  v-model="sig.cycle"
+                  :items="duration"
+                  dense
+                  style="width: 30%"
+                  clear-icon
+                  outlined
+                ></v-select>
+              </div>
+            </div>
+            <div v-if="sig.repeat.length === 1" class="patient-sig-hours">
+              <div class="patient-sig-am">
+                <v-item-group
+                  v-model="sig.hours_time"
+                  multiple
+                  :max="sig.repeat"
+                >
+                  <v-item
+                    v-for="n in 24"
+                    :key="n.id"
+                    v-slot="{ active, toggle }"
+                    disabled
+                  >
+                    <v-chip
+                      class="sig-time-pick"
+                      style="
+                        width: 46px;
+                        padding: 0;
+                        justify-content: center;
+                        margin-right: 4px;
+                        margin-top: 5px;
+                      "
+                      label
+                      active-class="active-hour-time"
+                      :input-value="active"
+                      @click="toggle"
+                    >
+                      <span v-if="n <= 12">{{ n }}am</span>
+                      <span v-else>{{ n - 12 }}pm</span>
+                    </v-chip>
+                  </v-item>
+                </v-item-group>
+              </div>
+            </div>
+          </div>
+          <div class="patient-day-uses-prescription d-flex">
+            <div class="patient-duration d-flex">
               <v-text-field
-                v-model="sig.repeat"
-                outlined
+                v-model="sig.duration"
                 type="number"
+                min="1"
+                max="31"
                 dense
-                label="Dosage"
-                style="width: 25%; margin-right: 10px"
-                :rules="[numberRule]"
-              ></v-text-field>
-              <v-btn
-                disabled
-                depressed
-                height="40px"
-                style="width: 30%; margin-right: 10px"
-              >
-                Times
-              </v-btn>
-              <v-select
-                v-model="sig.cycle"
-                :items="duration"
-                dense
-                style="width: 30%"
+                label="Duration"
+                append-icon=""
                 clear-icon
                 outlined
-              ></v-select>
+                style="width: 50%"
+                hide-details
+              ></v-text-field>
+              <div class="duration-day">
+                <h3>{{ sig.cycle }}/s</h3>
+              </div>
             </div>
+            <!-- div class="patient-duration-total d-flex">
+                <div class="duration-total margin-right-sm"><h3>TOTAL</h3></div>
+                <v-text-field outlined dense class="margin-right-sm"></v-text-field>
+                <v-btn depressed height="40px" style="width: 20%"> Tablet </v-btn>
+              </!-->
           </div>
-          <div v-if="sig.repeat.length === 1" class="patient-sig-hours">
-            <div class="patient-sig-am">
-              <v-item-group v-model="sig.hours_time" multiple :max="sig.repeat">
-                <v-item
-                  v-for="n in 24"
-                  :key="n.id"
-                  v-slot="{ active, toggle }"
-                  disabled
-                >
-                  <v-chip
-                    class="sig-time-pick"
-                    style="
-                      width: 46px;
-                      padding: 0;
-                      justify-content: center;
-                      margin-right: 4px;
-                      margin-top: 5px;
-                    "
-                    label
-                    active-class="active-hour-time"
-                    :input-value="active"
-                    @click="toggle"
-                  >
-                    <span v-if="n <= 12">{{ n }}am</span>
-                    <span v-else>{{ n - 12 }}pm</span>
-                  </v-chip>
-                </v-item>
-              </v-item-group>
-            </div>
-          </div>
-        </div>
-        <div class="patient-day-uses-prescription d-flex">
-          <div class="patient-duration d-flex">
-            <v-text-field
-              v-model="sig.duration"
-              type="number"
-              min="1"
-              max="31"
-              dense
-              label="Duration"
-              append-icon=""
-              clear-icon
+          <div class="patient-note-prescription">
+            <v-textarea
+              v-model="sig.note"
+              label="Note"
+              auto-grow
               outlined
-              style="width: 50%"
-              hide-details
-            ></v-text-field>
-            <div class="duration-day">
-              <h3>{{ sig.cycle }}/s</h3>
-            </div>
+              rows="3"
+              row-height="25"
+            ></v-textarea>
           </div>
-          <!-- div class="patient-duration-total d-flex">
-              <div class="duration-total margin-right-sm"><h3>TOTAL</h3></div>
-              <v-text-field outlined dense class="margin-right-sm"></v-text-field>
-              <v-btn depressed height="40px" style="width: 20%"> Tablet </v-btn>
+          <!-- div class="patient-add-prescription padding-bottom-sm">
+              <v-btn tile>
+                <v-icon left large color="green"> mdi-hospital </v-icon>
+                Add
+              </v-btn>
             </!-->
-        </div>
-        <div class="patient-note-prescription">
-          <v-textarea
-            v-model="sig.note"
-            label="Note"
-            auto-grow
-            outlined
-            rows="3"
-            row-height="25"
-          ></v-textarea>
-        </div>
-        <!-- div class="patient-add-prescription padding-bottom-sm">
-            <v-btn tile>
-              <v-icon left large color="green"> mdi-hospital </v-icon>
-              Add
-            </v-btn>
-          </!-->
-        <v-divider></v-divider>
-        <div class="patient-prescribed-buttons d-flex justify-center">
-          <v-btn class="patient-add-medicine-button dark" @click="addMedicine">
-            <v-icon left size="30px" class="dark"> mdi-plus </v-icon>
-            Medicine
-          </v-btn>
-          <v-badge v-if="medCounter" color="#223A6B" :content="medCounter">
+          <v-divider></v-divider>
+          <div class="patient-prescribed-buttons d-flex justify-center">
             <v-btn
-              style="width: 100%"
+              class="patient-add-medicine-button dark"
+              @click="addMedicine"
+            >
+              <v-icon left size="30px" class="dark"> mdi-plus </v-icon>
+              Medicine
+            </v-btn>
+            <v-badge v-if="medCounter" color="#223A6B" :content="medCounter">
+              <v-btn
+                style="width: 100%"
+                class="dark patient-prescribed-button-prescribe"
+                @click="popup_prescribed = !popup_prescribed"
+              >
+                View
+              </v-btn>
+            </v-badge>
+            <v-btn
+              v-else
               class="dark patient-prescribed-button-prescribe"
               @click="popup_prescribed = !popup_prescribed"
             >
               View
             </v-btn>
-          </v-badge>
-          <v-btn
-            v-else
-            class="dark patient-prescribed-button-prescribe"
-            @click="popup_prescribed = !popup_prescribed"
-          >
-            View
-          </v-btn>
-        </div>
-      </v-form>
-    </v-card>
+          </div>
+        </v-form>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 <script>
@@ -310,6 +335,7 @@ export default {
     return {
       sig_hours: [],
       popup_prescribed: false,
+      popup_prescription: true,
       allprescriptions: '',
       medicines: [],
       drug_info: '',
@@ -334,6 +360,8 @@ export default {
       amount: '1',
       take: '2',
       items: ['1', '2', '3', '4'],
+      payment_method: ['GCash', 'Clinic'],
+      default_payment_method: 'GCash',
       duration: ['Day', 'Week', 'Month', 'Year'],
       meds: [],
       patients: [],
@@ -502,7 +530,7 @@ export default {
       })
     },
     close() {
-      this.$emit('closed')
+      this.$router.back()
     },
   },
 }
@@ -559,17 +587,25 @@ span.v-chip.active-hours-cycle.v-chip--active.v-chip--clickable.v-chip--label.v-
   color: white;
   font-weight: 500;
 }
+.user-icon {
+  width: 70px !important;
+  height: 70px !important;
+}
+.prescription-form-image {
+  width: unset !important;
+  height: unset !important;
+  max-width: unset !important;
+}
 .prescription-form-info {
   width: 75%;
+  padding-left: 15px;
 }
-.medicine-bottom {
-  margin-top: 35px;
+.popup-prescription-form-inner {
+  height: fit-content !important;
+  max-height: unset !important;
 }
 .patient-day-uses-prescription {
   margin: 20px 0 20px 0;
-}
-.patient-secondary-info {
-  margin-top: 20px;
 }
 .patient-medicine-prescription {
   margin-top: 0px;
