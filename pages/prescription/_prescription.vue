@@ -1,6 +1,6 @@
 <template>
   <div id="prescriptions">
-    <div>Prescription</div>
+    <div style="font-size: 20px" class="font-weight-bold">Prescription</div>
     <table class="ordered-table">
       <tr>
         <th colspan="3">
@@ -32,17 +32,24 @@
       </tr>
       <tr v-for="med in rx.prescribe" :key="med.id" class="ordered-product">
         <td>{{ med.id }}) {{ med.name }}</td>
-        <td>{{ med.dosage }}</td>
+        <td></td>
         <td>
-          <span class="ordered-quantitity">{{ med.pivot.qty }}</span>
+          <v-text-field
+            v-model="med.pivot.qty"
+            :value="med.pivot.qty"
+            style="width: 50px; height: 40px"
+            outlined
+            dense
+          ></v-text-field>
+          <!-- <span class="ordered-quantitity">{{ med.pivot.qty }}</span> -->
         </td>
         <td class="options text-center">
-          <v-btn icon @click="med.pivot.qty += 1"
+          <v-btn icon @click="med.pivot.qty++"
             ><v-icon color="green" size="30"
               >mdi-plus-circle-outline</v-icon
             ></v-btn
           >
-          <v-btn icon @click="med.pivot.qty -= 1"
+          <v-btn icon @click="med.pivot.qty--"
             ><v-icon color="red" size="30"
               >mdi-minus-circle-outline</v-icon
             ></v-btn
@@ -50,7 +57,8 @@
         </td>
       </tr>
     </table>
-    <table class="ordered-table">
+    <v-divider style="border-color: inherit" class="my-3"></v-divider>
+    <table class="ordered-table pt-0">
       <tr class="ordered-table-header">
         <th></th>
         <th></th>
@@ -60,9 +68,10 @@
       </tr>
       <tr v-for="payment in rx.prescribe" :key="payment.id" class="dispense">
         <td>{{ payment.name }}</td>
-        <td>{{ payment.dose }}</td>
-        <td>₱ {{ parseFloat(payment.price).toFixed(2) }}</td>
-        <td>Qty: {{ payment.qty }}</td>
+        <td></td>
+        <!-- <td>₱ {{ parseFloat(payment.price_ref_index).toFixed(2) }}</td> -->
+        <td>₱ {{ parseFloat(payment.price_refs_index).toFixed(2) }}</td>
+        <td>Qty: {{ payment.pivot.qty }}</td>
         <td>₱ {{ total_price(payment).toFixed(2) }}</td>
       </tr>
       <tr class="total">
@@ -90,10 +99,10 @@
     <div class="dispense text-center">
       <v-btn
         depressed
-        color="#B2EBF2"
-        width="80%"
-        min-width="300px"
-        class="btn-radius"
+        color="#1ac6b6"
+        width="60%"
+        class="btn-radius find-doctors-btn"
+        style="color: white"
       >
         DISPENSE
       </v-btn>
