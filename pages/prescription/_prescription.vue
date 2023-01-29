@@ -1,8 +1,6 @@
 <template>
   <div id="prescriptions">
-    <v-row class="pharmacy-prescription-top-section justify-center">
-      <h2>PRESCRIPTION</h2>
-    </v-row>
+    <div>Prescription</div>
     <table class="ordered-table">
       <tr>
         <th colspan="3">

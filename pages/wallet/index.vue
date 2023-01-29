@@ -17,9 +17,12 @@
     >
       <v-tab>
         <span v-if="$auth.user.role == 'pharmacy'">Load Balance</span>
-        <span v-else> Balance </span></v-tab
-      >
-      <v-tab> Transactions </v-tab>
+        <span v-else> Rebates </span>
+      </v-tab>
+      <v-tab>
+        <span v-if="$auth.user.role == 'pharmacy'"> Transactions </span>
+        <span v-else>Professional Fee</span>
+      </v-tab>
     </v-tabs>
 
     <v-tabs-items v-model="tab" style="margin: 0 20px">
@@ -47,16 +50,34 @@
         </div>
         <br />
         <PaymentMethod
-          v-if="$auth.user.role != 'pharmacy'"
+          v-if="$auth.user.role == 'patient'"
           title="AVAILABLE DEPOSIT METHOD"
           @methodconfirm="processPayment"
         />
         <div v-else>
-          <v-simple-table>
+          <v-simple-table v-if="$auth.user.role == 'pharmacy'">
             <thead>
               <tr>
                 <th class="text-center">Date</th>
                 <th class="text-center">Method</th>
+                <th class="text-center">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in history" :key="item.date">
+                <td class="text-center">
+                  {{ item.created_at | readableDate }}
+                </td>
+                <td class="text-center">{{ item.transaction }}</td>
+                <td class="text-center">{{ item.amount }}</td>
+              </tr>
+            </tbody>
+          </v-simple-table>
+          <v-simple-table v-if="$auth.user.role == 'doctor'">
+            <thead>
+              <tr>
+                <th class="text-center">Date</th>
+                <th class="text-center">Time</th>
                 <th class="text-center">Amount</th>
               </tr>
             </thead>
@@ -109,13 +130,13 @@
             </tr>
           </tbody>
         </v-simple-table>
-        <v-simple-table v-else>
+        <v-simple-table v-if="$auth.user.role == 'doctor'">
           <thead>
             <tr>
               <th class="text-left">Date</th>
-              <th class="text-left">Desc.</th>
-              <th class="text-left">Amount</th>
-              <th class="text-left">Balance</th>
+              <th class="text-left">Time</th>
+              <th class="text-left">AMount Pay to</th>
+              <th class="text-left">Patient</th>
             </tr>
           </thead>
           <tbody>

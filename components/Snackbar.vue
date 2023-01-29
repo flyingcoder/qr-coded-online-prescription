@@ -11,7 +11,12 @@
     >
       <span style="color: white !important">{{ snackbar.text }}</span>
 
-      <v-btn color="white" text @click="snackbar.showing = false">
+      <v-btn
+        v-if="$nuxt.$route.name != 'prescription-form-id'"
+        color="white"
+        text
+        @click="snackbar.showing = false"
+      >
         Close
       </v-btn>
     </v-snackbar>
