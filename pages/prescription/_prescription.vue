@@ -21,7 +21,12 @@
               :src="rx.doctor.avatar"
               :alt="rx.doctor.fullname"
             />
-            {{ rx.doctor.fullname }}
+            <div class="block">
+              <div>{{ rx.doctor.fullname }}</div>
+              <div style="font-size: 15px; margin-top: -5px">
+                {{ rx.doctor.experties }}
+              </div>
+            </div>
           </div>
         </th>
         <th class="options text-center">
@@ -37,7 +42,7 @@
           <v-text-field
             v-model="med.pivot.qty"
             :value="med.pivot.qty"
-            style="width: 50px; height: 40px"
+            style="width: 50px; height: 40px; color: inherit"
             outlined
             dense
           ></v-text-field>
@@ -112,3 +117,4 @@
 <script src="./single-prescription.js"></script>
 
 <style src="./single-prescription.scss" lang="scss" scoped></style>
+0
