@@ -72,11 +72,15 @@ export default {
     total_price(item) {
       return item.price * item.pivot.qty
     },
-    increase(qty) {
-      return qty * 2
-    },
-    decrease(qty) {
-      return (qty -= 1)
-    },
+    // increase(qty) {
+    //   return qty * 2
+    // },
+    // increase(qty) {
+    //   console.log(qty)
+    //   return (item.pivot.qty = qty += 1)
+    // },
+    // decrease(qty) {
+    //   return (qty -= 1)
+    // },
   },
 }
