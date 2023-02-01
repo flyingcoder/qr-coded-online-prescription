@@ -53,25 +53,38 @@
     </v-row>
     <v-row>
       <div v-if="item_icon" class="pt-8 mb-10" style="width: 90%; margin: auto">
-        <v-expansion-panels v-for="medicine in medicines" :key="medicine" flat>
+        <v-expansion-panels flat>
           <v-expansion-panel
-            v-for="med in medicine"
+            v-for="med in medicines"
             :key="med"
             class="rounded-0"
           >
             <v-expansion-panel-header
               style="background: #a6a6a6; color: white !important"
             >
-              <span class="virtual-medicine-title">
-                {{ med[0].generic_name.charAt(0) }}
-              </span>
+              <div>
+                <div
+                  v-for="m in med"
+                  :key="m"
+                  class="virtual-medicine-title test"
+                  style="display: none"
+                >
+                  <span style="color: white">{{
+                    m[0].generic_name.charAt(0)
+                  }}</span>
+                </div>
+              </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content>
-              <div class="header-display-products">
+              <div
+                v-for="pro in med"
+                :key="pro"
+                class="header-display-products"
+              >
                 <div class="medicine-product">
                   <div>
                     <div class="product_generic_name">
-                      {{ med[0].generic_name }}
+                      {{ pro[0].generic_name }}
                     </div>
                     <div
                       class="medicine-product pt-2"
@@ -81,8 +94,8 @@
                       "
                     >
                       <v-card
-                        v-for="pro in med"
-                        :key="pro"
+                        v-for="m in pro"
+                        :key="m"
                         class="mx-auto mb-3"
                         max-width="110"
                         elevation="5"
@@ -98,15 +111,15 @@
                               width="30px"
                               alt=""
                             />
-                            <div>{{ pro.pivot.stocks }}</div>
+                            <div>{{ m.pivot.stocks }}</div>
                           </div>
-                          <div>{{ pro.brand }}</div>
+                          <div>{{ m.brand }}</div>
                           <div class="text--primary">
                             <span
-                              >{{ pro.generic_name }} {{ pro.description }}
-                              {{ pro.dosage }}</span
+                              >{{ m.generic_name }} {{ m.description }}
+                              {{ m.dosage }}</span
                             ><br />
-                            <span> ₱{{ pro.pivot.price }}</span>
+                            <span> ₱{{ m.pivot.price }}</span>
                           </div>
                         </v-card-text>
                       </v-card>
@@ -119,27 +132,35 @@
         </v-expansion-panels>
       </div>
       <div v-if="item_list" class="pt-8 mb-10" style="width: 90%; margin: auto">
-        <v-expansion-panels v-for="medicine in medicines" :key="medicine" flat>
+        <v-expansion-panels flat>
           <v-expansion-panel
-            v-for="med in medicine"
+            v-for="med in medicines"
             :key="med"
             class="rounded-0"
           >
             <v-expansion-panel-header
               style="background: #a6a6a6; color: white !important"
-              ><span class="virtual-medicine-title">{{
-                med[0].generic_name.charAt(0)
-              }}</span></v-expansion-panel-header
             >
+              <div
+                v-for="m in med"
+                :key="m"
+                class="virtual-medicine-title test"
+                style="display: none"
+              >
+                <span style="color: white">{{
+                  m[0].generic_name.charAt(0)
+                }}</span>
+              </div>
+            </v-expansion-panel-header>
             <v-expansion-panel-content>
-              <div class="header-display-products">
+              <div v-for="m in med" :key="m" class="header-display-products">
                 <div class="product_generic_name">
-                  <b>{{ med[0].generic_name }}</b>
+                  <b>{{ m[0].generic_name }}</b>
                 </div>
                 <div class="medicine-product pt-2">
                   <div>
                     <ul class="medicine-product-list">
-                      <li v-for="product in med" :key="product">
+                      <li v-for="product in m" :key="product">
                         {{ product.brand }} - {{ product.dosage }}/{{
                           product.type
                         }}
