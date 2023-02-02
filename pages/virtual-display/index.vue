@@ -84,7 +84,7 @@
                 <div class="medicine-product">
                   <div>
                     <div class="product_generic_name">
-                      {{ pro[0].generic_name }}
+                      <b>{{ pro[0].generic_name }}</b>
                     </div>
                     <div
                       class="medicine-product pt-2"
