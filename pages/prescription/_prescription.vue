@@ -54,7 +54,7 @@
               >mdi-plus-circle-outline</v-icon
             ></v-btn
           >
-          <v-btn icon @click="med.pivot.qty--"
+          <v-btn icon @click="qty_button(med)"
             ><v-icon color="red" size="30"
               >mdi-minus-circle-outline</v-icon
             ></v-btn
@@ -76,7 +76,8 @@
         <td></td>
         <!-- <td>₱ {{ parseFloat(payment.price_ref_index).toFixed(2) }}</td> -->
         <td>₱ {{ parseFloat(payment.price_refs_index).toFixed(2) }}</td>
-        <td>Qty: {{ payment.pivot.qty }}</td>
+        <!-- <td>Qty: {{ payment.pivot.qty }}</td> -->
+        <td>Qty: {{ check(payment) }}</td>
         <td>₱ {{ total_price(payment).toFixed(2) }}</td>
       </tr>
       <tr class="total">

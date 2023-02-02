@@ -50,7 +50,6 @@ export default {
     total_quantity() {
       let sum = 0
       this.rx.prescribe.forEach((e) => {
-        console.log(e)
         sum += parseInt(e.pivot.qty)
       })
       return sum
@@ -72,6 +71,18 @@ export default {
     },
     total_price(item) {
       return item.price_refs_index * item.pivot.qty
+    },
+    qty_button(med) {
+      if (med.pivot.qty === 0) return
+      // qty -= 1
+      med.pivot.qty--
+    },
+    check(payment) {
+      if (payment.pivot.qty < 0) {
+        return (payment.pivot.qty = 0)
+      } else {
+        return payment.pivot.qty
+      }
     },
     // increase(qty) {
     //   return qty * 2
