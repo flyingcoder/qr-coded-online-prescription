@@ -43,15 +43,15 @@ export default {
     total_quantity_amount() {
       let sum = 0
       this.rx.prescribe.forEach((e) => {
-        console.log(e)
-        sum += e.price * e.pivot.qty
+        sum += e.price_refs_index * e.pivot.qty
       })
       return sum
     },
     total_quantity() {
       let sum = 0
       this.rx.prescribe.forEach((e) => {
-        sum += e.pivot.qty
+        console.log(e)
+        sum += parseInt(e.pivot.qty)
       })
       return sum
     },
@@ -61,6 +61,7 @@ export default {
   },
   methods: {
     getPrescribe() {
+      console.log(this.rx.prescribe)
       this.loading = true
       this.$axios
         .get('prescriptions/' + this.$route.params.prescription)
@@ -70,7 +71,7 @@ export default {
         })
     },
     total_price(item) {
-      return item.price * item.pivot.qty
+      return item.price_refs_index * item.pivot.qty
     },
     // increase(qty) {
     //   return qty * 2

@@ -84,7 +84,7 @@
                 <div class="medicine-product">
                   <div>
                     <div class="product_generic_name">
-                      {{ pro[0].generic_name }}
+                      <b>{{ pro[0].generic_name }}</b>
                     </div>
                     <div
                       class="medicine-product pt-2"
@@ -98,6 +98,8 @@
                         :key="m"
                         class="mx-auto mb-3"
                         max-width="110"
+                        max-height="160"
+                        style="width: 100%"
                         elevation="5"
                         @click="medicineEdit(pro.id)"
                       >
@@ -160,13 +162,7 @@
                 <div class="medicine-product pt-2">
                   <div>
                     <ul class="medicine-product-list">
-                      <li v-for="product in m" :key="product">
-                        {{ product.brand }} - {{ product.dosage }}/{{
-                          product.type
-                        }}
-                        (₱{{ product.pivot.price }}) *
-                        {{ product.pivot.stocks }}
-                      </li>
+                      <li v-for="product in m" :key="product"></li>
                     </ul>
                   </div>
                 </div>
