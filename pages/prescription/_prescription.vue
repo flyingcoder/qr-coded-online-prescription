@@ -45,6 +45,7 @@
             style="width: 50px; height: 40px; color: inherit"
             outlined
             dense
+            @change="checks(med)"
           ></v-text-field>
           <!-- <span class="ordered-quantitity">{{ med.pivot.qty }}</span> -->
         </td>

@@ -60,7 +60,6 @@ export default {
   },
   methods: {
     getPrescribe() {
-      console.log(this.rx.prescribe)
       this.loading = true
       this.$axios
         .get('prescriptions/' + this.$route.params.prescription)
@@ -76,6 +75,11 @@ export default {
       if (med.pivot.qty === 0) return
       // qty -= 1
       med.pivot.qty--
+    },
+    checks(t) {
+      if (t.pivot.qty === '') {
+        t.pivot.qty = 0
+      }
     },
     check(payment) {
       if (payment.pivot.qty < 0) {

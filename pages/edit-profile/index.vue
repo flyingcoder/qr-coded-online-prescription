@@ -1,5 +1,5 @@
 <template>
-  <div class="edit-profile-page">
+  <div class="edit-profile-page pb-10">
     <Preloader v-if="loading" />
     <div class="settings-header">
       <div class="back-btn align-self-center">
