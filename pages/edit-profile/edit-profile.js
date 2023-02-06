@@ -1,5 +1,5 @@
 export default {
-  name: 'Edit Profile',
+  name: 'EditProfile',
   layout: 'search-notification',
   data() {
     return {
@@ -28,35 +28,35 @@ export default {
       },
       schedules: [
         {
-          id: 'monday',
+          id: 1,
           checker: false,
           day: 'Monday',
           start_time: '',
           end_time: '',
         },
         {
-          id: 'tuesday',
+          id: 2,
           checker: false,
           day: 'Tuesday',
           start_time: '',
           end_time: '',
         },
         {
-          id: 'wednesday',
+          id: 3,
           checker: false,
           day: 'Wednesday',
           start_time: '',
           end_time: '',
         },
         {
-          id: 'thursday',
+          id: 4,
           checker: false,
           day: 'Thursday',
           start_time: '',
           end_time: '',
         },
         {
-          id: 'friday',
+          id: 5,
           checker: false,
           day: 'Friday',
           start_time: '',
@@ -137,6 +137,7 @@ export default {
     //   })
     // },
     saveChanges() {
+      console.log(this.schedules)
       const config = {
         onUploadProgress: (progressEvent) =>
           (this.progress = Math.round(
