@@ -138,13 +138,10 @@
           <v-radio-group v-model="user_info.morbidity" class="mt-0">
             <v-radio
               label="Essential Hypertension"
-              value="essential_hypertension"
+              value="EssentialHypertension"
             ></v-radio>
-            <v-radio label="Diabetes" value="diabetes"></v-radio>
-            <v-radio
-              label="Bronchial Asthma"
-              value="bronchial_asthma"
-            ></v-radio>
+            <v-radio label="Diabetes" value="Diabetes"></v-radio>
+            <v-radio label="Bronchial Asthma" value="BronchialAsthma"></v-radio>
           </v-radio-group>
         </div>
         <div style="font-size: 12px">OTHERS</div>
@@ -155,14 +152,23 @@
             dense
           ></v-text-field>
         </div>
+        <div style="font-size: 12px">In Case of Emergency</div>
+        <div class="pl-5 pt-2">
+          <v-text-field
+            v-model="user_info.person_to_contact"
+            label="Person To Contact"
+            outlined
+            dense
+          ></v-text-field>
+          <v-text-field
+            v-model="user_info.person_to_contact_number"
+            label="Mobile Number"
+            outlined
+            dense
+          ></v-text-field>
+        </div>
       </div>
       <v-row v-if="$auth.user.role === 'patient'" class="sm-side-padding">
-        <v-text-field
-          v-model="user_info.personto_contact"
-          label="Person To Contact"
-          outlined
-          dense
-        ></v-text-field>
       </v-row>
       <div v-if="$auth.user.role === 'doctor'" class="clinic-schedule">
         <div class="clinic-sched-title">Clinic Schedule</div>
@@ -235,9 +241,9 @@
           </table>
         </div>
       </div>
-      <v-row v-if="$auth.user.role == 'patient'" class="sm-side-padding">
+      <!-- <v-row v-if="$auth.user.role == 'patient'" class="sm-side-padding">
         <v-textarea v-model="user_info.bio" outlined label="BIO"></v-textarea>
-      </v-row>
+      </v-row> -->
     </div>
     <v-btn tile class="dark ml-3" @click="saveChanges">
       <v-icon left> mdi-content-save </v-icon>

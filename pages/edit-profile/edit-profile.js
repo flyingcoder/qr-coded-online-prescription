@@ -4,15 +4,16 @@ export default {
   data() {
     return {
       loading: false,
-      sex: ['Male', 'Female'],
+      sex: ['male', 'female'],
       user_info: {
         fname: '',
         lname: '',
         email: '',
         birthday: '',
-        morbidity: 1,
+        morbidity: 'EssentialHypertension',
         others: '',
-        personto_contact: '',
+        person_to_contact: '',
+        person_to_contact_number: '',
         sex: '',
         address: '',
         clinic_name: '',
@@ -96,6 +97,13 @@ export default {
       form.append('license_number', this.user_info.license_number)
       form.append('tin_number', this.user_info.tin_number)
       form.append('prc_number', this.user_info.prc_number)
+      form.append('sex', this.user_info.sex)
+      form.append('morbidity', this.user_info.morbidity)
+      form.append('person_to_contact', this.user_info.person_to_contact)
+      form.append(
+        'person_to_contact_number',
+        this.user_info.person_to_contact_number
+      )
       form.append('bio', this.user_info.bio)
       form.append(
         'clinic_schedules',
@@ -137,7 +145,6 @@ export default {
     //   })
     // },
     saveChanges() {
-      console.log(this.schedules)
       const config = {
         onUploadProgress: (progressEvent) =>
           (this.progress = Math.round(
