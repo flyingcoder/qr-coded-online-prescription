@@ -11,6 +11,7 @@ export default {
       panel: [0],
       item_icon: true,
       item_list: false,
+      product_list: null,
       item_download: false,
       item: 5,
       items: [],
@@ -27,6 +28,16 @@ export default {
   methods: {
     medicineEdit(id) {
       this.$router.push('/medicine/edit/' + id)
+    },
+    csvUpload() {
+      this.$axios.put('csv-upload', this.product_list).then((data) => {
+        console.log(data)
+        // this.$auth.user.avatar = data.data.avatar
+        // this.$store.dispatch('snackbar/setSnackbar', {
+        //   text: `Profile updated`,
+        // })
+        // this.$router.push('/settings')
+      })
     },
     itemDisplayIcon() {
       this.item_list = false

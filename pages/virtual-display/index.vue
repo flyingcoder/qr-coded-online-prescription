@@ -162,7 +162,13 @@
                 <div class="medicine-product pt-2">
                   <div>
                     <ul class="medicine-product-list">
-                      <li v-for="product in m" :key="product"></li>
+                      <li v-for="product in m" :key="product">
+                        {{ product.generic_name }} - {{ product.dosage }}/{{
+                          product.type
+                        }}
+                        (₱{{ product.pivot.price }}) *
+                        {{ product.pivot.stocks }}
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -178,15 +184,21 @@
             <span>Reseta QRx</span><br />
             <span>Pharmacy Product List</span>
           </h3>
-          <div class="d-flex justify-center">
+          <div class="d-block text-center">
             <v-file-input
+              v-model="product_list"
               accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
               label="File input"
             ></v-file-input>
-            <!-- <v-btn color="blue-grey" class="ma-2 white--text">
+            <v-btn
+              v-if="product_list"
+              color="blue-grey"
+              class="ma-2 white--text"
+              @click="csvUpload"
+            >
               Upload
               <v-icon right dark> mdi-cloud-upload </v-icon>
-            </v-btn> -->
+            </v-btn>
           </div>
         </div>
       </div>
