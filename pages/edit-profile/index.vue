@@ -85,7 +85,7 @@
       <v-row v-if="$auth.user.role === 'doctor'" style="height: 70px">
         <v-col>
           <v-text-field
-            v-model="user_info.prc_number"
+            v-model="user_info.license_number"
             label="PRC Number"
             outlined
             dense
