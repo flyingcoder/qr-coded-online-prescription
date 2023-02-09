@@ -81,6 +81,49 @@
             ></v-text-field>
           </div>
           <div class="clinic-schedule">
+            <div class="clinic-sched-title text-left">Clinic Schedule</div>
+            <div class="clinic-sched-time">
+              <table style="width: 100%">
+                <thead>
+                  <tr>
+                    <th width="33.33%"></th>
+                    <th width="33.33%">Start</th>
+                    <th width="33.33%">End</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="date in schedules" :key="date.id">
+                    <td style="padding-inline: 0 !important">
+                      <div style="padding-bottom: 25px" class="text-left">
+                        {{ date.day }}
+                      </div>
+                    </td>
+                    <td style="padding: 0 0 0 5px !important">
+                      <v-text-field
+                        v-model="date.start_time"
+                        disabled
+                        style="width: 90%"
+                        outlined
+                        type="time"
+                        dense
+                      ></v-text-field>
+                    </td>
+                    <td style="padding-left: 5px !important">
+                      <v-text-field
+                        v-model="date.end_time"
+                        disabled
+                        style="width: 90%"
+                        outlined
+                        type="time"
+                        dense
+                      ></v-text-field>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- <div class="clinic-schedule">
             <div class="clinic-sched-title d-flex">Clinic Schedule</div>
             <div class="clinic-sched-time">
               <table style="width: 100%">
@@ -95,17 +138,16 @@
                   <tr v-for="date in schedules" :key="date.id">
                     <td>
                       <v-checkbox
-                        v-model="datus.schedules"
+                        v-model="date.schedules"
+                        disabled
                         class="sched-checkbox"
                         :label="date.day"
                         color="sucess"
                         :value="date"
-                        @click="date.checker = !date.checker"
                       ></v-checkbox>
                     </td>
                     <td>
                       <v-text-field
-                        v-if="date.checker"
                         v-model="date.start_time"
                         outlined
                         type="time"
@@ -114,7 +156,6 @@
                     </td>
                     <td>
                       <v-text-field
-                        v-if="date.checker"
                         v-model="date.end_time"
                         outlined
                         type="time"
@@ -125,7 +166,7 @@
                 </tbody>
               </table>
             </div>
-          </div>
+          </div> -->
           <div class="doctor-sched">
             <div class="doctor-sched-title d-flex">Affliated Hospitals</div>
             <div class="clinic-sched-time">
@@ -192,17 +233,27 @@ export default {
   data() {
     return {
       profile: {},
+      schedules: [],
     }
   },
   mounted() {
     this.getUser()
+    this.getDoctorSched()
   },
   methods: {
+    async getDoctorSched() {
+      await this.$axios
+        .get('schedule/' + this.$route.params.doctor_id)
+        .then((data) => {
+          this.schedules = data.data
+        })
+    },
     async getUser() {
       await this.$axios
         .get('user/' + this.$route.params.doctor_id)
         .then((data) => {
           this.profile = data.data
+          console.log(this.profile)
         })
     },
     back() {
