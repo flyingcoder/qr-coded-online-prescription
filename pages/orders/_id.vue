@@ -2,8 +2,8 @@
   <div>
     <h3 class="mt-0 text-lg mb-4 orders-title">Order Details</h3>
     <!-- <div class="d-flex justify-center" style="margin-bottom: 15px">
-      <img src="@/assets/images/main-logo.png" alt="reseta logo" width="25%" />
-    </div> -->
+        <img src="@/assets/images/main-logo.png" alt="reseta logo" width="25%" />
+      </div> -->
     <v-card elevation="3" class="padding-bottom-sm order-card">
       <div class="d-flex pb-4">
         <div class="orders-transaction" style="width: 60%">
