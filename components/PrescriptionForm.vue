@@ -558,7 +558,7 @@ export default {
   display: flex;
   justify-content: center;
   img {
-    width: 11%;
+    width: auto;
   }
   .reseta-logo-text {
     display: flex;
