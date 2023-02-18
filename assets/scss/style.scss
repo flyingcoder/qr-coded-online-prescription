@@ -53,6 +53,13 @@ a.v-btn {
 .sm-margin {
   margin-top: 10px !important;
 }
+.phar-sched input[type='time']::-webkit-calendar-picker-indicator {
+  background: none !important;
+  display: none;
+}
+.phar-sched .v-text-field__slot {
+  width: 90% !important;
+}
 .margin-top-pull {
   margin-top: -20px !important;
 }
