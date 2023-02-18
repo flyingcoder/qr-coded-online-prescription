@@ -93,7 +93,7 @@
                 </thead>
                 <tbody>
                   <tr v-for="date in schedules" :key="date.id">
-                    <td>
+                    <td style="padding-inline: 0 !important">
                       <v-checkbox
                         v-model="datus.schedules"
                         class="sched-checkbox"
@@ -103,19 +103,23 @@
                         @click="date.checker = !date.checker"
                       ></v-checkbox>
                     </td>
-                    <td>
+                    <td style="padding: 0 0 0 5px !important">
                       <v-text-field
                         v-if="date.checker"
                         v-model="date.start_time"
+                        style="width: 100%"
+                        class="phar-sched"
                         outlined
                         type="time"
                         dense
                       ></v-text-field>
                     </td>
-                    <td>
+                    <td style="padding-left: 5px !important">
                       <v-text-field
                         v-if="date.checker"
                         v-model="date.end_time"
+                        style="width: 100%"
+                        class="phar-sched"
                         outlined
                         type="time"
                         dense
@@ -224,7 +228,7 @@
             label="E-mail"
             required
           >
-            <v-icon slot="prepend" color="#1ac6b6" medium> mdi-account </v-icon>
+            <v-icon slot="prepend" color="#1ac6b6" medium> mdi-email </v-icon>
           </v-text-field>
           <v-text-field
             v-model="datus.password"
@@ -330,6 +334,20 @@ export default {
           id: 5,
           checker: false,
           day: 'Friday',
+          start_time: '',
+          end_time: '',
+        },
+        {
+          id: 6,
+          checker: false,
+          day: 'Saturday',
+          start_time: '',
+          end_time: '',
+        },
+        {
+          id: 7,
+          checker: false,
+          day: 'Sunday',
           start_time: '',
           end_time: '',
         },
