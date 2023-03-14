@@ -41,8 +41,6 @@
       width="70%"
       class="btn-radius find-doctors-btn"
       style="color: white"
-      @mousedown="active"
-      @mouseup="inactive"
     >
       test
     </v-btn>
