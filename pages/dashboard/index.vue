@@ -35,6 +35,17 @@
         </nuxt-link>
       </div>
     </div>
+    <v-btn
+      depressed
+      color="#1ac6b6"
+      width="70%"
+      class="btn-radius find-doctors-btn"
+      style="color: white"
+      @mousedown="active"
+      @mouseup="inactive"
+    >
+      test
+    </v-btn>
   </div>
 </template>
 <script src="./dashboard.js"></script>

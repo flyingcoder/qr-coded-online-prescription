@@ -11,6 +11,12 @@ export default {
     }
   },
   methods: {
+    active() {
+      alert('active')
+    },
+    inactive() {
+      alert('inactive')
+    },
     swiper() {
       // this.$router.push('/login')
     },
