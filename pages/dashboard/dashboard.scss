@@ -27,3 +27,16 @@
 #dashboard-main-btn-right {
   float: right;
 }
+#dashboard::-webkit-scrollbar {
+  width: 20px;
+}
+
+#dashboard::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+#dashboard::-webkit-scrollbar-thumb {
+  background-image: url('~/assets/images/chevron-down.png'); 
+  background-repeat: no-repeat, no-repeat;
+  background-size: 20px;
+}
