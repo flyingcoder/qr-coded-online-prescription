@@ -8,7 +8,7 @@ export default {
 
   generate: {
     routes() {
-      const posts = Array.from({ length: 100 }, (_, i) => {
+      const posts = Array.from({ length: 500 }, (_, i) => {
         return { route: `/prescriptions/pad/${i+1}`, payload: { id: i+1 } }
       })
       return posts
