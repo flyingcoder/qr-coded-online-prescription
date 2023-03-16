@@ -402,25 +402,25 @@ button.v-btn.dark, a.v-btn.dark{
 @media screen and (max-height: 1200px) {
   #dashboard {
     height: 83vh !important;
-    overflow: scroll !important;
+    overflow-y: scroll !important;
   }
 }
 @media screen and (max-height: 1000px) {
   #dashboard {
     height: 80vh !important;
-    overflow: scroll !important;
+    overflow-y: scroll !important;
   }
 }
 @media screen and (max-height: 900px) {
   #dashboard {
     height: 75vh !important;
-    overflow: scroll !important;
+    overflow-y: scroll !important;
   }
 }
 @media screen and (max-height: 700px) {
   #dashboard {
     height: 70vh !important;
-    overflow: scroll !important;
+    overflow-y: scroll !important;
   }
 }
 .dashboard-scroll-buttons {
