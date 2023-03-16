@@ -8,13 +8,15 @@ export default {
 
   generate: {
     routes() {
-      const prescriptions = Array.from({ length: 500 }, (_, i) => {
-        return { route: `/prescriptions/pad/${i+1}`, payload: { id: i+1 } }
-      })
-      const messages = Array.from({ length: 500 }, (_, i) => {
-        return { route: `/chatbox/${i+1}`, payload: { id: i+1 } }
-      })
-      return [...prescriptions, ...messages];
+      const generateRoute = (prefix, length) =>
+      Array.from({ length }, (_, i) => ({ route: `${prefix}${i + 1}`, payload: { id: i + 1 } }));
+
+      const prescriptions = generateRoute('/prescriptions/pad/', 500);
+      const messages = generateRoute('/chatbox/', 500);
+      const patients_profile = generateRoute('/patients', 300);
+      const prescription_form = '/prescription-form';
+
+      return [...prescriptions, ...messages, ...prescription_form, ...patients_profile];
     }
   },
 

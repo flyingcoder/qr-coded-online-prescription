@@ -101,7 +101,7 @@
                         max-height="160"
                         style="width: 100%"
                         elevation="5"
-                        @click="medicineEdit(pro.id)"
+                        @click="medicineEdit(m.id)"
                       >
                         <v-card-text style="padding: 10px !important">
                           <div
