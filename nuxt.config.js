@@ -6,6 +6,15 @@ export default {
   ssr: false,
   target: 'static',
 
+  generate: {
+    routes() {
+      const posts = Array.from({ length: 100 }, (_, i) => {
+        return { route: `/prescriptions/pad/${i+1}`, payload: { id: i+1 } }
+      })
+      return posts
+    }
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - Reseta QRx',
