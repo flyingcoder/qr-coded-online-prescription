@@ -8,10 +8,13 @@ export default {
 
   generate: {
     routes() {
-      const posts = Array.from({ length: 500 }, (_, i) => {
+      const prescriptions = Array.from({ length: 500 }, (_, i) => {
         return { route: `/prescriptions/pad/${i+1}`, payload: { id: i+1 } }
       })
-      return posts
+      const messages = Array.from({ length: 500 }, (_, i) => {
+        return { route: `/chatbox/${i+1}`, payload: { id: i+1 } }
+      })
+      return [...prescriptions, ...messages];
     }
   },
 
