@@ -13,10 +13,18 @@ export default {
 
       const prescriptions = generateRoute('/prescriptions/pad/', 500);
       const messages = generateRoute('/chatbox/', 500);
-      const patients_profile = generateRoute('/patients', 300);
+      const patients_profile = generateRoute('/patients/', 300);
+      const pharmacy_profile = generateRoute('/pharmacy/', 500);
+      const doctor_profile = generateRoute('/doctors/', 500);
+      const view_medicine = generateRoute('/medicine/', 500);
       const prescription_form = '/prescription-form';
+      const edit_profile = '/edit-profile';
+      const orders = generateRoute('/orders/', 500);
+      const tag_member = '/tag-member';
+      const sell_medicine = generateRoute('/medicine/sell/', 500);
+      const edit_medicine = generateRoute('/medicine/edit/', 1000);
 
-      return [...prescriptions, ...messages, ...prescription_form, ...patients_profile];
+      return [...prescriptions, ...messages, ...prescription_form, ...patients_profile, ...pharmacy_profile, ...doctor_profile, ...edit_profile, ...tag_member, ...orders, ...view_medicine, ...edit_medicine, ...sell_medicine];
     }
   },
 
