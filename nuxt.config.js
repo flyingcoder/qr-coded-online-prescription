@@ -17,10 +17,10 @@ export default {
       const pharmacy_profile = generateRoute('/pharmacy/', 500);
       const doctor_profile = generateRoute('/doctors/', 500);
       const view_medicine = generateRoute('/medicine/', 500);
-      const prescription_form = '/prescription-form';
-      const edit_profile = '/edit-profile';
+      const prescription_form = generateRoute('/prescription-form', 1);
+      const edit_profile = generateRoute('/edit-profile', 1);
       const orders = generateRoute('/orders/', 500);
-      const tag_member = '/tag-member';
+      const tag_member = generateRoute('/tag-member', 1);
       const sell_medicine = generateRoute('/medicine/sell/', 500);
       const edit_medicine = generateRoute('/medicine/edit/', 1000);
 
