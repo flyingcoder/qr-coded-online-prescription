@@ -11,16 +11,21 @@ export default {
       const generateRoute = (prefix, length) =>
       Array.from({ length }, (_, i) => ({ route: `${prefix}${i + 1}`, payload: { id: i + 1 } }));
 
+      const oneRoute = (prefix) => ({
+        route: prefix,
+        payload: 1
+      });
+      
       const prescriptions = generateRoute('/prescriptions/pad/', 500);
       const messages = generateRoute('/chatbox/', 500);
       const patients_profile = generateRoute('/patients/', 300);
       const pharmacy_profile = generateRoute('/pharmacy/', 500);
       const doctor_profile = generateRoute('/doctors/', 500);
       const view_medicine = generateRoute('/medicine/', 500);
-      const prescription_form = generateRoute('/prescription-form', 1);
-      const edit_profile = generateRoute('/edit-profile', 1);
+      const prescription_form = oneRoute('/prescription-form');
+      const edit_profile = oneRoute('/edit-profile');
       const orders = generateRoute('/orders/', 500);
-      const tag_member = generateRoute('/tag-member', 1);
+      const tag_member = oneRoute('/tag-member');
       const sell_medicine = generateRoute('/medicine/sell/', 500);
       const edit_medicine = generateRoute('/medicine/edit/', 1000);
 
