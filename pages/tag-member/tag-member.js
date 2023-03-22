@@ -18,14 +18,18 @@ export default {
   },
   mounted() {
     this.getFamilyMember()
+    this.getDependentFamily()
   },
   methods: {
     exit() {
       this.$router.push('/settings')
     },
     addFamilyMember() {
-      console.log(this.family)
-      this.$axios.post('user/add-family', this.family).then((data) => {
+      const payload = {
+        family: this.family,
+        dependent: this.dependent,
+      }
+      this.$axios.post('user/add-family', payload).then((data) => {
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `New Member Added`,
         })
@@ -34,6 +38,11 @@ export default {
     getFamilyMember() {
       this.$axios.get('get-family-members').then((data) => {
         this.family = data.data
+      })
+    },
+    getDependentFamily() {
+      this.$axios.get('get-dependent-members').then((data) => {
+        this.dependent = data.data
       })
     },
     addFamily() {
@@ -52,7 +61,7 @@ export default {
         id: this.dependent_count,
         fname: '',
         lname: '',
-        email: '',
+        birthdate: '',
         sex: '',
         parent_relationship: '',
       })
@@ -70,6 +79,11 @@ export default {
     deleteDependent(index) {
       const divIndex = this.dependent.findIndex((input) => input.id === index)
       this.dependent.splice(divIndex, 1)
+      this.$axios.put('remove-family/' + index).then((data) => {
+        this.$store.dispatch('snackbar/setSnackbar', {
+          text: 'Deleted!',
+        })
+      })
     },
   },
 }
