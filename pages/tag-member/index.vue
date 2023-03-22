@@ -130,7 +130,7 @@
             </div>
             <div class="d-flex">
               <v-text-field
-                v-model="input.birthday"
+                v-model="input.birthdate"
                 label="Birthday"
                 type="date"
                 style="width: 50%"
