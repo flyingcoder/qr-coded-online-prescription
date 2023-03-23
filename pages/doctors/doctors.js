@@ -32,10 +32,11 @@ export default {
       this.$router.push('tel: ' + id)
     },
     filterDoc() {
+      const searchValue = this.search !== null ? this.search.toLowerCase() : ''
       this.filtered = this.doctors.filter((doc) => {
         return (
-          doc.fname.toLowerCase().match(this.search.toLowerCase()) ||
-          doc.lname.toLowerCase().match(this.search.toLowerCase())
+          doc.fname.toLowerCase().match(searchValue) ||
+          doc.lname.toLowerCase().match(searchValue)
         )
       })
     },

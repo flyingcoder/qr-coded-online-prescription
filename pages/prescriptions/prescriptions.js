@@ -25,10 +25,11 @@ export default {
       })
     },
     filterPrescriptions() {
+      const searchValue = this.search !== null ? this.search.toLowerCase() : ''
       this.filtered = this.prescriptions.filter((val) => {
         return (
-          val.doctor.fname.toLowerCase().match(this.search.toLowerCase()) ||
-          val.doctor.lname.toLowerCase().match(this.search.toLowerCase())
+          val.doctor.fname.toLowerCase().match(searchValue) ||
+          val.doctor.lname.toLowerCase().match(searchValue)
         )
       })
     },

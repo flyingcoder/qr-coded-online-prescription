@@ -24,12 +24,19 @@ export default {
       return groups
     },
     filteredName() {
-      return this.medicines.filter((med) => {
+      const searchValue = this.search !== null ? this.search.toLowerCase() : ''
+      this.filtered = this.medicines.filter((med) => {
         return (
-          med.brand.toLowerCase().match(this.search.toLowerCase()) ||
-          med.generic_name.toLowerCase().match(this.search.toLowerCase())
+          med.brand.toLowerCase().match(searchValue) ||
+          med.generic_name.toLowerCase().match(searchValue)
         )
       })
+      // return this.medicines.filter((med) => {
+      //   return (
+      //     med.brand.toLowerCase().match(this.search.toLowerCase()) ||
+      //     med.generic_name.toLowerCase().match(this.search.toLowerCase())
+      //   )
+      // })
     },
   },
   methods: {
