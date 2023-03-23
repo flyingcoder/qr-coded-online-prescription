@@ -34,10 +34,11 @@ export default {
       this.$router.push('/medicine/' + id)
     },
     filterMedicine() {
+      const searchValue = this.search !== null ? this.search.toLowerCase() : ''
       this.filtered = this.allmedicines.filter((med) => {
         return (
-          med.brand.toLowerCase().match(this.search.toLowerCase()) ||
-          med.generic_name.toLowerCase().match(this.search.toLowerCase())
+          med.brand.toLowerCase().match(searchValue) ||
+          med.generic_name.toLowerCase().match(searchValue)
         )
       })
     },

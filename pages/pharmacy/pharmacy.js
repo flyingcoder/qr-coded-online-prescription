@@ -24,8 +24,12 @@ export default {
       })
     },
     filterPharmacy() {
+      const searchValue = this.search !== null ? this.search.toLowerCase() : ''
       this.filtered = this.pharmacies.filter((phar) => {
-        return phar.fullname.toLowerCase().match(this.search.toLowerCase())
+        return (
+          phar.fullname.toLowerCase().match(searchValue) ||
+          phar.fullname.toLowerCase().match(searchValue)
+        )
       })
     },
   },

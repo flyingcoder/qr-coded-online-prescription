@@ -32,10 +32,11 @@ export default {
       this.$router.push('/chatbox/' + id)
     },
     filterPatients() {
+      const searchValue = this.search !== null ? this.search.toLowerCase() : ''
       this.filtered = this.patients.filter((pat) => {
         return (
-          pat.fname.toLowerCase().match(this.search.toLowerCase()) ||
-          pat.lname.toLowerCase().match(this.search.toLowerCase())
+          pat.fname.toLowerCase().match(searchValue) ||
+          pat.lname.toLowerCase().match(searchValue)
         )
       })
     },
