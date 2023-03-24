@@ -34,6 +34,7 @@ export default {
     filterPatients() {
       const searchValue = this.search !== null ? this.search.toLowerCase() : ''
       this.filtered = this.patients.filter((pat) => {
+        console.log(searchValue)
         return (
           pat.fname.toLowerCase().match(searchValue || '') ||
           pat.lname.toLowerCase().match(searchValue || '')
