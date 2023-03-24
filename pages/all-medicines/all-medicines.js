@@ -37,8 +37,8 @@ export default {
       const searchValue = this.search !== null ? this.search.toLowerCase() : ''
       this.filtered = this.allmedicines.filter((med) => {
         return (
-          med.brand.toLowerCase().match(searchValue) ||
-          med.generic_name.toLowerCase().match(searchValue)
+          med.brand.toLowerCase().match(searchValue || '') ||
+          med.generic_name.toLowerCase().match(searchValue || '')
         )
       })
     },
