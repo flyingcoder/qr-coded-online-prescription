@@ -7,8 +7,8 @@ export default {
       grid: true,
       align: '',
       loading: false,
-      patients: [],
-      filtered: [],
+      patients: '',
+      filtered: '',
       search: '',
     }
   },
@@ -22,7 +22,6 @@ export default {
         this.patients = data.data
         this.filtered = this.patients
         this.loading = false
-        console.log(this.filtered)
       })
     },
     viewProfile(id) {
@@ -32,9 +31,9 @@ export default {
       this.$router.push('/chatbox/' + id)
     },
     filterPatients() {
-      const searchValue = this.search?.toLowerCase() || ''
+      const searchValue = this.search !== null ? this.search.toLowerCase() : ''
       this.filtered = this.patients.filter((pat) => {
-        console.log(searchValue)
+        console.log(pat)
         return (
           pat.fname.toLowerCase().match(searchValue || '') ||
           pat.lname.toLowerCase().match(searchValue || '')
