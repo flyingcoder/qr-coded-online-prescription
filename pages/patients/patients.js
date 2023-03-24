@@ -7,8 +7,8 @@ export default {
       grid: true,
       align: '',
       loading: false,
-      patients: '',
-      filtered: '',
+      patients: [],
+      filtered: [],
       search: '',
     }
   },
