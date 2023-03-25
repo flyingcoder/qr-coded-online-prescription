@@ -5,7 +5,7 @@ export default {
       grid: true,
       align: '',
       loading: false,
-      doctors: '',
+      doctors: [],
       filtered: '',
       search: '',
     }

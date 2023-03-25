@@ -5,7 +5,7 @@ export default {
   data() {
     return {
       align: '',
-      allmedicines: '',
+      allmedicines: [],
       loading: false,
       filtered: '',
       search: '',
