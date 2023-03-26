@@ -400,26 +400,42 @@ button.v-btn.dark, a.v-btn.dark{
   }
 }
 @media screen and (max-height: 1200px) {
-  .flow-dashboard {
+  #dashboard {
     height: 83vh !important;
     overflow-y: auto !important;
   }
-}
-@media screen and (max-height: 1000px) {
-  .flow-dashboard {
-    height: 80vh !important;
-    overflow-y: auto !important;
-  }
-}
-@media screen and (max-height: 900px) {
   .flow-dashboard {
     height: 75vh !important;
     overflow-y: auto !important;
   }
 }
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 1000px) {
+  #dashboard {
+    height: 80vh !important;
+    overflow-y: auto !important;
+  }
   .flow-dashboard {
+    height: 72vh !important;
+    overflow-y: auto !important;
+  }
+}
+@media screen and (max-height: 900px) {
+  #dashboard {
+    height: 75vh !important;
+    overflow-y: auto !important;
+  }
+  .flow-dashboard {
+    height: 69vh !important;
+    overflow-y: auto !important;
+  }
+}
+@media screen and (max-height: 700px) {
+  #dashboard {
     height: 70vh !important;
+    overflow-y: auto !important;
+  }
+  .flow-dashboard {
+    height: 66vh !important;
     overflow-y: auto !important;
   }
 }

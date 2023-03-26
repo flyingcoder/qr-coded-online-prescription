@@ -1,5 +1,5 @@
 <template>
-  <div id="dashboard" class="flow-dashboard">
+  <div id="dashboard">
     <!-- <Preloader /> -->
     <Preloader v-if="loading" />
     <SwiperFeeds
