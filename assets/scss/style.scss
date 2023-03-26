@@ -406,7 +406,7 @@ button.v-btn.dark, a.v-btn.dark{
   }
   .flow-dashboard {
     height: 75vh !important;
-    overflow-y: auto !important;
+    overflow: auto !important;
   }
 }
 @media screen and (max-height: 1000px) {
@@ -416,7 +416,7 @@ button.v-btn.dark, a.v-btn.dark{
   }
   .flow-dashboard {
     height: 72vh !important;
-    overflow-y: auto !important;
+    overflow: auto !important;
   }
 }
 @media screen and (max-height: 900px) {
@@ -426,7 +426,7 @@ button.v-btn.dark, a.v-btn.dark{
   }
   .flow-dashboard {
     height: 69vh !important;
-    overflow-y: auto !important;
+    overflow: auto !important;
   }
 }
 @media screen and (max-height: 700px) {
@@ -436,7 +436,7 @@ button.v-btn.dark, a.v-btn.dark{
   }
   .flow-dashboard {
     height: 66vh !important;
-    overflow-y: auto !important;
+    overflow: auto !important;
   }
 }
 .dashboard-scroll-buttons {
