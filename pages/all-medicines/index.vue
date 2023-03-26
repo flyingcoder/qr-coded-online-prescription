@@ -1,5 +1,5 @@
 <template>
-  <div class="flow-dashboard main-patients-page">
+  <div class="main-patients-page">
     <Preloader v-if="loading" />
     <div class="search-patients-input">
       <v-text-field
@@ -31,7 +31,7 @@
         </v-btn>
       </div>
     </div>
-    <v-list three-line class="pharmacys-background-color">
+    <v-list three-line class="flow-dashboard pharmacys-background-color">
       <template v-for="(item, index) in filtered">
         <v-divider :key="index + 'div'"></v-divider>
 
