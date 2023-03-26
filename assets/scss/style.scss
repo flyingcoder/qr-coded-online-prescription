@@ -400,25 +400,25 @@ button.v-btn.dark, a.v-btn.dark{
   }
 }
 @media screen and (max-height: 1200px) {
-  #dashboard {
+  .flow-dashboard {
     height: 83vh !important;
     overflow-y: auto !important;
   }
 }
 @media screen and (max-height: 1000px) {
-  #dashboard {
+  .flow-dashboard {
     height: 80vh !important;
     overflow-y: auto !important;
   }
 }
 @media screen and (max-height: 900px) {
-  #dashboard {
+  .flow-dashboard {
     height: 75vh !important;
     overflow-y: auto !important;
   }
 }
 @media screen and (max-height: 700px) {
-  #dashboard {
+  .flow-dashboard {
     height: 70vh !important;
     overflow-y: auto !important;
   }

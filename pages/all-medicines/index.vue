@@ -1,5 +1,5 @@
 <template>
-  <div class="main-patients-page">
+  <div class="flow-dashboard main-patients-page">
     <Preloader v-if="loading" />
     <div class="search-patients-input">
       <v-text-field
