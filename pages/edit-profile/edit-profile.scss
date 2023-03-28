@@ -25,6 +25,11 @@
   position: absolute;
   right: 36vw;
   top: 17%;
+  .change-profile-icon {
+    .v-input__prepend-outer {
+      margin-top: -10px !important;
+    }
+  }
 }
 .edit-profile-title {
   font-size: 18px;
