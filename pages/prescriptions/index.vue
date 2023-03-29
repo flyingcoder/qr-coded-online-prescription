@@ -16,7 +16,7 @@
     <v-list
       v-if="prescriptions.length > 0"
       three-line
-      class="pharmacys-background-color"
+      class="pharmacys-background-color flow-dashboard"
     >
       <template v-for="(item, index) in filtered">
         <v-subheader

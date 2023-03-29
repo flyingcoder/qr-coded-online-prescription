@@ -28,7 +28,7 @@
     <div class="pharmacy-list-view">
       <div class="pharmacy">
         <div class="pharmacy-list-main-btn">
-          <v-list three-line class="pharmacys-background-color">
+          <v-list three-line class="flow-dashboard pharmacys-background-color">
             <template v-for="(item, index) in filtered">
               <v-subheader
                 v-if="index == 0"
