@@ -29,7 +29,11 @@
       >
         <v-subheader class="page-list-title">Doctor's Directory</v-subheader>
         <v-divider></v-divider>
-        <v-row no-gutters style="height: 100%" class="doctors-grid">
+        <v-row
+          no-gutters
+          style="height: 100%"
+          class="flow-dashboard doctors-grid"
+        >
           <v-col
             v-for="item in filtered"
             :key="item.id"
@@ -118,17 +122,16 @@
       <v-card class="doctors">
         <div class="doctor-list-main-btn">
           <v-list three-line class="doctors-background-color">
-            <template v-for="(item, index) in filtered">
-              <v-subheader
-                v-if="index == 0"
-                :key="item.id"
-                class="page-list-title"
-                >Doctor's Directory</v-subheader
+            <v-subheader class="page-list-title"
+              >Doctor's Directory</v-subheader
+            >
+            <v-divider></v-divider>
+            <v-row style="padding-top: 10px">
+              <v-list-item
+                v-for="item in filtered"
+                :key="item.fname"
+                style="border-bottom: 1px solid rgba(0, 0, 0, 0.12)"
               >
-
-              <v-divider :key="index + 'div' + item.id"></v-divider>
-
-              <v-list-item :key="item.fname">
                 <v-list-item-avatar @click="viewProfile(item.id)">
                   <img
                     v-if="
@@ -155,25 +158,12 @@
                   <v-list-item-title style="position: relative; z-index: 1">
                     <strong>Dr. {{ item.fname + ' ' + item.lname }}</strong>
                   </v-list-item-title>
-                  <!-- <v-btn
-                    class="ma-2 list-profile-doctor"
-                    outlined
-                    x-small
-                    fab
-                    color="#1ac6b6"
-                    @click="viewProfile(item.id)"
-                  >
-                    <v-icon>mdi-account</v-icon>
-                  </v-btn> -->
                   <v-list-item-subtitle>
-                    <div class="doctor-content">
-                      {{ item.address }}
-                    </div>
-                    <div class="doctor-number">
-                      {{ item.phone }}
-                    </div>
+                    <div class="doctor-content">{{ item.address }}</div>
+                    <div class="doctor-number">{{ item.phone }}</div>
                   </v-list-item-subtitle>
                 </v-list-item-content>
+
                 <v-list-item-action>
                   <div class="d-flex">
                     <v-btn
@@ -192,14 +182,14 @@
                       x-small
                       fab
                       style="color: #1ac6b6 !important"
-                      :href="`tel:` + item.phone"
+                      :href="`tel:${item.phone}`"
                     >
                       <v-icon>mdi-phone</v-icon>
                     </v-btn>
                   </div>
                 </v-list-item-action>
               </v-list-item>
-            </template>
+            </v-row>
           </v-list>
         </div>
       </v-card>
