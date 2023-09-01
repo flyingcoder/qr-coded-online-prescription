@@ -157,6 +157,14 @@ export default {
       payment_form: false,
       payment_method: [
         {
+          id: 'ptp',
+          icon: 'mdi-account-cash',
+          icon_inner: 'mdi-account-cash',
+          title: 'Pay To Pharmacy',
+          content: 'Pay directly to Pharmacy.',
+          confirm: 'Proceed to Order',
+        },
+        {
           id: 'gcash',
           icon: require(`~/assets/images/gcash-icon-small.png`),
           icon_inner: require(`~/assets/images/gcash-icon.png`),
@@ -171,14 +179,6 @@ export default {
           icon_inner: 'mdi-truck',
           title: 'Cash On Delivery',
           content: 'Please contact your local delivery service.',
-          confirm: 'Proceed to Order',
-        },
-        {
-          id: 'ptp',
-          icon: 'mdi-account-cash',
-          icon_inner: 'mdi-account-cash',
-          title: 'Pay To Pharmacy',
-          content: 'Pay directly to Pharmacy.',
           confirm: 'Proceed to Order',
         },
       ],
