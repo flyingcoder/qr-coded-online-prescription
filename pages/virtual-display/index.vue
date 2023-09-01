@@ -48,6 +48,7 @@
           style="width: 100%"
           dense
           class="main-search-input"
+          @keyup="filterMedicine"
         ></v-text-field>
       </div>
     </v-row>

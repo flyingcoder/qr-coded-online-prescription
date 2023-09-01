@@ -67,9 +67,27 @@
         <NuxtLink to="/orders" class="menu-icon"
           ><v-icon>mdi-list-box-outline</v-icon></NuxtLink
         >
-        <NuxtLink to="/virtual-display" class="menu-icon"
+        <!-- <NuxtLink to="/virtual-display" class="menu-icon"
           ><v-icon>mdi-medical-bag</v-icon></NuxtLink
+        > -->
+        <NuxtLink
+          to="/virtual-display"
+          class="menu-icon"
+          style="display: flex; justify-content: center"
         >
+          <img
+            v-if="$route.path != '/virtual-display'"
+            src="@/assets/images/output-onlinepngtools.png"
+            alt=""
+            width="24px"
+          />
+          <img
+            v-else
+            src="@/assets/images/virtualpharmacy.png"
+            alt=""
+            width="24px"
+          />
+        </NuxtLink>
         <!-- <NuxtLink to="/orders" class="menu-icon"
           ><v-icon>mdi-hand-heart</v-icon></NuxtLink
         > -->

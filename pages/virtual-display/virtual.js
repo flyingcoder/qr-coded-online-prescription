@@ -4,9 +4,9 @@ export default {
   data() {
     return {
       prescriptions: [],
-      medicines: [],
+      medicines: [], // Initialize as an empty array
       loading: false,
-      filtered: '',
+      filtered: [],
       search: '',
       panel: [0],
       item_icon: true,
@@ -30,13 +30,29 @@ export default {
       this.$router.push('/medicine/edit/' + id)
     },
     csvUpload() {
-      this.$axios.put('csv-upload', this.product_list).then((data) => {
-        console.log(data)
-        // this.$auth.user.avatar = data.data.avatar
-        // this.$store.dispatch('snackbar/setSnackbar', {
-        //   text: `Profile updated`,
-        // })
-        // this.$router.push('/settings')
+      // this.$axios.put('medicine/csv-upload', this.product_list).then((data) => {
+      //   console.log(this.product_list)
+      //   // this.$auth.user.avatar = data.data.avatar
+      //   // this.$store.dispatch('snackbar/setSnackbar', {
+      //   //   text: `Profile updated`,
+      //   // })
+      //   // this.$router.push('/settings')
+      // })
+      this.$axios
+        .post('medicines/csv-upload', this.product_list)
+        .then((data) => {
+          // this.$store.dispatch('snackbar/setSnackbar', {
+          //   text: 'Medicine is added succesfully.',
+          // })
+        })
+    },
+    filterMedicine() {
+      const searchValue = this.search !== null ? this.search.toLowerCase() : ''
+      this.filtered = this.medicines.filter((med) => {
+        return (
+          med.brand.toLowerCase().includes(searchValue) ||
+          med.generic_name.toLowerCase().includes(searchValue)
+        )
       })
     },
     itemDisplayIcon() {
@@ -60,6 +76,7 @@ export default {
         .get('medicines/in-store/' + this.pharma_id)
         .then((data) => {
           this.medicines = data.data
+          this.filtered = this.medicines // Initialize the filtered array
           this.loading = false
         })
     },
