@@ -54,10 +54,10 @@
     </v-row>
     <v-row>
       <div v-if="item_icon" class="pt-8 mb-10" style="width: 90%; margin: auto">
-        <v-expansion-panels flat>
+        <v-expansion-panels v-model="panel" flat multiple>
           <v-expansion-panel
-            v-for="med in medicines"
-            :key="med"
+            v-for="(med, index) in medicines"
+            :key="index"
             class="rounded-0"
           >
             <v-expansion-panel-header
@@ -65,8 +65,8 @@
             >
               <div>
                 <div
-                  v-for="m in med"
-                  :key="m"
+                  v-for="(m, index) in med"
+                  :key="index"
                   class="virtual-medicine-title test"
                   style="display: none"
                 >
@@ -78,8 +78,8 @@
             </v-expansion-panel-header>
             <v-expansion-panel-content>
               <div
-                v-for="pro in med"
-                :key="pro"
+                v-for="(pro, index) in med"
+                :key="index"
                 class="header-display-products"
               >
                 <div class="medicine-product">
@@ -95,8 +95,8 @@
                       "
                     >
                       <v-card
-                        v-for="m in pro"
-                        :key="m"
+                        v-for="(m, index) in pro"
+                        :key="index"
                         class="mx-auto mb-3"
                         max-width="110"
                         max-height="160"
@@ -135,18 +135,18 @@
         </v-expansion-panels>
       </div>
       <div v-if="item_list" class="pt-8 mb-10" style="width: 90%; margin: auto">
-        <v-expansion-panels flat>
+        <v-expansion-panels v-model="panel" flat multiple>
           <v-expansion-panel
-            v-for="med in medicines"
-            :key="med"
+            v-for="(med, index) in medicines"
+            :key="index"
             class="rounded-0"
           >
             <v-expansion-panel-header
               style="background: #a6a6a6; color: white !important"
             >
               <div
-                v-for="m in med"
-                :key="m"
+                v-for="(m, index) in med"
+                :key="index"
                 class="virtual-medicine-title test"
                 style="display: none"
               >
@@ -156,14 +156,18 @@
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content>
-              <div v-for="m in med" :key="m" class="header-display-products">
+              <div
+                v-for="(m, index) in med"
+                :key="index"
+                class="header-display-products"
+              >
                 <div class="product_generic_name">
                   <b>{{ m[0].generic_name }}</b>
                 </div>
                 <div class="medicine-product pt-2">
                   <div>
                     <ul class="medicine-product-list">
-                      <li v-for="product in m" :key="product">
+                      <li v-for="(product, index) in m" :key="index">
                         {{ product.generic_name }} - {{ product.dosage }}/{{
                           product.type
                         }}

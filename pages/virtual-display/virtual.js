@@ -1,14 +1,14 @@
 export default {
-  name: 'Virtual Medicines',
+  name: 'VirtualMedicines',
   layout: 'dashboard',
   data() {
     return {
       prescriptions: [],
-      medicines: [], // Initialize as an empty array
+      medicines: [],
       loading: false,
       filtered: [],
       search: '',
-      panel: [0],
+      panel: [], // Initialize as an empty array
       item_icon: true,
       item_list: false,
       product_list: null,
@@ -18,12 +18,23 @@ export default {
       pharma_id: 0,
     }
   },
-  mounted() {
+  async mounted() {
     this.pharma_id = this.$auth.user.id
     if (this.$route.params.id !== undefined)
       this.pharma_id = this.$route.params.id
 
-    this.getProducts()
+    await this.getProducts() // Wait for data to be fetched
+
+    // Determine the number of elements to add to the panel array
+    const numberOfElements = Object.keys(this.medicines).length
+
+    // Populate the panel array with indexes
+    this.panel = []
+    for (let i = 0; i < numberOfElements; i++) {
+      this.panel.push(i)
+    }
+
+    console.log(this.panel)
   },
   methods: {
     medicineEdit(id) {
@@ -55,6 +66,7 @@ export default {
         )
       })
     },
+
     itemDisplayIcon() {
       this.item_list = false
       this.item_icon = true
