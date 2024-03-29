@@ -407,7 +407,8 @@ export default {
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `Happy to have you back!, ${this.$auth.user.fname}`,
         })
-        // this.$router.push('/dashboard')
+        if(this.$auth.user)
+          this.$router.push('/dashboard')
       } catch {
         this.$store.dispatch('snackbar/setSnackbar', {
           color: 'red',
