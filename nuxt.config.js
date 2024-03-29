@@ -57,13 +57,15 @@ export default {
   //},
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~plugins/filters.js', '~plugins/echo.js', '~plugins/bus.js', '~plugins/preloader.js'],
+  // '~plugins/echo.js' 
+  plugins: ['~plugins/filters.js', '~plugins/bus.js', '~plugins/preloader.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/laravel-echo',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     // https://go.nuxtjs.dev/pwa
@@ -77,6 +79,13 @@ export default {
       },
     ],
   ],
+
+  echo: {
+    authModule: true,
+    connectOnLogin: true,
+    disconnectOnLogout: true,
+    plugins: [ '~plugins/nuxt-echo.js' ]
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

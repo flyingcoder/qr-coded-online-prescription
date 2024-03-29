@@ -398,16 +398,19 @@ export default {
     },
     async userLogin() {
       try {
-        await this.$auth.loginWith('laravelSanctum', {
+        const promise = await this.$auth.loginWith('laravelSanctum', {
           data: {
             email: this.datus.email,
             password: this.datus.password,
           },
         })
+
+        console.log(promise)
+
         this.$store.dispatch('snackbar/setSnackbar', {
           text: `Happy to have you back!, ${this.$auth.user.fname}`,
         })
-        console.log(this.$auth.user)
+
         if(this.$auth.user)
           this.$router.push('/dashboard')
       } catch {
