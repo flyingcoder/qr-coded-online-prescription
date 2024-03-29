@@ -2,6 +2,7 @@
 /* eslint-disable prettier/prettier */
 // eslint-disable-next-line no-unused-vars
 import Pusher from 'pusher-js'
+window.Pusher = Pusher;
 import Echo from 'laravel-echo';
 export default ({ env, store }, inject) => {
     console.log(env.pusherApi)
