@@ -167,7 +167,7 @@ export default {
   publicRuntimeConfig: {
     baseURL:
       process.env.NODE_ENV === 'production'
-        ? 'https://api.resetaqrx.com'
+        ? 'https://api.easyonlinereseta.com'
         : 'http://localhost:8000',
   },
   privateRuntimeConfig: {
