@@ -1,10 +1,11 @@
 /* eslint-disable node/no-callback-literal */
 /* eslint-disable prettier/prettier */
 // eslint-disable-next-line no-unused-vars
+import Pusher from 'pusher-js'
 import Echo from 'laravel-echo';
 export default ({ env, store }, inject) => {
     console.log(env.pusherApi)
-
+    // Pusher.logToConsole = true; // update: added this
     const echo = new Echo({
         broadcaster: 'pusher',
         key: 'bc4a2e389b791e6b280f',
