@@ -133,7 +133,7 @@ export default {
         provider: 'laravel/sanctum',
         url:
           process.env.NODE_ENV === 'production'
-            ? 'https://api.resetaqrx.com'
+            ? 'https://api.easyonlinereseta.com'
             : 'http://localhost:8000',
         endpoints: {
           login: {
@@ -157,7 +157,7 @@ export default {
     credentials: true,
     baseUrl:
       process.env.NODE_ENV === 'production'
-        ? 'https://api.resetaqrx.com/api'
+        ? 'https://api.easyonlinereseta.com/api'
         : 'http://localhost:8000/api',
   },
 
