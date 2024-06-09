@@ -81,8 +81,8 @@ export default {
   ],
 
   echo: {
-    authModule: true,
-    connectOnLogin: true,
+    authModule: false,
+    connectOnLogin: false,
     disconnectOnLogout: true,
     plugins: [ '~plugins/nuxt-echo.js' ]
   },
@@ -163,7 +163,7 @@ export default {
 
   axios: {
     // proxy: true,
-    credentials: true,
+    credentials: false,
     baseUrl:
       process.env.NODE_ENV === 'production'
         ? 'https://api.easyonlinereseta.com/api'
