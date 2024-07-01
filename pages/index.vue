@@ -2,7 +2,7 @@
   <div class="sign-in_login">
     <v-main>
       <v-row class="center reseta-login-logo">
-        <div class="text-end" style="text-align: center">
+        <div style="text-align: center">
           <img width="40%" src="~/assets/images/white-main-logo.png" />
         </div>
       </v-row>

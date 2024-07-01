@@ -2,17 +2,17 @@
 /* eslint-disable prettier/prettier */
 // eslint-disable-next-line no-unused-vars
 import Pusher from 'pusher-js'
-window.Pusher = Pusher;
 import Echo from 'laravel-echo';
+window.Pusher = Pusher;
 export default ({ env, store }, inject) => {
-    console.log(env.pusherApi)
+
     // Pusher.logToConsole = true; // update: added this
     const echo = new Echo({
         broadcaster: 'pusher',
-        key: 'bc4a2e389b791e6b280f',
+        key: 'c2acd5975df0263c5b09',
         cluster: 'ap1',
         encrypted: true,
-        forceTLS: true,
+        forceTLS: false,
         authorizer: (channel, options) => {
             return {
                 authorize: (socketId, callback) => {

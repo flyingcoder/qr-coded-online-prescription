@@ -10,7 +10,7 @@ export default {
     routes() {
       const generateRoute = (prefix, length) =>
       Array.from({ length }, (_, i) => ({ route: `${prefix}${i + 1}`, payload: { id: i + 1 } }));
-      
+
       const prescriptions = generateRoute('/prescriptions/pad/', 500);
       const messages = generateRoute('/chatbox/', 500);
       const patients_profile = generateRoute('/patients/', 300);
@@ -57,8 +57,8 @@ export default {
   //},
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  // '~plugins/echo.js' 
-  plugins: ['~plugins/filters.js', '~plugins/bus.js', '~plugins/preloader.js'],
+  // '~plugins/echo.js'
+  plugins: ['~plugins/filters.js', '~plugins/bus.js', '~plugins/preloader.js', '~plugins/echo.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -79,13 +79,6 @@ export default {
       },
     ],
   ],
-
-  echo: {
-    authModule: false,
-    connectOnLogin: false,
-    disconnectOnLogout: true,
-    plugins: [ '~plugins/nuxt-echo.js' ]
-  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -161,9 +154,11 @@ export default {
     },
   },
 
+  echo: {},
+
   axios: {
     // proxy: true,
-    credentials: false,
+    credentials: true,
     baseUrl:
       process.env.NODE_ENV === 'production'
         ? 'https://api.easyonlinereseta.com/api'
@@ -183,3 +178,4 @@ export default {
     pusherApi: process.env.puserApi
   },
 }
+
