@@ -131,8 +131,8 @@ export default {
         provider: 'laravel/sanctum',
         url:
           process.env.NODE_ENV === 'production'
-            ? 'https://api.easyonlinereseta.com'
-            : 'http://localhost:8000',
+            ? 'https://api.easyonlinereseta.com/api'
+            : 'http://localhost:8000/api',
         endpoints: {
           login: {
             url: '/api/login',
@@ -167,8 +167,8 @@ export default {
   publicRuntimeConfig: {
     baseURL:
       process.env.NODE_ENV === 'production'
-        ? 'https://api.easyonlinereseta.com'
-        : 'http://localhost:8000',
+        ? 'https://api.easyonlinereseta.com/api'
+        : 'http://localhost:8000/api',
   },
   privateRuntimeConfig: {
     pusherApi: process.env.puserApi
