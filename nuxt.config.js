@@ -47,7 +47,6 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    //'@/assets/vars/colors.scss',
     '@/assets/scss/style.scss',
     'vue-swipe-actions/dist/vue-swipe-actions.css',
   ],
@@ -66,12 +65,9 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/laravel-echo',
-    // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/moment',
-    // https://go.nuxtjs.dev/eslint
     [
       '@nuxtjs/eslint-module',
       {
