@@ -1,4 +1,4 @@
-# resetaqrx
+# Web Based / Mobile First QR Coded Online Prescription
 
 ## Build Setup
 
